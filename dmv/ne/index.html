@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nebraska DMV Practice Test (NE) — Free NE Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Nebraska (NE) DMV practice test with 50 questions from the official Nebraska driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/ne/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Nebraska</strong></div>
+  <header>
+    <h1>Nebraska <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free NE permit and license practice test — 50 questions from the official Nebraska driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Nebraska (NE DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Nebraska DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "ne";
+const STATE_DATA = {"name": "Nebraska (NE DMV)", "source": "Official NE Driver Manual (public domain)", "questions": [{"q": "What is the minimum age to apply for a School Learner's Permit (LPE) in Nebraska?", "options": ["13", "14", "15"], "answer": 1, "ref": "NE Manual - Section 1C-2 (School Learner's Permit)", "explanation": "The LPE has a minimum age of 14; an applicant may not apply before their 14th birthday."}, {"q": "At what minimum age may a person apply for a Learner's Permit (LPD) for a Class O license?", "options": ["14", "15", "16"], "answer": 1, "ref": "NE Manual - Section 1C-4 (Learner's Permit - LPD)", "explanation": "The LPD minimum age is 15; an applicant may apply 60 days before their 15th birthday, with issuance on or after the 15th birthday."}, {"q": "What is the minimum age to apply for a Provisional Operator's Permit (POP)?", "options": ["15", "16", "17"], "answer": 1, "ref": "NE Manual - Section 1C-5 (Provisional Operator's Permit)", "explanation": "The POP minimum age is 16; an applicant may apply 60 days before their 16th birthday."}, {"q": "A holder of a Learner's Permit (LPD) must be accompanied by a licensed driver who is at least how old?", "options": ["18", "21", "25"], "answer": 1, "ref": "NE Manual - Section 1C-4 (Learner's Permit - LPD)", "explanation": "The permit holder must be accompanied by a licensed driver at least 21 occupying the seat beside the driver."}, {"q": "Which permit allows a Nebraska teen to drive unsupervised from 6 a.m. to 12 a.m. (midnight)?", "options": ["School Learner's Permit (LPE)", "Learner's Permit (LPD)", "Provisional Operator's Permit (POP)"], "answer": 2, "ref": "NE Manual - Section 1C-5 (Provisional Operator's Permit)", "explanation": "The POP allows unsupervised driving from 6 a.m. to midnight, subject to passenger and other restrictions."}, {"q": "A holder of a School Permit (SCP) may transport which passengers?", "options": ["Any friends to school", "Only family members who reside with them, to the school attended", "Up to three unrelated minors"], "answer": 1, "ref": "NE Manual - Section 1C-3 (School Permit - SCP)", "explanation": "An SCP holder may only transport family members who reside with them to the school they attend."}, {"q": "A Provisional Operator's Permit (POP) holder is limited to how many passenger(s) under 19 who are not immediate family members?", "options": ["One", "Two", "Three"], "answer": 0, "ref": "NE Manual - Section 1C-5 (Provisional Operator's Permit)", "explanation": "A POP holder is limited to one passenger younger than 19 who is not an immediate family member."}, {"q": "For a permit holder, what is the fine for a seat belt violation?", "options": ["$25", "$100", "$200"], "answer": 0, "ref": "NE Manual - Section 2B (Air Bags, Child Restraints and Seat Belts)", "explanation": "All occupants riding with a permit holder must wear a seat belt; violation carries a $25 fine."}, {"q": "What is the Blood Alcohol Concentration (BAC) limit for a driver age 21 or older operating a regular passenger vehicle?", "options": [".04%", ".08%", ".10%"], "answer": 1, "ref": "NE Manual - Section 2A (Alcohol, Drugs, and Driving)", "explanation": "A BAC of .08% or higher is unlawful regardless of the driver's age or vehicle type."}, {"q": "For a commercial motor vehicle operator, at what BAC is it unlawful to drive?", "options": [".04%", ".08%", ".10%"], "answer": 0, "ref": "NE Manual - Section 2A (Alcohol, Drugs, and Driving)", "explanation": "A BAC of .04% or higher is unlawful when operating a commercial motor vehicle."}, {"q": "Nebraska's 'zero tolerance' law applies to drivers under what age?", "options": ["18", "21", "25"], "answer": 1, "ref": "NE Manual - Section 2A (Alcohol, Drugs, and Driving)", "explanation": "Nebraska has a zero tolerance law for drivers under the age of 21 regarding alcohol and other drugs."}, {"q": "A conviction at .02% BAC for a driver age 20 or younger results in the license being impounded by the court for how long?", "options": ["10 days", "30 days", "90 days"], "answer": 1, "ref": "NE Manual - Section 1Q-6 (.02% Under Age Drinking and Driving)", "explanation": "A .02% conviction results in a 30-day court impoundment and becomes part of the driving record for 90 days."}, {"q": "Under Nebraska's Move Over Law, what is the fine for a first offense?", "options": ["Up to $100", "Up to $300", "Up to $500"], "answer": 0, "ref": "NE Manual - Section 4B-6 (Nebraska Move Over Law)", "explanation": "The fine for a first Move Over Law violation is up to $100; second and subsequent offenses are up to $500 and/or 7 days jail."}, {"q": "What following-distance rule does the Nebraska manual recommend as a minimum?", "options": ["Two-second rule", "Three-second rule", "Five-second rule"], "answer": 1, "ref": "NE Manual - Section 5B (Following Distance)", "explanation": "Drivers should use the three-second rule as a minimum, adding one second for each adversity factor."}, {"q": "How far before turning or changing direction must you signal?", "options": ["At least 50 feet", "At least 100 feet", "At least 200 feet"], "answer": 1, "ref": "NE Manual - Section 4E-1 (Signaling)", "explanation": "You must signal at least 100 feet before turning or moving right or left."}, {"q": "What is the default speed limit in a Nebraska residential district?", "options": ["25 MPH", "35 MPH", "45 MPH"], "answer": 0, "ref": "NE Manual - Section 4A (Speed Limits)", "explanation": "The default speed limit is 25 MPH in residential districts."}, {"q": "On a dustless (or paved) roadway that is not part of the state highway system, what is the speed limit?", "options": ["50 MPH", "55 MPH", "65 MPH"], "answer": 1, "ref": "NE Manual - Section 4A (Speed Limits)", "explanation": "The limit is 55 MPH on any dustless (or paved) roadway not part of the state highway system."}, {"q": "What causes hydroplaning?", "options": ["Tires riding on a thin film of water", "Excessive tire pressure", "Cold pavement"], "answer": 0, "ref": "NE Manual - Section 5C-1 (Rain)", "explanation": "Hydroplaning occurs when tires ride on a thin film of water instead of the road; slowing down prevents it."}, {"q": "For a vehicle NOT equipped with antilock (ABS) brakes, how should you brake on slippery roads?", "options": ["Apply steady pressure", "Pump the brake pedal", "Tap rapidly and release fully"], "answer": 1, "ref": "NE Manual - Section 5C-5 (Snow and Ice)", "explanation": "Without ABS, pump the brake pedal to keep brakes from locking up so steering control is retained."}, {"q": "When must headlights be used?", "options": ["Only in heavy rain", "From sunset to sunrise", "Only on highways"], "answer": 1, "ref": "NE Manual - Section 5C (Night Driving / Headlights)", "explanation": "Headlights must be used from sunset to sunrise; driving with parking lights only is unlawful."}, {"q": "What headlight beam should you use when driving in fog?", "options": ["High beams", "Low beams", "Parking lights only"], "answer": 1, "ref": "NE Manual - Section 5C-2 (Fog) / Practice test", "explanation": "Use low beams in fog; high beams reflect back and reduce visibility."}, {"q": "When approaching a stopped school bus with its stop lights on and stop arm extended, when are you NOT required to stop?", "options": ["When traveling at night", "When on a roadway divided by a median, approaching from the opposite direction", "When no children are visible"], "answer": 1, "ref": "NE Manual - Section 6E-3 (When You Must Stop)", "explanation": "The only exception is approaching a bus in the opposite direction on a roadway divided by a median."}, {"q": "What are 'No-Zones' around large trucks and buses?", "options": ["Designated truck parking areas", "Blind spots where cars disappear or are too close", "High-occupancy vehicle lanes"], "answer": 1, "ref": "NE Manual - Section 6F-2 (No Zone)", "explanation": "No-Zones are blind-spot areas around trucks/buses where cars 'disappear' or are dangerously close."}, {"q": "At a railroad crossing with a flashing red light, what must you do?", "options": ["Slow and proceed with caution", "Stop completely even if no train is visible", "Increase speed to clear the tracks"], "answer": 1, "ref": "NE Manual - Section 4G (Railroad Crossings)", "explanation": "A flashing red light at a railroad crossing requires a complete stop even if a train is not visible."}, {"q": "A pedestrian hybrid beacon consists of which signal arrangement?", "options": ["Two red indications centered over a yellow indication", "A single green arrow", "Three yellow lights in a row"], "answer": 0, "ref": "NE Manual - Section 3A-4 (Pedestrian Hybrid Beacon)", "explanation": "The hybrid beacon consists of two side-by-side red indications centered over a yellow indication."}, {"q": "A flashing red traffic signal means you must:", "options": ["Yield and proceed", "Come to a complete stop, then proceed when clear", "Slow down only"], "answer": 1, "ref": "NE Manual - Section 3A (Traffic Signals)", "explanation": "A flashing red light requires a complete stop, yielding to traffic/pedestrians, then proceeding when clear."}, {"q": "A flashing yellow traffic signal means you should:", "options": ["Stop completely", "Be alert and proceed with caution", "Speed up to clear the intersection"], "answer": 1, "ref": "NE Manual - Section 3A (Traffic Signals)", "explanation": "A flashing yellow light means be alert and proceed with caution."}, {"q": "When entering a roundabout, you must yield to:", "options": ["Vehicles approaching on your left already in the roundabout", "Vehicles behind you", "Pedestrians only after entering"], "answer": 0, "ref": "NE Manual - Section 4B-5 (Roundabouts)", "explanation": "Yield to all vehicles approaching on your left that are already in the roundabout."}, {"q": "Accumulating 12 points within a two-year period causes what?", "options": ["A warning letter only", "Automatic revocation of the license for six months", "A $50 fine"], "answer": 1, "ref": "NE Manual - Section 1Q-2 (Point Revocation Procedures)", "explanation": "Accumulating 12 points in two years causes automatic revocation for six months."}, {"q": "A driver under 21 who accumulates 6 points in one year must:", "options": ["Pay a $100 fee only", "Complete a driver improvement course", "Surrender their vehicle"], "answer": 1, "ref": "NE Manual - Section 1Q-2 (Point System)", "explanation": "Under-21 drivers accumulating 6 points in one year must complete a driver improvement course."}, {"q": "How many points is a Driving Under the Influence (DUI) conviction worth?", "options": ["3 points", "6 points", "12 points"], "answer": 1, "ref": "NE Manual - Section 1Q-3 (Point System)", "explanation": "Driving under the influence of alcohol or drugs is assessed 6 points."}, {"q": "Motor Vehicle Homicide is assessed how many points?", "options": ["6 points", "9 points", "12 points"], "answer": 2, "ref": "NE Manual - Section 1Q-3 (Point System)", "explanation": "Conviction of Motor Vehicle Homicide is assessed 12 points."}, {"q": "What is the fine range for texting while driving in Nebraska?", "options": ["$50 to $100", "$200 to $500", "$500 to $1,000"], "answer": 1, "ref": "NE Manual - Section 5E-1 (Distracted Driving)", "explanation": "The fine for texting and driving is $200 to $500."}, {"q": "On average, sending a text takes a driver's eyes off the road for about how long?", "options": ["1.5 seconds", "4.6 seconds", "10 seconds"], "answer": 1, "ref": "NE Manual - Section 5E-1 (Distracted Driving)", "explanation": "Texting takes eyes off the road an average of 4.6 seconds, the length of a football field at 55 mph."}, {"q": "What is the maximum distance a vehicle may follow a fire apparatus traveling in emergency status?", "options": ["No closer than 500 feet", "No closer than 200 feet", "No closer than 1,000 feet"], "answer": 0, "ref": "NE Manual - Section 4B (Emergency Vehicles)", "explanation": "No vehicle may follow fire apparatus in emergency status closer than 500 feet."}, {"q": "A moped is defined as having a motor not exceeding what engine size?", "options": ["30 ccs", "50 ccs", "100 ccs"], "answer": 1, "ref": "NE Manual - Section 1C (Mopeds)", "explanation": "A moped has a motor not exceeding 50 ccs producing no more than two brake horsepower."}, {"q": "A double solid yellow lane line means:", "options": ["Passing is allowed in both directions", "Passing is prohibited", "Only slower traffic may use it"], "answer": 1, "ref": "NE Manual - Section 3C-2 (Yellow Lane Line Markings)", "explanation": "Solid yellow lines indicate no passing; a broken yellow line allows passing when safe."}, {"q": "Bicyclists in Nebraska are:", "options": ["Restricted to the right lane only", "Not restricted to the right lane and may use any lawful lane", "Required to ride on sidewalks"], "answer": 1, "ref": "NE Manual - Section 6B (Bicyclists)", "explanation": "Bicyclists are not restricted to the right lane and may lawfully use any available lane."}, {"q": "Rumble strips are intended to alert what type of driver?", "options": ["Drowsy or inattentive drivers", "Speeding drivers only", "New drivers only"], "answer": 0, "ref": "NE Manual - Section 3C (Pavement Markings / Rumble Strips)", "explanation": "Rumble strips alert drowsy or inattentive drivers via vibration and sound when leaving the lane."}, {"q": "If you are involved in a crash, what is your first duty?", "options": ["Drive away quickly", "Stop your vehicle", "Call a friend first"], "answer": 1, "ref": "NE Manual - Section 7A (General Information)", "explanation": "You must stop your vehicle and remain at the scene; leaving is a violation."}, {"q": "Failure to render aid in a crash in which you are involved is assessed how many points?", "options": ["3 points", "6 points", "12 points"], "answer": 1, "ref": "NE Manual - Section 1Q-3 (Point System)", "explanation": "Failure to render aid in a crash is assessed 6 points."}, {"q": "What should you do when approaching snow and ice removal equipment?", "options": ["Pass it on the right at high speed", "Be aware it may create sudden snow clouds and reduce visibility", "Honk to warn the operator"], "answer": 1, "ref": "NE Manual - Section 6D (Snow and Ice Removal Operations)", "explanation": "Snow removal equipment may reduce visibility with blowing snow; drivers must be cautious."}, {"q": "If your vehicle is equipped with an air bag, the manual advises you to:", "options": ["Sit as close as possible", "Slide the seat as far back as possible out of the air bag's path", "Disable the air bag"], "answer": 1, "ref": "NE Manual - Section 2B (Air Bags, Child Restraints and Seat Belts)", "explanation": "If you must sit in an air-bag-equipped position, slide the seat back, out of the air bag's path."}, {"q": "Tires can lose up to about how much pressure per month?", "options": ["1 psi", "5 psi", "10 psi"], "answer": 0, "ref": "NE Manual - Section 2N (Tire Pressure/Tread Depth)", "explanation": "Tires have been known to lose up to 1 psi per month through normal seepage."}, {"q": "Defensive driving is best described as:", "options": ["Driving as fast as traffic allows", "Driving alertly to prevent crashes", "Ignoring other drivers' mistakes"], "answer": 1, "ref": "NE Manual - Section 5G (Defensive Driving)", "explanation": "Defensive driving means driving alertly to prevent crashes."}, {"q": "When being passed by another vehicle, you should:", "options": ["Speed up to stay ahead", "Stay in your lane and not increase speed", "Move into the passing lane"], "answer": 1, "ref": "NE Manual - Section 4D-3 (When Being Passed)", "explanation": "When being passed, stay in your lane and avoid increasing your speed."}, {"q": "What is the Nebraska phone number for road conditions?", "options": ["511", "911", "411"], "answer": 0, "ref": "NE Manual - Section 5 (Special Driving Conditions)", "explanation": "Drivers may dial 511 for road conditions in Nebraska."}, {"q": "Warning signs that call attention to unexpected conditions ahead are generally what shape?", "options": ["Square", "Diamond", "Circle"], "answer": 1, "ref": "NE Manual - Section 3B-4 (Warning Signs)", "explanation": "Most warning signs are diamond-shaped with black symbols on a yellow background."}, {"q": "Regulatory signs (such as speed limits and stop signs) are typically what shape and color?", "options": ["Diamond, yellow", "Rectangle/vertical, white with black or red", "Round, blue"], "answer": 1, "ref": "NE Manual - Section 3B-3 (Regulatory Signs)", "explanation": "Regulatory signs are generally rectangular (white with black/red) or the octagonal stop sign (red)."}, {"q": "Guide signs that give directions and information are typically what color?", "options": ["Green and white", "Yellow and black", "Orange and black"], "answer": 0, "ref": "NE Manual - Section 3B-5 (Special Signs - Guide Signs)", "explanation": "Green and white guide signs give directional and distance information."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kentucky DMV Practice Test (KY) — Free KY Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Kentucky (KY) DMV practice test with 50 questions from the official Kentucky driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/ky/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Kentucky</strong></div>
+  <header>
+    <h1>Kentucky <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free KY permit and license practice test — 50 questions from the official Kentucky driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Kentucky (KY TC)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Kentucky DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "ky";
+const STATE_DATA = {"name": "Kentucky (KY TC)", "source": "Official KY Driver Manual (public domain)", "questions": [{"q": "For which vehicles is Class D, the most common and basic driver's license in Kentucky, issued?", "options": ["For those who drive general motor vehicles (operator's license)", "For truck and bus drivers only", "For motorcycle riders only"], "answer": 0, "ref": "KY Manual - Section One: The Driver's License (Types of Licenses)", "explanation": "Manual: 'The Class D license is the basic Operator's License' and 'most commonly held by Kentucky drivers'. Class A/B/C is for CDL, E is for moped, M is for motorcycle."}, {"q": "Which of the following is true for a Kentucky Class E (moped) license?", "options": ["Skills test and permit are not mandatory for a moped license; only vision and general knowledge testing required", "A road test is required for a moped license.", "Moped license is only issued to those over 21 years of age"], "answer": 0, "ref": "KY Manual - Section One (Moped License \u2013 Class E)", "explanation": "Manual: 'Applicants are required to pass the general knowledge and vision tests... However, a skills test and permit are not required.' Additionally, a moped requires at least 16 years of age."}, {"q": "By definition, what is the maximum speed a moped (Class E) can go in Kentucky?", "options": ["30 mph", "55 mph", "45 mph"], "answer": 0, "ref": "KY Manual - Section One (Moped License \u2013 Class E)", "explanation": "The Manual defines a moped as 'capable of a maximum speed of not more than thirty (30) miles per hour'; It also has an upper limit of 50cc and 2 horsepower."}, {"q": "What is the minimum success rate required to pass the written test?", "options": ["80%", "70%", "90%"], "answer": 0, "ref": "KY Manual - Section One (Testing Requirements / Written Test)", "explanation": "Manual: 'Applicants must make a minimum score of 80% to pass this test.'"}, {"q": "What is the minimum visual acuity required from first-time applicants?", "options": ["20/40 (corrected or uncorrected)", "20/20", "20/60"], "answer": 0, "ref": "KY Manual - Section One (Vision Screening)", "explanation": "Manual: 'A minimum visual acuity of 20/40 (corrected or uncorrected) is required before the applicant will be allowed to move on to the written test.'"}, {"q": "How long must a permit holder between the ages of 16 and 20 hold the permit to take the road test?", "options": ["180 days", "30 days", "90 days"], "answer": 0, "ref": "KY Manual - Section One (Graduated Driver License Program)", "explanation": "Manual: 'Permit holders ages 16 \u2013 20 must hold the driving permit for a minimum of 180 days.' (30 days for those 21 and over.)"}, {"q": "How many hours should the Practical Driving Log be for the intermediate license and how many hours should be at night?", "options": ["60 hours total, 10 hours at night", "40 hours total, 5 hours at night", "100 hours total, 20 hours at night"], "answer": 0, "ref": "KY Manual - Section One (Permit Phase)", "explanation": "Manual: 'minimum of 60 hours of practice driving. 10 hours must be completed at night.'"}, {"q": "What is the passenger restriction for a permit holder under the age of 18?", "options": ["Maximum 1 unrelated passenger under 20 years of age", "Any number of passengers are allowed", "Cannot take any passengers"], "answer": 0, "ref": "KY Manual - Section One (Permit Driving)", "explanation": "Manual: 'Passenger restriction \u2013 limited to 1 (one) unrelated person under 20 years of age.'"}, {"q": "Between what hours is the night driving ban (curfew) for permit holders under the age of 18?", "options": ["Midnight (12:00 a.m.) to 6:00 a.m. between", "Between 21:00 and 05:00", "Between 22:00 and 06:00"], "answer": 0, "ref": "KY Manual - Section One (Permit Driving)", "explanation": "Manual: 'Permit holders under the age of 18 may not drive between the hours of midnight and 6:00 a.m. 'unless the person can demonstrate good cause.'"}, {"q": "What is the 'Zero Alcohol Tolerance' limit (BAC) for drivers under the age of 21?", "options": ["0.02", "0.08", "0.05"], "answer": 0, "ref": "KY Manual - Section One / Section Three (Zero Alcohol Tolerance)", "explanation": "Manual: 'All drivers under 21 are subject to \"Zero Alcohol Tolerance\" (Defined as .02 Blood Alcohol Concentration).'"}, {"q": "How many days after establishing residence must a person moving to Kentucky from another state obtain a Kentucky driver's license?", "options": ["30 days", "60 days", "90 days"], "answer": 0, "ref": "KY Manual - Section One (Out-of-State License)", "explanation": "Manual: 'Persons moving into Kentucky must obtain a Kentucky Driver's License within 30 days of establishing residence.'"}, {"q": "How many days after the birthday of a driver's license who is 21 years of age or older does it expire and how early can it be renewed?", "options": ["It ends 31 days after the birthday; renewal can be made 6 months in advance", "It expires 90 days after the birthday; renewal can be made 3 months in advance", "It ends on your birthday; renewal can be made 1 month in advance"], "answer": 0, "ref": "KY Manual - Section One (Driver License Renewal)", "explanation": "Manual: 'Age 21 and older, the license expires 31 days after the driver's 21st birthday and may be renewed up to six months before the expiration date.' (Under 21: 90 days later.)"}, {"q": "According to the Kentucky Point System, how many points can be suspended for a driver who is 18 years of age or older?", "options": ["12 points in 2 years", "7 points in 2 years", "15 points in 1 year"], "answer": 0, "ref": "KY Manual - Section One (The Kentucky Point System)", "explanation": "Manual: 'Upon the accumulation of 12 points (7 points if under age eighteen) within a two-year period, a driver's privilege... may be suspended.'"}, {"q": "What is the blood alcohol concentration (BAC) limit that constitutes a DUI (drunk driving) offense for adults (21+) in Kentucky?", "options": ["0.08 or above", "0.05 or above", "0.10 or above"], "answer": 0, "ref": "KY Manual - Section Three (Alcohol and the Law)", "explanation": "Manual: 'In Kentucky, a person shall not operate... a motor vehicle while having an alcohol concentration of 0.08 or above.' (Under 21 0.02.)"}, {"q": "What is the correct limit for Kentucky's mandatory minimum liability insurance?", "options": ["$25,000 per person; all injuries $50,000; property damage $25,000 (or single limit $60,000)", "$15,000 per person; all injuries $30,000; property damage $10,000", "$50,000 per person; all injuries $100,000; property damage $50,000"], "answer": 0, "ref": "KY Manual - Section Two (Insurance Law)", "explanation": "Manual: '$25,000.00 for... one person... $50,000.00 for all bodily injury... $25,000.00 for all property damage...Alternative, a policy with a single limit of $60,000.00 is acceptable.'"}, {"q": "What is the penalty for failure to maintain insurance in Kentucky?", "options": ["Fine between $500 and $1,000, imprisonment for up to 90 days, or both.", "Only $100 fine, no jail time", "Driving license automatically revoked for life"], "answer": 0, "ref": "KY Manual - Section Two (Insurance Law)", "explanation": "Manual: 'the vehicle owner and driver are subject to a fine of $500.00 to $1,000.00, up to 90 days in jail, or both.'"}, {"q": "How many days does it take to register a vehicle brought from another state or newly purchased in Kentucky?", "options": ["15 days", "30 days", "45 days"], "answer": 0, "ref": "KY Manual - Section Two (Motor Vehicle Registration)", "explanation": "Manual: 'a person who purchases a motor vehicle, or brings a motor vehicle into Kentucky from another state must make application for registration within fifteen (15) days.'"}, {"q": "Which statement is correct regarding the Kentucky seat belt law?", "options": ["It is the primary law; In vehicles manufactured after 1981, the driver and all passengers must wear seat belts.", "It is a secondary law; Only the driver must wear a belt", "Mandatory for children under 18 only"], "answer": 0, "ref": "KY Manual - Section Four (Using Safety Belts)", "explanation": "Manual: 'Seat Belt Law is primary in Kentucky and drivers can be stopped...' and 'a motor vehicle manufactured after 1981... unless the driver and all passengers are wearing a... seat belt.'"}, {"q": "According to the Kentucky child restraint law, how should a child under 40 inches tall be restrained?", "options": ["In a child restraint system that complies with federal standards", "Only a seat belt (lap/shoulder belt) is sufficient", "nothing required"], "answer": 0, "ref": "KY Manual - Section Four (Child Passenger Safety Laws)", "explanation": "Manual: 'any child of forty (40) inches in height or less... shall have the child properly secured in a child restraint system...' (A booster is required between 40-57 inches.)"}, {"q": "What is the current Kentucky recommendation for steering wheel grip position?", "options": ["3 and 9 direction positions due to airbags", "2 and 10 direction positions are now recommended", "12 o'clock with one hand"], "answer": 0, "ref": "KY Manual - Section Five (Hand Position)", "explanation": "Manual: 'Placing your hands at the 2 and 10 o'clock positions is no longer recommended because it can be dangerous in a vehicle equipped with air bags. Instead... at the 3 and 9 o'clock positions.'"}, {"q": "In which position is it recommended to hold the steering wheel with the left hand in a manual transmission vehicle while backing up?", "options": ["12 o'clock (12 o'clock)", "3 o'clock", "6 o'clock"], "answer": 0, "ref": "KY Manual - Section Five (Backing Up)", "explanation": "Manual: 'Grasp the steering wheel at the 12 o'clock position with your left hand. Place your right arm on the back of the seat and look directly through the rear window.'"}, {"q": "If two drivers arrive at the same time at an intersection with a four-way stop sign, in which case does the rule of giving way to the driver coming from your right apply?", "options": ["When both drivers arrive at the same time, you give way to the driver on your right", "The driver on the left always gives way", "The largest vehicle takes priority, not the first one to arrive"], "answer": 0, "ref": "KY Manual - Section Six (Gielding Right of Way)", "explanation": "Manual: 'The driver on your right at a four-way intersection controlled by stop signs if both of you arrive at the intersection at the same time.'"}, {"q": "In what color order are the traffic lights vertically (on top of each other) from top to bottom?", "options": ["Red, yellow, green (red, yellow, green)", "Green, yellow, red", "yellow, red, green"], "answer": 0, "ref": "KY Manual - Section Six (Traffic Signals)", "explanation": "Manual: 'Traffic lights are usually at intersections and are red, yellow, and green from top to bottom, when on the same signal.' (In landscape, red is on the left.)"}, {"q": "When can a right turn on red be made in Kentucky?", "options": ["If there is no sign prohibiting it, you can first stop completely and turn right when there is no traffic or pedestrians.", "It can never be done", "Only after midnight"], "answer": 0, "ref": "KY Manual - Section Six (RED Traffic Light)", "explanation": "Manual: 'Right turns on red \u2013 If not prohibited by signs, and you are in the proper lane, you must first stop, and then turn right when the roadway is clear of vehicle or pedestrian traffic.'"}, {"q": "When is left turn on red allowed in Kentucky?", "options": ["When turning from a one-way street to the nearest lane of a one-way street, first stop", "Always on leave", "Never off day"], "answer": 0, "ref": "KY Manual - Section Six (Left turns on red)", "explanation": "Manual: 'Left turns on red are permitted only when turning from a one-way street onto a one-way street. 'You must first stop then turn left when the roadway is clear.'"}, {"q": "What do flashing yellow light and flashing red light mean?", "options": ["Flashing yellow: slow down and watch around; flashing red: full stop and continue if safe", "Flashing yellow: full stop; flashing red: slow down", "Both mean the same thing: speed limit 15 mph"], "answer": 0, "ref": "KY Manual - Section Six (Flashing Lights)", "explanation": "Manual: 'A flashing yellow light means you must slow down and watch for others... A flashing red light means you must come to a full stop and proceed only when it is clear.'"}, {"q": "What color and shape are warning traffic signs?", "options": ["Black text/symbol on a yellow (sometimes fluorescent yellow) background, diamond shaped", "Black, rectangular on white background", "White, round on blue background"], "answer": 0, "ref": "KY Manual - Section Six (Traffic Signs / Warning Signs)", "explanation": "Manual: 'These signs are usually yellow with black lettering or symbols and are diamond shaped. 'Some warning signs may be fluorescent yellow, such as school zones...'"}, {"q": "How many sides does the STOP sign have and what is its color?", "options": ["8-sided (octagon), white letters on red background", "Triangle, red/white", "circle, yellow"], "answer": 0, "ref": "KY Manual - Section Six (Regulatory Signs \u2013 Stop Sign)", "explanation": "Manual: 'A stop sign has eight sides and is red with white letters.' (The YIELD sign is a red/white downward-pointing triangle.)"}, {"q": "What color background do road work (work zone) signs have?", "options": ["Black letter/symbol on orange background", "white on green background", "white on blue background"], "answer": 0, "ref": "KY Manual - Section Six / Section Eleven (Work Zone Signs)", "explanation": "Manual: 'Work Zone Signs \u2013 These are generally diamond or rectangular shaped and orange with black letters or symbols.'"}, {"q": "What is the speed limit in Kentucky in a business/residential zone when there is no sign?", "options": ["35 mph", "25 mph", "45 mph"], "answer": 0, "ref": "KY Manual - Section Eight (Kentucky Speed \u200b\u200bLimits)", "explanation": "Manual: '35 MPH \u2013 Thirty-five miles per hour is the speed limit in a business/residential district.' (Highway 65/70, other state routes 55, parking lot 15.)"}, {"q": "What should you do if you are coming from the opposite direction on a road with less than 4 lanes (undivided two-way) with the school bus' red light and stop arm on?", "options": ["You must come to a complete stop; On a divided highway with 4 or more lanes, stopping from all directions except oncoming traffic", "Just slow down, you don't have to stop", "You can pass at 30 mph"], "answer": 0, "ref": "KY Manual - Section Seven (Rules for School Buses)", "explanation": "Manual: 'A stop is not required when approaching a stopped bus from the opposite direction upon a highway of four or more lanes.' Otherwise (less than 4 lanes) a full stop is required in each direction."}, {"q": "What is the minimum time interval recommended by Kentucky for a safe following distance?", "options": ["At least 4 seconds", "At least 2 seconds", "At least 10 seconds"], "answer": 0, "ref": "KY Manual - Section Eight (Space Management)", "explanation": "Manual: 'You should always try to keep a minimum following distance of 4 seconds between your car and the vehicle in front.'"}, {"q": "Approximately what is the braking distance at 50 mph on dry ground with good brakes?", "options": ["Approximately 158 feet", "Approximately 300 feet", "About 75 feet"], "answer": 0, "ref": "KY Manual - Section Eight (Stopping Distance)", "explanation": "Manual: 'At 50 mph on dry pavement with good brakes, it can take about 158 \u200b\u200bfeet.' (Total stopping distance includes perception+reaction+braking.)"}, {"q": "What is the minimum full stopping distance for a large truck traveling at 55 mph under ideal conditions?", "options": ["335 feet (more than 1.5 times the stopping distance of a car)", "158 feet", "100 feet"], "answer": 0, "ref": "KY Manual - Section Ten (Commercial Vehicles)", "explanation": "Manual: 'traveling at 55 mph requires at least 335 feet before coming to a complete stop, or greater than 1\u00bd times the stopping distance of a car.'"}, {"q": "When is the mandatory headlight time in Kentucky?", "options": ["Half an hour after sunset to half an hour before sunrise", "Only from midnight to 6am", "Only in rainy weather"], "answer": 0, "ref": "KY Manual - Section Eight (Communicating / Use headlights)", "explanation": "Manual: 'Headlights must be illuminated during the period from one-half (1/2) hour after sunset to one-half (1/2) hour before sunrise.'"}, {"q": "At what distance should you switch your high beams to low beams when you approach oncoming vehicles?", "options": ["500 feet away from vehicles coming from the opposite direction and 300 feet away from vehicles being followed from behind.", "1000 feet from the opposite direction, 500 feet from the rear", "Only in foggy weather"], "answer": 0, "ref": "KY Manual - Section Eleven (Night Driving)", "explanation": "Manual: 'Dim your lights whenever you come within 500 feet of oncoming vehicles, and within 300 feet of any vehicle you are following.'"}, {"q": "Which of the following is true about motorcycles?", "options": ["A full lane width should be left for motorcyclists; lane should not be shared", "Lane can be shared with motorcyclists because it is small", "Motorcyclists have priority over other vehicles"], "answer": 0, "ref": "KY Manual - Section Ten (Motorcyclists)", "explanation": "Manual: 'Allow a motorcyclist a full lane width. Don't share the lane.' Motorcyclists have the same rights and responsibilities."}, {"q": "What should a driver do when an emergency vehicle approaches with flashing red/blue lights and siren?", "options": ["Move to the right or to the curb and stop; must stop until the emergency vehicle passes; Should not approach within 500 feet", "Must speed up and cross the intersection immediately", "He should stay where he is, no need to step aside"], "answer": 0, "ref": "KY Manual - Section Ten (Emergency Vehicles)", "explanation": "Manual: 'immediately drive to the right side of the road or to the curb, clear of any intersection, and stop... It is also unlawful to follow any emergency vehicle closer than 500 feet.'"}, {"q": "According to Kentucky's Move-Over law, what should be done when approaching an authorized emergency vehicle stopped on the side of the road?", "options": ["Slow down and, if safe to do so, move into a different lane than the one next to the vehicle; If changing lanes is unsafe, slow down and proceed with caution.", "Keep going as fast as you can", "Honk your horn and speed up"], "answer": 0, "ref": "KY Manual - Section Ten (Move-Over Laws)", "explanation": "Manual: 'slow and yielding the right-of-way by making a lane change into a lane not next to that... If a lane change is unsafe, slow down and proceed with caution.'"}, {"q": "Which rule applies as the funeral convoy (funeral procession) approaches the intersection and what is the penalty for violation?", "options": ["The convoy has right-of-way at the intersection; Violation may carry a $250 fine or 90 days in jail", "The convoy must always stop", "The funeral convoy has no privileges"], "answer": 0, "ref": "KY Manual - Section Eleven (Funeral Processes)", "explanation": "Manual: 'A funeral procession has the right-of-way at an intersection...' and 'If you violate this law, you may receive a $250 fine or 90 days in jail.'"}, {"q": "How are penalties applied if there are speed limit signs and at least one bona fide worker in the work zone?", "options": ["Penalties are doubled (fines doubled)", "Penalties are halved", "Penalties are three times normal"], "answer": 0, "ref": "KY Manual - Section Eleven (Work Zones)", "explanation": "Manual: 'Kentucky law allows for fines to be doubled in a highway work zone when signs are displayed... Additionally, at least one (1) bona fide worker must be present.'"}, {"q": "When your vehicle starts to skid, which way should you turn the steering wheel if the rear is sliding in the right direction?", "options": ["Direction the back of the vehicle is skidding", "Always in the opposite direction", "Do not turn the steering wheel at all, press the brake"], "answer": 0, "ref": "KY Manual - Section Nine (Dealing with Skids)", "explanation": "Manual: 'If you begin to skid sideways, you need to turn the wheel in the direction the back of the vehicle is skidding. 'This will allow the front of the vehicle to line up with the back.'"}, {"q": "What is the best precaution in case of hydroplaning?", "options": ["Slow down in the rain or on wet/puddled roads and use properly inflated tires with good tread", "Increase your speed so you can cut through the water", "sudden hard braking"], "answer": 0, "ref": "KY Manual - Section Eight (Hydroplaning)", "explanation": "Manual: 'The best way to avoid traction loss from hydroplaning is to slow down in the rain or when the road is wet with pooled water... It is also helpful to drive with properly-inflated tires with good tire tread.'"}, {"q": "How much farther do high beams provide compared to low beams when driving at night?", "options": ["You see twice as far", "you see the same distance", "Three times further"], "answer": 0, "ref": "KY Manual - Section Eleven (Night Driving)", "explanation": "Manual: 'Use your high beams whenever there are no oncoming vehicles. High beams let you see twice as far as low beams.'"}, {"q": "How can you operate an ATV (all-terrain vehicle) while crossing a two-lane public road in Kentucky?", "options": ["Crossing the road at an angle of at least close to 90 degrees and staying on the road for no more than 2/10 of a mile (0.2 miles)", "He can ride as long as he wants at any speed", "Only the night can pass"], "answer": 0, "ref": "KY Manual - Section Ten (All-Terrain Vehicles / ATVs)", "explanation": "Manual: 'A person may operate an ATV on any two-lane public highway to cross the highway. While crossing, the operator shall cross at as close to a ninety (90) degree angle as is practical and safe and shall not travel on the highway for more than two-tenths (2/10) of a mile.'"}, {"q": "In which direction do vehicles turn in a roundabout and who gives way to circulating traffic?", "options": ["Rotates counterclockwise; gives way to circulating traffic", "Rotates clockwise; entering vehicle has priority", "The direction does not matter; everyone turns in the direction they want"], "answer": 0, "ref": "KY Manual - Section Seven (Roundabouts and Traffic Circles)", "explanation": "Manual: 'Vehicles travel counterclockwise around a raised center island, with entering traffic yielding the right of way to circulating traffic.'"}, {"q": "What should you do first if a vehicle tire blows out?", "options": ["Hold the steering wheel tight and keep the vehicle straight, slowly take your foot off the gas, do not brake suddenly.", "Brake hard immediately", "Turn to the side of the road at the mirror bend"], "answer": 0, "ref": "KY Manual - Section Nine (Hyphen Blowout)", "explanation": "Manual: 'Grip the steering wheel firmly and keep the vehicle going straight. Slow down gradually. Take your foot off the accelerator... Don't brake.'"}, {"q": "Why is the parallel parking maneuver important for the Driving (skills) exam from prospective drivers?", "options": ["The manual states that this maneuver is a skill that must be prepared for the 'skills test'", "Parallel parking is never tested in the exam", "Only required on vehicles with automatic transmission"], "answer": 0, "ref": "KY Manual - Section Seven (Parallel Parking)", "explanation": "Manual: 'Applicants should master this maneuver in preparation for the skills test.' (Skills test also includes stop, backing, turning, hill start, intersection.)"}, {"q": "What does the orange/red triangle sign seen behind slow-moving vehicles indicate?", "options": ["Vehicle traveling slower than 25 mph (animal/farmer/construction equipment)", "The vehicle is carrying dangerous goods", "The vehicle is a police vehicle"], "answer": 0, "ref": "KY Manual - Section Ten (Slow-Moving Vehicles)", "explanation": "Manual: 'fluorescent or reflective orange and red triangle... means the vehicle is traveling less than 25 mph.' (Animal/farmer/construction equipment.)"}, {"q": "When should you renew your driver's license, insurance and registration when you are stopped by the police (traffic stop)?", "options": ["When the officer requests; You must first tell them where the documents are and then slowly hold them out with one hand.", "You should start searching as soon as the police turn on the lights.", "You should never extend it without getting out of the vehicle."], "answer": 0, "ref": "KY Manual - Section Ten (Police and Traffic Stops)", "explanation": "Manual: 'When requested, locate, and provide your driver's license, proof of insurance and vehicle registration. Before reaching for these documents, first tell the officer where they are located. Then reach for them slowly with one hand on the wheel.'"}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

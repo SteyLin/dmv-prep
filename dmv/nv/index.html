@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nevada DMV Practice Test (NV) — Free NV Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Nevada (NV) DMV practice test with 50 questions from the official Nevada driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/nv/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Nevada</strong></div>
+  <header>
+    <h1>Nevada <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free NV permit and license practice test — 50 questions from the official Nevada driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Nevada (NV DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Nevada DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "nv";
+const STATE_DATA = {"name": "Nevada (NV DMV)", "source": "Official NV Driver Handbook (public domain)", "questions": [{"q": "A new resident who moves to Nevada and wants to drive must apply for a Nevada driver license within how many days after becoming a resident?", "options": ["10 days", "30 days", "60 days"], "answer": 1, "ref": "NV Handbook - Ch.1 Getting Your Nevada Driver's License", "explanation": "Drivers moving into Nevada from another state must apply for a license within 30 days after becoming a resident."}, {"q": "What is the minimum age to apply for a Nevada instruction permit?", "options": ["15 years old", "15\u00bd years old", "16 years old"], "answer": 1, "ref": "NV Handbook - Ch.1 Instruction Permits", "explanation": "To obtain an instruction permit you must be at least 15\u00bd years old."}, {"q": "A first-time Nevada driver license issued to a person under age 65 is valid for how long?", "options": ["4 years", "6 years", "8 years"], "answer": 2, "ref": "NV Handbook - Ch.1 Getting Your Nevada Driver's License", "explanation": "A first-time license issued to persons under age 65 is valid for eight years and expires on your birthday."}, {"q": "Driver licenses for individuals aged 65 and older are valid for:", "options": ["8 years", "4 years", "2 years"], "answer": 1, "ref": "NV Handbook - Ch.1 Getting Your Nevada Driver's License", "explanation": "Driver licenses for individuals aged 65 and older are valid for four years."}, {"q": "What fee does Nevada charge for all initial knowledge and/or skills tests?", "options": ["$10.00", "$25.00", "$41.25"], "answer": 1, "ref": "NV Handbook - Ch.1 Testing", "explanation": "A $25.00 fee is charged for all initial knowledge and/or skills tests; $10 for each retest."}, {"q": "A Nevada instruction permit is valid for:", "options": ["6 months", "1 year", "2 years"], "answer": 1, "ref": "NV Handbook - Ch.1 Instruction Permits", "explanation": "A Nevada instruction permit is valid for one year."}, {"q": "When driving with a Class C instruction permit, the supervising licensed driver must be at least how old and have at least how much licensed experience?", "options": ["18 years old with 6 months experience", "21 years old with 1 year experience", "25 years old with 3 years experience"], "answer": 1, "ref": "NV Handbook - Ch.1 Instruction Permits", "explanation": "The supervising driver must be 21 or older, have at least one year of licensed driving experience, and be seated beside you."}, {"q": "An applicant under age 18 must hold an instruction permit for at least how long before applying for a driver license?", "options": ["3 months", "6 months", "12 months"], "answer": 1, "ref": "NV Handbook - Ch.1 Instruction Permit Requirements", "explanation": "If under 18, you must hold an instruction permit for at least 6 months prior to applying for a driver license."}, {"q": "A 16- or 17-year-old newly licensed driver may NOT carry passengers under 18 (except immediate family) for the first:", "options": ["3 months", "6 months", "1 year"], "answer": 1, "ref": "NV Handbook - Ch.1 Passenger Restrictions and Curfews", "explanation": "For the first 6 months, 16/17-year-old drivers may not carry passengers under 18 except immediate family members."}, {"q": "Under Nevada's minor curfew, a licensed driver under 18 may not operate a vehicle between what hours unless driving to or from a scheduled event?", "options": ["9 p.m. and 6 a.m.", "10 p.m. and 5 a.m.", "11 p.m. and 5 a.m."], "answer": 1, "ref": "NV Handbook - Ch.1 Passenger Restrictions and Curfews", "explanation": "A minor may not operate a motor vehicle between 10 p.m. and 5 a.m. unless driving to or from a scheduled event."}, {"q": "Nevada teens living within 30 miles of a DMV-approved driver education school must complete how many hours of supervised behind-the-wheel experience?", "options": ["30 hours", "50 hours", "100 hours"], "answer": 1, "ref": "NV Handbook - Ch.1 Behind the Wheel Experience", "explanation": "Teens within 30 miles must complete 50 hours of supervised experience, 10 of which must be at night."}, {"q": "If a teen is NOT within 30 miles of a DMV-approved driver education school, how many hours of behind-the-wheel experience are required (10 at night)?", "options": ["50 hours", "75 hours", "100 hours"], "answer": 2, "ref": "NV Handbook - Ch.1 Driver Education", "explanation": "If not within 30 miles and no internet access, the teen must complete 100 hours of behind-the-wheel experience, 10 at night."}, {"q": "Which license class covers cars, vans and pickups and may tow a vehicle 10,000 pounds or less?", "options": ["Class A", "Class C", "Class M"], "answer": 1, "ref": "NV Handbook - Ch.1 Driver License Classifications", "explanation": "Class C covers cars, vans, pickups and may tow a vehicle 10,000 pounds or less."}, {"q": "A Class A license is for combination vehicles with a Gross Combination Weight Rating (GCWR) over 26,000 pounds and a trailer over:", "options": ["10,000 pounds", "15,000 pounds", "26,000 pounds"], "answer": 0, "ref": "NV Handbook - Ch.1 Driver License Classifications", "explanation": "Class A: GCWR over 26,000 pounds with a trailer over 10,000 pounds."}, {"q": "Restriction 'B' on a Nevada driver license means the driver:", "options": ["May drive daylight only", "Needs to wear glasses or contact lenses", "Needs additional rearview mirrors"], "answer": 1, "ref": "NV Handbook - Ch.1 Restrictions", "explanation": "Restriction B means the driver needs to wear glasses or contact lenses."}, {"q": "Restriction 'G' on a Nevada driver license means the driver:", "options": ["Must pass a yearly driving test", "May drive daylight only", "Needs a yearly medical letter"], "answer": 1, "ref": "NV Handbook - Ch.1 Restrictions", "explanation": "Restriction G means daylight driving only."}, {"q": "Under Nevada law, the driver and any passengers age six and older must wear safety belts if the vehicle is equipped with them. Children under age six and under 57 inches must be in:", "options": ["A seat belt only", "An approved child restraint system", "The front seat"], "answer": 1, "ref": "NV Handbook - Ch.2 Buckle Up", "explanation": "Children under six and those under 57 inches must be in an approved child restraint system (NRS 484B.157)."}, {"q": "Children under the age of two must be secured in:", "options": ["A forward-facing seat in the front", "A booster seat", "A rear-facing child restraint in the back seat"], "answer": 2, "ref": "NV Handbook - Ch.2 Buckle Up", "explanation": "Children under age two must be secured in a rear-facing child restraint system in the back seat."}, {"q": "It is illegal to leave a child aged 7 or younger unattended in a vehicle unless supervised by and within sight of a person at least:", "options": ["12 years old", "16 years old", "18 years old"], "answer": 0, "ref": "NV Handbook - Ch.2 Unattended Children and Pets", "explanation": "A child aged 7 or younger may not be left unattended unless supervised by and within sight of a person at least 12 years old (NRS 202.485)."}, {"q": "Which sign shape means STOP?", "options": ["Diamond", "Octagon (8 sides)", "Inverted triangle"], "answer": 1, "ref": "NV Handbook - Ch.3 Signs", "explanation": "An octagon (8-sided) shape means STOP."}, {"q": "A pentagon (5-sided) sign is used for:", "options": ["School zones and school crossings", "Railroad crossings", "No passing zones"], "answer": 0, "ref": "NV Handbook - Ch.3 Signs", "explanation": "A pentagon shape is used for school zones and school crossings."}, {"q": "The crossbuck (X) shape marks:", "options": ["A yield sign", "The actual location of a railroad crossing", "A construction zone"], "answer": 1, "ref": "NV Handbook - Ch.3 Signs", "explanation": "A crossbuck (X) marks the actual location of a railroad crossing."}, {"q": "On highway signs, the color orange is used for:", "options": ["General warning", "Road construction or repair", "Regulatory rules"], "answer": 1, "ref": "NV Handbook - Ch.3 Signs", "explanation": "Orange is used for road construction or repair."}, {"q": "At a STOP sign, you must:", "options": ["Slow down and yield", "Come to a full stop behind the stop line or crosswalk", "Yield but never stop"], "answer": 1, "ref": "NV Handbook - Ch.3 Signs (Stop signs)", "explanation": "Stop signs mean you must come to a full stop behind the stop sign at the crosswalk or stop line."}, {"q": "A steady yellow traffic light means:", "options": ["Go immediately", "Caution; the light is about to turn red and you must stop if not already in the intersection", "You may proceed with no restrictions"], "answer": 1, "ref": "NV Handbook - Ch.3 Signals", "explanation": "A steady yellow light warns the light will turn red; if you have not entered the intersection you must stop."}, {"q": "A flashing red traffic light has the same meaning as:", "options": ["A green light", "A stop sign", "A yield sign"], "answer": 1, "ref": "NV Handbook - Ch.3 Signals", "explanation": "A flashing red light means you must come to a full stop; it has the same meaning as a stop sign."}, {"q": "In Nevada, a right turn on a red light is allowed (where not prohibited by signs) after:", "options": ["Slowing down", "Coming to a complete stop and yielding", "Flashing your headlights"], "answer": 1, "ref": "NV Handbook - Ch.3 Signals", "explanation": "Where not prohibited, a right turn may be made on red after a complete stop, when traffic is clear and it is safe."}, {"q": "A red arrow displayed for your movement means:", "options": ["You may turn after yielding", "You cannot make the movement shown by the arrow and must stop", "You have a protected turn"], "answer": 1, "ref": "NV Handbook - Ch.3 Signals", "explanation": "A red arrow means drivers cannot make the movement shown; facing a red arrow, you must stop."}, {"q": "You may make a left turn at a red light only when:", "options": ["Turning from a one-way street onto another one-way street to the left", "Turning onto any street after stopping", "The light has been red for 30 seconds"], "answer": 0, "ref": "NV Handbook - Ch.3 Signals", "explanation": "A left turn on red is allowed only from a one-way street onto another one-way street moving left, after stopping and yielding."}, {"q": "Broken (dashed) white lines on the roadway separate lanes of traffic moving in the same direction and mean:", "options": ["You may not change lanes", "Passing is permitted when safe", "The edge of the highway"], "answer": 1, "ref": "NV Handbook - Ch.3 Highway Markings", "explanation": "Broken white lines mark lanes moving in the same direction; passing is permitted when safe."}, {"q": "A solid yellow line between lanes of opposing traffic means:", "options": ["You may cross to pass at any time", "You are not to cross over or pass", "It marks a bike lane"], "answer": 1, "ref": "NV Handbook - Ch.3 Highway Markings", "explanation": "Solid yellow lines indicate you are not to cross over or pass."}, {"q": "When using a center left-turn lane, you may not travel more than how many feet in it before making the left turn?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 2, "ref": "NV Handbook - Ch.3 Highway Markings", "explanation": "Drivers may not travel more than 200 feet in a center turn lane before making a left turn (NRS 484B.223)."}, {"q": "At a railroad crossing with a stop sign and an approaching train, you must stop at least how many feet from the tracks?", "options": ["5 feet", "15 feet", "50 feet"], "answer": 1, "ref": "NV Handbook - Ch.3 Railroad Crossings", "explanation": "If a train is coming, drivers must stop at least 15 feet from the tracks."}, {"q": "In Nevada school zones, the speed limit is either 15 or 25 mph and is in effect on school days from:", "options": ["A half hour before school begins to a half hour after school ends", "8:00 a.m. to 3:00 p.m. only", "Sunrise to sunset"], "answer": 0, "ref": "NV Handbook - Ch.3 School Areas", "explanation": "School-zone speed limits are in effect on school days from a half hour before school begins to a half hour after school ends."}, {"q": "At an intersection with no traffic signs or signals, who normally has the right-of-way?", "options": ["The vehicle on your right", "The vehicle on your left", "The fastest vehicle"], "answer": 0, "ref": "NV Handbook - Ch.3 Right-of-Way", "explanation": "At an uncontrolled intersection, the vehicle on your right should usually go first."}, {"q": "When an emergency vehicle using a siren and red lights approaches, you must:", "options": ["Speed up to get out of the way", "Drive to the right edge and stop until it passes", "Make a U-turn"], "answer": 1, "ref": "NV Handbook - Ch.3 Right-of-Way", "explanation": "You must immediately drive to the right side of the road, clear of any intersection, and stop until the emergency vehicle passes."}, {"q": "According to the Nevada handbook, failure to yield the right-of-way is:", "options": ["A minor issue", "The leading cause of crashes in Nevada", "Only a problem at night"], "answer": 1, "ref": "NV Handbook - Ch.3 Right-of-Way", "explanation": "Failure to yield the right-of-way is the leading cause of crashes in Nevada."}, {"q": "A pedestrian who is blind or visually impaired using a white cane or guide dog has the right-of-way:", "options": ["Only in marked crosswalks", "At all times on any highway, street or road", "Only during daylight"], "answer": 1, "ref": "NV Handbook - Ch.3 Pedestrian Right-of-Way / Ch.6 Blind Pedestrians", "explanation": "A blind or visually impaired pedestrian with a white cane or guide dog has the right-of-way at all times (NRS 484B.290)."}, {"q": "Nevada's Basic Speed Rule requires drivers to drive at a 'reasonable or proper' speed based on conditions. The maximum posted speed limit on rural interstate freeways is:", "options": ["55 mph", "65 mph", "70+ mph"], "answer": 2, "ref": "NV Handbook - Ch.3 Controlling Speed", "explanation": "Examples list 70+ mph for rural interstate freeways; speed limits are set for normal conditions."}, {"q": "When entering a freeway, you must:", "options": ["Stop before merging", "Yield the right-of-way to traffic already on the freeway", "Force your way in"], "answer": 1, "ref": "NV Handbook - Ch.3 Freeway Driving", "explanation": "As you enter from a merging lane, you must yield to traffic already on the freeway."}, {"q": "If a freeway entrance is equipped with ramp meters that are switched on, you must:", "options": ["Ignore them", "Stop at the red light and proceed when green", "Drive around them"], "answer": 1, "ref": "NV Handbook - Ch.3 Ramp Meters", "explanation": "With ramp meters on, pull up to the stop line, stop at the red light, and proceed when the light turns green."}, {"q": "In a roundabout, traffic circulates in what direction and who has the right-of-way?", "options": ["Counterclockwise; entering traffic yields to circulating traffic", "Clockwise; circulating traffic yields to entering traffic", "Either direction; first arrival goes"], "answer": 0, "ref": "NV Handbook - Ch.3 Roundabouts", "explanation": "All traffic moves counterclockwise and entering traffic must yield to traffic already circulating."}, {"q": "The hand-and-arm signal for a RIGHT turn is:", "options": ["Left arm straight out", "Left arm bent upward at about 90 degrees", "Left arm downward, palm to the rear"], "answer": 1, "ref": "NV Handbook - Ch.3 Signaling", "explanation": "Right turn is signaled by extending the left arm with the elbow bent upward at about a 90-degree angle."}, {"q": "You must NOT pass another vehicle within how many feet of a railroad crossing or street crossing?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "NV Handbook - Ch.3 Passing Another Vehicle", "explanation": "You must not pass at or within 100 feet of a street crossing or a railroad crossing."}, {"q": "When passing a bicyclist, a motorist must pass to the left at a safe distance of at least:", "options": ["One foot", "Three feet", "Ten feet"], "answer": 1, "ref": "NV Handbook - Ch.3 Passing Bicyclists", "explanation": "If no adjacent lane exists, pass to the left at a safe distance of at least three feet."}, {"q": "When parallel parking, your vehicle should be within how many inches of the curb?", "options": ["6 inches", "12 inches", "18 inches"], "answer": 2, "ref": "NV Handbook - Ch.3 Parking", "explanation": "The legal parking position is with front and rear wheels within 18 inches of the curb."}, {"q": "A RED colored curb marking means:", "options": ["Loading zone", "Handicapped parking", "No stopping, standing or parking"], "answer": 2, "ref": "NV Handbook - Ch.3 Colored Curb Markings", "explanation": "Red means no stopping, standing or parking (local laws apply)."}, {"q": "When you park downhill next to a curb, you should turn your front wheels:", "options": ["Away from the curb", "Toward or into the curb", "Straight ahead"], "answer": 1, "ref": "NV Handbook - Ch.3 Parking on a Hill", "explanation": "When headed downhill, turn your front tires toward or into the curb or road shoulder."}, {"q": "When parking uphill WITH a curb, you should turn your front wheels:", "options": ["Toward the curb", "Away from the curb", "Straight ahead"], "answer": 1, "ref": "NV Handbook - Ch.3 Parking on a Hill", "explanation": "When uphill with a curb, turn your front tires away from the curb."}, {"q": "With a four-wheel Anti-Lock Braking System (ABS), in an emergency you should:", "options": ["Pump the brakes rapidly", "Press the brake pedal down hard, hold it, and steer", "Tap the brake lightly"], "answer": 1, "ref": "NV Handbook - Ch.3 Anti-Lock Braking Systems", "explanation": "With four-wheel ABS, push the brake pedal down hard, hold it down firmly and steer in the direction you want to go."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

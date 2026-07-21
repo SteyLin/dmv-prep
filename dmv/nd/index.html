@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North Dakota DMV Practice Test (ND) — Free ND Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free North Dakota (ND) DMV practice test with 50 questions from the official North Dakota driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/nd/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>North Dakota</strong></div>
+  <header>
+    <h1>North Dakota <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free ND permit and license practice test — 50 questions from the official North Dakota driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">North Dakota (ND DOT)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official North Dakota DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "nd";
+const STATE_DATA = {"name": "North Dakota (ND DOT)", "source": "Official ND Driver Manual (public domain)", "questions": [{"q": "How many consecutive days do you have to live in the state to be considered a 'resident' in North Dakota?", "options": ["30 days", "60 days", "90 days"], "answer": 2, "ref": "ND Manual - Your Operator's License", "explanation": "Manuel: 'any person ... who has lived in this state for 90 consecutive days, shall be deemed a resident of North Dakota.'"}, {"q": "How many days can you continue to drive a Class D or M vehicle after becoming a North Dakota resident with a different state driver's license?", "options": ["30 days", "60 days", "90 days"], "answer": 1, "ref": "ND Manual - Your Operator's License", "explanation": "Manual: For Class D or M vehicles, '60 days after you become a resident' is allowed."}, {"q": "When driving with an instruction permit, what is the minimum age and how many years of driving experience must the supervising driver with you have?", "options": ["18 years old, at least 3 years experience", "21 years old, at least 1 year of experience", "16 years old, at least 2 years experience"], "answer": 0, "ref": "ND Manual - Permits", "explanation": "Manual: the controller must be 'at least 18 years of age and has had at least three years of driving experience'."}, {"q": "What is the minimum age to obtain an instruction permit in North Dakota?", "options": ["15", "14", "16"], "answer": 1, "ref": "ND Manual - Permits", "explanation": "Manuel: 'All politicians must be at least 14 years of age.'"}, {"q": "How long must a 14 or 15 year old hold their study permit before taking their road test?", "options": ["3 months", "At least 6 months (up to 12 months or 16 years)", "24 months"], "answer": 1, "ref": "ND Manual - Permits", "explanation": "Manual: 14-15 year olds must hold the permit '12 months or to the age of 16, whichever comes first, but no less than six months'."}, {"q": "What is the minimum number of hours of compulsory supervised driving practice for driver candidates under the age of 16?", "options": ["30 hours", "40 hours", "50 hours"], "answer": 2, "ref": "ND Manual - Permits / Supervised Driving Log", "explanation": "Manual: 'Individuals under 16 must complete a minimum of 50 hours of supervised practice driving.'"}, {"q": "Who can a 15-year-old driver with a restricted Class D driver's license be accompanied by at sunset or between 21:00 and 05:00?", "options": ["Any friend over 16", "Parent, legal guardian or person at least 18 years old", "Alone (no restrictions)"], "answer": 1, "ref": "ND Manual - Minors Driver License", "explanation": "Manual: At the age of 15, must be accompanied by a 'parent, legal guardian, or an individual at least 18 years of age' (except for work/school/religious event exceptions)."}, {"q": "What happens to a restricted Class D license for a driver who turns 16?", "options": ["is canceled", "Switches to an unrestricted driver's license", "Upgraded to heavy vehicle license"], "answer": 1, "ref": "ND Manual - Minors Driver License", "explanation": "Manual: 'At age 16 the restricted Class D Operator's License transitions to an unrestricted license.'"}, {"q": "What is the maximum GVWR (gross vehicle weight rating) for a single vehicle that can be driven with a Class D license (including trailer)?", "options": ["26,000lb", "Less than 26,001 lb", "30,000lb"], "answer": 1, "ref": "ND Manual - Classes of Licenses", "explanation": "Manual: 'Class D: Any single vehicle less than 26,001 pounds GVWR may tow trailers not over 10,000 pounds GVWR.'"}, {"q": "Which of the following is the only traffic sign with an octagonal (8-sided) shape?", "options": ["Yield (Prioritize)", "Stop", "Do Not Enter"], "answer": 1, "ref": "ND Manual - Signs (Regulatory)", "explanation": "Manual: 'The Stop sign is the only eight-sided sign.'"}, {"q": "What color are warning signs usually?", "options": ["Yellow background, black symbol", "White background, black symbol", "Blue background, white symbol"], "answer": 0, "ref": "ND Manual - Signs (Warning)", "explanation": "Manuel: 'These signs are yellow with a black legend.'"}, {"q": "Among the guide signs, what is the color of the signs indicating services (gas, hospital, telephone)?", "options": ["Green background, white symbol", "Blue background, white symbol", "Brown background, white symbol"], "answer": 1, "ref": "ND Manual - Signs (Guide)", "explanation": "Manual: 'Service signs are rectangular. 'The symbols are white on a blue background.'"}, {"q": "What is the shape and color of the sign that warns of approaching a railway crossing (Railroad Advance Warning)?", "options": ["Round, yellow background with black text", "Triangle, orange red edge", "Rectangular, blue background"], "answer": 0, "ref": "ND Manual - Signs (Railroad)", "explanation": "Manual: 'The Railroad Advance Warning sign is round with black lettering on a yellow background.'"}, {"q": "What shape and color is the slow-moving vehicle sign?", "options": ["Circle, blue white", "Triangle, orange red reflective edge", "Octagon, red white"], "answer": 1, "ref": "ND Manual - Signs (Warning)", "explanation": "Manual: 'Slow-moving vehicle signs are shaped like a triangle. They are orange with a red, reflective border.'"}, {"q": "What is the minimum fine for not complying with the speed limit in a work zone while work is progressing and workers are present?", "options": ["$50", "$80", "$150"], "answer": 1, "ref": "ND Manual - Work Zones", "explanation": "Manual: 'Failure to comply with work zone speed limits carries an $80 minimum fee when work is in progress and workers are present.'"}, {"q": "What can you do if the traffic light is red and the intersection is empty and there are no pedestrians/vehicles?", "options": ["You can turn left", "After stopping, you can turn right (if there is no promo sign)", "You cannot turn in any direction"], "answer": 1, "ref": "ND Manual - Signals", "explanation": "Manual: 'You may turn right on a red light after stopping when the intersection is clear ... unless there is a sign prohibiting a right turn on a red light.'"}, {"q": "What does a flashing red traffic light mean?", "options": ["Proceed with caution", "Same meaning as stop sign", "speed up"], "answer": 1, "ref": "ND Manual - Signals (Flashing)", "explanation": "Manual: 'Flashing red means the same thing as a stop sign\u2014STOP.'"}, {"q": "When can you cross the broken yellow center lines on a two-way, two-lane road?", "options": ["Left turn only or to pass another vehicle", "always freely", "Never"], "answer": 0, "ref": "ND Manual - Pavement Markings", "explanation": "Manual: 'Broken yellow center lines ... You may cross them only to turn left or to pass another vehicle.'"}, {"q": "What does it mean if there are two solid yellow lines on a two-way road?", "options": ["Passage is free in both directions", "There is no passage in any direction; You can only cross the center line for left turns", "Only right-hand passage is allowed"], "answer": 1, "ref": "ND Manual - Pavement Markings", "explanation": "Manual: 'Two solid yellow lines ... means no passing in either direction. Crossing the centerline is permitted only as part of a left-turn maneuver.'"}, {"q": "If two vehicles are approaching an intersection at the same time with no signs, who gives way?", "options": ["The vehicle on the left gives way to the vehicle on the right", "The vehicle on the right gives way to the vehicle on the left", "fast vehicle"], "answer": 0, "ref": "ND Manual - Right of Way", "explanation": "Manual: 'the vehicle on the left side must yield to the vehicle on the right.'"}, {"q": "Who goes first at a four-way stop intersection?", "options": ["biggest vehicle", "First vehicle to stop", "Vehicle coming from left"], "answer": 1, "ref": "ND Manual - Right of Way", "explanation": "Manuel: 'At a four-way stop, the vehicle that stops first goes first.'"}, {"q": "What should drivers approaching from both directions do when the school bus is flashing its red lights?", "options": ["Only those coming from the same direction stop", "Those coming from both directions must stop", "They can slow down and pass carefully"], "answer": 1, "ref": "ND Manual - Right of Way (School Bus)", "explanation": "Manual: 'When a school bus is stopped and flashing its red lights, drivers approaching from both directions must stop.'"}, {"q": "What is the maximum speed limit in a business/residential zone in North Dakota?", "options": ["20 mph", "25 mph", "30 mph"], "answer": 1, "ref": "ND Manual - Speed \u200b\u200bLimits", "explanation": "Manual: '25 miles per hour in a business or residential district, unless otherwise posted.'"}, {"q": "What is the maximum speed limit on a paved and divided multi-lane highway in rural areas?", "options": ["65mph", "70 mph", "80 mph"], "answer": 1, "ref": "ND Manual - Speed \u200b\u200bLimits", "explanation": "Manual: '70 miles per hour on paved and divided multi-lane highways, unless otherwise posted.'"}, {"q": "What is the maximum speed limit on a rural Interstate (highway)?", "options": ["70 mph", "75 mph", "80 mph"], "answer": 2, "ref": "ND Manual - Speed \u200b\u200bLimits", "explanation": "Manual: '80 miles per hour on rural Interstate highways, unless otherwise posted.'"}, {"q": "What is the speed limit when approaching an intersection where visibility is obstructed?", "options": ["15 mph", "20 mph", "25 mph"], "answer": 1, "ref": "ND Manual - Speed \u200b\u200bLimits", "explanation": "Manual: '20 miles per hour when approaching an intersection when your view of the intersection is in any way obstructed, unless otherwise posted.'"}, {"q": "When passing a vehicle, how many meters should you leave between you and the oncoming vehicle before returning to your own lane?", "options": ["100 feet", "200 feet", "300 feet"], "answer": 1, "ref": "ND Manual - Passing", "explanation": "Manual: '...return to your proper lane at least 200 feet before meeting an approaching vehicle.'"}, {"q": "Which of the following is a place where you should NOT pass a vehicle?", "options": ["On the open highway", "Within 100 feet (30 m) of an intersection, railroad crossing, or tunnel", "At the empty crossroads"], "answer": 1, "ref": "ND Manual - Passing (Never Pass)", "explanation": "Manual: 'Never Pass: ... Within 100 feet of an intersection, a railroad crossing, or a tunnel.'"}, {"q": "How to apply the 'three second rule', which is used to measure the safe following distance between you and the vehicle in front of you?", "options": ["You start counting when the lead vehicle moves 100 feet.", "When the front vehicle's rear bumper passes a sign, you count 1-2-3; If you reach the mark before 3 you are very close", "You multiply your speed by 3"], "answer": 1, "ref": "ND Manual - Following & Stopping Distances", "explanation": "Manual: 'three-second rule' \u2014 you start counting when the lead vehicle passes a mark; If you reach the marked location before 3, you are 'following too closely'."}, {"q": "Approximately how many feet (one city block) can you stop on dry ground at 55 mph?", "options": ["100 feet", "200 feet", "300 feet"], "answer": 2, "ref": "ND Manual - Following & Stopping Distances", "explanation": "Manual: 'At 55 miles per hour, it takes approximately 300 feet or one city block on dry pavement to stop.'"}, {"q": "How many feet should you use your turn signal continuously before making a turn?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "ND Manual - Turning / Hand Signals", "explanation": "Manual: 'signal continuously for the last 100 feet before the turn.' (Also 100 feet for hand signals.)"}, {"q": "In which direction do vehicles turn around the central island in a roundabout and what is done to deal with circulating traffic?", "options": ["Clockwise; wandering traffic gives way to you", "Counter-clockwise; You give way to circulating traffic", "Free in both directions"], "answer": 1, "ref": "ND Manual - Roundabouts", "explanation": "Manual: 'vehicles travel around a center island in a counter-clockwise direction' and 'Yield to circulating traffic when entering the roundabout.'"}, {"q": "When should you turn on your headlights when driving at night and how many feet before oncoming traffic should you dim them?", "options": ["From sunset to sunrise; at least 500 feet ago", "Only 22:00-05:00; 200 feet ago", "Only in the rain; 1000 feet ago"], "answer": 0, "ref": "ND Manual - Night Driving", "explanation": "Manual: 'Use your headlights from sunset to sunrise' and 'Dim your headlights at least 500 feet before meeting traffic.'"}, {"q": "When parallel parking, your wheels should be parallel to the right curb and at what distance?", "options": ["6 inches (15cm)", "1 foot (30cm)", "2 feet (60cm)"], "answer": 1, "ref": "ND Manual - Parking (Parallel)", "explanation": "Manual: 'your wheels should be parallel to the right-hand curb and within one foot of the right-hand curb.'"}, {"q": "Which of the following is a 'Do Not Park' rule?", "options": ["Parking within 10 feet of a fire hydrant", "Parking in empty parking lot", "Parking on the curb"], "answer": 0, "ref": "ND Manual - Parking (Do Not Park)", "explanation": "Manual: 'Within 10 feet of a fire hydrant' cannot be parked."}, {"q": "Which way should you turn the steering wheel when parking downhill?", "options": ["Towards the curb", "away from the pavement", "You should keep it straight"], "answer": 0, "ref": "ND Manual - Parking on a Hill", "explanation": "Manual: 'DOWNHILL \u2014 TURN WHEELS TOWARD CURB'. (Away from the pavement if uphill.)"}, {"q": "What is the fine for littering on a public road?", "options": ["$100", "$250", "$500"], "answer": 2, "ref": "ND Manual - Littering", "explanation": "Manuel: 'If you throw or deposit any litter on any public highway, you are subject to a $500 fine.'"}, {"q": "How much total damage or injury/death is required in an accident that requires immediate notification?", "options": ["$1,000 or more", "$4,000 or more", "$10,000 or more"], "answer": 1, "ref": "ND Manual - Crash Reports", "explanation": "Manual: 'combined damage of $4,000 or more, or results in personal injury or death, you must ... report it.'"}, {"q": "What is the first offense penalty for driving without insurance (No Liability Insurance)?", "options": ["$50", "$150", "$300"], "answer": 1, "ref": "ND Manual - Liability Insurance", "explanation": "Manual: 'The fine for operating an uninsured motor vehicle is $150 for a first violation and $300 for a second or subsequent violation.'"}, {"q": "Between what dates can studded snow tires be used in winter driving?", "options": ["November 1 - April 1", "October 15 - April 15", "December 1 - March 1"], "answer": 1, "ref": "ND Manual - Winter Driving", "explanation": "Manual: 'Studded snow tires may be used from October 15 to April 15.'"}, {"q": "What should you do if a rear-wheel drive vehicle starts to skid on a slippery road?", "options": ["You must press the brake hard", "You should steer in the direction that the rear end is slipping and slowly release the gas.", "You should immediately put the gear in neutral"], "answer": 1, "ref": "ND Manual - Skids", "explanation": "Manual: 'Turn your wheels in the direction the rear end of your vehicle is skidding. If the rear end skids right, steer right.' Also, stay away from the brakes and slowly release the accelerator."}, {"q": "What should be done when braking in a vehicle with anti-lock braking system (ABS)?", "options": ["Must pump the brake (press and pull repeatedly)", "You should keep the brake pressed constantly and firmly, not pump it.", "Never press the brake, use the handbrake"], "answer": 1, "ref": "ND Manual - Winter Driving (ABS)", "explanation": "Manual: 'Keep firm and continuous pressure on anti-lock brakes (ABS). Manually pumping...decreases their effectiveness.'"}, {"q": "During floods, what is the depth of water at which most passenger vehicles lose control or stop?", "options": ["2 inches", "6 inch", "1 feet"], "answer": 1, "ref": "ND Manual - Flooding", "explanation": "Manual: 'six inches of water will reach the bottom of most passenger cars, causing loss of control or possible stalling.'"}, {"q": "What should you do first if you experience a tire blowout?", "options": ["You must immediately apply the brakes and stop.", "Hold the steering wheel tightly, ease off the gas, do not brake until you regain control.", "You must change lanes immediately"], "answer": 1, "ref": "ND Manual - Flat Tire or Blowouts", "explanation": "Manual: 'Grasp the steering wheel tightly ... Ease up on the accelerator, but do not brake until you have regained full control.'"}, {"q": "Texting while driving is illegal in North Dakota and what is the penalty?", "options": ["$50", "$100", "$250"], "answer": 1, "ref": "ND Manual - Distracted Driving", "explanation": "Manual: 'It is not legal for anyone to text ... while driving.' The penalty is '$100 fine.'"}, {"q": "Approximately how far do blind spots / No-Zones extend on the rear of a truck (tractor-trailer)?", "options": ["20 feet", "200 feet", "100 feet"], "answer": 1, "ref": "ND Manual - Sharing the Road with Trucks (No-Zone)", "explanation": "Manual: blind spot behind truck 'up to 200 feet in the rear'; 'up to 20 feet in front of the cab.'"}, {"q": "How much distance can a fully loaded tractor-trailer require to come to a complete stop on dry ground?", "options": ["100 feet", "200 feet", "More than 400 feet (the length of a football field)"], "answer": 2, "ref": "ND Manual - Sharing the Road with Trucks (Braking)", "explanation": "Manuel: 'A fully-loaded tractor-trailer may take more than 400 feet on dry pavement to come to a complete stop, or more than the length of a football field.'"}, {"q": "What should you do when following or passing a motorcyclist?", "options": ["You can share the same lane with motorcyclists", "You should leave a full lane width for motorcyclists and never share the lane.", "Even if you don't notice motorcyclists, they have priority"], "answer": 1, "ref": "ND Manual - Sharing the Road with Motorcycles", "explanation": "Manual: 'Allow the motorcyclist a full lane width ... Do not share the lane.'"}, {"q": "What is the minimum distance between your vehicle and the bike when passing a cyclist?", "options": ["1 feet", "3 feet", "5 feet"], "answer": 1, "ref": "ND Manual - Sharing the Road with Bicycles", "explanation": "Manual: 'The individual operating the motor vehicle is required to leave a minimum of three feet of passing space between the vehicle and bicycle.'"}, {"q": "If you are not wearing a seat belt, how many times are you more likely to die if you are thrown out of the vehicle?", "options": ["2 layers", "4 floors", "10 times"], "answer": 1, "ref": "ND Manual - Seat Belts", "explanation": "Manuel: 'Your chances of being killed are four times greater if you are thrown from the vehicle.'"}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

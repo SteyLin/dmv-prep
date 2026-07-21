@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>California DMV Practice Test (CA) — Free CA Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free California (CA) DMV practice test with 58 questions from the official California driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/ca/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>California</strong></div>
+  <header>
+    <h1>California <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free CA permit and license practice test — 58 questions from the official California driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">California (CA DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official California DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "ca";
+const STATE_DATA = {"name": "California (CA DMV)", "source": "Official CA Driver Handbook + CA DMV sample tests (public domain)", "questions": [{"q": "When is it legal to drive off the road to pass another vehicle?", "options": ["If the vehicle ahead is turning left.", "It is not legal under any conditions.", "If there are two or more one-way lanes."], "answer": 1, "ref": "CA Driver Handbook - Passing", "explanation": "CA Driver Handbook - Passing"}, {"q": "When a railroad crossing is not controlled, what is the speed limit when you are within 100 feet and cannot see for 400 feet in both directions?", "options": ["15 mph.", "10 mph.", "25 mph."], "answer": 0, "ref": "CA Driver Handbook - Railroad Crossings", "explanation": "CA Driver Handbook - Railroad Crossings"}, {"q": "Which of the following is the proper procedure for parallel parking?", "options": ["Drive forward into the space without stopping.", "Stop next to the vehicle behind the open space, and then drive forward into the space.", "Stop next to the vehicle in front of the open space, and then back into the space."], "answer": 2, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "What speed should you be driving when entering onto a highway?", "options": ["At or near the speed of traffic.", "Faster than the speed of traffic.", "Slower than the speed of traffic."], "answer": 0, "ref": "CA Driver Handbook - Freeway Driving", "explanation": "CA Driver Handbook - Freeway Driving"}, {"q": "How many feet away should you switch from high beam to low beam headlights when approaching a vehicle coming towards you?", "options": ["900 feet.", "700 feet.", "500 feet."], "answer": 2, "ref": "CA Driver Handbook - Headlights", "explanation": "CA Driver Handbook - Headlights"}, {"q": "Who can legally park next to a curb painted blue?", "options": ["Someone who is either picking up or dropping off passengers at this location.", "A person who is disabled and has a special placard or vehicle license plate for disabled persons.", "A person who will only be parked at the curb for less than 15 minutes."], "answer": 1, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "What should you do when there is a school bus ahead that starts flashing yellow warning lights?", "options": ["Slow down and prepare to stop.", "Stop immediately and remain stopped.", "Cautiously pass the school bus on the left."], "answer": 0, "ref": "CA Driver Handbook - School Buses", "explanation": "CA Driver Handbook - School Buses"}, {"q": "Which of the following is a requirement of California's Basic Speed Law?", "options": ["Always drive the speed limit, regardless of conditions.", "Match your speed to that of your surrounding traffic.", "Never drive faster than is safe for current conditions."], "answer": 2, "ref": "CA Driver Handbook - Speed Limits", "explanation": "CA Driver Handbook - Speed Limits"}, {"q": "You must notify the DMV within 5 days if you:", "options": ["Paint your vehicle a different color.", "Sell or transfer ownership of your vehicle.", "Receive a traffic violation."], "answer": 1, "ref": "CA Driver Handbook - Owning a Vehicle", "explanation": "CA Driver Handbook - Owning a Vehicle"}, {"q": "Which of the following is an example of a safe driving practice?", "options": ["Staring only at the middle of the road.", "Always keep your eyes moving to scan the surroundings.", "Using your high-beam headlights in the fog."], "answer": 1, "ref": "CA Driver Handbook - Safe Driving", "explanation": "CA Driver Handbook - Safe Driving"}, {"q": "What color curb does not allow vehicles to stop or park?", "options": ["Yellow.", "Red.", "White."], "answer": 1, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "You are required to notify DMV by filing a Report of Traffic Accident Occurring in California (SR-1) form if:", "options": ["You change your insurance company.", "You were involved in a collision with an injury.", "Your vehicle fails a smog test."], "answer": 1, "ref": "CA Driver Handbook - Collisions", "explanation": "CA Driver Handbook - Collisions"}, {"q": "Unless otherwise posted, what is the speed limit in a California business or residential district?", "options": ["25 mph", "35 mph", "45 mph"], "answer": 0, "ref": "CA Driver Handbook - Speed Limits", "explanation": "CA Driver Handbook - Speed Limits"}, {"q": "What is the speed limit in an alley in California, unless otherwise posted?", "options": ["15 mph", "25 mph", "20 mph"], "answer": 0, "ref": "CA Driver Handbook - Speed Limits", "explanation": "CA Driver Handbook - Speed Limits"}, {"q": "In California, what is the speed limit when approaching a blind intersection where you cannot see for 100 feet in either direction?", "options": ["15 mph", "25 mph", "20 mph"], "answer": 0, "ref": "CA Driver Handbook - Speed Limits", "explanation": "CA Driver Handbook - Speed Limits"}, {"q": "In a California school zone, when children are present, the speed limit is:", "options": ["25 mph", "15 mph", "20 mph"], "answer": 0, "ref": "CA Driver Handbook - Speed Limits (School Zones)", "explanation": "CA Driver Handbook - Speed Limits (School Zones)"}, {"q": "Under California's Basic Speed Law, you may never drive faster than:", "options": ["Is safe for current conditions", "The posted limit, even in a storm", "The speed of the fastest car"], "answer": 2, "ref": "CA Driver Handbook - Speed Limits (Basic Speed Law)", "explanation": "CA Driver Handbook - Speed Limits (Basic Speed Law)"}, {"q": "Unless otherwise posted, what is the maximum speed limit on most California highways?", "options": ["65 mph", "55 mph", "70 mph"], "answer": 0, "ref": "CA Driver Handbook - Speed Limits", "explanation": "CA Driver Handbook - Speed Limits"}, {"q": "You must use your headlights in California from:", "options": ["30 minutes after sunset to 30 minutes before sunrise", "Noon to midnight", "Only on highways"], "answer": 0, "ref": "CA Driver Handbook - Headlights", "explanation": "CA Driver Handbook - Headlights"}, {"q": "In California, you must turn on your headlights when you use your windshield wipers in rain, snow, or fog because:", "options": ["The law requires headlights whenever wipers are needed for visibility", "It is optional", "Only at night"], "answer": 0, "ref": "CA Driver Handbook - Headlights", "explanation": "CA Driver Handbook - Headlights"}, {"q": "You should dim (lower) your high-beam headlights to low beams within 500 feet of an oncoming vehicle and within how many feet of a vehicle you are following?", "options": ["300 feet", "100 feet", "500 feet"], "answer": 1, "ref": "CA Driver Handbook - Headlights", "explanation": "CA Driver Handbook - Headlights"}, {"q": "In California, you must signal your intention to turn or change lanes at least how many feet before the maneuver?", "options": ["100 feet", "50 feet", "200 feet"], "answer": 0, "ref": "CA Driver Handbook - Signaling", "explanation": "CA Driver Handbook - Signaling"}, {"q": "Yellow lane lines in California separate:", "options": ["Traffic moving in opposite directions", "Traffic moving in the same direction", "Bicycle lanes only"], "answer": 0, "ref": "CA Driver Handbook - Lane Lines", "explanation": "CA Driver Handbook - Lane Lines"}, {"q": "White lane lines in California separate:", "options": ["Traffic moving in the same direction", "Traffic moving in opposite directions", "Parking spaces only"], "answer": 0, "ref": "CA Driver Handbook - Lane Lines", "explanation": "CA Driver Handbook - Lane Lines"}, {"q": "A double solid yellow line in the center of the road in California means:", "options": ["You may not cross it to pass", "You may pass at any time", "It is a bike lane"], "answer": 0, "ref": "CA Driver Handbook - Lane Lines", "explanation": "CA Driver Handbook - Lane Lines"}, {"q": "A broken white line between lanes in California means:", "options": ["You may change lanes when it is safe", "You may never change lanes", "It marks a railroad"], "answer": 0, "ref": "CA Driver Handbook - Lane Lines", "explanation": "CA Driver Handbook - Lane Lines"}, {"q": "At a California intersection, you must yield to a vehicle that is:", "options": ["Already in the intersection", "Behind you", "Smaller than yours"], "answer": 0, "ref": "CA Driver Handbook - Right of Way", "explanation": "CA Driver Handbook - Right of Way"}, {"q": "When entering a roundabout in California, you must yield to:", "options": ["Traffic already circulating in the roundabout", "Pedestrians only", "No one"], "answer": 0, "ref": "CA Driver Handbook - Roundabouts", "explanation": "CA Driver Handbook - Roundabouts"}, {"q": "In California, you must yield the right of way to pedestrians in:", "options": ["Crosswalks", "Only school crosswalks", "Parking lots only"], "answer": 0, "ref": "CA Driver Handbook - Pedestrians", "explanation": "CA Driver Handbook - Pedestrians"}, {"q": "When an emergency vehicle with flashing lights and a siren approaches in California, you must:", "options": ["Pull to the right edge and stop", "Keep driving", "Pass it on the left"], "answer": 0, "ref": "CA Driver Handbook - Emergency Vehicles", "explanation": "CA Driver Handbook - Emergency Vehicles"}, {"q": "In California, you may make a right turn at a red light after:", "options": ["Stopping completely, unless a sign prohibits the turn", "Never stopping", "Only if no cars are behind"], "answer": 0, "ref": "CA Driver Handbook - Turns", "explanation": "CA Driver Handbook - Turns"}, {"q": "When you make a right turn in California, you should end in:", "options": ["The rightmost lane available for your direction", "The leftmost lane", "Any lane you choose"], "answer": 0, "ref": "CA Driver Handbook - Turns", "explanation": "CA Driver Handbook - Turns"}, {"q": "In California, a U-turn is illegal near the crest of a hill, at a railroad crossing, or where visibility is less than:", "options": ["200 feet in each direction", "100 feet in each direction", "500 feet in each direction"], "answer": 0, "ref": "CA Driver Handbook - U-Turns", "explanation": "CA Driver Handbook - U-Turns"}, {"q": "A California curb painted blue is reserved for:", "options": ["Parking by a person with a disabled placard or plate", "Loading/unloading freight", "Short stops only"], "answer": 0, "ref": "CA Driver Handbook - Parking (Curb Colors)", "explanation": "CA Driver Handbook - Parking (Curb Colors)"}, {"q": "A California curb painted yellow means:", "options": ["Loading and unloading passengers or freight only (no long parking)", "No stopping, ever", "Parking for anyone"], "answer": 0, "ref": "CA Driver Handbook - Parking (Curb Colors)", "explanation": "CA Driver Handbook - Parking (Curb Colors)"}, {"q": "A California curb painted white means:", "options": ["Stop only long enough to pick up or drop off passengers", "Park all day", "No stopping"], "answer": 0, "ref": "CA Driver Handbook - Parking (Curb Colors)", "explanation": "CA Driver Handbook - Parking (Curb Colors)"}, {"q": "A California curb painted green means:", "options": ["Parking for a limited time", "No stopping", "Parking for disabled only"], "answer": 0, "ref": "CA Driver Handbook - Parking (Curb Colors)", "explanation": "CA Driver Handbook - Parking (Curb Colors)"}, {"q": "In California, you may not park within how many feet of a fire hydrant?", "options": ["15 feet", "5 feet", "25 feet"], "answer": 0, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "In California, you may not park within how many feet of a crosswalk?", "options": ["15 feet", "5 feet", "50 feet"], "answer": 0, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "In California, you may not park within how many feet of a stop sign or traffic signal?", "options": ["20 feet", "10 feet", "30 feet"], "answer": 0, "ref": "CA Driver Handbook - Parking", "explanation": "CA Driver Handbook - Parking"}, {"q": "California's child passenger law requires children under 8 years old (or under 4'9\") to be secured in:", "options": ["A proper child restraint system in the back seat", "The front seat with a lap belt", "No restraint on short trips"], "answer": 0, "ref": "CA Driver Handbook - Child Restraints", "explanation": "CA Driver Handbook - Child Restraints"}, {"q": "In California, a driver under 18 years of age may use a cell phone while driving:", "options": ["Only in a hands-free emergency call; all other use (even hands-free) is prohibited", "For any hands-free call", "At any time"], "answer": 0, "ref": "CA Driver Handbook - Wireless Phones", "explanation": "CA Driver Handbook - Wireless Phones"}, {"q": "In California, a driver 18 or older may use a cell phone while driving only if it is:", "options": ["Hands-free", "Held in the hand", "On the dashboard playing video"], "answer": 0, "ref": "CA Driver Handbook - Wireless Phones", "explanation": "CA Driver Handbook - Wireless Phones"}, {"q": "For drivers 21 and older in California, it is illegal to drive with a blood alcohol concentration (BAC) of:", "options": [".08% or higher", ".05% or higher", ".02% or higher"], "answer": 0, "ref": "CA Driver Handbook - DUI", "explanation": "CA Driver Handbook - DUI"}, {"q": "For drivers under 21 in California, any detectable alcohol (a BAC of .01% or higher) can result in:", "options": ["A suspended license under zero-tolerance law", "No penalty", "Only a warning"], "answer": 0, "ref": "CA Driver Handbook - Under 21 DUI", "explanation": "CA Driver Handbook - Under 21 DUI"}, {"q": "For commercial drivers in California, the illegal BAC limit is:", "options": [".04% or higher", ".08% or higher", ".10% or higher"], "answer": 0, "ref": "CA Driver Handbook - DUI (Commercial)", "explanation": "CA Driver Handbook - DUI (Commercial)"}, {"q": "Under California's implied consent law, if you drive you have agreed to:", "options": ["A chemical test of your blood or breath if arrested for DUI", "No testing", "Only a vision test"], "answer": 0, "ref": "CA Driver Handbook - Implied Consent", "explanation": "CA Driver Handbook - Implied Consent"}, {"q": "In California, if you are involved in a collision with injury, death, or damage over $1,000, you must file an SR-1 report with the DMV within:", "options": ["10 days", "24 hours", "30 days"], "answer": 0, "ref": "CA Driver Handbook - Collisions (SR-1)", "explanation": "CA Driver Handbook - Collisions (SR-1)"}, {"q": "In California, you must notify the DMV within 5 days if you:", "options": ["Sell or transfer ownership of your vehicle", "Paint your car a new color", "Change insurance companies"], "answer": 0, "ref": "CA Driver Handbook - Owning a Vehicle", "explanation": "CA Driver Handbook - Owning a Vehicle"}, {"q": "In California, you must notify the DMV of a change of address within:", "options": ["10 days", "30 days", "5 days"], "answer": 0, "ref": "CA Driver Handbook - Change of Address", "explanation": "CA Driver Handbook - Change of Address"}, {"q": "The recommended following distance in California is at least:", "options": ["3 seconds under normal conditions", "1 second", "10 seconds always"], "answer": 0, "ref": "CA Driver Handbook - Following Distance", "explanation": "CA Driver Handbook - Following Distance"}, {"q": "In California, a red, eight-sided sign means:", "options": ["STOP", "YIELD", "RAILROAD CROSSING"], "answer": 0, "ref": "CA Driver Handbook - Traffic Signs", "explanation": "CA Driver Handbook - Traffic Signs"}, {"q": "In California, a red, upside-down triangle sign means:", "options": ["YIELD", "STOP", "DO NOT ENTER"], "answer": 0, "ref": "CA Driver Handbook - Traffic Signs", "explanation": "CA Driver Handbook - Traffic Signs"}, {"q": "A yellow, diamond-shaped sign in California is a:", "options": ["Warning sign", "Regulatory sign", "Route marker"], "answer": 0, "ref": "CA Driver Handbook - Traffic Signs", "explanation": "CA Driver Handbook - Traffic Signs"}, {"q": "In California, a STOP sign requires you to stop:", "options": ["Before the crosswalk or limit line, then yield and proceed when safe", "In the middle of the intersection", "After the crosswalk"], "answer": 0, "ref": "CA Driver Handbook - Traffic Signs (Stop)", "explanation": "CA Driver Handbook - Traffic Signs (Stop)"}, {"q": "On a California divided highway with a physical median, you must stop for a school bus with flashing red lights only if:", "options": ["You are on the same side of the road as the bus", "You are on the opposite side", "You are on any street nearby"], "answer": 0, "ref": "CA Driver Handbook - School Buses", "explanation": "CA Driver Handbook - School Buses"}, {"q": "In California, before crossing any railroad tracks you should:", "options": ["Slow down, look and listen, and stop if a train is coming", "Speed up to clear them", "Never stop"], "answer": 0, "ref": "CA Driver Handbook - Railroad Crossings", "explanation": "CA Driver Handbook - Railroad Crossings"}, {"q": "When a school bus in California begins flashing yellow warning lights, you should:", "options": ["Slow down and prepare to stop", "Stop immediately", "Pass quickly"], "answer": 0, "ref": "CA Driver Handbook - School Buses", "explanation": "CA Driver Handbook - School Buses"}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

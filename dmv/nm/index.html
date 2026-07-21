@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Mexico DMV Practice Test (NM) — Free NM Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free New Mexico (NM) DMV practice test with 50 questions from the official New Mexico driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/nm/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>New Mexico</strong></div>
+  <header>
+    <h1>New Mexico <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free NM permit and license practice test — 50 questions from the official New Mexico driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">New Mexico (NM MVD)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official New Mexico DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "nm";
+const STATE_DATA = {"name": "New Mexico (NM MVD)", "source": "Official NM Driver Manual (public domain)", "questions": [{"q": "What is the minimum age to obtain an instructional permit in New Mexico?", "options": ["15 years of age", "16 years of age", "18 years of age"], "answer": 0, "ref": "NM Manual - The Driver License (Instructional Permit)", "explanation": "The manual states the minimum age for an instructional permit is 15 years of age."}, {"q": "A supervising licensed driver riding with an instructional-permit holder (in a car) must be at least what age?", "options": ["18", "21", "25"], "answer": 1, "ref": "NM Manual - The Driver License (Instructional Permit)", "explanation": "A permit allows driving only when supervised by a licensed driver at least 21 years of age."}, {"q": "How long must a driver hold the instructional permit before advancing?", "options": ["Three months", "Six months", "One year"], "answer": 1, "ref": "NM Manual - The Driver License (Instructional Permit)", "explanation": "The driver must retain the instructional permit for at least six months."}, {"q": "During which hours may a provisional license holder NOT drive (without an exception)?", "options": ["Midnight to 5:00 AM", "10:00 PM to 6:00 AM", "9:00 PM to 5:00 AM"], "answer": 0, "ref": "NM Manual - The Driver License (Provisional License)", "explanation": "A provisional licensee may not drive on public highways between midnight and 5:00 AM unless an exception applies."}, {"q": "How many hours of supervised practice driving must a provisional applicant complete?", "options": ["30 hours, including 5 at night", "50 hours, including 10 at night", "40 hours, including 15 at night"], "answer": 1, "ref": "NM Manual - The Driver License (Provisional License)", "explanation": "The driver must complete not less than 50 hours of practice driving, including not less than 10 hours of nighttime driving."}, {"q": "How long must a driver hold a provisional license before applying for an unrestricted license?", "options": ["6 months", "12 months", "24 months"], "answer": 1, "ref": "NM Manual - The Driver License (Unrestricted Driver License)", "explanation": "The driver must have held a provisional license for the 12-month period immediately preceding the application."}, {"q": "A New Mexico driver license is valid for how long?", "options": ["Either 4 or 8 years", "Exactly 5 years", "Exactly 10 years"], "answer": 0, "ref": "NM Manual - Driver License Renewal", "explanation": "Your driver license is valid for either 4 or 8 years."}, {"q": "When may you renew your New Mexico driver license?", "options": ["Only after it expires", "Up to 90 days before or 30 days after expiration", "Only in the month it expires"], "answer": 1, "ref": "NM Manual - Driver License Renewal", "explanation": "You may renew anytime up to 90 days before or 30 days after it expires."}, {"q": "In New Mexico, wearing safety belts while driving is:", "options": ["Optional for adults", "Required by law", "Only required on highways"], "answer": 1, "ref": "NM Manual - Safety Belts and Child Restraints", "explanation": "In the State of New Mexico, it is illegal to drive without wearing safety belts."}, {"q": "The law requires all children under what age to wear appropriate safety restraints while the vehicle is in motion?", "options": ["Under 8", "Under 10", "Under 12"], "answer": 2, "ref": "NM Manual - Safety Belts and Child Restraints", "explanation": "The law requires that all children under the age of 12 wear appropriate safety restraints."}, {"q": "Children under 24 months or weighing less than what must be secured in an approved safety device?", "options": ["40 pounds", "60 pounds", "80 pounds"], "answer": 1, "ref": "NM Manual - Safety Belts and Child Restraints", "explanation": "Children under 24 months, or weighing less than 60 pounds, must be secured in an approved safety device."}, {"q": "A flashing RED traffic light means:", "options": ["Slow down and proceed with caution", "The same as a stop sign \u2014 come to a full stop", "Speed up to clear the intersection"], "answer": 1, "ref": "NM Manual - Traffic Signals", "explanation": "A flashing RED traffic light means the same as a stop sign; you must come to a full stop and proceed when safe."}, {"q": "A flashing YELLOW traffic light means:", "options": ["Stop completely", "Slow down and proceed with caution", "Prepare to turn left"], "answer": 1, "ref": "NM Manual - Traffic Signals", "explanation": "A flashing YELLOW traffic light means slow down and proceed with caution."}, {"q": "If you are already in the intersection when the light turns yellow, you should:", "options": ["Stop immediately", "Continue through the intersection", "Reverse out of the intersection"], "answer": 1, "ref": "NM Manual - Traffic Signals", "explanation": "If you are in the intersection when the yellow light comes on, do not stop but continue through the intersection."}, {"q": "At a steady green light while turning left, who has the right-of-way?", "options": ["You do", "Oncoming traffic", "Pedestrians only"], "answer": 1, "ref": "NM Manual - Traffic Signals", "explanation": "When turning left on a steady green, oncoming traffic has the right-of-way; you may turn only when safe."}, {"q": "Warning signs are usually which color and shape?", "options": ["Yellow and diamond-shaped", "Red and octagonal", "Blue and rectangular"], "answer": 0, "ref": "NM Manual - Traffic Signs (Warning Signs)", "explanation": "Warning signs are usually yellow with black lettering or symbols and most are diamond shaped."}, {"q": "A stop sign has how many sides?", "options": ["Six", "Eight", "Four"], "answer": 1, "ref": "NM Manual - Traffic Signs (Stop Sign)", "explanation": "A stop sign has eight sides and is red with white letters."}, {"q": "A yield sign is what shape?", "options": ["A downward pointing triangle", "A square", "A circle"], "answer": 0, "ref": "NM Manual - Traffic Signs (Yield Sign)", "explanation": "A yield sign is a downward pointing triangle, red and white with red letters."}, {"q": "Work area (construction) signs are generally what color?", "options": ["Green", "Orange", "Blue"], "answer": 1, "ref": "NM Manual - Traffic Signs (Work Area Signs)", "explanation": "Work area signs are generally orange with black letters or symbols."}, {"q": "A reflective orange triangle on the rear of a vehicle indicates:", "options": ["A vehicle traveling less than 25 mph", "A hazardous materials load", "An emergency vehicle"], "answer": 0, "ref": "NM Manual - Traffic Signs (Slow Moving Vehicle)", "explanation": "A reflective orange triangle means the vehicle is traveling less than 25 mph."}, {"q": "Destination guide signs are typically what colors?", "options": ["Blue with white letters", "Green or brown with white lettering", "Yellow with black letters"], "answer": 1, "ref": "NM Manual - Traffic Signs (Destination Signs)", "explanation": "Destination signs are green or brown with white lettering."}, {"q": "Service signs (rest areas, gas, hospitals) are what color?", "options": ["Blue with white letters or symbols", "Green with white letters", "Orange with black letters"], "answer": 0, "ref": "NM Manual - Traffic Signs (Service Signs)", "explanation": "Service signs are blue with white letters or symbols."}, {"q": "A dashed yellow line between opposing lanes means:", "options": ["You may never cross it", "You may cross it to pass if it is safe", "It marks the edge of the road"], "answer": 1, "ref": "NM Manual - Pavement Markings", "explanation": "A dashed yellow line between opposing lanes means you may cross it to pass if it is safe to do so."}, {"q": "Two solid yellow lines between lanes of traffic mean:", "options": ["Either side may pass", "Neither side can pass", "Passing allowed at night only"], "answer": 1, "ref": "NM Manual - Pavement Markings", "explanation": "Two solid yellow lines mean neither side can pass."}, {"q": "A dashed white line between lanes of traffic means:", "options": ["You may cross it to change lanes if safe", "You may never cross it", "It marks a bike lane"], "answer": 0, "ref": "NM Manual - Pavement Markings", "explanation": "A dashed white line between lanes means you may cross it to change lanes if it is safe."}, {"q": "On a reversible lane, a red 'X' overhead means:", "options": ["You can use the lane", "You cannot use the lane", "The lane is for turning only"], "answer": 1, "ref": "NM Manual - Other Lane Controls (Reversible Lanes)", "explanation": "A red 'X' means you cannot use the lane beneath it."}, {"q": "'HOV 3' on a reserved lane sign means:", "options": ["At least three people must be in the vehicle", "Speed limit of 3 mph", "Only three lanes ahead"], "answer": 0, "ref": "NM Manual - Other Lane Controls (Reserved Lanes)", "explanation": "'HOV 3' means there must be at least three people in the vehicle."}, {"q": "On a road with two or more lanes going the same direction, you should:", "options": ["Stay in the left lane", "Stay in the right lane except to pass", "Use whichever lane you prefer"], "answer": 1, "ref": "NM Manual - General Rules (General driving)", "explanation": "On a road with two or more lanes in the same direction, stay in the right lane except to pass."}, {"q": "Backing up in a travel lane is:", "options": ["Allowed if traffic is light", "Illegal and unsafe except to parallel park", "Allowed only on one-way streets"], "answer": 1, "ref": "NM Manual - General Rules (General driving)", "explanation": "Never back a vehicle in any travel lane except to parallel park; it is illegal and unsafe."}, {"q": "You should signal at least how far before making a turn?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "NM Manual - Letting Others Know What You Are Doing", "explanation": "Signal at least 100 feet before you make your turn."}, {"q": "At a 4-way stop, if two vehicles arrive at exactly the same time:", "options": ["The vehicle on the left goes first", "The vehicle on the right goes first", "The faster vehicle goes first"], "answer": 1, "ref": "NM Manual - Right-of-Way", "explanation": "If more than one vehicle arrives at the same time at a 4-way stop, the vehicle on the right goes first."}, {"q": "At an intersection with no signs or signals, you must yield to vehicles coming from:", "options": ["The left", "The right", "Behind you"], "answer": 1, "ref": "NM Manual - Right-of-Way", "explanation": "At an uncontrolled intersection, drivers must yield to vehicles coming from the right."}, {"q": "When entering a traffic circle or rotary, you must:", "options": ["Yield to drivers already in the circle", "Always have the right-of-way", "Stop completely before entering"], "answer": 0, "ref": "NM Manual - Right-of-Way", "explanation": "Drivers entering a traffic circle or rotary must yield to drivers already in the circle."}, {"q": "You must stop for a stopped school bus with red lights flashing when it is:", "options": ["Only on your side of the road", "On your side, the opposite side, or at an intersection ahead", "Only when children are visible"], "answer": 1, "ref": "NM Manual - Right-of-Way", "explanation": "You must stop for a school bus stopped with red lights flashing whether it is on your side, the opposite side, or at an intersection you are approaching."}, {"q": "You are NOT required to stop for an oncoming school bus with red lights flashing when:", "options": ["The bus is far away", "The roadway is separated by a median or physical barrier", "You are in a hurry"], "answer": 1, "ref": "NM Manual - Right-of-Way", "explanation": "You are not required to stop if the bus is traveling toward you and the roadway is separated by a median or other physical barrier."}, {"q": "When an emergency vehicle approaches with a siren or flashing lights, you should:", "options": ["Speed up to get out of the way", "Pull over to the right edge of the road", "Stop immediately where you are"], "answer": 1, "ref": "NM Manual - Right-of-Way", "explanation": "Pull over to the right edge of the road, or as near to the right as possible, when an emergency vehicle approaches."}, {"q": "Unless posted otherwise, the maximum speed in a school zone (with posted limit) is:", "options": ["15 mph", "25 mph", "20 mph"], "answer": 0, "ref": "NM Manual - Speed Limits", "explanation": "The maximum is 15 mph within a school zone with a posted speed limit."}, {"q": "Unless posted otherwise, the maximum speed in a business or residential area is:", "options": ["25 mph", "30 mph", "35 mph"], "answer": 1, "ref": "NM Manual - Speed Limits", "explanation": "The maximum is 30 mph in business or residential areas unless posted otherwise."}, {"q": "Unless posted otherwise, the maximum speed on public highways is:", "options": ["45 mph", "55 mph", "65 mph"], "answer": 1, "ref": "NM Manual - Speed Limits", "explanation": "The maximum is 55 mph on public highways unless posted otherwise."}, {"q": "Unless posted otherwise, the maximum speed on rural interstate highways is:", "options": ["65 mph", "70 mph", "75 mph"], "answer": 2, "ref": "NM Manual - Speed Limits", "explanation": "The maximum is 75 mph on rural interstate highways unless posted otherwise."}, {"q": "You must not park within how many feet of a fire hydrant?", "options": ["10 feet", "15 feet", "25 feet"], "answer": 1, "ref": "NM Manual - Parking (No-Parking Zones)", "explanation": "Do not park within 15 ft. of a fire hydrant."}, {"q": "You must not park within how many feet of a railroad crossing?", "options": ["25 feet", "50 feet", "75 feet"], "answer": 1, "ref": "NM Manual - Parking (No-Parking Zones)", "explanation": "Do not park within 50 ft. of a railroad crossing."}, {"q": "A curb painted red indicates:", "options": ["Loading zone", "A fire zone with no parking or standing", "Short stops permitted"], "answer": 1, "ref": "NM Manual - Parking (curb markings)", "explanation": "A red curb indicates a fire zone with no parking or standing permitted."}, {"q": "When parking on a hill, you should turn your wheels:", "options": ["Straight ahead", "Sharply toward the side of the road or curb", "Away from the curb"], "answer": 1, "ref": "NM Manual - Parking", "explanation": "When you park on a hill, turn your wheels sharply toward the side of the road or curb so the vehicle rolls away from traffic."}, {"q": "A driver's license is suspended for one year if the driver accumulates how many points within 12 months?", "options": ["8 or more", "12 or more", "6 or more"], "answer": 1, "ref": "NM Manual - Traffic Violations", "explanation": "If a driver has twelve or more points within a twelve-month period, their license is suspended for one year."}, {"q": "The rule used to check safe following distance behind the vehicle ahead is the:", "options": ["Two-second rule", "Three-second rule", "Five-second rule"], "answer": 1, "ref": "NM Manual - Sharing Space (Space Ahead)", "explanation": "Following distance is checked with the 'three-second rule,' which works at any speed."}, {"q": "To merge with other traffic, you generally need a gap of about:", "options": ["Two seconds", "Four seconds", "Six seconds"], "answer": 1, "ref": "NM Manual - Sharing Space (Space to Merge)", "explanation": "Anytime you want to merge, you need a gap of about four seconds."}, {"q": "You should dim your high beams within about what distance of an oncoming vehicle?", "options": ["One block", "One-quarter mile", "Half a mile"], "answer": 0, "ref": "NM Manual - Use Your Lights", "explanation": "Dim your high beams whenever you come within about a one-block distance of an oncoming vehicle."}, {"q": "When following another vehicle, use your low beams within:", "options": ["100 feet", "200 feet", "500 feet"], "answer": 1, "ref": "NM Manual - Use Your Lights", "explanation": "Use your low beams within 200 feet when following another vehicle or when in heavy traffic."}, {"q": "On packed snow, you should:", "options": ["Reduce speed about 10 mph", "Cut your speed in half", "Maintain normal speed"], "answer": 1, "ref": "NM Manual - Adjusting to Road Conditions (Slippery roads)", "explanation": "On packed snow you should cut your speed in half."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North Carolina DMV Practice Test (NC) — Free NC Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free North Carolina (NC) DMV practice test with 50 questions from the official North Carolina driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/nc/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>North Carolina</strong></div>
+  <header>
+    <h1>North Carolina <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free NC permit and license practice test — 50 questions from the official North Carolina driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">North Carolina (NC DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official North Carolina DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "nc";
+const STATE_DATA = {"name": "North Carolina (NC DMV)", "source": "Official NC Driver Handbook (public domain)", "questions": [{"q": "In North Carolina, what is the default speed limit in a business or urban district if the speed limit is not posted?", "options": ["25 mph", "35 mph", "45 mph"], "answer": 1, "ref": "NC Handbook - Speed \u200b\u200bLimits", "explanation": "If there is no signage in municipal/business and residential areas, the default speed limit is 35 mph."}, {"q": "What is the default speed limit on non-municipality NC state highways if there is no signage?", "options": ["45 mph", "55mph", "65mph"], "answer": 1, "ref": "NC Handbook - Speed \u200b\u200bLimits", "explanation": "The default speed limit on non-residential state highways is 55 mph."}, {"q": "What is the speed limit in a school zone when warning lights are on or children are visible?", "options": ["15 mph", "25 mph", "35 mph"], "answer": 1, "ref": "NC Handbook - Speed \u200b\u200bLimits", "explanation": "If lights are on/there are children in the school zone, speed is limited to 25 mph."}, {"q": "At what age is the earliest a person taking driver education can apply for Level 1 (Limited Learner Permit) in NC?", "options": ["14", "15", "16"], "answer": 1, "ref": "NC Handbook - Graduated Licensing", "explanation": "Level 1 learner permit with Driver ed can be obtained at the age of 15."}, {"q": "What is the minimum age of the supervisory driver that a Level 1 permit holder must have while driving?", "options": ["18", "21", "25"], "answer": 1, "ref": "NC Handbook - Graduated Licensing", "explanation": "The supervisory driver must be at least 21 years old and have a valid driver's license."}, {"q": "What are the valid curfew hours for Level 1 and Level 2 drivers in NC graduated driver's license (GDL)?", "options": ["20:00-06:00", "21:00-05:00", "23:00-05:00"], "answer": 1, "ref": "NC Handbook - Graduated Licensing", "explanation": "Level 1 and 2 drivers cannot drive between 21:00 and 05:00 (with exceptions)."}, {"q": "How many hours (how many nights) of supervised driving are required to upgrade to a Level 2 (Limited Provisional) license?", "options": ["40 hours (10 nights)", "50 hours (10 nights)", "60 hours (20 nights)"], "answer": 1, "ref": "NC Handbook - Graduated Licensing", "explanation": "For Level 2, 50 hours of supervised driving (10 hours of which are at night) is required."}, {"q": "What is the minimum standard for vision testing for an NC driver's license?", "options": ["20/40 in one eye", "20/70 in one eye", "20/20 in both eyes"], "answer": 0, "ref": "NC Handbook - Licensing", "explanation": "20/40 vision with or without correction is required in at least one eye."}, {"q": "How many questions are asked in the NC written (knowledge) exam and how many correct answers are required to pass?", "options": ["20 questions / 16 correct", "25 questions / 20 correct", "30 questions / 24 correct"], "answer": 1, "ref": "NC Handbook - Licensing", "explanation": "The written exam is 25 questions, 80% (20 correct) success is required."}, {"q": "What are the minimum limits for compulsory liability insurance in NC (person/accident/property)?", "options": ["25/50/15", "30/60/25", "50/100/50"], "answer": 1, "ref": "NC Handbook - Insurance & Registration", "explanation": "Minimum limits are $30,000/$60,000/$25,000 (30/60/25)."}, {"q": "How is the NC seat belt law enforced?", "options": ["Secondary only", "Primary control", "Under 16 only"], "answer": 1, "ref": "NC Handbook - Occupant Protection", "explanation": "In NC, seat belt violations are punished by primary enforcement; All passengers are covered."}, {"q": "For which children is child restraint mandatory in NC?", "options": ["Under 8 only", "Under 8 AND under 80 lbs AND under 57 inches", "All under 12 years old"], "answer": 1, "ref": "NC Handbook - Occupant Protection", "explanation": "Children under 8 years of age AND weighing less than 80 lbs AND less than 57 inches tall must be in an approved seat."}, {"q": "What is the legal blood alcohol concentration (BAC) limit for drivers aged 21 and over?", "options": ["0.05", "0.08", "0.10"], "answer": 1, "ref": "NC Handbook - Impaired Driving", "explanation": "The DWI limit for adults 21+ is 0.08 BAC."}, {"q": "What is the NC 'zero tolerance' BAC limit for drivers under 21?", "options": ["0.02", "0.00 (any alcohol)", "0.04"], "answer": 1, "ref": "NC Handbook - Impaired Driving", "explanation": "Zero tolerance applies to those under 21; Driving under the influence of alcohol is illegal."}, {"q": "What is the legal BAC limit for commercial (CDL) drivers?", "options": ["0.04", "0.08", "0.10"], "answer": 0, "ref": "NC Handbook - Impaired Driving", "explanation": "The BAC limit for commercial vehicle drivers is 0.04."}, {"q": "What is the first violation penalty for refusing chemical testing under the NC 'implied consent' law?", "options": ["1 year license cancellation", "6 months license cancellation", "90 days license cancellation"], "answer": 0, "ref": "NC Handbook - Impaired Driving", "explanation": "Refusing to test is a violation of implied consent; First refusal will result in 12 month license revocation."}, {"q": "When should you not pass a stopped school bus in NC with red lights/stop sign flashing?", "options": ["If you're just stuck behind", "Stop when approaching from both directions except dual carriageway (median)", "slow down to 10 mph"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "If it is not a median road, vehicles approaching from both directions must stop."}, {"q": "What is the first offense penalty for passing a stopped school bus?", "options": ["$200 + 2 points", "$500 + 5 points", "$1000 + 8 points"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "First violation carries a $500 civil penalty and 5 demerit points."}, {"q": "According to the NC 'Move Over' law, what should you do when approaching an emergency/relief vehicle with flashing lights?", "options": ["Just slow down", "Clear a lane or slow down safely", "If you're in the left lane, ignore"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "Clear one lane if possible, if not, slow down significantly."}, {"q": "When should headlights be turned on in NC?", "options": ["From sunset to sunrise", "30 minutes after sunset - 30 minutes before sunrise", "1 hour after sunset"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "Headlights should be turned on 30 minutes after sunset and 30 minutes before sunrise."}, {"q": "When should you dim your high beams?", "options": ["200 ft from the front / 100 ft from the rear", "500 ft from the front / 300 ft from the rear", "1000 ft from the front / 500 ft from the rear"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "The high beam is dimmed 500 ft before an oncoming traffic and 300 ft when following the vehicle in front."}, {"q": "What to do when using wipers according to the NC 'wipers-on, lights-on' rule?", "options": ["just at night", "If wipers are used due to weather conditions, the headlights are turned on.", "Only in more than 1 inch of rain"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "If the wipers are working due to rain/snow, the headlights should also be turned on."}, {"q": "What is the minimum recommended for safe following distance in NC?", "options": ["1 second", "2 seconds", "3 seconds"], "answer": 1, "ref": "NC Handbook - Safe Driving", "explanation": "At least 2 seconds for good weather; 4 seconds is recommended for bad weather/night."}, {"q": "At least how many feet before turning in NC should the signal (turn light) be given?", "options": ["50 feet", "100 feet", "200ft"], "answer": 1, "ref": "NC Handbook - Safe Driving", "explanation": "The signal must be given at least 100 ft before the turn."}, {"q": "Who has the right-of-way in an unsigned four-way stop?", "options": ["plucking left", "Give way to the person on the right who stops first / at the same time", "biggest vehicle"], "answer": 1, "ref": "NC Handbook - Right-of-Way", "explanation": "The one who stands first will pass; If they arrive at the same time, the vehicle on the right is given way."}, {"q": "To whom should you give way at an uncontrolled intersection with no signal or stop sign?", "options": ["To the vehicle on the left", "To the car on the right", "to the fast one"], "answer": 1, "ref": "NC Handbook - Right-of-Way", "explanation": "At an unmarked intersection, the vehicle coming from the right is given way."}, {"q": "Who should you give way to when making a left turn?", "options": ["into oncoming traffic", "To the car on the right", "Pedestrians only"], "answer": 0, "ref": "NC Handbook - Right-of-Way", "explanation": "When making a left turn, oncoming traffic is given way."}, {"q": "When do you enter at a roundabout?", "options": ["Give way to traffic already in the circle", "Give way to those who want to enter", "The big one passes"], "answer": 0, "ref": "NC Handbook - Right-of-Way", "explanation": "It is entered after giving way to circulating traffic in the circle."}, {"q": "What does the driver do when there is a pedestrian at the crosswalk?", "options": ["Always give way to pedestrians", "The pedestrian gives way to you", "If there's only light"], "answer": 0, "ref": "NC Handbook - Sharing the Road", "explanation": "Pedestrians at the crosswalk are always given priority."}, {"q": "What is the railroad crossing rule for school buses or vehicles carrying hazardous materials?", "options": ["Stop only if a train appears", "Stop at all railway crossings", "Stop only if there is signal"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "School buses and vehicles carrying hazardous materials stop at every railway crossing."}, {"q": "What should be the stopping distance at a railway crossing signal?", "options": ["5-15ft", "15-50ft", "50-100ft"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "Stop at least 15 ft and at most 50 ft before the rails."}, {"q": "How to turn the wheels if there is a curb on a downhill slope in NC?", "options": ["towards the curb", "away from the curb", "straight forward"], "answer": 0, "ref": "NC Handbook - Parking", "explanation": "When parking downhill, the wheels are turned towards the curb (pavement)."}, {"q": "How close to a fire hydrant cannot be parked in NC?", "options": ["10 feet", "15 feet", "25 feet"], "answer": 1, "ref": "NC Handbook - Parking", "explanation": "Parking may not be closer than 15 ft. to a fire hydrant."}, {"q": "How close to a stop sign/traffic light cannot be parked in NC?", "options": ["20 feet", "30 feet", "50 feet"], "answer": 1, "ref": "NC Handbook - Parking", "explanation": "Cannot park closer than 30 feet from a stop sign or traffic light."}, {"q": "What is the helmet rule for motorcycle riders and passengers in NC?", "options": ["Under 18 only", "All drivers and passengers must wear DOT approved helmets", "passengers only"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "In NC, all motorcycle riders and passengers must wear an approved helmet."}, {"q": "How should cyclists ride on NC roads?", "options": ["against traffic", "As far to the right as possible (practicable)", "In the middle lane"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "Cyclists ride on the right whenever possible and have the same rights as vehicles."}, {"q": "Who does the ban on texting while driving in NC cover?", "options": ["Under 18 only", "All drivers (primary)", "In school districts only"], "answer": 1, "ref": "NC Handbook - Distracted Driving", "explanation": "Texting is prohibited for all drivers with a primary violation."}, {"q": "What is the use of mobile phones (including hands-free) for drivers under the age of 18?", "options": ["hands-free free", "Cannot be used in any way", "Just standing still"], "answer": 1, "ref": "NC Handbook - Distracted Driving", "explanation": "Drivers under the age of 18 cannot use any wireless devices while the vehicle is in motion."}, {"q": "In the NC penalty point system, how many points is the license suspended (within 3 years)?", "options": ["8 points", "12 points", "15 points"], "answer": 1, "ref": "NC Handbook - License Suspension", "explanation": "A penalty of 12 points within 3 years will result in license suspension."}, {"q": "What does the DMV do if your penalty points reach 7?", "options": ["Just a warning", "Mandatory attendance at a driver improvement clinic", "automatic suspension"], "answer": 1, "ref": "NC Handbook - License Suspension", "explanation": "At 7 points, the DMV requires attendance at a driver improvement clinic."}, {"q": "When can passing on the right be done in NC?", "options": ["Always", "If a multi-lane road or the vehicle in front is turning left", "Only on highways"], "answer": 1, "ref": "NC Handbook - Lane Usage", "explanation": "Passing on the right is only done on a multi-lane road or if the vehicle in front of you is turning left."}, {"q": "What does the double/solid yellow line in the middle of the road mean?", "options": ["Passage is free", "Passage prohibited", "If it is clearly visible, passage is free"], "answer": 1, "ref": "NC Handbook - Pavement Markings", "explanation": "A solid yellow line indicates that passing is prohibited."}, {"q": "What is a two-way left turn lane used for?", "options": ["for passing", "For left turns only", "to park"], "answer": 1, "ref": "NC Handbook - Pavement Markings", "explanation": "This lane is reserved for left turns only, not for passing/parking."}, {"q": "What should be the minimum tire tread depth in NC?", "options": ["1/32 inch", "2/32 inch", "4/32 inch"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "The minimum tread depth on tires is 2/32 inch."}, {"q": "If the police are not on the scene and the accident involves injuries or damage over $1,000, how long does it take to report to the DMV?", "options": ["24 hours", "48 hours", "7 days"], "answer": 0, "ref": "NC Handbook - Crashes", "explanation": "If no officer is present and there is damage/injury, the accident will be reported to the DMV within 24 hours."}, {"q": "How many days does it take for someone new to NC to register their vehicle?", "options": ["10 days", "30 days", "60 days"], "answer": 1, "ref": "NC Handbook - Insurance & Registration", "explanation": "New residents must register their vehicles within 30 days."}, {"q": "What documents do you need to have with you when driving in NC?", "options": ["Driver's license only", "Driver's license + registration + proof of insurance", "registration only"], "answer": 1, "ref": "NC Handbook - Licensing", "explanation": "Driver's license, vehicle registration and proof of insurance must be carried."}, {"q": "What do you do when you see an emergency vehicle (ambulance, police, fire department) approaching with flashing lights and sirens?", "options": ["continue at the same pace", "Pull right and stop", "Speed \u200b\u200bup and move away"], "answer": 1, "ref": "NC Handbook - Sharing the Road", "explanation": "When an emergency vehicle approaches, pull to the right and stop to give way."}, {"q": "How are studded tires used in NC?", "options": ["Free all year round", "Forbidden", "November-March is free"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "Studded tires are prohibited in NC."}, {"q": "How many feet ahead should you be able to see a person/vehicle with high beam?", "options": ["200ft", "350ft", "500ft"], "answer": 1, "ref": "NC Handbook - Vehicle Equipment", "explanation": "High beams must make a person/vehicle visible at least 350 ft ahead."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

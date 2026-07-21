@@ -1,0 +1,128 @@
+{
+  "ca": {
+    "name": "California (CA DMV)",
+    "source": "Official CA DMV Sample Written Tests + CA Driver Handbook (public domain)",
+    "questions": [
+      {
+        "q": "When is it legal to drive off the road to pass another vehicle?",
+        "options": [
+          "If the vehicle ahead is turning left.",
+          "It is not legal under any conditions.",
+          "If there are two or more one-way lanes."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Passing"
+      },
+      {
+        "q": "When a railroad crossing is not controlled, what is the speed limit when you are within 100 feet and cannot see for 400 feet in both directions?",
+        "options": [
+          "15 mph.",
+          "10 mph.",
+          "25 mph."
+        ],
+        "answer": 0,
+        "ref": "CA Driver Handbook - Railroad Crossings"
+      },
+      {
+        "q": "Which of the following is the proper procedure for parallel parking?",
+        "options": [
+          "Drive forward into the space without stopping.",
+          "Stop next to the vehicle behind the open space, and then drive forward into the space.",
+          "Stop next to the vehicle in front of the open space, and then back into the space."
+        ],
+        "answer": 2,
+        "ref": "CA Driver Handbook - Parking"
+      },
+      {
+        "q": "What speed should you be driving when entering onto a highway?",
+        "options": [
+          "At or near the speed of traffic.",
+          "Faster than the speed of traffic.",
+          "Slower than the speed of traffic."
+        ],
+        "answer": 0,
+        "ref": "CA Driver Handbook - Freeway Driving"
+      },
+      {
+        "q": "How many feet away should you switch from high beam to low beam headlights when approaching a vehicle coming towards you?",
+        "options": [
+          "900 feet.",
+          "700 feet.",
+          "500 feet."
+        ],
+        "answer": 2,
+        "ref": "CA Driver Handbook - Headlights"
+      },
+      {
+        "q": "Who can legally park next to a curb painted blue?",
+        "options": [
+          "Someone who is either picking up or dropping off passengers at this location.",
+          "A person who is disabled and has a special placard or vehicle license plate for disabled persons.",
+          "A person who will only be parked at the curb for less than 15 minutes."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Parking"
+      },
+      {
+        "q": "What should you do when there is a school bus ahead that starts flashing yellow warning lights?",
+        "options": [
+          "Slow down and prepare to stop.",
+          "Stop immediately and remain stopped.",
+          "Cautiously pass the school bus on the left."
+        ],
+        "answer": 0,
+        "ref": "CA Driver Handbook - School Buses"
+      },
+      {
+        "q": "Which of the following is a requirement of California's Basic Speed Law?",
+        "options": [
+          "Always drive the speed limit, regardless of conditions.",
+          "Match your speed to that of your surrounding traffic.",
+          "Never drive faster than is safe for current conditions."
+        ],
+        "answer": 2,
+        "ref": "CA Driver Handbook - Speed Limits"
+      },
+      {
+        "q": "You must notify the DMV within 5 days if you:",
+        "options": [
+          "Paint your vehicle a different color.",
+          "Sell or transfer ownership of your vehicle.",
+          "Receive a traffic violation."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Owning a Vehicle"
+      },
+      {
+        "q": "Which of the following is an example of a safe driving practice?",
+        "options": [
+          "Staring only at the middle of the road.",
+          "Always keep your eyes moving to scan the surroundings.",
+          "Using your high-beam headlights in the fog."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Safe Driving"
+      },
+      {
+        "q": "What color curb does not allow vehicles to stop or park?",
+        "options": [
+          "Yellow.",
+          "Red.",
+          "White."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Parking"
+      },
+      {
+        "q": "You are required to notify DMV by filing a Report of Traffic Accident Occurring in California (SR-1) form if:",
+        "options": [
+          "You change your insurance company.",
+          "You were involved in a collision with an injury.",
+          "Your vehicle fails a smog test."
+        ],
+        "answer": 1,
+        "ref": "CA Driver Handbook - Collisions"
+      }
+    ]
+  }
+}

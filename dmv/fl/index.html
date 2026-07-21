@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florida DMV Practice Test (FL) — Free FL Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Florida (FL) DMV practice test with 50 questions from the official Florida driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/fl/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Florida</strong></div>
+  <header>
+    <h1>Florida <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free FL permit and license practice test — 50 questions from the official Florida driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Florida (FL DHSMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Florida DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "fl";
+const STATE_DATA = {"name": "Florida (FL DHSMV)", "source": "Official FL Driver Handbook (public domain)", "questions": [{"q": "In Florida, what is the standard speed limit in business or residential areas?", "options": ["25 MPH", "30 MPH", "35 MPH"], "answer": 1, "ref": "FL Handbook - \u00a75.10 Standard Speed Limits", "explanation": "The Handbook sets the standard speed limit for business and residential areas at 30 MPH."}, {"q": "What is the speed limit in school zones?", "options": ["15 MPH", "20 MPH", "25 MPH"], "answer": 1, "ref": "FL Handbook - \u00a75.10 Standard Speed Limits", "explanation": "According to the Handbook, the speed limit in school zones is 20 MPH."}, {"q": "What is the maximum speed limit on rural interstate and limited access highways?", "options": ["65 MPH", "70 MPH", "75 MPH"], "answer": 1, "ref": "FL Handbook - \u00a75.10 Standard Speed Limits", "explanation": "The Handbook gives the maximum speed for rural interstate and limited access highways as 70 MPH."}, {"q": "What is the general maximum speed limit that applies on all other roads and highways?", "options": ["55 MPH", "60 MPH", "65 MPH"], "answer": 0, "ref": "FL Handbook - \u00a75.10 Standard Speed Limits", "explanation": "According to the Handbook, the maximum speed on all other roads is 55 MPH unless otherwise posted."}, {"q": "When the posted speed limit is 70 MPH, what is the minimum speed limit?", "options": ["45 MPH", "50 MPH", "55 MPH"], "answer": 1, "ref": "FL Handbook - \u00a75.11.1 Driving Too Slowly", "explanation": "If the speed limit is 70 MPH, the minimum speed limit is 50 MPH; driving too slowly is also prohibited."}, {"q": "Speed limits indicate the highest speed for good weather/road conditions. What should a driver do if the weather is bad or traffic is heavy?", "options": ["Continue to follow the posted speed", "Drive slower, below the posted speed", "Exceed the posted speed"], "answer": 1, "ref": "FL Handbook - \u00a75.10 '70 Does Not Always Mean 70'", "explanation": "In bad weather or heavy traffic, a driver should drive slower, below the posted speed."}, {"q": "How is driving too slowly to allow the normal and safe movement of traffic treated in Florida?", "options": ["Legal", "Against the law (subject to penalty)", "Illegal only above 70 MPH"], "answer": 1, "ref": "FL Handbook - \u00a75.11.1 Driving Too Slowly", "explanation": "Driving so slowly as to block the flow of traffic is also against the law and may result in a penalty."}, {"q": "Who has the right-of-way in Florida?", "options": ["The pedestrian always has priority", "No one; the law only says who must yield", "The vehicle on the right always has priority"], "answer": 1, "ref": "FL Handbook - \u00a75.14 Right-of-Way", "explanation": "According to the Handbook, the right-of-way belongs to 'no one'; the law only states who must yield."}, {"q": "At an intersection with a 4-way stop sign, who should move first?", "options": ["The largest vehicle", "The vehicle that stopped first", "The vehicle on the right always"], "answer": 1, "ref": "FL Handbook - \u00a75.15 Stop Signs / 4-Way Stop", "explanation": "At a 4-way stop, the vehicle that arrives and stops at the intersection first moves first."}, {"q": "If two vehicles reach a four-way stop at the same time, who yields?", "options": ["The driver on the left yields to the one on the right", "The driver on the right yields to the one on the left", "Both may proceed immediately"], "answer": 0, "ref": "FL Handbook - \u00a75.15 Stop Signs / 4-Way Stop", "explanation": "If they arrive at the same time, the driver on the left yields to the driver on the right."}, {"q": "If you are entering a paved road from an unpaved road, what should you do?", "options": ["You have the right-of-way", "You must yield (give the right-of-way)", "There is no rule"], "answer": 1, "ref": "FL Handbook - \u00a75.16 Open Intersections", "explanation": "At an open intersection, you must yield when entering a paved road from an unpaved road."}, {"q": "If you are making a left turn at an open intersection and a vehicle is coming from the opposite direction, what should you do?", "options": ["The oncoming vehicle yields to you", "You must yield", "The larger vehicle has priority"], "answer": 1, "ref": "FL Handbook - \u00a75.16 Open Intersections", "explanation": "When turning left, you must yield to oncoming vehicles."}, {"q": "When entering a roundabout, to whom must a driver yield?", "options": ["Traffic already in the circle", "Entering traffic", "Only buses"], "answer": 0, "ref": "FL Handbook - \u00a75.17 Roundabouts", "explanation": "A driver entering a roundabout yields to traffic already in the circle."}, {"q": "In which direction does traffic flow in roundabouts?", "options": ["Clockwise", "Counterclockwise", "In both directions"], "answer": 1, "ref": "FL Handbook - \u00a75.17 Roundabouts", "explanation": "Roundabouts are one-way and flow counterclockwise."}, {"q": "When an emergency vehicle with its siren and/or flashing lights on approaches, what should a driver do?", "options": ["Speed up", "Pull over to the side of the road and stop", "Ignore it"], "answer": 1, "ref": "FL Handbook - \u00a75.19 Emergency Vehicles", "explanation": "You must yield to emergency vehicles and pull over to the nearest edge of the road and stop."}, {"q": "When a blind pedestrian carrying a white cane or with a guide dog is crossing, what should a driver do?", "options": ["Honk the horn", "Yield the right-of-way and come to a complete stop", "Pass slowly"], "answer": 1, "ref": "FL Handbook - \u00a76.1.3 Persons Who are Blind", "explanation": "A blind pedestrian has the right-of-way and vehicles must come to a complete stop."}, {"q": "What does an octagon-shaped traffic sign mean?", "options": ["Stop", "Yield", "Warning"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Octagon)", "explanation": "The octagon shape is used only for STOP signs."}, {"q": "What does an inverted triangle-shaped sign mean?", "options": ["Yield", "Stop", "No Passing"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Triangle)", "explanation": "The triangle shape is reserved only for YIELD signs."}, {"q": "What does a pennant-shaped sign indicate?", "options": ["No Passing Zone", "School", "Yield"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Pennant)", "explanation": "The pennant is the advance warning sign for a no-passing zone and is placed on the left side of the road."}, {"q": "What does a pentagon-shaped sign mean?", "options": ["School ahead/school crossing", "Railroad", "General warning"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Pentagon)", "explanation": "The pentagon shape is used for school advance and school crossing signs."}, {"q": "What does a round-shaped sign indicate?", "options": ["Railroad advance warning", "Stop", "Yield"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Round)", "explanation": "The round sign is the railroad advance warning sign."}, {"q": "What does a diamond-shaped sign mean?", "options": ["Warning of an existing/possible hazard", "Regulatory", "Guide"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Traffic Signs (Diamond)", "explanation": "The diamond shape is used to warn of existing or possible hazards."}, {"q": "What does the color red express on traffic signs?", "options": ["Stop, do not enter / wrong way", "Guide", "Construction"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Signs and Colors", "explanation": "The color red means 'stop, do not enter, or wrong way.'"}, {"q": "What do orange-colored signs indicate?", "options": ["Construction and maintenance warning", "School", "Rest/recreation"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Signs and Colors", "explanation": "The color orange is used for construction and maintenance warning signs."}, {"q": "What do fluorescent yellow-green signs emphasize?", "options": ["Warning of school, pedestrian, and bicycle activity", "Regulatory", "Guide"], "answer": 0, "ref": "FL Handbook - \u00a77.5 Signs and Colors", "explanation": "Fluorescent yellow-green is the high-emphasis warning for school, pedestrian, and bicycle activity."}, {"q": "What is the penalty if a driver under 21 has a breath or blood alcohol level (BAL) of .02 or higher?", "options": ["License suspended for 6 months", "1 year in jail", "30-day suspension"], "answer": 0, "ref": "FL Handbook - \u00a74.5 Zero Tolerance", "explanation": "For a driver under 21, a BAL of .02 or higher automatically suspends the driving privilege for 6 months."}, {"q": "If a driver under 21 has a BAL of .05 or higher, what is required?", "options": ["6-month license suspension", "Attendance at a substance abuse course", "No penalty"], "answer": 1, "ref": "FL Handbook - \u00a74.5 Zero Tolerance", "explanation": "A driver under 21 with a BAL of .05 or higher must attend a substance abuse course."}, {"q": "At the time of arrest, at what breath or blood alcohol level (and above), OR if you refuse a chemical test, is your license administratively suspended?", "options": [".05", ".08", ".10"], "answer": 1, "ref": "FL Handbook - \u00a74.6 Driving While Under the Influence", "explanation": "A BAL of .08 or higher, or refusing a chemical test, results in an administrative license suspension at arrest."}, {"q": "How is DUI (driving under the influence) defined?", "options": ["Only with alcohol", "Under the influence of alcohol OR controlled substances", "Only with illegal drugs"], "answer": 1, "ref": "FL Handbook - \u00a74.6 Driving While Under the Influence", "explanation": "DUI is driving under the influence of alcohol or controlled substances (including prescription drugs)."}, {"q": "What is the minimum license revocation period for a first DUI conviction?", "options": ["90 days", "180 days", "1 year"], "answer": 1, "ref": "FL Handbook - \u00a74.6.1 Penalties for DUI (First Conviction)", "explanation": "The minimum license revocation period for a first DUI conviction is 180 days."}, {"q": "What is the fine range for a first DUI conviction?", "options": ["$500 - $1,000", "$1,000 - $2,000", "$2,000 - $5,000"], "answer": 0, "ref": "FL Handbook - \u00a74.6.1 Penalties for DUI (First Conviction)", "explanation": "For a first DUI, the fine is between $500 and $1,000."}, {"q": "If the BAL is .15 or higher OR there is a child in the vehicle, what is the minimum fine for a first DUI?", "options": ["$500", "$1,000", "$2,000"], "answer": 1, "ref": "FL Handbook - \u00a74.6.1 Penalties for DUI (First Conviction)", "explanation": "If the BAL is .15+ or a child is in the vehicle, the first DUI fine is at least $1,000."}, {"q": "Under Florida's seat belt law, who is required to wear a seat belt?", "options": ["The driver and front seat passengers", "All passengers", "Only those in the back seat"], "answer": 0, "ref": "FL Handbook - \u00a75.9 Safety Belts", "explanation": "The driver and front seat passengers are required to wear seat belts."}, {"q": "What is the seat belt/child restraint rule for passengers under 18?", "options": ["All under 18 must be restrained in all seating positions", "Only those under 12", "Only the front seat"], "answer": 0, "ref": "FL Handbook - \u00a75.9 Safety Belts", "explanation": "Every passenger under 18 must be restrained by a seat belt or child restraint regardless of seating position."}, {"q": "What is the rule for all children age 5 and under in a motor vehicle?", "options": ["Age 5 and under must use a restraint device", "Age 8 and under", "Age 3 and under"], "answer": 0, "ref": "FL Handbook - \u00a75.10 Protecting Children", "explanation": "All children age 5 and under must use a child restraint device."}, {"q": "Up to what age are infant carriers / car seats required?", "options": ["Up to age 3", "Up to age 5", "Up to age 1"], "answer": 0, "ref": "FL Handbook - \u00a75.10 Protecting Children", "explanation": "Infant carriers and car seats must be used for children age 3 and under."}, {"q": "Which restraint options may be used for children ages 4 to 5?", "options": ["Ages 4-5: separate carrier, integrated child seat, or seat belt", "Ages 2-3", "Ages 6-8"], "answer": 0, "ref": "FL Handbook - \u00a75.10 Protecting Children", "explanation": "For children ages 4-5, a separate carrier, integrated child seat, or seat belt may be used."}, {"q": "On a two-way street/highway, what must be done for a stopped school bus picking up/dropping off children?", "options": ["All drivers in both directions must stop", "Only those in the same direction must stop", "None must stop"], "answer": 0, "ref": "FL Handbook - \u00a76.5 School Buses", "explanation": "On a two-way road, all drivers in both directions must stop for a stopped school bus."}, {"q": "If the highway is separated by a raised barrier or unpaved median at least 5 feet wide, what does the driver in the opposite direction do?", "options": ["Must stop", "Is not required to stop", "Stops only if a child is visible"], "answer": 1, "ref": "FL Handbook - \u00a76.5 School Buses", "explanation": "On a road separated by a raised barrier or unpaved median \u22655 feet, those in the opposite direction are not required to stop."}, {"q": "Do painted lines or road markings alone count as a barrier?", "options": ["They count as a barrier", "They do not count as a barrier", "It depends on the width"], "answer": 1, "ref": "FL Handbook - \u00a76.5 School Buses", "explanation": "Painted lines or road markings are not considered a barrier; those in the opposite direction must still stop."}, {"q": "If you are traveling in the same direction as the bus, what must be done for a stopped school bus?", "options": ["If in the same direction, you must always stop", "Only in the opposite direction", "Never"], "answer": 0, "ref": "FL Handbook - \u00a76.5 School Buses", "explanation": "If you are going in the same direction as the bus, you must always stop and wait until the stop arm is withdrawn."}, {"q": "Until when must you wait after a stopped school bus's stop arm is displayed?", "options": ["Until the stop arm is withdrawn and the children are out of the road", "Until the bus drives away", "Until the light turns green"], "answer": 0, "ref": "FL Handbook - \u00a76.5 School Buses", "explanation": "You must not move until all children are out of the road and the bus's stop arm is withdrawn."}, {"q": "Within how many feet of a fire hydrant is parking prohibited?", "options": ["15 feet", "5 feet", "30 feet"], "answer": 0, "ref": "FL Handbook - \u00a75.27 Parking (prohibited locations)", "explanation": "Parking within 15 feet of a fire hydrant is prohibited."}, {"q": "Within how many feet of an intersection is parking prohibited?", "options": ["20 feet", "10 feet", "50 feet"], "answer": 0, "ref": "FL Handbook - \u00a75.27 Parking (prohibited locations)", "explanation": "Parking within 20 feet of an intersection is prohibited."}, {"q": "Within how many feet of a railroad crossing is parking prohibited?", "options": ["50 feet", "15 feet", "30 feet"], "answer": 0, "ref": "FL Handbook - \u00a75.27 Parking (prohibited locations)", "explanation": "Parking within 50 feet of a railroad crossing is prohibited."}, {"q": "Within how many feet of a rural mailbox on a state highway is parking prohibited between 8:00 a.m. and 6:00 p.m.?", "options": ["30 feet", "15 feet", "50 feet"], "answer": 0, "ref": "FL Handbook - \u00a75.27 Parking (prohibited locations)", "explanation": "Parking within 30 feet of a rural mailbox between 8 a.m. and 6 p.m. is prohibited."}, {"q": "Where do most motor vehicle crashes occur?", "options": ["At intersections", "On highways", "In parking lots"], "answer": 0, "ref": "FL Handbook - \u00a75.13 Crossing Intersections", "explanation": "According to the Handbook, most crashes occur at intersections."}, {"q": "When should the slowest speed be used when entering an intersection?", "options": ["Just before entering", "While crossing", "After crossing"], "answer": 0, "ref": "FL Handbook - \u00a75.13 Crossing Intersections", "explanation": "The slowest speed should be used just before entering the intersection, not while crossing."}, {"q": "On a multi-lane highway, which lane should slower traffic use?", "options": ["The right lane", "The left lane", "The middle lane"], "answer": 0, "ref": "FL Handbook - \u00a77.5.2 Regulatory Signs (Keep Right)", "explanation": "Slower traffic should use the right lane and keep right for faster traffic coming from behind."}, {"q": "What does a diamond-shaped lane marking indicate a lane is reserved for?", "options": ["Reserved for certain vehicles (bus/carpool)", "Any vehicle", "Emergency only"], "answer": 0, "ref": "FL Handbook - \u00a77.5.2 Regulatory Signs (Preferential Lane)", "explanation": "A diamond-marked lane is usually reserved for specific purposes/vehicles such as buses or car-pools."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

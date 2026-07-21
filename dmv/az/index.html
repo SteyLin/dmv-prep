@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arizona DMV Practice Test (AZ) — Free AZ Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Arizona (AZ) DMV practice test with 53 questions from the official Arizona driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/az/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Arizona</strong></div>
+  <header>
+    <h1>Arizona <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free AZ permit and license practice test — 53 questions from the official Arizona driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Arizona (AZ MVD)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Arizona DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "az";
+const STATE_DATA = {"name": "Arizona (AZ MVD)", "source": "Official Arizona Driver License Manual (ADOT MVD, public domain)", "questions": [{"q": "Under Arizona's Safety Belt Law (Buckle Up Arizona!), each front-seat occupant must:", "options": ["Wear a properly adjusted and fastened safety belt while the vehicle is in motion", "Only wear a belt on highways", "Wear a belt only if under 18"], "answer": 0, "ref": "AZ Driver Manual - Safety Belt Law", "explanation": "AZ Driver Manual - Safety Belt Law"}, {"q": "Arizona law requires a child under five years of age and weighing less than 60 pounds to be:", "options": ["Properly secured in a child restraint system", "In the front seat with a lap belt", "Unrestrained if on a short trip"], "answer": 0, "ref": "AZ Driver Manual - Child Car Seat Safety", "explanation": "AZ Driver Manual - Child Car Seat Safety"}, {"q": "In Arizona, children between 5 and 8 years of age must be in a child restraint system until they are at least:", "options": ["Four feet, nine inches (4'9\") tall", "Three feet tall", "Six feet tall"], "answer": 0, "ref": "AZ Driver Manual - Child Car Seat Safety", "explanation": "AZ Driver Manual - Child Car Seat Safety"}, {"q": "Arizona advises that children age 12 and under should:", "options": ["Never ride in the front seat because air bags are unsafe for them", "Always ride in the front seat", "Ride in the front only on highways"], "answer": 0, "ref": "AZ Driver Manual - Child Car Seat Safety", "explanation": "AZ Driver Manual - Child Car Seat Safety"}, {"q": "Arizona's minimum required vehicle liability insurance is:", "options": ["$25,000 BI per person, $50,000 for two or more, and $15,000 property damage", "$50,000/$100,000 and $25,000", "$15,000/$30,000 and $5,000"], "answer": 0, "ref": "AZ Driver Manual - Vehicle Insurance", "explanation": "AZ Driver Manual - Vehicle Insurance"}, {"q": "In Arizona, you must notify MVD of a name or address change within:", "options": ["10 days", "30 days", "90 days"], "answer": 0, "ref": "AZ Driver Manual - Name and Address Change", "explanation": "AZ Driver Manual - Name and Address Change"}, {"q": "At what minimum age may a person in Arizona be issued a graduated (Class G) instruction permit?", "options": ["15 years and 6 months", "16 years", "14 years"], "answer": 0, "ref": "AZ Driver Manual - Instruction Permit", "explanation": "AZ Driver Manual - Instruction Permit"}, {"q": "At what minimum age may a person in Arizona obtain an operator (Class D) license?", "options": ["18 years of age", "16 years of age", "21 years of age"], "answer": 0, "ref": "AZ Driver Manual - Operator License (Class D)", "explanation": "AZ Driver Manual - Operator License (Class D)"}, {"q": "Arizona's graduated (Class G) license holder, for the first 6 months, may not drive between what hours unless a parent/guardian with a valid license is in the front seat or for a sanctioned activity?", "options": ["Midnight and 5:00 a.m.", "10 p.m. and 5 a.m.", "6 p.m. and 6 a.m."], "answer": 0, "ref": "AZ Driver Manual - Graduated License (Class G)", "explanation": "AZ Driver Manual - Graduated License (Class G)"}, {"q": "For the first 6 months with a Arizona graduated license, the teen may not drive with more than one passenger under 18 unless the passengers are:", "options": ["Siblings", "Friends", "Classmates"], "answer": 0, "ref": "AZ Driver Manual - Graduated License (Class G)", "explanation": "AZ Driver Manual - Graduated License (Class G)"}, {"q": "Under Arizona's penalties for a driver under 18 with a graduated license, a first conviction of a traffic violation requires:", "options": ["Attendance at Traffic Survival School", "Automatic license revocation", "A $500 fine only"], "answer": 0, "ref": "AZ Driver Manual - Graduated Penalties", "explanation": "AZ Driver Manual - Graduated Penalties"}, {"q": "Under Arizona's penalties, a second conviction of a traffic violation for an under-18 graduated driver results in:", "options": ["A 3-month suspension of driving privilege", "A warning letter", "No penalty"], "answer": 0, "ref": "AZ Driver Manual - Graduated Penalties", "explanation": "AZ Driver Manual - Graduated Penalties"}, {"q": "Under Arizona's penalties, a third conviction of a traffic violation for an under-18 graduated driver results in:", "options": ["A 6-month suspension of driving privilege", "License for life", "One-day suspension"], "answer": 0, "ref": "AZ Driver Manual - Graduated Penalties", "explanation": "AZ Driver Manual - Graduated Penalties"}, {"q": "Arizona law prohibits holding or supporting a wireless device while driving. Drivers may NOT:", "options": ["Write or read text-based communication while driving", "Use hands-free voice-to-text", "Report an emergency"], "answer": 0, "ref": "AZ Driver Manual - Distracted Driving Law", "explanation": "AZ Driver Manual - Distracted Driving Law"}, {"q": "In Arizona, a wireless device may be used while driving in order to:", "options": ["Report an emergency", "Watch video for entertainment", "Send a text to a friend"], "answer": 0, "ref": "AZ Driver Manual - Distracted Driving Law", "explanation": "AZ Driver Manual - Distracted Driving Law"}, {"q": "An Arizona motorcycle instruction permit holder is prohibited from carrying passengers and from operating on freeways between sunset and sunrise unless there is enough light to see persons or vehicles at a distance of:", "options": ["500 feet", "100 feet", "1,000 feet"], "answer": 0, "ref": "AZ Driver Manual - Motorcycle Permit", "explanation": "AZ Driver Manual - Motorcycle Permit"}, {"q": "The Arizona Driver Manual recommends the 'penny test' for tire tread: if Lincoln's head is not partially covered by the tread, you should:", "options": ["Replace your tires", "Add more air", "Rotate them monthly"], "answer": 0, "ref": "AZ Driver Manual - Tire Safety", "explanation": "AZ Driver Manual - Tire Safety"}, {"q": "In Arizona, a driver with a valid out-of-state license may be exempt from certain graduated restrictions, including:", "options": ["Education/driving practice and instruction permit requirements", "The written test entirely", "All insurance requirements"], "answer": 0, "ref": "AZ Driver Manual - Graduated License", "explanation": "AZ Driver Manual - Graduated License"}, {"q": "Arizona's 'Quick Clearance' law requires drivers involved in a minor, non-injury crash to:", "options": ["Move operable vehicles out of travel lanes when safe", "Leave vehicles where they stopped", "Wait for a tow only"], "answer": 0, "ref": "AZ Driver Manual - Quick Clearance", "explanation": "AZ Driver Manual - Quick Clearance"}, {"q": "Under Arizona law, failing to stop at the scene of a crash involving injury or death can result in your driving privilege being:", "options": ["Revoked for 3 years (injury) or 10 years (death)", "Suspended for 30 days only", "Untouched"], "answer": 0, "ref": "AZ Driver Manual - Failure to Stop at a Crash", "explanation": "AZ Driver Manual - Failure to Stop at a Crash"}, {"q": "Arizona requires a vehicle operated on roadways to be covered by an insurance policy issued by a company licensed in Arizona, reflecting where the vehicle is:", "options": ["Predominantly operated", "Occasionally operated", "Never operated"], "answer": 0, "ref": "AZ Driver Manual - Vehicle Insurance", "explanation": "AZ Driver Manual - Vehicle Insurance"}, {"q": "In Arizona, you must have proof of current insurance in the vehicle because law enforcement will ask for it during:", "options": ["Traffic stops or crashes", "Only annual inspections", "Only at emissions tests"], "answer": 0, "ref": "AZ Driver Manual - Vehicle Insurance", "explanation": "AZ Driver Manual - Vehicle Insurance"}, {"q": "Arizona's hand-free / voice-to-text exception means drivers may use a device:", "options": ["For hands-free or voice-to-text operations", "To watch broadcasts", "To take photos while driving"], "answer": 0, "ref": "AZ Driver Manual - Distracted Driving Law", "explanation": "AZ Driver Manual - Distracted Driving Law"}, {"q": "Arizona defines a warning (diamond) sign as a:", "options": ["Warning of hazard ahead", "Speed limit", "Stop command"], "answer": 0, "ref": "AZ Driver Manual - Signs", "explanation": "AZ Driver Manual - Signs"}, {"q": "Arizona regulatory signs (rectangular, often white/black or red/white) tell you:", "options": ["What you must or must not do", "Optional suggestions", "Scenic routes"], "answer": 0, "ref": "AZ Driver Manual - Signs", "explanation": "AZ Driver Manual - Signs"}, {"q": "In Arizona, a steady red traffic signal means you must:", "options": ["Stop and remain stopped until the light turns green", "Proceed if no cars", "Turn left immediately"], "answer": 0, "ref": "AZ Driver Manual - Traffic Signals", "explanation": "AZ Driver Manual - Traffic Signals"}, {"q": "A steady yellow traffic signal in Arizona means:", "options": ["Caution - the light is changing to red; stop if safe", "Go faster", "Nothing changes"], "answer": 0, "ref": "AZ Driver Manual - Traffic Signals", "explanation": "AZ Driver Manual - Traffic Signals"}, {"q": "A flashing red signal in Arizona means the same as:", "options": ["A stop sign", "A yield sign", "A green light"], "answer": 0, "ref": "AZ Driver Manual - Traffic Signals", "explanation": "AZ Driver Manual - Traffic Signals"}, {"q": "A flashing yellow signal in Arizona means you should:", "options": ["Slow down and proceed with caution", "Stop completely", "Speed up"], "answer": 0, "ref": "AZ Driver Manual - Traffic Signals", "explanation": "AZ Driver Manual - Traffic Signals"}, {"q": "Arizona requires every motor vehicle to have a working horn audible for at least:", "options": ["200 feet", "50 feet", "1,000 feet"], "answer": 0, "ref": "AZ Driver Manual - Horns and Warning Devices", "explanation": "AZ Driver Manual - Horns and Warning Devices"}, {"q": "Arizona requires a muffler in good working condition; it is illegal to use a muffler:", "options": ["'Cut-out,' bypass, or similar device", "That is quiet", "That is factory-installed"], "answer": 0, "ref": "AZ Driver Manual - Muffler", "explanation": "AZ Driver Manual - Muffler"}, {"q": "In Arizona, every vehicle whose view to the rear is blocked must have at least one outside mirror showing the highway for at least:", "options": ["200 feet to the rear", "10 feet to the rear", "1 mile to the rear"], "answer": 0, "ref": "AZ Driver Manual - Rearview Mirrors", "explanation": "AZ Driver Manual - Rearview Mirrors"}, {"q": "Arizona law requires head restraints positioned to fit against the back of your head and line up with the:", "options": ["Middle of the ear", "Top of the head", "Chin"], "answer": 0, "ref": "AZ Driver Manual - Head Restraints", "explanation": "AZ Driver Manual - Head Restraints"}, {"q": "Under Arizona's 'Move Over' type rules for emergencies, if you see emergency lights you should:", "options": ["Yield and pull over safely", "Outrun the emergency vehicle", "Ignore if not in its lane"], "answer": 0, "ref": "AZ Driver Manual - Emergency/Defensive (yield)", "explanation": "AZ Driver Manual - Emergency/Defensive (yield)"}, {"q": "Arizona's DUI laws: a driver 21 or older is impaired at a BAC of:", "options": [".08 or higher", ".05 or higher", ".02 or higher"], "answer": 0, "ref": "AZ Driver Manual - Drinking and Driving/DUI", "explanation": "AZ Driver Manual - Drinking and Driving/DUI"}, {"q": "In Arizona, a person under 21 may not drive with any spirituous liquor in their body; this is a zero-tolerance rule because:", "options": ["Minors may not legally consume alcohol", "It is safer at .05", "Adults only pay fines"], "answer": 0, "ref": "AZ Driver Manual - Under 21 DUI", "explanation": "AZ Driver Manual - Under 21 DUI"}, {"q": "Arizona requires an Ignition Interlock Device for many DUI offenders; the device:", "options": ["Tests breath alcohol and prevents starting if over the limit", "Plays music", "Tracks speed"], "answer": 0, "ref": "AZ Driver Manual - Certified Ignition Interlock Device", "explanation": "AZ Driver Manual - Certified Ignition Interlock Device"}, {"q": "When approaching a school bus in Arizona with red lights flashing and stop arm extended, you must:", "options": ["Stop until the lights stop flashing and the bus moves", "Pass quickly on the right", "Honk and go"], "answer": 0, "ref": "AZ Driver Manual - School Buses (Sharing the Road)", "explanation": "AZ Driver Manual - School Buses (Sharing the Road)"}, {"q": "In Arizona, when you see a school crossing or pedestrian in a crosswalk you should:", "options": ["Yield the right of way to pedestrians", "Keep going at full speed", "Honk to clear them"], "answer": 0, "ref": "AZ Driver Manual - Sharing the Road/Pedestrians", "explanation": "AZ Driver Manual - Sharing the Road/Pedestrians"}, {"q": "Arizona's Driver Manual says defensive driving means being constantly aware and planning ahead, including always:", "options": ["Wearing your safety belt", "Ignoring mirrors", "Driving faster than traffic"], "answer": 0, "ref": "AZ Driver Manual - Defensive Driving", "explanation": "AZ Driver Manual - Defensive Driving"}, {"q": "If your vehicle begins to skid on a slippery Arizona roadway, you should:", "options": ["Not press the brake harder; steer in the direction of the skid", "Slam the brakes", "Close your eyes"], "answer": 0, "ref": "AZ Driver Manual - Recovering from Skids", "explanation": "AZ Driver Manual - Recovering from Skids"}, {"q": "Arizona requires you to report a crash and provide information; you must exchange:", "options": ["Name, address, license number, plate, insurance", "Only your phone number", "Nothing"], "answer": 0, "ref": "AZ Driver Manual - Crash Procedures", "explanation": "AZ Driver Manual - Crash Procedures"}, {"q": "In Arizona, a 'Move Over' requirement exists for stopped emergency/authorized vehicles; you should move to a lane away or:", "options": ["Slow down if you cannot change lanes safely", "Keep your speed", "Pass on the shoulder"], "answer": 0, "ref": "AZ Driver Manual - Sharing the Road/Emergencies", "explanation": "AZ Driver Manual - Sharing the Road/Emergencies"}, {"q": "Arizona's minimum tire tread guidance uses the penny test; sufficient tread means Lincoln's head is:", "options": ["Partly covered by the tread", "Fully visible above the tread", "Painted gold"], "answer": 0, "ref": "AZ Driver Manual - Tire Safety", "explanation": "AZ Driver Manual - Tire Safety"}, {"q": "Arizona drivers under 18 with a graduated license who violate curfew or passenger limits face:", "options": ["Mandatory extension of the 6-month restricted period", "No consequence", "Instant full license"], "answer": 0, "ref": "AZ Driver Manual - Graduated Penalties", "explanation": "AZ Driver Manual - Graduated Penalties"}, {"q": "In Arizona, the identification requirement for a Travel ID/REAL ID includes proof of:", "options": ["Legal presence / identity and residency", "Favorite color", "Employer only"], "answer": 0, "ref": "AZ Driver Manual - Required for Travel DL/ID", "explanation": "AZ Driver Manual - Required for Travel DL/ID"}, {"q": "Arizona's manual states that the privilege to drive is governed by traffic laws and breaking them can lead to:", "options": ["Points, fines, and loss of license", "Only warnings", "Nothing"], "answer": 0, "ref": "AZ Driver Manual - Rules of the Road", "explanation": "AZ Driver Manual - Rules of the Road"}, {"q": "Under Arizona law, a vehicle's load must be secured so that nothing:", "options": ["Drops, sifts, leaks, or escapes from the vehicle", "Flies only above 50 mph", "Is visible"], "answer": 0, "ref": "AZ Driver Manual - Secure and Cover Loads", "explanation": "AZ Driver Manual - Secure and Cover Loads"}, {"q": "In Arizona, an instruction permit (graduated or operator) is valid for:", "options": ["12 months", "6 months", "24 months"], "answer": 0, "ref": "AZ Driver Manual - Instruction Permit", "explanation": "AZ Driver Manual - Instruction Permit"}, {"q": "Arizona's Graduated (Class G) license is issued to an applicant who is at least 16 but less than 18 and requires the applicant to have held an Arizona instruction permit for at least:", "options": ["6 months", "3 months", "1 year"], "answer": 0, "ref": "AZ Driver Manual - Graduated License (Class G)", "explanation": "AZ Driver Manual - Graduated License (Class G)"}, {"q": "Arizona's Travel ID (REAL ID compliant credential) costs $25 for first issuance and renewals and is generally valid for:", "options": ["Eight years", "Two years", "Five years"], "answer": 0, "ref": "AZ Driver Manual - Travel DL/ID", "explanation": "AZ Driver Manual - Travel DL/ID"}, {"q": "In Arizona, the Arizona Driver License Manual states that the motor vehicle laws are detailed in:", "options": ["Arizona Revised Statutes Title 28 ('Transportation')", "The federal constitution only", "City ordinances only"], "answer": 0, "ref": "AZ Driver Manual - About This Manual", "explanation": "AZ Driver Manual - About This Manual"}, {"q": "Arizona's organ and tissue donor registry is called:", "options": ["Donate Life AZ (DonateLifeAZ.org)", "LifeShare only", "No registry exists"], "answer": 0, "ref": "AZ Driver Manual - Organ and Tissue Donation", "explanation": "AZ Driver Manual - Organ and Tissue Donation"}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

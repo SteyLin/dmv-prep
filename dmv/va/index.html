@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virginia DMV Practice Test (VA) — Free VA Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Virginia (VA) DMV practice test with 25 questions from the official Virginia driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/va/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Virginia</strong></div>
+  <header>
+    <h1>Virginia <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free VA permit and license practice test — 25 questions from the official Virginia driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Virginia (VA DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Virginia DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "va";
+const STATE_DATA = {"name": "Virginia (VA DMV)", "source": "Official VA Driver's Manual (public domain)", "questions": [{"q": "According to Virginia law, when may a law enforcement officer charge you with reckless driving regardless of the posted speed limit?", "options": ["When driving 20 or more MPH above the limit or over 85 MPH", "When driving 10 MPH above the limit", "Whenever you exceed the posted speed limit"], "answer": 0, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "Virginia law allows a reckless driving charge if you drive 20+ MPH over the limit or over 85 MPH."}, {"q": "Unless a sign states otherwise, what is the maximum speed limit for passenger vehicles in school, business, and residential areas in Virginia?", "options": ["25 MPH", "35 MPH", "55 MPH"], "answer": 0, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The default limit is 25 MPH for school, business, and residential areas when no sign is posted."}, {"q": "Unless posted otherwise, what is the maximum speed limit on all other roads (not school, business, residential, or unpaved) for passenger vehicles in Virginia?", "options": ["35 MPH", "55 MPH", "65 MPH"], "answer": 1, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The default limit is 55 MPH for all other roads when no speed limit sign is posted."}, {"q": "What is the default maximum speed limit on unpaved roads in Virginia when no sign is posted?", "options": ["25 MPH", "35 MPH", "45 MPH"], "answer": 1, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The manual states the default limit on unpaved roads is 35 MPH."}, {"q": "At an intersection with no signs or signals, when two vehicles arrive at the same time, who must yield?", "options": ["The driver on the left must yield to the driver on the right", "The driver on the right must yield to the driver on the left", "The larger vehicle must yield"], "answer": 0, "ref": "VA Driver Manual - Section 3: Yielding the Right-of-Way", "explanation": "The driver on the left must allow the driver on the right to go first."}, {"q": "When entering a roundabout in Virginia, what must you do?", "options": ["Yield to traffic already in the circle and travel counter-clockwise", "Yield to traffic already in the circle and travel clockwise", "Have the right-of-way over traffic already in the circle"], "answer": 0, "ref": "VA Driver Manual - Section 3: Roundabouts", "explanation": "Entering traffic must yield to traffic already in the circle and drive counter-clockwise."}, {"q": "When must you stop for a school bus that has stopped with flashing red lights and an extended stop sign?", "options": ["Only if you are directly behind the bus", "When approaching from any direction on a highway, private road, or school driveway, unless a median or barrier separates you", "Only on interstate highways"], "answer": 1, "ref": "VA Driver Manual - Section 3: Stopping for School Buses", "explanation": "You must stop from any direction unless a median or barrier divides the roadway and the bus is on the opposite side."}, {"q": "What does an eight-sided (octagon) traffic sign always mean?", "options": ["Yield", "Stop", "Warning"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "The octagon shape always means stop."}, {"q": "What does a five-sided (pentagon) traffic sign mark?", "options": ["School zones and school crossings", "Railroad crossings", "A warning of a curve"], "answer": 0, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "The pentagon shape marks school zones and warns about school crossings."}, {"q": "What do diamond-shaped traffic signs warn you about?", "options": ["Regulatory or legal instructions", "Special conditions or hazards ahead", "Directions or helpful information"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "Diamond signs warn of special conditions or hazards ahead; slow down and drive with caution."}, {"q": "In Virginia, what does the color yellow used with black on a traffic sign convey?", "options": ["Regulatory information", "A warning", "Helpful destination information"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Colors", "explanation": "Yellow with black conveys a warning such as curve ahead or slippery when wet."}, {"q": "For drivers age 21 or older in Virginia, at what blood alcohol content (BAC) are you considered to be driving under the influence (DUI)?", "options": [".08 percent or higher", ".05 percent or higher", ".02 percent or higher"], "answer": 0, "ref": "VA Driver Manual - Section 3: Drunk and Drugged Driving", "explanation": "A BAC of .08 percent or higher constitutes DUI for drivers 21 and older."}, {"q": "If a driver under age 21 is convicted of driving after illegally consuming alcohol with a BAC of at least .02 but less than .08, what is the result?", "options": ["They may be convicted of illegal consumption of alcohol", "They are never penalized", "They are automatically charged with a full adult DUI"], "answer": 0, "ref": "VA Driver Manual - Section 3: Drunk and Drugged Driving", "explanation": "Under age 21, a BAC of at least .02 but less than .08 can result in a conviction for illegal consumption."}, {"q": "Under Virginia law, who must wear safety belts?", "options": ["Only the driver and front-seat passengers", "The driver and all passengers, both front and rear", "Only children under age 18"], "answer": 1, "ref": "VA Driver Manual - Section 4: Seat Belts", "explanation": "Virginia law requires the driver and all passengers, front and rear, to wear safety belts."}, {"q": "According to the manual, wearing a seat belt can do what for your chances of surviving a crash?", "options": ["Double your chances of surviving", "Have no effect on survival", "Slightly reduce your chances"], "answer": 0, "ref": "VA Driver Manual - Section 4: Seat Belts", "explanation": "Wearing a seat belt can double your chances of surviving a crash and more than double avoiding serious injury."}, {"q": "What does a double solid yellow line in the center of the road mean?", "options": ["Passing is allowed in either direction", "Passing is not allowed in either direction", "Passing is allowed only at night"], "answer": 1, "ref": "VA Driver Manual - Section 2: Pavement Markings", "explanation": "Double solid yellow lines separate two-way traffic and passing is not allowed in either direction."}, {"q": "A broken yellow line alongside a solid yellow line means passing is allowed:", "options": ["From the side of the solid line only", "From the side of the broken line, but not from the side of the solid line", "In both directions"], "answer": 1, "ref": "VA Driver Manual - Section 2: Pavement Markings", "explanation": "Passing is allowed from the broken-line side but not from the solid-line side."}, {"q": "Using the following-distance rule, how many seconds should you allow when driving between 35 and 45 MPH on a dry surface?", "options": ["2 seconds", "3 seconds", "4 seconds"], "answer": 1, "ref": "VA Driver Manual - Section 3: Following Distance", "explanation": "The manual specifies a 3-second following distance for speeds of 35-45 MPH."}, {"q": "When parking next to a curb on a public road in Virginia, how far from the curb may you park?", "options": ["No more than one foot from the curb", "Up to three feet from the curb", "As far from the curb as you like"], "answer": 0, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "You may not park more than one foot from the curb."}, {"q": "Within how many feet of a fire hydrant is parking prohibited in Virginia?", "options": ["10 feet", "15 feet", "20 feet"], "answer": 1, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "You may not park within 15 feet of a fire hydrant."}, {"q": "Within how many feet of an intersection is parking prohibited in Virginia?", "options": ["10 feet", "20 feet", "30 feet"], "answer": 1, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "Parking is prohibited within 20 feet of an intersection."}, {"q": "At a flashing red light, what must you do?", "options": ["Slow down and proceed with caution without stopping", "Come to a complete stop, yield to traffic and pedestrians, and go when clear", "Speed up to clear the intersection"], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "A flashing red light requires a complete stop, yielding, then proceeding when the way is clear."}, {"q": "In Virginia, when may you turn right at a red light?", "options": ["Anytime without stopping", "After a complete stop and yielding the right-of-way, unless signs or a red arrow prohibit it", "Only between midnight and 6 a.m."], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "You may turn right on red only after a complete stop and yielding, unless posted otherwise or a red arrow is shown."}, {"q": "When a traffic light turns yellow and you have not yet entered the intersection, what should you do?", "options": ["Speed up to beat the light", "Stop if you can do so safely", "Immediately make a U-turn"], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "A yellow light is a caution; if you have not entered the intersection, stop\u2014do not speed up to beat it."}, {"q": "In Virginia, where are U-turns allowed in business districts, cities, and towns?", "options": ["Anywhere on the roadway", "Only at intersections", "Never under any circumstances"], "answer": 1, "ref": "VA Driver Manual - Section 3: U-Turns", "explanation": "In business districts, cities, and towns, U-turns are allowed only at intersections and never on a highway."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

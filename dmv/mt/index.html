@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Montana DMV Practice Test (MT) — Free MT Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Montana (MT) DMV practice test with 50 questions from the official Montana driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/mt/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Montana</strong></div>
+  <header>
+    <h1>Montana <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free MT permit and license practice test — 50 questions from the official Montana driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Montana (MT MVD)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Montana DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "mt";
+const STATE_DATA = {"name": "Montana (MT MVD)", "source": "Official MT Driver Manual (public domain)", "questions": [{"q": "Within how many days must a new Montana resident apply to convert a valid out-of-state driver license?", "options": ["30 consecutive days", "60 consecutive days", "90 consecutive days"], "answer": 1, "ref": "MT Manual - Ch.1 The Driver License (Driver Licensing Quick Reference)", "explanation": "New residents must apply to convert a valid license within 60 consecutive days (30 consecutive days for a commercial license)."}, {"q": "Within how many days must you notify the Driver License Bureau of any change of address?", "options": ["5 days", "10 days", "30 days"], "answer": 1, "ref": "MT Manual - Ch.1 Change of Address", "explanation": "You must notify the Driver License Bureau of the Department of Justice within 10 days of any change of address."}, {"q": "A Montana Class D basic driver license allows you to drive any non-commercial vehicle under what gross vehicle weight?", "options": ["16,000 pounds", "26,000 pounds", "36,000 pounds"], "answer": 1, "ref": "MT Manual - Ch.1 Types of Licenses (Class D)", "explanation": "A Class D basic driver license allows operation of any non-commercial vehicle under 26,000 pounds gross vehicle weight."}, {"q": "What is the minimum age to obtain a Montana driver license without driver education?", "options": ["15 years", "16 years", "18 years"], "answer": 1, "ref": "MT Manual - Ch.1 Who Can Apply", "explanation": "An applicant must be 16 years old, or 15 years old and have completed a state-approved traffic education program, to be licensed."}, {"q": "For residents under 21, a Montana driver license is valid until what age?", "options": ["18th birthday", "21st birthday", "25th birthday"], "answer": 1, "ref": "MT Manual - Ch.1 Driver Licensing Quick Reference", "explanation": "For residents under 21 years old, the license is valid until the 21st birthday."}, {"q": "What is the annual fee for a Montana Class D basic driver license?", "options": ["$5.00 per year", "$10.00 per year", "$16.00 per year"], "answer": 0, "ref": "MT Manual - Ch.1 Fees/Receipts", "explanation": "Any Class D basic license or learner license is $5.00 per year until expiration."}, {"q": "What is the fee to replace a lost or destroyed Montana driver license?", "options": ["$5", "$10", "$20"], "answer": 1, "ref": "MT Manual - Ch.1 Lost or Destroyed Licenses", "explanation": "If your license is lost or destroyed you must pay a $10 fee and present proper identification."}, {"q": "At what minimum age may a Traffic Education Learner License (TELL) be obtained?", "options": ["14 1/2 years", "15 years", "16 years"], "answer": 0, "ref": "MT Manual - Ch.1 GDL Program (Instruction Permits)", "explanation": "A teenager may obtain a TELL as early as age 14 1/2 if participating in or having completed a state-approved traffic education program."}, {"q": "Under the Graduated Driver Licensing program, how many hours of supervised driving (including night hours) are required?", "options": ["30 hours (5 at night)", "50 hours (10 at night)", "70 hours (15 at night)"], "answer": 1, "ref": "MT Manual - Ch.1 GDL Step 1", "explanation": "Teen drivers must acquire at least 50 hours of supervised driving experience, including 10 hours at night, during a minimum of six months."}, {"q": "Under a First-Year Restricted License, between what hours may a teenage driver NOT drive?", "options": ["10:00 p.m. and 4:00 a.m.", "11:00 p.m. and 5:00 a.m.", "12:00 a.m. and 6:00 a.m."], "answer": 1, "ref": "MT Manual - Ch.1 GDL Step 2 (Night Driving)", "explanation": "Teenage drivers with a restricted license may not drive between 11:00 p.m. and 5:00 a.m., with limited exceptions."}, {"q": "For a second offense violating First-Year Restricted License restrictions, what is the penalty?", "options": ["A fine only", "Suspension of the license for six months", "Revocation for one year"], "answer": 1, "ref": "MT Manual - Ch.1 GDL Step 2 (Penalties)", "explanation": "Second offense: suspension of the teenager's driver license for six months."}, {"q": "How early before the expiration date may you renew a Montana driver license?", "options": ["3 months", "6 months", "12 months"], "answer": 1, "ref": "MT Manual - Ch.1 Driver License Renewal", "explanation": "You may renew your license up to six months before the expiration date."}, {"q": "If your license is more than three months expired, what must you do?", "options": ["Pay a late fee only", "Reapply as a new driver and pass all tests", "Renew by mail"], "answer": 1, "ref": "MT Manual - Ch.1 Driver License Renewal", "explanation": "If your license is more than three months expired, you must reapply as a new driver and pass all applicable licensing tests."}, {"q": "How long is a Montana driver license receipt valid, and how many test attempts does it allow?", "options": ["Six months, two attempts", "One year, three attempts", "Two years, unlimited attempts"], "answer": 1, "ref": "MT Manual - Ch.1 Fees/Receipts", "explanation": "Receipts are valid for one year and allow three attempts within that year to pass all required examinations."}, {"q": "Active duty military personnel may drive in Montana on an out-of-state license unless they:", "options": ["Buy a Montana vehicle", "Become gainfully employed", "Turn age 21"], "answer": 1, "ref": "MT Manual - Ch.1 Military", "explanation": "Military personnel may retain their valid out-of-state license unless they become gainfully employed in Montana."}, {"q": "Headlights on high beam must be dimmed when meeting another vehicle at what distance?", "options": ["500 feet", "1000 feet", "1500 feet"], "answer": 1, "ref": "MT Manual - Ch.2 Headlights & Tail Lights", "explanation": "High beam must be dimmed when meeting other vehicles at 1000 feet and when overtaking other vehicles at 500 feet."}, {"q": "High-beam headlights must illuminate persons or vehicles for what distance?", "options": ["100 feet", "350 feet", "500 feet"], "answer": 1, "ref": "MT Manual - Ch.2 Headlights & Tail Lights", "explanation": "Headlights should illuminate persons or vehicles for 350 feet on high beam and 100 feet on low beam."}, {"q": "Turn signals on a vehicle must be visible for what distance in normal sunlight?", "options": ["100 feet", "200 feet", "300 feet"], "answer": 2, "ref": "MT Manual - Ch.2 Turn Signals", "explanation": "Turn signals must emit a light visible for 300 feet in the sunlight."}, {"q": "A license plate lamp must illuminate the plate for what distance to the rear?", "options": ["25 feet", "50 feet", "100 feet"], "answer": 1, "ref": "MT Manual - Ch.2 License Plate Lamp", "explanation": "Vehicles must emit white light to illuminate the license plate for 50 feet to the rear."}, {"q": "According to Montana law, a driver who violates the safety belt law will be fined:", "options": ["$20", "$50", "$100"], "answer": 0, "ref": "MT Manual - Ch.2 Safety Belts Required", "explanation": "No person may drive unless each occupant is wearing a safety belt, and a driver who violates the law will be fined $20."}, {"q": "Children up to what age and weight must be buckled in a child safety seat?", "options": ["Age 6 and 60 pounds", "Age 8 and 80 pounds", "Age 10 and 100 pounds"], "answer": 0, "ref": "MT Manual - Ch.2 Child Restraints Required", "explanation": "Babies and children up to age 6 and 60 pounds must be buckled in a child safety seat."}, {"q": "To check tire tread with a penny, the tread must come at least to:", "options": ["George Washington's chin", "Abraham Lincoln's head", "The penny's edge only"], "answer": 1, "ref": "MT Manual - Ch.2 Tires", "explanation": "Stick the penny in head first; if the tread does not reach Lincoln's head, the tire is unsafe."}, {"q": "A leaking exhaust system can be dangerous because its fumes can:", "options": ["Cause excessive oil use", "Cause death in a short time", "Make the engine overheat"], "answer": 1, "ref": "MT Manual - Ch.2 Exhaust System", "explanation": "Fumes from a leaky exhaust can cause death in a very short time and can make you drowsy while driving."}, {"q": "Which traffic sign is the only eight-sided sign?", "options": ["YIELD", "STOP", "DO NOT ENTER"], "answer": 1, "ref": "MT Manual - Ch.3 Signs (Intersection Traffic Control)", "explanation": "The STOP sign is the only eight-sided traffic sign and means come to a complete stop."}, {"q": "Which warning sign is the only round warning sign?", "options": ["School Ahead", "Railroad Crossing Ahead", "Deer Crossing"], "answer": 1, "ref": "MT Manual - Ch.3 Warning Signs", "explanation": "Warning signs are usually diamond shaped, but the 'railroad crossing ahead' sign is round \u2014 the only round warning sign."}, {"q": "What is the basic color for construction and maintenance work zone signs and devices?", "options": ["Orange", "Yellow", "Red"], "answer": 0, "ref": "MT Manual - Ch.3 Construction and Maintenance Signs", "explanation": "Orange is the basic color for construction and maintenance traffic control devices."}, {"q": "In Montana, school zone speed limits may be as low as:", "options": ["15 mph", "20 mph", "25 mph"], "answer": 0, "ref": "MT Manual - Ch.3 School Zone Safety Standards", "explanation": "School zone speed limits may be as low as 15 mph (MCA 61-8-310)."}, {"q": "A steady yellow traffic signal means:", "options": ["STOP completely", "CAUTION - the signal is about to turn red", "GO if the intersection is clear"], "answer": 1, "ref": "MT Manual - Ch.3 Traffic Signals (Vehicle Signals)", "explanation": "A steady yellow signal means CAUTION; cautiously enter the intersection as it is about to turn red."}, {"q": "A flashing yellow arrow at an intersection means:", "options": ["Left turns are prohibited", "Left turns allowed but yield to oncoming traffic and pedestrians", "You have a protected left turn"], "answer": 1, "ref": "MT Manual - Ch.3 Traffic Signals (Vehicle Signals)", "explanation": "A flashing yellow arrow means left turns are allowed, but you must first yield to oncoming traffic and pedestrians."}, {"q": "In a Montana roundabout, traffic flows in what direction and you must yield to:", "options": ["Clockwise; yield to entering traffic", "Counterclockwise; yield to traffic already in the circle", "Either direction; no yield required"], "answer": 1, "ref": "MT Manual - Ch.3 Roundabouts in Montana", "explanation": "Traffic flows counterclockwise and you must yield to vehicles already in the roundabout, which have the right-of-way."}, {"q": "You must stop at a railroad crossing when warning signals indicate an approaching train and the train is within:", "options": ["500 feet", "1000 feet", "1500 feet"], "answer": 2, "ref": "MT Manual - Ch.3 Railroad Crossing Warning Signs/Signals", "explanation": "You must stop as close as practicable but not less than 15 feet from the nearest rail when the train is within 1500 feet or clearly an obvious hazard."}, {"q": "A double solid yellow line between opposing lanes of traffic means:", "options": ["Passing is allowed with caution", "Neither side may pass", "Only the left side may pass"], "answer": 1, "ref": "MT Manual - Ch.3 Road Markings / Pavement Markings", "explanation": "A double yellow line may not be crossed by traffic moving in either direction."}, {"q": "On a two-lane road, vehicles may legally exceed the speed limit by how much to pass?", "options": ["5 mph", "10 mph", "15 mph"], "answer": 1, "ref": "MT Manual - Ch.4 Speed Limits", "explanation": "Vehicles on a two-lane road may exceed the limit by 10 mph in order to overtake and pass another vehicle and return safely."}, {"q": "What is the daytime speed limit on Montana two-lane highways for cars and light trucks?", "options": ["65 mph", "70 mph", "75 mph"], "answer": 1, "ref": "MT Manual - Ch.4 Speed Limits", "explanation": "Two-lane highways: cars and light trucks 70 mph day / 65 mph night."}, {"q": "You must use your turn signal how far before turning in a town or city?", "options": ["50 feet", "100 feet", "300 feet"], "answer": 1, "ref": "MT Manual - Ch.4 General Driving / Ch.5 Communicating", "explanation": "Use a proper turn signal 100 feet before turning in town, and 300 feet before turning on rural roads."}, {"q": "Upon meeting or overtaking a school bus stopped with red lights flashing, you must stop at least:", "options": ["15 feet", "30 feet", "50 feet"], "answer": 1, "ref": "MT Manual - Ch.4 School Buses", "explanation": "The driver must stop at least 30 feet from a school bus stopped with its red lights flashing and not proceed until the lights are off."}, {"q": "Pedestrians walking along a roadway where no sidewalk is provided must walk:", "options": ["On the right, with traffic", "On the left, facing oncoming traffic", "In the center of the lane"], "answer": 1, "ref": "MT Manual - Ch.4 Pedestrians", "explanation": "When people walk on the roadway they must walk on the left (facing oncoming traffic)."}, {"q": "At an uncontrolled intersection (no signs or signals), drivers should yield to vehicles coming from:", "options": ["The left", "The right", "Straight ahead only"], "answer": 1, "ref": "MT Manual - Ch.4 Intersections", "explanation": "At an intersection with no stop sign or signal, drivers should yield to vehicles coming from the right."}, {"q": "When parking parallel, your vehicle must be within what distance of the curb or shoulder?", "options": ["6 inches", "18 inches (1.5 feet)", "3 feet"], "answer": 1, "ref": "MT Manual - Ch.4 Parking (General Guidelines)", "explanation": "Your vehicle must be within 18 inches (1.5 feet) of the curb or shoulder."}, {"q": "You may NOT park within what distance of a fire hydrant?", "options": ["10 feet", "15 feet", "20 feet"], "answer": 1, "ref": "MT Manual - Ch.4 No Parking Zones", "explanation": "Do not park within 15 feet of a fire hydrant."}, {"q": "Montana requires liability insurance with minimum bodily injury coverage of:", "options": ["$10,000 per person", "$25,000 per person", "$50,000 per person"], "answer": 1, "ref": "MT Manual - Ch.4 Motor Vehicle Insurance (Requirements)", "explanation": "Owners must carry at least $25,000 bodily injury/death of one person, $50,000 for two, and $10,000 property damage."}, {"q": "Liability insurance is mandatory in Montana with what exception?", "options": ["Pickup trucks", "Motorcycles", "Commercial vehicles"], "answer": 1, "ref": "MT Manual - Ch.4 Motor Vehicle Insurance (Requirements)", "explanation": "Liability insurance is mandatory except for motorcycles."}, {"q": "About what percentage of fatal crashes in Montana involve alcohol?", "options": ["Approximately 20%", "Approximately 40%", "Approximately 60%"], "answer": 1, "ref": "MT Manual - Ch.6 Drinking & Driving", "explanation": "Alcohol is involved in approximately 40% of fatal crashes."}, {"q": "The legal blood alcohol concentration (BAC) limit for a driver under 21 in Montana is:", "options": ["0.02%", "0.05%", "0.08%"], "answer": 0, "ref": "MT Manual - Ch.6 Alcohol and the Law", "explanation": "The BAC for a driver under 21 years of age is 0.02; for those 21+ it is 0.08%."}, {"q": "The average person's body processes about how much alcohol per hour?", "options": ["One drink per hour", "Two drinks per hour", "Three drinks per hour"], "answer": 0, "ref": "MT Manual - Ch.6 If You Drink, When Can You Drive?", "explanation": "The average person's body will process one alcoholic drink in one hour."}, {"q": "To report a drunk driver in Montana, citizens may call (toll-free, no name required):", "options": ["1-800-525-5555", "1-866-450-8034", "1-877-275-5269"], "answer": 0, "ref": "MT Manual - Ch.6 Report a Drunk Driver", "explanation": "The 'Report A Drunk Driver' program number is 1-800-525-5555."}, {"q": "Montana requires a vision test of at least what acuity in at least one eye to get a license?", "options": ["20/20", "20/40", "20/70"], "answer": 1, "ref": "MT Manual - Ch.6 Vision", "explanation": "Montana requires at least 20/40 vision in at least one eye, with or without corrective lenses."}, {"q": "If your accelerator (gas pedal) sticks while driving, the first thing you should do is:", "options": ["Shift to neutral and apply steady brake pressure", "Turn the engine off immediately", "Reach down and pull it up"], "answer": 0, "ref": "MT Manual - Ch.7 Gas Pedal Sticks", "explanation": "Quickly shift to neutral, apply steady pressure on the brake, pull off when safe, then turn off the engine."}, {"q": "An accident must be reported immediately to law enforcement if property damage is:", "options": ["$100 or more", "$500 or more", "$1,000 or more"], "answer": 1, "ref": "MT Manual - Ch.7 Report the accident", "explanation": "You must report an accident immediately if anyone is injured or killed, or property damage is $500 or more."}, {"q": "If your vehicle is hit from the rear, the best protection is to:", "options": ["Press against the back of your seat and put your head against the head restraint", "Lean forward toward the steering wheel", "Brace against the dashboard"], "answer": 0, "ref": "MT Manual - Ch.7 Protect Yourself in Collisions (Hit from the rear)", "explanation": "Press yourself against the back of your seat and put your head against the head restraint to reduce injury."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

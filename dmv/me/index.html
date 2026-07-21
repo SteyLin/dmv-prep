@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maine DMV Practice Test (ME) — Free ME Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Maine (ME) DMV practice test with 50 questions from the official Maine driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/me/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Maine</strong></div>
+  <header>
+    <h1>Maine <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free ME permit and license practice test — 50 questions from the official Maine driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Maine (ME DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Maine DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "me";
+const STATE_DATA = {"name": "Maine (ME DMV)", "source": "Official ME Driver Handbook (public domain)", "source_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/motorist-handbook", "questions": [{"q": "A new Maine resident who holds a valid driver's license from another state must surrender that license and apply for a Maine license within:", "options": ["30 days of establishing residency", "60 days of establishing residency", "90 days of establishing residency"], "answer": 0, "ref": "ME Handbook - Section 1: Your Driver's License", "explanation": "New residents holding a valid out-of-state license must surrender it and apply for a Maine license within 30 days of establishing residency."}, {"q": "What is the minimum age to obtain a learner's permit in Maine?", "options": ["14 years", "15 years", "16 years"], "answer": 1, "ref": "ME Handbook - Section 1: Your Driver's License", "explanation": "To obtain a learner's permit in Maine you must be at least 15 years of age."}, {"q": "A learner's permit holder must be accompanied by a licensed driver who is at least:", "options": ["18 years old with 1 year licensed", "20 years old with 2 years licensed", "21 years old with 3 years licensed"], "answer": 1, "ref": "ME Handbook - Section 1: Your Driver's License", "explanation": "A permit holder must be accompanied by a licensed driver at least 20 years old who has held a valid license for a minimum of 2 years."}, {"q": "How many classes of driver's licenses does Maine issue?", "options": ["Two (A and C)", "Three (A, B and C)", "Four (A, B, C and M)"], "answer": 1, "ref": "ME Handbook - Section 1: Types of Driver's Licenses", "explanation": "Maine has 3 classes of driver's licenses: Class A and B (commercial) and Class C (standard for most operators)."}, {"q": "For a driver under 21, before taking the road test a permit holder must complete at least how many hours of driving, including night hours?", "options": ["70 hours total including 10 hours at night", "50 hours total including 5 hours at night", "100 hours total including 20 hours at night"], "answer": 0, "ref": "ME Handbook - Section 1: Required Noncommercial License Tests", "explanation": "A person under 21 must hold a permit 6 months and complete at least 70 hours of driving, including 10 hours of night driving, before a road test."}, {"q": "For a driver under 18, the nighttime (12 a.m.\u20135 a.m.) and passenger restrictions remain in effect for:", "options": ["180 days from passing the road test", "270 days from passing the road test", "1 year from passing the road test"], "answer": 1, "ref": "ME Handbook - Section 1: Required Noncommercial License Tests", "explanation": "These restrictions apply for 270 days from when the road test was passed; any violation extends the restrictions."}, {"q": "A first license issued to a new applicant under 21 years of age is provisional for:", "options": ["One year", "Two years", "Until age 21"], "answer": 1, "ref": "ME Handbook - Section 1: Required Noncommercial License Tests", "explanation": "The first license to a new applicant under 21 is provisional for two years (one year for those 21 or older)."}, {"q": "Under the Maine Point System, a driver's license is suspended once demerit points reach:", "options": ["6 points", "12 points", "15 points"], "answer": 1, "ref": "ME Handbook - Section 1: Loss of Driving Privileges", "explanation": "A warning is issued at 6 points and the license is suspended when the total reaches 12 or more; points are erased when one year old."}, {"q": "A conviction for speeding 30 mph or more over the speed limit carries a suspension of:", "options": ["30 days", "60 days", "90 days"], "answer": 0, "ref": "ME Handbook - Section 1: License Penalties and Suspension", "explanation": "Speeding by 30 mph or more over the limit is among the offenses carrying an automatic 30-day suspension."}, {"q": "A conviction for vehicular manslaughter results in license revocation of at least:", "options": ["5 years (permanent if alcohol is involved)", "1 year", "90 days"], "answer": 0, "ref": "ME Handbook - Section 1: Revocation", "explanation": "Vehicular manslaughter carries revocation for at least 5 years; if alcohol is involved, revocation is permanent."}, {"q": "Successful completion of a Maine Driving Dynamics Course deducts how many points from a driver's record?", "options": ["Three points (once per 12 months)", "Five points (once per 12 months)", "One point per year"], "answer": 0, "ref": "ME Handbook - Section 1: Continuing Driver Education", "explanation": "Completing an approved driver improvement course deducts three points, but only once in any twelve-month period."}, {"q": "In Maine, a vehicle that is how old does NOT need a title?", "options": ["15 years or older", "20 years or older", "25 years or older"], "answer": 1, "ref": "ME Handbook - Section 2: Titling Your Motor Vehicle", "explanation": "Any vehicle 20 years old or older is exempt from the title law, along with motorcycles under 300 cc and light trailers."}, {"q": "The first step in registering a motor vehicle in Maine is paying the:", "options": ["Sales tax to the state", "Excise tax to a municipal tax collector", "Registration fee to the BMV"], "answer": 1, "ref": "ME Handbook - Section 2: Registering Your Vehicle", "explanation": "Payment of the excise tax to a municipal tax collector is the first step; the receipt serves as the registration application."}, {"q": "The registration fee for a passenger vehicle in Maine is:", "options": ["$25.00", "$35.00", "$50.00"], "answer": 1, "ref": "ME Handbook - Section 2: Registering Your Vehicle", "explanation": "The registration fee for a passenger vehicle is $35.00 and remains valid for one year."}, {"q": "A new Maine resident must register their vehicle within:", "options": ["30 days of establishing residency", "60 days of establishing residency", "90 days of establishing residency"], "answer": 0, "ref": "ME Handbook - Section 2: Registering Your Vehicle", "explanation": "Maine law requires applying for a Maine registration within 30 days once residence is declared or established."}, {"q": "Maine law requires every owner and operator of a motor vehicle to maintain:", "options": ["Collision insurance only", "Motor vehicle liability insurance", "Comprehensive insurance only"], "answer": 1, "ref": "ME Handbook - Section 2: Insuring Your Motor Vehicle", "explanation": "Maine law requires every owner and operator of a motor vehicle to maintain motor vehicle liability insurance and show proof on request."}, {"q": "All motor vehicles bearing a Maine registration must pass a safety inspection:", "options": ["Every two years", "Once a year at an official inspection station", "Only when the vehicle is sold"], "answer": 1, "ref": "ME Handbook - Section 2: Inspecting Your Motor Vehicle", "explanation": "All vehicles with a Maine registration must have a current inspection done at an official inspection station once a year."}, {"q": "During inspection, at a speed of 20 mph the foot brake must stop the vehicle within:", "options": ["30 feet", "50 feet", "20 feet"], "answer": 0, "ref": "ME Handbook - Section 2: Inspecting Your Motor Vehicle", "explanation": "The foot brake must be able to stop the vehicle within 30 feet when traveling 20 miles per hour."}, {"q": "To pass inspection, tires must have at least how much tread depth?", "options": ["1/32 of an inch", "2/32 of an inch", "4/32 of an inch"], "answer": 1, "ref": "ME Handbook - Section 2: Inspecting Your Motor Vehicle", "explanation": "Tires must have 2/32 of an inch of tread (4/32 for commercial vehicles of 10,000 lbs GVW)."}, {"q": "Operating a sound system audible beyond 25 feet and over 85 decibels carries a first-offense fine of:", "options": ["$25", "$50", "$100"], "answer": 1, "ref": "ME Handbook - Section 2: Excessive Sound System Noise", "explanation": "The first offense is $50, the second $100, and the third or subsequent offense $150."}, {"q": "Carbon monoxide from a leaky exhaust is dangerous because it is:", "options": ["A colorful, smelly gas", "A deadly, odorless gas", "Only harmful to plants"], "answer": 1, "ref": "ME Handbook - Section 2: Maintaining Your Motor Vehicle", "explanation": "Carbon monoxide is a deadly, odorless gas found in exhaust that causes weariness, headaches, dizziness and can be fatal."}, {"q": "A gasoline-powered vehicle may not emit visible exhaust smoke (other than water vapor) for more than:", "options": ["5 consecutive seconds", "10 consecutive seconds", "15 consecutive seconds"], "answer": 0, "ref": "ME Handbook - Section 2: Vehicle Emissions", "explanation": "Operating a vehicle that emits visible smoke for more than 5 consecutive seconds is prohibited."}, {"q": "Drowsy-driving 'micro-sleeps' typically last about:", "options": ["1 to 2 seconds", "4 to 5 seconds", "10 to 15 seconds"], "answer": 1, "ref": "ME Handbook - Section 3: Fatigue", "explanation": "Brief micro-sleeps last only four to five seconds, but at 55 mph that tiny nap can be fatal."}, {"q": "The three distinct types of driver distractions are:", "options": ["Visual, manual and cognitive", "Audio, visual and physical", "Mental, visual and verbal"], "answer": 0, "ref": "ME Handbook - Section 3: Driver Distractions", "explanation": "Distractions are classified as visual (looking away), manual (hands off the wheel) and cognitive (mind off driving)."}, {"q": "In Maine, a person under 18 is specifically prohibited from:", "options": ["Driving after 10 p.m.", "Operating a vehicle while using a mobile telephone or handheld electronic device", "Carrying any passenger"], "answer": 1, "ref": "ME Handbook - Section 3: Using a Cellular Telephone", "explanation": "A person who has not attained age 18 is prohibited from operating a motor vehicle while using a mobile telephone or handheld electronic device."}, {"q": "Alcohol and other drugs are contributing factors in about what share of all fatal crashes?", "options": ["About 20%", "About 40%", "About 60%"], "answer": 1, "ref": "ME Handbook - Section 3: Keeping Fit to Drive (Alcohol & Drugs)", "explanation": "Alcohol and other drugs are contributing factors in about 40% of all fatal crashes."}, {"q": "For drivers age 21 and older, the legal OUI (BrAC) level in Maine is:", "options": ["0.05 grams per 100 ml of blood", "0.08 grams per 100 ml of blood", "0.10 grams per 100 ml of blood"], "answer": 1, "ref": "ME Handbook - Section 3: Alcohol and the Law", "explanation": "Operating with 0.08 grams per 100 ml of blood (or 210 liters of breath) is the criminal OUI threshold for those 21 and older."}, {"q": "For drivers under 21, driving after consuming any amount of alcohol results in:", "options": ["A warning only", "Loss of license for at least one year", "A fine but no suspension"], "answer": 1, "ref": "ME Handbook - Section 3: If You Are Under 21", "explanation": "Those under 21 may not drive after consuming any alcohol; an OUI conviction costs the license for at least one year."}, {"q": "Under Maine's implied consent law, refusing a chemical (breath/blood) test leads to a license suspension of up to:", "options": ["One year", "Six years", "90 days"], "answer": 1, "ref": "ME Handbook - Section 3: Implied Consent", "explanation": "Refusing the test brings an administrative suspension of up to six years by the Secretary of State, with no court action required."}, {"q": "A first OUI conviction with a BAC of 0.08\u20130.14 results in a license loss of at least:", "options": ["90 days", "150 days", "1 year"], "answer": 1, "ref": "ME Handbook - Section 3: If You Are Convicted of OUI", "explanation": "A first OUI at 0.08\u20130.14 carries a mandatory fine of at least $500 and loss of license for at least 150 days."}, {"q": "At a BAC of 0.15 grams, your likelihood of a crash is about how many times higher than when sober?", "options": ["6 times", "25 times", "1 time"], "answer": 1, "ref": "ME Handbook - Section 3: How Drinking Impairs Driving", "explanation": "The handbook states crash likelihood rises to about 25 times at 0.15 grams versus 1 time at 0.05 grams."}, {"q": "A conviction for vehicular homicide while under the influence results in license revocation that is:", "options": ["Permanent", "5 years", "1 year"], "answer": 0, "ref": "ME Handbook - Section 3: Drivers Involved in Fatal Accidents", "explanation": "Vehicular homicide conviction brings at least 5 years revocation; if intoxicated at the time, revocation is permanent."}, {"q": "Maine's open container law makes it a violation for the operator or a passenger in the passenger area to:", "options": ["Drink water", "Consume or possess an open alcoholic container", "Eat food"], "answer": 1, "ref": "ME Handbook - Section 3: Open Container Law", "explanation": "The operator or a passenger in the passenger area may not consume alcohol or possess an open alcoholic container on a public way."}, {"q": "When adjusting your seat in a vehicle with an air bag, you should sit at least:", "options": ["6 to 8 inches from the steering wheel", "12 to 15 inches from the steering wheel", "2 to 3 inches from the steering wheel"], "answer": 1, "ref": "ME Handbook - Section 4: Adjusting Your Seat and Mirrors", "explanation": "With an air bag you should be at least 12 to 15 inches away from the steering wheel for safe deployment in a crash."}, {"q": "A steady red traffic light means:", "options": ["Slow down and proceed with caution", "Stop; a right turn is permitted after stopping unless posted otherwise", "Go only if no pedestrians are present"], "answer": 1, "ref": "ME Handbook - Section 6: Traffic Signals", "explanation": "Steady red means STOP. After stopping, a right turn is allowed unless posted otherwise, yielding to pedestrians and traffic."}, {"q": "A flashing yellow traffic light means:", "options": ["Stop completely, then proceed when clear", "Slow down and proceed with caution", "The light is about to turn green"], "answer": 1, "ref": "ME Handbook - Section 6: Traffic Signals", "explanation": "A flashing yellow light means slow down and proceed with caution; they are found at construction areas and intersections."}, {"q": "A STOP sign in Maine is:", "options": ["Red and octagon-shaped (eight sides)", "Red and triangular", "Yellow and diamond-shaped"], "answer": 0, "ref": "ME Handbook - Section 6: Traffic Signs", "explanation": "A stop sign is red with white letters and has eight sides (octagon)."}, {"q": "A YIELD sign is shaped like a:", "options": ["Triangle", "Rectangle", "Diamond"], "answer": 0, "ref": "ME Handbook - Section 6: Traffic Signs", "explanation": "A yield sign is a triangle (red and white; older versions may be yellow with black letters)."}, {"q": "A 5-sided sign indicates:", "options": ["A railroad crossing ahead", "A school zone; slow to 15 mph when children are present", "A sharp curve ahead"], "answer": 1, "ref": "ME Handbook - Section 6/7: School Zone Signs", "explanation": "A 5-sided sign means you are in a school zone and must slow to 15 mph when children are going to or from school."}, {"q": "When two cars enter an uncontrolled intersection at about the same time, you must yield to:", "options": ["The car on your left", "The car on your right", "The larger vehicle"], "answer": 1, "ref": "ME Handbook - Section 6: Right-of-Way", "explanation": "If two cars enter an uncontrolled intersection about the same time, yield to the car on your right."}, {"q": "At a traffic circle or roundabout, the right-of-way belongs to:", "options": ["The vehicle already in the circle", "The vehicle that arrives first", "The larger vehicle"], "answer": 0, "ref": "ME Handbook - Section 6/7: Traffic Circles and Roundabouts", "explanation": "All vehicles approaching a roundabout must yield to vehicles already in the circle; traffic proceeds counterclockwise around the island."}, {"q": "Failing to yield to an approaching emergency vehicle using a siren and flashing light is a:", "options": ["Class E crime", "Minor infraction with a warning", "Non-moving violation"], "answer": 0, "ref": "ME Handbook - Section 6: Right-of-Way (Emergency Vehicles)", "explanation": "You must pull to the right and stop for emergency vehicles; failure to yield is a Class E crime."}, {"q": "On any three-lane section of the Maine Turnpike or I-95, trucks (excluding pickups) may only operate in:", "options": ["The two farthest right-hand lanes", "The left lane only", "Any lane they choose"], "answer": 0, "ref": "ME Handbook - Section 6: Lane Restrictions", "explanation": "On three-lane sections of the Maine Turnpike/I-95, trucks (except pickups) may only use the two farthest right-hand lanes."}, {"q": "When parallel parking along a curb, you must not park more than:", "options": ["6 inches from the curb", "18 inches from the curb", "3 feet from the curb"], "answer": 1, "ref": "ME Handbook - Section 7: Parking", "explanation": "Park as close to the curb as you can and no more than 18 inches away from it."}, {"q": "It is illegal to park within what distance of a fire hydrant?", "options": ["5 feet", "10 feet", "15 feet"], "answer": 1, "ref": "ME Handbook - Section 7: Parking", "explanation": "Municipal ordinances prohibit parking within 10 feet of a fire hydrant."}, {"q": "In Maine it is illegal to pass a stopped school bus with its red lights flashing on:", "options": ["Any undivided highway or parking area", "Only interstate highways", "Only on school property"], "answer": 0, "ref": "ME Handbook - Section 7/10: Rules for School Buses", "explanation": "It is illegal to pass a stopped school bus with red lights flashing on school property, any undivided highway or parking area; you must stop."}, {"q": "Unless posted otherwise, the maximum speed limit in a Maine business or residential district is:", "options": ["15 mph", "25 mph", "45 mph"], "answer": 1, "ref": "ME Handbook - Section 8: Speed Limits", "explanation": "Posted limits notwithstanding, the maximum in a business/residential/built-up area is 25 mph (45 mph outside such areas)."}, {"q": "To maintain a safe following distance, the handbook recommends the:", "options": ["One-second rule", "Two-second rule", "Five-second rule"], "answer": 1, "ref": "ME Handbook - Section 8: Maintaining a Safe Cushion", "explanation": "Use the two-second rule; allow three to four seconds on slippery roads or when following motorcycles/large vehicles."}, {"q": "When an oncoming vehicle with bright headlights fails to dim them, you should:", "options": ["Flash your high beams back", "Slow down and look toward the right side of the road", "Speed up to pass quickly"], "answer": 1, "ref": "ME Handbook - Section 8: Seeing Well at Night", "explanation": "Slow down and look toward the right side of the road so you are not blinded and can still see the lane edge."}, {"q": "In Maine, moose-vehicle collisions peak during:", "options": ["May and June", "September and October", "December and January"], "answer": 0, "ref": "ME Handbook - Section 10/11: Wildlife Safety", "explanation": "May and June are the peak moose-collision months; deer collisions peak in November during breeding season."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

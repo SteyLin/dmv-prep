@@ -1,0 +1,558 @@
+{
+  "oh": {
+    "name": "Ohio (OH BMV)",
+    "source": "Official OH Driver Manual (public domain)",
+    "questions": [
+      {
+        "q": "At what minimum age may an Ohio resident apply for a Temporary Instruction Permit Identification Card (TIPIC) to begin driving practice?",
+        "options": [
+          "16 years old",
+          "15 1/2 years old",
+          "15 years old"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Licensing - TIPIC / Graduated Driver Licensing",
+        "explanation": "Ohio issues the temporary instruction permit (TIPIC) starting at age 15 1/2, allowing supervised driving practice."
+      },
+      {
+        "q": "How long must a driver under age 18 hold the temporary instruction permit before taking the road test for a probationary license?",
+        "options": [
+          "At least 12 months",
+          "At least 3 months",
+          "At least 6 months"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Graduated Driver Licensing - Holding Period",
+        "explanation": "Minors must hold the TIPIC for a minimum of six months and meet training requirements before the road test."
+      },
+      {
+        "q": "A Temporary Instruction Permit Identification Card (TIPIC) is valid for how long from the date it is issued?",
+        "options": [
+          "6 months only",
+          "2 years non-renewable",
+          "1 year (and may be renewed)"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Licensing - TIPIC Validity",
+        "explanation": "The temporary permit is valid for one year and can be renewed if more practice time is needed."
+      },
+      {
+        "q": "While driving with a temporary instruction permit, the permit holder must be accompanied by a licensed driver who is at least:",
+        "options": [
+          "18 years old",
+          "25 years old",
+          "21 years old (or a parent/guardian)"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Graduated Driver Licensing - Supervision",
+        "explanation": "A permit holder must drive with a licensed driver age 21 or older (or a parent/guardian) seated beside them."
+      },
+      {
+        "q": "What is the minimum age at which an Ohio teen may obtain a Probationary Driver License?",
+        "options": [
+          "15 1/2 years old",
+          "16 years old",
+          "17 years old"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Graduated Driver Licensing - Probationary License",
+        "explanation": "After meeting the holding and training requirements, a teen may receive a probationary license at age 16."
+      },
+      {
+        "q": "During the first 12 months of a probationary license, how many non-family passengers under age 21 may the driver carry?",
+        "options": [
+          "Only one",
+          "Up to three",
+          "Any number if seat-belted"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Probationary License - Passenger Restriction",
+        "explanation": "For the first year, a probationary driver may have only one passenger under 21 who is not a family member."
+      },
+      {
+        "q": "Under Ohio's nighttime driving restriction for a probationary license holder, driving is generally prohibited between:",
+        "options": [
+          "10 p.m. and 5 a.m.",
+          "11 p.m. and 6 a.m.",
+          "Midnight and 6 a.m."
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Probationary License - Nighttime Restriction",
+        "explanation": "Probationary drivers may not drive from midnight to 6 a.m. except for work, school, or emergency purposes."
+      },
+      {
+        "q": "To meet the vision screening for an Ohio license, an applicant must have at least what vision in one eye (with or without correction)?",
+        "options": [
+          "20/20",
+          "20/70",
+          "20/40"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Licensing - Vision Screening",
+        "explanation": "Ohio's vision standard requires at least 20/40 acuity in one eye, with corrective lenses permitted."
+      },
+      {
+        "q": "For the on-road driving test, the vehicle provided by the applicant must have:",
+        "options": [
+          "Only a valid driver's license for the tester",
+          "No special requirements",
+          "Valid plates, registration, insurance, and working safety equipment"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Road Test - Vehicle Requirements",
+        "explanation": "The test vehicle must be legally registered, insured, and equipped with working lights, brakes, and signals."
+      },
+      {
+        "q": "A new Ohio resident with a valid out-of-state license must obtain an Ohio driver license within how many days of establishing residency?",
+        "options": [
+          "10 days",
+          "30 days",
+          "90 days"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Licensing - New Residents",
+        "explanation": "New residents must transfer their out-of-state license to an Ohio license within 30 days of becoming a resident."
+      },
+      {
+        "q": "An eight-sided red sign always means:",
+        "options": [
+          "Stop",
+          "Yield",
+          "Do not enter"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Regulatory Signs",
+        "explanation": "The octagonal red sign is the universal STOP sign requiring a full stop."
+      },
+      {
+        "q": "A downward-pointing triangle sign means you must:",
+        "options": [
+          "Increase speed",
+          "Stop completely",
+          "Yield the right-of-way"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Warning/Yield",
+        "explanation": "The triangular yield sign requires you to slow and yield to traffic with the right-of-way."
+      },
+      {
+        "q": "A standard red, circular sign with a horizontal white bar means:",
+        "options": [
+          "Do not enter",
+          "No U-turn",
+          "Stop ahead"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Regulatory Signs",
+        "explanation": "The circular 'DO NOT ENTER' sign prohibits entering the road from that direction."
+      },
+      {
+        "q": "A yellow pennant-shaped sign is used to warn of:",
+        "options": [
+          "A school zone",
+          "A railroad crossing",
+          "A no-passing zone"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - No-Passing Zone",
+        "explanation": "The yellow pennant marks the beginning of a no-passing zone on the left side of the road."
+      },
+      {
+        "q": "A five-sided (pentagonal) sign warns of:",
+        "options": [
+          "A school zone or school crossing",
+          "A railroad crossing",
+          "A curve ahead"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - School Signs",
+        "explanation": "Pentagonal signs are used for school advance and school crossing warnings."
+      },
+      {
+        "q": "A round yellow sign warns of:",
+        "options": [
+          "A railroad crossing ahead",
+          "A stop sign ahead",
+          "A roundabout ahead"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Railroad Warning",
+        "explanation": "The round yellow sign is the advance warning for a railroad crossing."
+      },
+      {
+        "q": "A steady yellow traffic light means:",
+        "options": [
+          "Stop immediately wherever you are",
+          "Proceed at normal speed",
+          "Clear the intersection; prepare to stop"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Traffic Lights",
+        "explanation": "A yellow signal tells drivers the light is about to turn red, so clear the intersection safely."
+      },
+      {
+        "q": "A flashing red traffic signal must be treated as:",
+        "options": [
+          "A green light after slowing",
+          "A stop sign (stop, then proceed when clear)",
+          "A yield sign only"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Flashing Signals",
+        "explanation": "A flashing red light has the same meaning as a stop sign: stop, then go when safe."
+      },
+      {
+        "q": "A flashing yellow traffic signal means:",
+        "options": [
+          "Do not enter",
+          "Stop fully, then go",
+          "Proceed with caution"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Flashing Signals",
+        "explanation": "A flashing yellow light means slow down and proceed with caution."
+      },
+      {
+        "q": "At a steady red light, when may a driver turn right after stopping?",
+        "options": [
+          "Never at a red light",
+          "Only with a green arrow",
+          "After stopping and yielding, unless a sign prohibits it"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Traffic Signals and Signs - Right Turns on Red",
+        "explanation": "Ohio permits a right turn on red after a full stop and when no sign bans the turn."
+      },
+      {
+        "q": "Who has the right-of-way at an intersection with no traffic signals or signs?",
+        "options": [
+          "The driver on the right",
+          "The faster vehicle",
+          "The driver on the left"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Right-of-Way - Uncontrolled Intersections",
+        "explanation": "At uncontrolled intersections, yield to the vehicle on your right."
+      },
+      {
+        "q": "When entering a roundabout, a driver must:",
+        "options": [
+          "Enter without yielding",
+          "Stop in the center",
+          "Yield to traffic already in the roundabout"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Right-of-Way - Roundabouts",
+        "explanation": "Traffic in the roundabout has priority; entering drivers yield to it."
+      },
+      {
+        "q": "When approaching an emergency vehicle with flashing lights and siren, a driver should:",
+        "options": [
+          "Speed up to pass it",
+          "Pull to the right and stop",
+          "Stay in the lane and slow"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Right-of-Way - Emergency Vehicles",
+        "explanation": "You must yield by moving to the right and stopping until the emergency vehicle passes."
+      },
+      {
+        "q": "When a school bus has red flashing lights and an extended stop arm, drivers approaching from either direction must:",
+        "options": [
+          "Stop only if behind the bus",
+          "Stop at least 10 feet away",
+          "Slow but may pass"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Right-of-Way - School Buses",
+        "explanation": "Ohio law requires stopping at least 10 feet from a bus with red lights and stop arm active."
+      },
+      {
+        "q": "On a divided highway with a physical barrier, drivers on the opposite side of a stopped school bus with flashing red lights:",
+        "options": [
+          "Need not stop",
+          "Must also stop",
+          "Must stop only if children are present"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Right-of-Way - School Buses (Divided Highway)",
+        "explanation": "On a physically divided roadway, only traffic traveling the same direction as the bus must stop."
+      },
+      {
+        "q": "Unless otherwise posted, what is the general speed limit in an urban residential or business district in Ohio?",
+        "options": [
+          "25 mph",
+          "35 mph",
+          "20 mph"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Speed Limits - Urban Districts",
+        "explanation": "Ohio's default speed limit in municipal residential/business areas is 25 mph unless signs say otherwise."
+      },
+      {
+        "q": "Unless otherwise posted, what is the basic speed limit on most rural state highways and county roads in Ohio?",
+        "options": [
+          "65 mph",
+          "55 mph",
+          "45 mph"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Speed Limits - Rural Highways",
+        "explanation": "The default rural highway limit in Ohio is 55 mph unless posted higher."
+      },
+      {
+        "q": "On limited-access, divided highways (such as interstates) in Ohio, the maximum posted speed limit may be up to:",
+        "options": [
+          "65 mph",
+          "70 mph",
+          "75 mph"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Speed Limits - Interstate Highways",
+        "explanation": "Ohio allows up to a 70 mph limit on certain divided, limited-access rural interstate highways."
+      },
+      {
+        "q": "Ohio's basic speed law requires drivers to:",
+        "options": [
+          "Always match the posted maximum",
+          "Never below the posted minimum",
+          "Drive at a speed reasonable and prudent for conditions"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Speed Limits - Basic Speed Law",
+        "explanation": "Even below the posted limit, you must slow to a safe speed for weather, visibility, and traffic."
+      },
+      {
+        "q": "A solid yellow line on your side of the centerline means:",
+        "options": [
+          "The lane is for turns only",
+          "No passing allowed",
+          "Passing allowed with caution"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Lane Markings - Yellow Lines",
+        "explanation": "A solid yellow line on your side prohibits crossing it to pass."
+      },
+      {
+        "q": "Double solid yellow lines in the center of the road mean:",
+        "options": [
+          "Passing allowed from either side",
+          "A center turn lane",
+          "No passing in either direction"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Lane Markings - Double Yellow",
+        "explanation": "Double solid yellow lines forbid crossing to pass from either direction."
+      },
+      {
+        "q": "A broken (dashed) white line separates lanes of traffic moving:",
+        "options": [
+          "In the same direction (lane changes permitted)",
+          "For a bicycle lane",
+          "In opposite directions"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Lane Markings - White Lines",
+        "explanation": "Dashed white lines separate same-direction lanes where lane changes are allowed."
+      },
+      {
+        "q": "A solid white line at the edge of the roadway marks:",
+        "options": [
+          "The right edge of the travel lane",
+          "A railroad track",
+          "A passing zone"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Lane Markings - Solid White",
+        "explanation": "Solid white edge lines show the boundary of the roadway shoulder."
+      },
+      {
+        "q": "You may not pass another vehicle within how many feet of a railroad crossing?",
+        "options": [
+          "200 feet",
+          "50 feet",
+          "100 feet"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Passing - Near Railroads",
+        "explanation": "Ohio prohibits passing within 100 feet of a railroad crossing."
+      },
+      {
+        "q": "You may not pass on a hill or curve unless you can see at least how far ahead?",
+        "options": [
+          "1,000 feet",
+          "500 feet",
+          "300 feet"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Passing - Visibility",
+        "explanation": "Only pass when you can see at least 500 feet of clear road ahead."
+      },
+      {
+        "q": "When must you dim your high-beam headlights to low beams for an oncoming vehicle?",
+        "options": [
+          "Within 500 feet",
+          "Within 1,000 feet",
+          "Within 200 feet"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Lights - High Beams",
+        "explanation": "Switch to low beams within 500 feet of oncoming traffic to avoid blinding others."
+      },
+      {
+        "q": "When following another vehicle, you must use low-beam headlights within how many feet?",
+        "options": [
+          "300 feet",
+          "200 feet",
+          "100 feet"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Lights - Following",
+        "explanation": "Use low beams when you are within 200 feet behind another vehicle."
+      },
+      {
+        "q": "Ohio law requires headlights to be on:",
+        "options": [
+          "Only on unlit roads",
+          "From sunset to sunrise and in poor visibility",
+          "Only when it is raining hard"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Lights - Required Use",
+        "explanation": "Headlights are required from dusk to dawn and whenever you cannot see 1,000 feet ahead."
+      },
+      {
+        "q": "You must turn on your headlights whenever you cannot see a person or vehicle on the highway at least:",
+        "options": [
+          "500 feet ahead",
+          "1,000 feet ahead",
+          "1,500 feet ahead"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - Lights - Visibility Standard",
+        "explanation": "If visibility is under 1,000 feet, Ohio requires headlights on."
+      },
+      {
+        "q": "A driver must signal a turn or lane change at least how far in advance?",
+        "options": [
+          "200 feet",
+          "50 feet",
+          "100 feet"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Signaling - Distance",
+        "explanation": "Ohio requires a signal at least 100 feet before turning or changing lanes."
+      },
+      {
+        "q": "A driver age 21 or older may be arrested for OVI in Ohio at a blood alcohol concentration (BAC) of:",
+        "options": [
+          "0.08% or higher",
+          "0.10% or higher",
+          "0.05% or higher"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - OVI / Alcohol - Adult Limit",
+        "explanation": "Ohio's per se OVI limit for adult drivers is a BAC of 0.08% or above."
+      },
+      {
+        "q": "Under Ohio's implied consent law, refusing a chemical (breath/blood/urine) test after a lawful arrest can result in:",
+        "options": [
+          "No penalty",
+          "Automatic license suspension",
+          "Only a warning"
+        ],
+        "answer": 1,
+        "ref": "OH BMV Driver Manual - OVI - Implied Consent",
+        "explanation": "Refusing the test triggers an administrative license suspension under implied consent."
+      },
+      {
+        "q": "In Ohio, who is required by law to wear a safety belt?",
+        "options": [
+          "The driver and all front-seat passengers",
+          "Only the driver",
+          "Only passengers under 16"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Occupant Protection - Seat Belts",
+        "explanation": "Ohio requires the driver and front-seat occupants to be properly restrained."
+      },
+      {
+        "q": "Ohio's child passenger safety law requires children under age 4 or under 40 pounds to ride in:",
+        "options": [
+          "A regular seat belt only",
+          "The front seat",
+          "A child restraint system (car seat)"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Occupant Protection - Child Restraints",
+        "explanation": "Young/light children must be in an approved child restraint system."
+      },
+      {
+        "q": "Children ages 4 through 7 who have outgrown a car seat must use:",
+        "options": [
+          "No restraint required",
+          "An adult seat belt only",
+          "A booster seat until 4'9\" tall or age 8"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Occupant Protection - Booster Seats",
+        "explanation": "Ohio requires a booster seat until the child reaches age 8 or 4 feet 9 inches."
+      },
+      {
+        "q": "You may not park within how many feet of a fire hydrant in Ohio?",
+        "options": [
+          "10 feet",
+          "25 feet",
+          "15 feet"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Parking - Fire Hydrants",
+        "explanation": "Parking is prohibited within 10 feet of a fire hydrant."
+      },
+      {
+        "q": "You may not park within how many feet of a stop sign or traffic signal?",
+        "options": [
+          "10 feet",
+          "50 feet",
+          "30 feet"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Parking - Signs/Signals",
+        "explanation": "Keep at least 30 feet from stop signs and traffic signals when parking."
+      },
+      {
+        "q": "The 'three-second rule' is used to maintain a safe:",
+        "options": [
+          "Following distance behind the vehicle ahead",
+          "Stopping distance on ice",
+          "Time to change lanes"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Safe Driving - Following Distance",
+        "explanation": "The three-second rule helps keep a safe gap behind the car ahead."
+      },
+      {
+        "q": "When stopping behind another vehicle at a traffic light, you should:",
+        "options": [
+          "Stop in the crosswalk",
+          "Pull right up to its bumper",
+          "Leave room to see its rear tires (pull-back space)"
+        ],
+        "answer": 2,
+        "ref": "OH BMV Driver Manual - Safe Driving - Stopping Position",
+        "explanation": "Leave space so you can pull around if needed and see the tires meet pavement."
+      },
+      {
+        "q": "In work zones, fines for traffic violations are typically:",
+        "options": [
+          "Doubled",
+          "Waived",
+          "The same as usual"
+        ],
+        "answer": 0,
+        "ref": "OH BMV Driver Manual - Special Zones - Work Zones",
+        "explanation": "Ohio doubles fines in marked construction/work zones to protect workers."
+      }
+    ]
+  }
+}

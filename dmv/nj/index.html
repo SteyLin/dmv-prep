@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Jersey DMV Practice Test (NJ) — Free NJ Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free New Jersey (NJ) DMV practice test with 50 questions from the official New Jersey driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/nj/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>New Jersey</strong></div>
+  <header>
+    <h1>New Jersey <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free NJ permit and license practice test — 50 questions from the official New Jersey driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">New Jersey (NJ MVC)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official New Jersey DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "nj";
+const STATE_DATA = {"name": "New Jersey (NJ MVC)", "source": "Official NJ Driver Manual (public domain)", "questions": [{"q": "Is a driver's license a right or a privilege in New Jersey?", "options": ["It is a right", "It is a privilege, not a right", "It is a privilege only for CDL"], "answer": 1, "ref": "NJ Manual - Ch.1 The New Jersey Driver License System", "explanation": "Manual: 'DRIVING IS A PRIVILEGE, NOT A RIGHT.' Driving is a privilege, not a right."}, {"q": "How long does it take for a driver who moves to New Jersey and has a valid state license to apply for a NJ license?", "options": ["30 days", "60 days (30 days for CDL)", "90 days"], "answer": 1, "ref": "NJ Manual - Ch.1 Laws Governing Driver Licenses", "explanation": "Those moving to NJ with another state driver's license must obtain an NJ driver's license within 60 days (30 days for CDL) or before the current driver's license expires (N.J.S.A. 39:3-17.1)."}, {"q": "What is the deadline to notify MVC of a change of address?", "options": ["in a week", "in two weeks", "within 30 days"], "answer": 0, "ref": "NJ Manual - Ch.1 Laws Governing Driver Licenses", "explanation": "A moving driver must notify the MVC of a change of address within one week of moving (N.J.S.A. 39:3-36)."}, {"q": "What is the notification period to MVC in case of legal name change (marriage, divorce, court decision)?", "options": ["a week", "in two weeks", "60 days"], "answer": 1, "ref": "NJ Manual - Ch.1 Laws Governing Driver Licenses", "explanation": "Legal name changes must be reported to the MVC within two weeks (N.J.S.A. 39:3-9a)."}, {"q": "How many proofs of NJ residential address are required to apply for REAL ID?", "options": ["1", "2", "6"], "answer": 1, "ref": "NJ Manual - Ch.1 Identity Verification", "explanation": "'2+1+6' rule for REAL ID: 2 proof of residence address, 1 full SSN proof and at least 6 ID points are required."}, {"q": "How often is a NJ Basic Automobile License renewed?", "options": ["2 years", "4 years", "10 years"], "answer": 1, "ref": "NJ Manual - Ch.1 Types of New Jersey Licenses", "explanation": "Most NJ driver's licenses, including the basic automobile license, have a validity period of 4 years (Expiration: 4 Years)."}, {"q": "In which year was the GDL (Graduated Driver License) program launched?", "options": ["1995", "2001", "2010"], "answer": 1, "ref": "NJ Manual - Ch.1 Graduated Driver License (GDL)", "explanation": "New Jersey implemented the GDL program in 2001; Driving is introduced gradually with the gradual licensing system."}, {"q": "What is the minimum age for the Early Bird Road (GDL Option A) Special Learner Permit?", "options": ["15", "16", "17"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL: Option A (Early Bird Road)", "explanation": "Special Learner Permit requires at least 16 years of age, parent/guardian consent, approved driving course and knowledge+vision test."}, {"q": "What is the minimum age to obtain an Examination Permit (GDL Option B)?", "options": ["16", "17", "18"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL: Option B (Young Adult Road)", "explanation": "Examination Permit requires at least 17 years of age, knowledge and vision test pass and fee."}, {"q": "What is the minimum age and supervised driving period for an Adult Road (GDL Option C) examination permit?", "options": ["17 years, 6 months", "21 years, 3 months", "21 years, 6 months"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL: Option C (Adult Road)", "explanation": "Option C: at least 21 years of age, knowledge/vision test, 3 months supervised driving. Different rules apply for those under 21."}, {"q": "How many hours of practical driving (how many of these in the dark) must be completed in supervised driving under GDL?", "options": ["30 hours (5 in the dark)", "50 hours (10 in the dark)", "100 hours (20 in the dark)"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL Practice Requirements", "explanation": "GDL requires at least 6 months and a minimum of 50 practical driving hours, of which 10 hours must be in the dark."}, {"q": "Where should GDL drivers under the age of 21 install red reflective GDL decals on their vehicles?", "options": ["Upper right corner of backplate only", "Upper left corner of front and back plate (2 total)", "Both side mirrors"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL Decal", "explanation": "Two visible red reflective decals: one affixed to the upper left corner of the rear license plate and the other to the upper left corner of the front license plate (N.J.S.A. 39:3-13.4f)."}, {"q": "During which hours is the night driving ban valid for Special Learner Permit and Examination Permit holders?", "options": ["22:00 - 05:00", "23:01 - 05:00", "21:00 - 06:00"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL Restrictions", "explanation": "GDL drivers under 21 cannot drive between 11:01 pm (11:01 pm) and 5:00 am; There are also telephone and passenger restrictions."}, {"q": "What is the minimum age and how many years of driving experience should the adult driver who is driving under supervision alongside a GDL driver be?", "options": ["18 years old, 1 year", "21 years, 3 years", "25 years, 5 years"], "answer": 1, "ref": "NJ Manual - Ch.1 GDL Restrictions", "explanation": "Accompanying adult must be at least 21 years old, have a valid NJ driver's license and at least 3 years of driving experience."}, {"q": "What is the minimum age for a moped license in NJ?", "options": ["14", "15", "17"], "answer": 1, "ref": "NJ Manual - Ch.1 Types of New Jersey Licenses", "explanation": "Moped license is for unlicensed drivers aged 15 and over; It is not required from those with A/B/C/D/E driver's license."}, {"q": "What is required before you can apply for a CDL (commercial driver's license) in NJ?", "options": ["A valid international driver's license", "Valid basic (Class D) NJ driver's license", "At least 25 years old"], "answer": 1, "ref": "NJ Manual - Ch.1 Commercial Driver License (CDL)", "explanation": "A valid base Class D NJ driver's license or other valid state CDL is required before you can apply for CDL classes."}, {"q": "How long can a driver with a license from another country drive with that license in NJ?", "options": ["30 days", "6 months", "1 year"], "answer": 2, "ref": "NJ Manual - Ch.1 Examination Permits for Out-of-Country Drivers", "explanation": "A driver with a driver's license from another country can drive with that license in NJ for up to a year (N.J.A.C. 13:21-8.2(f))."}, {"q": "What is the minimum age to register as an organ donor in NJ?", "options": ["14", "18", "21"], "answer": 0, "ref": "NJ Manual - Ch.1 Organ Donation / Next-of-Kin Registry", "explanation": "Anyone aged 14 and over can register as an organ and tissue donor with the Donate Life Registry. Sara's Law (Next-of-Kin) also has a minimum age of 14."}, {"q": "Is there always a crosswalk at an unmarked intersection?", "options": ["No, just the drawn ones", "Yes, there is a pedestrian crossing at every intersection", "In school districts only"], "answer": 1, "ref": "NJ Manual - Ch.8 Sharing the Road - Pedestrians", "explanation": "Manual: 'There is a crosswalk at every intersection, even if it is not marked as such' \u2014 there is a pedestrian crossing at every intersection (even if it is not marked)."}, {"q": "How far away should you stay on a two-lane road when the school bus has its red lights on and/or its arm outstretched?", "options": ["10 feet", "25 feet", "50 feet"], "answer": 1, "ref": "NJ Manual - Ch.4 Stop for School Buses", "explanation": "On a two-lane road or a multi-lane road separated only by lines, the school bus must maintain a distance of at least 25 feet (N.J.S.A. 39:4-128.1)."}, {"q": "What to do if the school bus in the opposite direction has a red light on a divided highway?", "options": ["In all cases stop 25 feet", "If there is a safety island/median, you can pass at 10 mph.", "The road is completely closed"], "answer": 1, "ref": "NJ Manual - Ch.4 Stop for School Buses", "explanation": "On a two-way highway, if you are on the other side of a safety island or raised median, you can pass at 10 mph."}, {"q": "What should be your maximum speed when passing a frozen dessert truck when it turns on the red light and opens the stop lever?", "options": ["10 mph", "15 mph", "25 mph"], "answer": 1, "ref": "NJ Manual - Ch.4 Stop for Frozen Dessert Trucks", "explanation": "You must stop for the ice cream truck and then pass at a speed not to exceed 15 mph (N.J.S.A. 39:4-128.4)."}, {"q": "What should you do when emergency vehicles (ambulance, fire, police) approach with sirens and/or flashing lights?", "options": ["Stay where you are", "Pull to the right, stop and stay at least 300 feet behind", "Speed \u200b\u200bup and pass"], "answer": 1, "ref": "NJ Manual - Ch.4 Pull Over and Stop for Emergency Vehicles", "explanation": "Pull over to the far right of the road and stop; After passing, maintain a rear distance of at least 300 feet from the signaled emergency vehicle (N.J.S.A. 39:4-92)."}, {"q": "According to the NJ 'Move Over' law, what happens if it is not possible to change lanes when approaching an authorized emergency vehicle/tow truck stopped on the road?", "options": ["Stay in your lane", "Slow down to a reasonable speed below the speed limit and be prepared to stop if necessary", "honk your horn"], "answer": 1, "ref": "NJ Manual - Ch.4 Move Over Law", "explanation": "If lane change is impossible, it is necessary to slow down to a reasonable and appropriate speed below the speed limit; violation $100-$500 penalty (N.J.S.A. 39:4-92.2)."}, {"q": "How far away should you stay when approaching a railroad crossing if there are flashing red lights, ringing bells or lowered barriers?", "options": ["5 feet", "15 feet", "50 feet"], "answer": 1, "ref": "NJ Manual - Ch.4 Stop at Railroad Crossings", "explanation": "Stay at least 15 feet from a railroad crossing if there is a flashing red light, ringing bell, lowered barrier, or signal flag (N.J.S.A. 39:4-127.1)."}, {"q": "What is the default speed limit on unposted rural roads in NJ?", "options": ["25 mph", "50 mph", "65mph"], "answer": 1, "ref": "NJ Manual - Ch.4 Speed \u200b\u200bControl", "explanation": "50 mph on rural roads if unmarked; business/residential areas 25 mph, some highways 55 mph, some 65 mph (N.J.S.A. 39:4-98)."}, {"q": "At a controlled intersection (multi-way stop), who has priority if two drivers arrive at the same time?", "options": ["coming from left", "coming from the right", "the faster one"], "answer": 1, "ref": "NJ Manual - Ch.4 Intersections", "explanation": "If two drivers arrive at the same time at a multi-way stop intersection, the driver on the right will be given way."}, {"q": "What should be done if the yellow light turns on after the green when approaching an intersection?", "options": ["Always speed up", "Stop before entering the intersection (except if too close to stop safely)", "Turn right immediately"], "answer": 1, "ref": "NJ Manual - Ch.4 Stopping Regulations", "explanation": "If it turns yellow after green, the vehicle must stop before entering the intersection; except when he cannot stop safely if he is too close to a yellow light."}, {"q": "When is a right turn allowed at a red light (unless there is a No Turn on Red sign) in NJ?", "options": ["Can be turned without slowing down", "After coming to a complete stop and checking traffic", "Never"], "answer": 1, "ref": "NJ Manual - Ch.4 Right Turn on Red", "explanation": "If there is no No Turn on Red sign, a right turn is permitted after coming to a complete stop at a red light and checking for traffic and pedestrians (N.J.S.A. 39:4-115)."}, {"q": "At least how many feet before making a turn should the signal light be turned on?", "options": ["50 feet", "100 feet", "300 feet"], "answer": 1, "ref": "NJ Manual - Ch.4 Turning Regulations", "explanation": "The signal must be given at least 100 feet before each turn and canceled after the turn is completed (N.J.S.A. 39:4-126)."}, {"q": "If both middle lines are solid, what is the passing situation?", "options": ["Can be passed from both directions", "Passing is prohibited", "Can only be crossed during the day"], "answer": 1, "ref": "NJ Manual - Ch.4 Passing", "explanation": "If both center lines are straight, no passing allowed; The transition must be completed until the lines are straight again."}, {"q": "Which way should the vehicle drive on double solid center lines?", "options": ["Right", "left", "in the middle"], "answer": 0, "ref": "NJ Manual - Ch.4 Keeping to the Right", "explanation": "NJ law requires drivers to drive on the right side of the road (except passing) (N.J.S.A. 39:4-82)."}, {"q": "What is the penalty for failing to stop for a pedestrian at a pedestrian crossing?", "options": ["Just a warning", "Fine up to $500, imprisonment up to 25 days, 2 points.", "$1000 mandatory"], "answer": 1, "ref": "NJ Manual - Ch.4 Pedestrians in a Crosswalk", "explanation": "Failure to stop for a pedestrian at a crosswalk carries a fine of up to $500, up to 25 days in jail, community service, a license suspension of up to 6 months, and 2 points (N.J.S.A. 39:4-36)."}, {"q": "When should flashlights (headlights) be used?", "options": ["It's just midnight", "Half an hour after sunset and half an hour before sunrise; visibility is 500 feet or less", "Only in the rain"], "answer": 1, "ref": "NJ Manual - Ch.4 Using Headlights", "explanation": "Headlights from half an hour after sunset to half an hour before sunrise; Required when visibility is 500 feet or less, wipers are used, or fog/smoke is present (N.J.S.A. 39:3-46)."}, {"q": "Is talking/texting on a handheld cell phone a primary crime in NJ?", "options": ["No, secondary offense", "Yes, primary offense; The police can stop you just for this", "For GDL drivers only"], "answer": 1, "ref": "NJ Manual - Ch.4 Cellular Telephones", "explanation": "Hand-held cell phone/texting is a primary offense; police may stop and ticket only for this action (N.J.S.A. 39:4-97.3)."}, {"q": "What is the first offense penalty for hand-held phone use?", "options": ["$50-100", "$200-400", "$500-800"], "answer": 1, "ref": "NJ Manual - Ch.4 Cellular Telephones", "explanation": "First offense $200-400, secondary (within 10 years) $400-600, third $600-800 and 3 points; There may also be a 90-day driver's license suspension."}, {"q": "When parking a vehicle on the roadside (sidewalk), how far away from the curb can it be?", "options": ["3 inch", "6 inch", "12 inch"], "answer": 1, "ref": "NJ Manual - Ch.4 Parking Regulations", "explanation": "It is illegal to park a vehicle more than 6 inches (15 cm) from the curb (N.J.S.A. 39:4-135)."}, {"q": "How close to a fire hydrant can't be parked?", "options": ["5 feet", "10 feet", "25 feet"], "answer": 1, "ref": "NJ Manual - Ch.4 Do Not Park", "explanation": "Parking within 10 feet of a fire hydrant is prohibited (N.J.S.A. 39:4-138)."}, {"q": "How are traffic fines applied in construction/work zones?", "options": ["halved", "doubles", "Constant"], "answer": 1, "ref": "NJ Manual - Ch.5/Ch.7 Highway Construction Zones", "explanation": "In NJ, penalties are doubled for violations in road construction areas (N.J.S.A. 39:4-203.5); The Safe Corridors law is similar."}, {"q": "Approximately at what mph can hydroplaning begin?", "options": ["20 mph", "35 mph", "70 mph"], "answer": 1, "ref": "NJ Manual - Ch.5 Hydroplaning", "explanation": "In wet conditions, tires may begin hydroplaning on the water film at approximately 35 mph and above."}, {"q": "Between what dates can studded snow tires be used in NJ?", "options": ["1 November - 1 April", "15 November - 1 April", "Throughout the year"], "answer": 1, "ref": "NJ Manual - Ch.5 Snow and Ice", "explanation": "In NJ, studded winter tires are available from November 15 through April 1."}, {"q": "According to NJ law, how many minutes can it take to idle a vehicle?", "options": ["1 minute", "3 minutes", "10 minutes"], "answer": 1, "ref": "NJ Manual - Ch.3 Idling / Ch.5 Snow and Ice", "explanation": "NJ law prohibits idling a motor vehicle for more than 3 consecutive minutes (there are some exceptions)."}, {"q": "If the property damage in a crash is over $500 or there is injury, how long does it take to submit a written report to MVC?", "options": ["5 days", "10 days", "30 days"], "answer": 1, "ref": "NJ Manual - Ch.5 Reporting Crashes", "explanation": "If there is no police report, a written report must be submitted to MVC within 10 days for damage or injury over $500 (N.J.S.A. 39:4-130)."}, {"q": "What is the legal alcohol limit (BAC) for a driver under 21 in NJ?", "options": ["0.08%", "0.05%", "0.01%"], "answer": 2, "ref": "NJ Manual - Ch.6/Ch.7 DUI", "explanation": "For drivers under 21, driving with a BAC of 0.01% or higher is illegal and carries additional penalties (N.J.S.A. 39:4-50.14)."}, {"q": "What is the legal BAC limit for DUI (drunk driving) for adults (21+) in NJ?", "options": ["0.05%", "0.08%", "0.15%"], "answer": 1, "ref": "NJ Manual - Ch.6/Ch.7 DUI", "explanation": "For those 21 and over, driving with a BAC of 0.08% or higher is a DUI (N.J.S.A. 39:4-50)."}, {"q": "What does 'implied consent' law mean in NJ?", "options": ["It is legal to drink alcohol", "Consented to breath test by police/hospital by using the road", "Refusing the test is free"], "answer": 1, "ref": "NJ Manual - Ch.7 Breath Test", "explanation": "Implied consent: Driver using NJ roads consents to post-arrest breath test by police/hospital; refusal is punishable (N.J.S.A. 39:4-50.4a)."}, {"q": "In the NJ point system, what is applied to a driver who collects 6 or more points in 3 years?", "options": ["Driving license cancellation", "$150 for 6 points and $25 surcharge for each additional point.", "Warning letter only"], "answer": 1, "ref": "NJ Manual - Ch.7 Violation Surcharges and Point Violations", "explanation": "Those who collect 6+ points within 3 years are charged a surcharge of $150 for 6 points and $25 for each additional point (N.J.S.A. 17:29A-35)."}, {"q": "Which of the following violations has the highest point value (5 points)?", "options": ["Incorrect right turn (3 points)", "Tailgating", "Failure to stop at the pedestrian crossing (2 points)"], "answer": 1, "ref": "NJ Manual - Ch.7 Moving Violation Point Chart", "explanation": "Tailgating 5 points; Reckless driving and passing the school bus are also worth 5 points (N.J.S.A. 39:4-89)."}, {"q": "What does MVC send if a driver accumulates between 12-14 points (within 24 months)?", "options": ["Driving license cancellation", "Notice of Scheduled Suspension", "award certificate"], "answer": 1, "ref": "NJ Manual - Ch.7 Driver Improvement Program", "explanation": "MVC sends a 'Notice of Scheduled Suspension' by mail to the driver who has accumulated 12-14 points; There are options to participate in the Driver Improvement Program, request a hearing, or surrender the license."}, {"q": "How many points are deducted from the score record of the driver who completes the Defensive Driving course?", "options": ["1 point", "2 points", "5 points"], "answer": 1, "ref": "NJ Manual - Ch.7 Defensive Driving Courses", "explanation": "Upon completion of the Defensive Driving course, 2 points are deducted from your driving record; The MVC recognizes this once every 5 years (N.J.S.A. 39:5-30.9)."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

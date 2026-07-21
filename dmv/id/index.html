@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idaho DMV Practice Test (ID) — Free ID Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Idaho (ID) DMV practice test with 25 questions from the official Idaho driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/id/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Idaho</strong></div>
+  <header>
+    <h1>Idaho <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free ID permit and license practice test — 25 questions from the official Idaho driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Idaho (ID DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Idaho DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "id";
+const STATE_DATA = {"name": "Idaho (ID DMV)", "source": "Official ID Driver's Handbook (public domain)", "questions": [{"q": "According to Idaho's 'basic rule' speed law, which of the following is correct?", "options": ["Only exceeding the posted speed limit is illegal", "You must drive at a reasonable and prudent speed under all conditions; driving so slowly that you impede traffic is also a violation", "You may drive below the posted limit no matter how slow traffic is"], "answer": 1, "ref": "ID Manual - Speed Limits (Basic Rule)", "explanation": "Idaho's 'basic rule' law requires a reasonable and prudent speed under all conditions; driving slowly enough to impede traffic, even below the posted limit, is a violation."}, {"q": "In Idaho, what is the unposted maximum speed limit on interstate highways?", "options": ["65 mph", "70 mph", "75 mph"], "answer": 2, "ref": "ID Manual - Speed Limits (Maximum speeds)", "explanation": "If not posted, the maximum speed on interstates is 75 mph; in some places it may be posted at 80 mph."}, {"q": "In Idaho, what is the unposted maximum speed limit in residential, business, or urban areas?", "options": ["25 mph", "35 mph", "45 mph"], "answer": 1, "ref": "ID Manual - Speed Limits (Maximum speeds)", "explanation": "In residential/business/urban areas, the unposted maximum speed is 35 mph."}, {"q": "At a four-way stop intersection, if two vehicles arrive at the same time, who has the right-of-way?", "options": ["The vehicle on the left yields to the one on the right", "The vehicle on the right yields to the one on the left", "The vehicle that honks first"], "answer": 0, "ref": "ID Manual - Yielding to Other Drivers", "explanation": "When vehicles arrive at the same time, the vehicle on the left must yield to the one on the right."}, {"q": "At an unmarked/uncontrolled intersection with no signs or signals, if two vehicles arrive at the same time, who yields?", "options": ["The vehicle on the right yields to the one on the left", "The vehicle on the left yields to the one on the right", "The larger vehicle yields to the smaller"], "answer": 1, "ref": "ID Manual - Yielding to Other Drivers", "explanation": "At an uncontrolled intersection, when vehicles arrive at the same time, the vehicle on the left yields to the one on the right."}, {"q": "Under what circumstance must motor vehicles always yield to a pedestrian?", "options": ["Only when a crosswalk is marked", "When the pedestrian is walking with a white cane or guide dog as a visually impaired person", "Only at night"], "answer": 1, "ref": "ID Manual - Pedestrians & Right-of-Way", "explanation": "A visually impaired pedestrian using a white cane or guide dog always has the right-of-way."}, {"q": "In Idaho, what color and shape are most warning signs?", "options": ["White on red, octagon", "Black on yellow, diamond-shaped", "White on blue, round"], "answer": 1, "ref": "ID Manual - Traffic Signs (Warning)", "explanation": "Most warning signs are black on yellow and diamond-shaped."}, {"q": "What shape is a 'No Passing Zone' sign, and on which side of the road is it located?", "options": ["Pennant (triangular) shaped, on the left side of the road", "Circular shaped, on the right side of the road", "Square shaped, in the middle of the road"], "answer": 0, "ref": "ID Manual - Traffic Signs (Warning - No Passing Zone)", "explanation": "The no-passing zone sign is pennant (triangular) shaped and is located on the left side of the road."}, {"q": "What color are work zone warning signs generally?", "options": ["Orange and black", "Green and white", "Blue and yellow"], "answer": 0, "ref": "ID Manual - Work Zone Signs", "explanation": "Work zone warning signs are orange and black."}, {"q": "What colors may a school zone sign be?", "options": ["Red only", "Yellow or fluorescent yellow/green", "Blue only"], "answer": 1, "ref": "ID Manual - Traffic Signs (Warning - School Zone)", "explanation": "A school zone sign may be yellow or fluorescent yellow/green."}, {"q": "In Idaho, what BAC level counts as driving under the influence (DUI) for a driver 21 or older?", "options": [".02", ".04", ".08"], "answer": 2, "ref": "ID Manual - Driving Under the Influence", "explanation": "For drivers 21 and older, a BAC of .08 or more is considered driving under the influence."}, {"q": "For a driver under 21, what BAC level counts as DUI?", "options": [".02", ".05", ".08"], "answer": 0, "ref": "ID Manual - Driving Under the Influence", "explanation": "For drivers under 21, a BAC of .02 or above counts as driving under the influence."}, {"q": "According to the Idaho handbook, what is the crash risk for a driver with a BAC of about .10?", "options": ["Does not increase at all", "Doubles", "Increases sixfold"], "answer": 2, "ref": "ID Manual - How Much Is Too Much", "explanation": "At a BAC of .10, crash risk increases to six times the normal level (the handbook says 2 times at .05 and 25 times at .15)."}, {"q": "Under Idaho law, what is required for all passengers in a vehicle factory-equipped with seat belts?", "options": ["Only those in the front seat must buckle up", "All passengers must wear a seat belt/lap and shoulder harness", "Wearing a belt is entirely optional"], "answer": 1, "ref": "ID Manual - Seat Belts & Shoulder Straps", "explanation": "In factory-equipped vehicles, all passengers are required to wear a seat belt/lap and shoulder harness."}, {"q": "According to NHTSA studies, how effective are seat belts at preventing fatal crashes for the wearer?", "options": ["20-30%", "60-70%", "90-100%"], "answer": 1, "ref": "ID Manual - Seat Belts & Shoulder Straps", "explanation": "Seat belts are 60-70% effective at preventing fatal crashes."}, {"q": "In Idaho, how must children 6 years old and under be protected in a vehicle?", "options": ["With only a normal seat belt", "In an approved child car safety seat", "No special protection is required"], "answer": 1, "ref": "ID Manual - Child Restraint", "explanation": "Children 6 years old and under must be protected in an approved child car safety seat."}, {"q": "When a school bus is loading or unloading students, its red lights flash and its stop arm extends; what must the driver do?", "options": ["Slow down and pass with caution", "Stop and wait until all children are clear of the road and the bus", "Only honk the horn"], "answer": 1, "ref": "ID Manual - Stopping (School Bus)", "explanation": "While the red lights are flashing and the stop arm is extended, you must stop until all children are safe."}, {"q": "On a four-lane highway with two lanes in each direction, if you are traveling in the opposite direction from a school bus that is stopped with its red lights on, what do you do?", "options": ["You must still stop", "You do not need to stop because you are traveling in the opposite direction", "You need not stop only during daytime"], "answer": 1, "ref": "ID Manual - Stopping (School Bus)", "explanation": "On roads with four or more lanes and two lanes in each direction, if you are traveling in the opposite direction from the bus, you do not need to stop."}, {"q": "What applies regarding speed in school zones?", "options": ["Posted school zone speed limits must be obeyed", "The normal highway speed limit applies", "There is no speed limit"], "answer": 0, "ref": "ID Manual - Speed Limits (School Zones)", "explanation": "Posted speed limits in school zones must be obeyed, and violations carry enhanced penalties."}, {"q": "When parallel parking on a street in Idaho, how close must the vehicle be to the curb or edge of the road?", "options": ["12 inches", "18 inches", "36 inches"], "answer": 1, "ref": "ID Manual - Parking", "explanation": "When parallel parking, the vehicle must be parallel to and within 18 inches (about 45 cm) of the curb or edge of the road."}, {"q": "In which of the following is parking prohibited in Idaho?", "options": ["Within 15 feet of a fire hydrant", "Parallel and 18 inches from the curb", "In a marked parking space"], "answer": 0, "ref": "ID Manual - No-Parking Zones", "explanation": "Parking within 15 feet (about 4.5 m) of a fire hydrant is prohibited."}, {"q": "If you are parking uphill on a hill and there is a curb, how should you turn the wheels?", "options": ["Toward the curb (inward)", "Away from the curb (so the vehicle would roll back against the curb)", "Leave them straight"], "answer": 1, "ref": "ID Manual - Parking on a Hill or Incline", "explanation": "When parking uphill with a curb, turn the wheels away from the curb but so they would roll back against the curb."}, {"q": "On vertical traffic lights, what is the order of the lights from top to bottom?", "options": ["Red, yellow, green", "Green, yellow, red", "Yellow, red, green"], "answer": 0, "ref": "ID Manual - Traffic Signals", "explanation": "On a vertical traffic light, red is at the top, yellow in the middle, and green at the bottom."}, {"q": "At a steady red light in Idaho, what may you do?", "options": ["No turning is permitted under any circumstances", "After stopping and yielding to cross traffic, you may turn right (unless otherwise posted)", "You may only turn left"], "answer": 1, "ref": "ID Manual - Traffic Signals (Red Light)", "explanation": "At a steady red light, after stopping and yielding to cross traffic, a right turn is permitted (unless otherwise posted)."}, {"q": "What does a flashing yellow arrow traffic signal mean?", "options": ["No turning is permitted", "A turn is permitted after yielding to oncoming traffic and pedestrians", "You must stop immediately"], "answer": 1, "ref": "ID Manual - Traffic Signals (Flashing Yellow Arrow)", "explanation": "A flashing yellow arrow permits a turn after yielding to oncoming traffic and pedestrians."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

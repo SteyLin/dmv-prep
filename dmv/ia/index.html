@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iowa DMV Practice Test (IA) — Free IA Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Iowa (IA) DMV practice test with 25 questions from the official Iowa driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/ia/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Iowa</strong></div>
+  <header>
+    <h1>Iowa <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free IA permit and license practice test — 25 questions from the official Iowa driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Iowa (IA DOT)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Iowa DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "ia";
+const STATE_DATA = {"name": "Iowa (IA DOT)", "source": "Official IA Driver's Manual (public domain)", "questions": [{"q": "In Iowa, if a speed limit is posted for a road, what does that speed limit represent?", "options": ["The MAXIMUM speed you may legally drive under ideal conditions", "The recommended speed you should always travel on that road", "The minimum speed vehicles can reach on that road"], "answer": 0, "ref": "IA Manual - 4.5 Appropriate Speed", "explanation": "The manual states that the posted speed limit is the MAXIMUM speed you may legally drive under ideal driving conditions."}, {"q": "What is the highest speed limit allowed on rural interstate highways in Iowa?", "options": ["55 mph", "70 mph", "45 mph"], "answer": 1, "ref": "IA Manual - 4.5 Appropriate Speed", "explanation": "The manual states that the speed limit on rural interstate highways is 70 mph."}, {"q": "If no speed limit is posted in a business district, what is the general speed limit?", "options": ["45 mph", "35 mph", "25 mph"], "answer": 2, "ref": "IA Manual - 4.5 Appropriate Speed", "explanation": "If no speed limit is posted, the general limit in a business district is 25 mph."}, {"q": "On Iowa's interstate system, what minimum speed must vehicles normally be able to maintain?", "options": ["30 mph", "40 mph", "55 mph"], "answer": 1, "ref": "IA Manual - 4.5 Appropriate Speed", "explanation": "The manual states that the minimum speed on the interstate system is 40 mph, and vehicles unable to travel at that speed are not permitted on the interstate."}, {"q": "In Iowa, what is identified as the number one cause of traffic-related fatalities?", "options": ["Exceeding the speed limit", "Failure to yield the right-of-way", "Not wearing a seat belt"], "answer": 1, "ref": "IA Manual - 2.22 Intersections", "explanation": "The manual emphasizes that failure to yield the right-of-way is the #1 cause of traffic-related fatalities in Iowa."}, {"q": "If two drivers arrive at an all-way stop intersection at the same time, who goes first?", "options": ["The driver on the left", "The driver on the right", "The driver of the larger vehicle"], "answer": 1, "ref": "IA Manual - 2.22 Intersections", "explanation": "At an all-way stop reached at the same time, the vehicle to the right has the right to go first."}, {"q": "When turning left at an intersection, what must a driver do regarding oncoming vehicles going straight?", "options": ["Must yield to oncoming vehicles", "May turn left first because left turns have priority", "May proceed by only honking the horn"], "answer": 0, "ref": "IA Manual - 2.22 Intersections", "explanation": "A driver turning left must yield to oncoming cars going straight."}, {"q": "When an emergency vehicle (police, fire, ambulance) approaches with siren and flashing lights, how far behind must you stay?", "options": ["At least 200 feet", "At least 500 feet", "At least 100 feet"], "answer": 1, "ref": "IA Manual - 2.23 Emergency Vehicles", "explanation": "The manual states you must stay at least 500 feet behind any emergency vehicle using lights and siren."}, {"q": "When entering a roundabout that already has traffic in it, what should you do?", "options": ["Yield to all traffic already in the roundabout and wait until there is a gap", "The vehicles in the roundabout must yield to you", "Enter immediately and stop in the middle"], "answer": 0, "ref": "IA Manual - 5.5 Roundabouts", "explanation": "When entering a roundabout, you must yield to all traffic already in the roundabout and enter when there is a gap."}, {"q": "What does an octagon-shaped traffic sign mean?", "options": ["It is reserved exclusively for the stop sign", "It is only a speed limit sign", "It is a general warning sign"], "answer": 0, "ref": "IA Manual - 2.1 Traffic Signs (Shapes)", "explanation": "The manual states that the octagon shape is reserved exclusively for the stop sign."}, {"q": "On traffic signs, what does the color RED generally indicate?", "options": ["Direction and distance information", "Stop, yield, or do what the sign indicates", "Recreation and cultural points"], "answer": 1, "ref": "IA Manual - 2.1 Traffic Signs (Colors)", "explanation": "Red means stop, yield, or do what is shown on the sign."}, {"q": "What do pentagon-shaped traffic signs indicate?", "options": ["School crossings and school zones", "Railroad crossings", "Construction/road work areas"], "answer": 0, "ref": "IA Manual - 2.1 Traffic Signs (Shapes)", "explanation": "The pentagon shape indicates school crossings; it marks school areas and school crossings."}, {"q": "What type of signs are diamond-shaped signs generally?", "options": ["Regulatory (mandatory) signs", "Warning signs \u2014 call attention to specific road hazards", "Guide/service signs"], "answer": 1, "ref": "IA Manual - 2.1 Traffic Signs (Shapes)", "explanation": "The diamond shape is a warning sign and alerts you to slow down or use caution for specific road hazards."}, {"q": "What should you do when you see a flashing red traffic light?", "options": ["You must treat it like a full stop sign", "You may proceed with caution; no need to stop", "Slowing down is enough"], "answer": 0, "ref": "IA Manual - 2.9 Traffic Signals", "explanation": "The manual states you must treat a flashing red light as a full stop sign."}, {"q": "In Iowa, the offense of Operating While Intoxicated (OWI) is defined as a blood alcohol concentration (BAC) of what level or higher?", "options": [".05 or higher", ".08 or higher", ".10 or higher"], "answer": 1, "ref": "IA Manual - 3.8 Alcohol and Drugs", "explanation": "OWI is defined as operating a vehicle with a BAC of .08 or higher, or with any amount of a controlled substance in the system."}, {"q": "For a driver under 21 (a minor), what BAC threshold counts as OWI?", "options": [".08 or higher", ".02 or higher", ".05 or higher"], "answer": 1, "ref": "IA Manual - 3.8 Alcohol and Drugs (Drivers Under 21)", "explanation": "For drivers under 21, a BAC of .02 or higher is considered 'operating while intoxicated'; this is stricter than for drivers 21 and older."}, {"q": "If a driver refuses a breath test (breathalyzer), what is the consequence?", "options": ["No penalty is applied, because refusing the test is considered innocence", "Automatic 1-year license revocation and a minimum fine of $1,250", "Receives only a verbal warning"], "answer": 1, "ref": "IA Manual - 3.8 Alcohol and Drugs (Test Refusal)", "explanation": "Refusing the test carries a harsher consequence than failing it: it requires automatic 1-year license revocation and a minimum fine of $1,250."}, {"q": "In Iowa, how may an open (opened) container of alcohol be transported in a motor vehicle?", "options": ["Only in the vehicle's trunk", "Freely in the passenger compartment", "Carried next to the driver"], "answer": 0, "ref": "IA Manual - 3.8 Alcohol and Drugs (Open Container Law)", "explanation": "Open containers of alcohol may only be transported in the vehicle's trunk; otherwise a penalty applies to every driver and passenger."}, {"q": "Under Iowa law, how must a child under 1 year old and weighing less than 20 pounds be restrained?", "options": ["With only a seat belt", "In a rear-facing child restraint system", "In a forward-facing seat"], "answer": 1, "ref": "IA Manual - 3.5 Seat Belts and Child Restraints", "explanation": "Children under 1 year old and under 20 pounds must be secured in a rear-facing child restraint system."}, {"q": "How must a child under 6 years old be protected in a vehicle?", "options": ["With only a seat belt", "In a child restraint system (car seat or booster seat)", "May sit unrestrained in the front seat"], "answer": 1, "ref": "IA Manual - 3.5 Seat Belts and Child Restraints", "explanation": "Children under 6 years old must be secured in a child restraint system consisting of a car seat or a booster seat."}, {"q": "For adults 18 and older, where does the seat belt requirement apply?", "options": ["Only the rear seats", "Must wear a belt when traveling in the front seats", "Only required on interstates"], "answer": 1, "ref": "IA Manual - 3.5 Seat Belts and Child Restraints", "explanation": "Adults 18 and older must wear a seat belt when traveling in the front seats of a vehicle."}, {"q": "On a road with four or more lanes, if you are approaching a stopped school bus from the opposite direction (in front of it) with its stop arm extended, what should you do?", "options": ["You must stop, because you must stop in every situation", "You do not need to stop; this is the only situation where you may pass a stopped school bus", "You may only pass at 10 mph"], "answer": 1, "ref": "IA Manual - 2.24 School Buses (Scenario 2)", "explanation": "On a road with four or more lanes, if you are approaching the bus from the opposite direction, you do not need to stop even if the lights are flashing and the stop arm is extended; this is the only exception."}, {"q": "On a two- or three-lane road, when you stop behind a stopped school bus you are approaching from behind, what is the minimum distance you must keep?", "options": ["At least 15 feet", "At least 5 feet", "At least 50 feet"], "answer": 0, "ref": "IA Manual - 2.24 School Buses (Scenario 1)", "explanation": "When you stop behind the bus, you must remain at least 15 feet from the rear of the bus (without getting closer)."}, {"q": "If there is a curb, how close to the curb must you be when parking at the side of the road?", "options": ["At most 18 inches or closer", "At most 5 feet", "At most 10 feet"], "answer": 0, "ref": "IA Manual - 2.25 Parking", "explanation": "If there is a curb, you must park your vehicle no more than 18 inches from the curb, or closer."}, {"q": "When parking near a fire hydrant, how far from the hydrant must you be?", "options": ["At least 5 feet", "At least 20 feet", "At least 50 feet"], "answer": 0, "ref": "IA Manual - 2.26 Parking Not Allowed", "explanation": "You may not park closer than 5 feet from a fire hydrant; you must stay at least 5 feet away or avoid parking in a designated red hydrant zone."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

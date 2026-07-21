@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorado DMV Practice Test (CO) — Free CO Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Colorado (CO) DMV practice test with 50 questions from the official Colorado driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/co/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Colorado</strong></div>
+  <header>
+    <h1>Colorado <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free CO permit and license practice test — 50 questions from the official Colorado driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Colorado (CO DMV)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Colorado DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "co";
+const STATE_DATA = {"name": "Colorado (CO DMV)", "source": "Official CO Driver Handbook (public domain)", "questions": [{"q": "What is the default speed limit in a business district in Colorado when no other sign is posted?", "options": ["25 mph", "30 mph", "20 mph"], "answer": 0, "ref": "CO Handbook - Speed", "explanation": "In unmarked business districts, Colorado's default speed limit is 25 mph."}, {"q": "What is the default speed limit in a residence district in Colorado when no other sign is posted?", "options": ["20 mph", "30 mph", "35 mph"], "answer": 1, "ref": "CO Handbook - Speed", "explanation": "In residence districts the default speed limit is 30 mph."}, {"q": "What is the speed limit on open mountain highways when no other sign is posted?", "options": ["40 mph", "55 mph", "20 mph"], "answer": 0, "ref": "CO Handbook - Speed", "explanation": "On open mountain highways the default speed limit is 40 mph."}, {"q": "What is the speed limit on narrow, winding mountain roads and blind curves?", "options": ["15 mph", "20 mph", "25 mph"], "answer": 1, "ref": "CO Handbook - Speed", "explanation": "On narrow, winding mountain roads and blind curves the speed limit is 20 mph."}, {"q": "What is the speed limit on urban interstate highways and main roads when no other sign is posted?", "options": ["45 mph", "55 mph", "65 mph"], "answer": 1, "ref": "CO Handbook - Speed", "explanation": "On urban interstate highways and main roads the default speed limit is 55 mph."}, {"q": "What is the speed limit range on designated rural highways?", "options": ["55-65 mph", "65-75 mph", "45-55 mph"], "answer": 1, "ref": "CO Handbook - Speed", "explanation": "On designated rural highways the speed limit ranges between 65-75 mph."}, {"q": "What is the penalty for not obeying the speed limit in a construction zone?", "options": ["Warning only", "Double fines", "Normal fine"], "answer": 1, "ref": "CO Handbook - Speed (Construction Zones)", "explanation": "Speeding violations in construction zones result in double fines."}, {"q": "At a four-way stop, if two vehicles arrive at the same time, who has priority?", "options": ["The vehicle on the left yields to the one on the right", "The vehicle on the right yields to the one on the left", "Whoever honks first goes"], "answer": 0, "ref": "CO Handbook - Right-of-Way (Four-way stop)", "explanation": "When vehicles arrive at the same time, the vehicle on the left yields to the vehicle on the right."}, {"q": "Who has the right-of-way at a four-way stop?", "options": ["The vehicle that arrives at the intersection first", "The largest vehicle", "The vehicle turning left"], "answer": 0, "ref": "CO Handbook - Right-of-Way (Four-way stop)", "explanation": "At a four-way stop, the vehicle that reaches the intersection first has the right-of-way."}, {"q": "At an uncontrolled intersection, who yields when vehicles arrive at the same time?", "options": ["The one on the right yields to the left", "The one on the left yields to the right", "Everyone stops and no one goes"], "answer": 1, "ref": "CO Handbook - Right-of-Way (Uncontrolled intersection)", "explanation": "At an uncontrolled intersection, the vehicle on the left must yield to the vehicle on the right."}, {"q": "When making a left turn (unless you have a green arrow or arrived first at a four-way stop), what must you yield to?", "options": ["Pedestrians only", "All oncoming traffic", "Only the vehicles behind you"], "answer": 1, "ref": "CO Handbook - Right-of-Way (Turning left)", "explanation": "Except for a green arrow or arriving first at a four-way stop, you yield to all oncoming traffic."}, {"q": "How is right-of-way defined under Colorado law?", "options": ["A green light always grants the right-of-way", "The law only states who must yield; it does not automatically grant anyone the right-of-way", "A pedestrian must always stop"], "answer": 1, "ref": "CO Handbook - Right-of-Way", "explanation": "The law only says who must yield; it does not grant anyone the right-of-way even if the traffic light is green."}, {"q": "On a narrow, steep mountain road, if an uphill and a downhill vehicle meet, who yields?", "options": ["The vehicle going uphill", "The vehicle going downhill", "Both stop"], "answer": 1, "ref": "CO Handbook - Right-of-Way (Narrow mountain road)", "explanation": "On a narrow mountain road, the vehicle going downhill yields to the vehicle going uphill."}, {"q": "What do you do when you see an emergency vehicle approaching with sirens and flashing lights?", "options": ["Pull over to the right and stop", "Move into the left lane", "Speed up and pass"], "answer": 0, "ref": "CO Handbook - Right-of-Way (Emergency vehicles)", "explanation": "You yield to an emergency vehicle by pulling over to the right edge and stopping if possible."}, {"q": "What color are warning traffic signs?", "options": ["Blue or brown", "Yellow or fluorescent green (with black symbols)", "White on black"], "answer": 1, "ref": "CO Handbook - Traffic Signs (Warning)", "explanation": "Warning signs have a yellow or fluorescent green background with black symbols."}, {"q": "What color are regulatory signs?", "options": ["Yellow background", "White with black or red", "Green background"], "answer": 1, "ref": "CO Handbook - Traffic Signs (Regulatory)", "explanation": "Regulatory signs are black or red on a white background; failing to obey them is a violation."}, {"q": "What background color do work zone signs have?", "options": ["Orange", "Green", "Blue"], "answer": 0, "ref": "CO Handbook - Traffic Signs (Work zone)", "explanation": "Work zone signs have black text/symbols on an orange background."}, {"q": "What color are guide signs?", "options": ["Green", "Brown", "Orange"], "answer": 0, "ref": "CO Handbook - Traffic Signs (Guide)", "explanation": "Guide signs that provide direction and distance information have a green background."}, {"q": "Where must you stop at a STOP sign?", "options": ["Wherever you want", "At the marked stop line; if none, at the nearby crosswalk; if none, at the nearest point where you can see traffic", "Right in the middle of the intersection"], "answer": 1, "ref": "CO Handbook - Traffic Signs (Stop signs)", "explanation": "You stop at the stop line; if there is none, at the nearby crosswalk; if there is none, at the nearest point where you can see traffic."}, {"q": "What does a ONE WAY sign mean?", "options": ["You may only travel in the direction of the sign's arrow", "Both directions are allowed", "It only allows right turns"], "answer": 0, "ref": "CO Handbook - Traffic Signs (One Way)", "explanation": "A One Way sign indicates you may only travel in the direction of the arrow."}, {"q": "What should you do when you see a DO NOT ENTER / WRONG WAY sign?", "options": ["Continue slowly past it", "Do not proceed beyond the sign", "Only go in reverse"], "answer": 1, "ref": "CO Handbook - Traffic Signs (Do Not Enter/Wrong Way)", "explanation": "You must not proceed beyond this sign; it means you are going the wrong way."}, {"q": "If a traffic light is out or malfunctioning, how is the intersection handled?", "options": ["It becomes a crosswalk", "Like a four-way stop", "No need to stop, first come first served"], "answer": 1, "ref": "CO Handbook - Traffic Signals", "explanation": "A non-working or malfunctioning traffic light is treated like a four-way stop."}, {"q": "What does a flashing red light mean?", "options": ["Same as a STOP sign; stop, yield, then proceed", "Just slow down", "Speed up"], "answer": 0, "ref": "CO Handbook - Traffic Signals (Flashing red)", "explanation": "A flashing red light is the same as a STOP sign; you stop, yield, then proceed."}, {"q": "What does a double solid yellow line mean?", "options": ["Both sides may pass", "Neither side may pass (except the 3-foot rule for bicyclists)", "You may only pass on the right"], "answer": 1, "ref": "CO Handbook - Pavement Markings", "explanation": "On a double solid yellow line, neither side may pass (except the 3-foot rule for bicyclists)."}, {"q": "What does a broken yellow line mean?", "options": ["Passing is prohibited", "Passing is permitted", "Only bicyclists may pass"], "answer": 1, "ref": "CO Handbook - Pavement Markings", "explanation": "A broken yellow line indicates that passing in the opposite direction is permitted."}, {"q": "What do white lines separate?", "options": ["Traffic moving in opposite directions", "Lanes traveling in the same direction", "Parking areas"], "answer": 1, "ref": "CO Handbook - Pavement Markings (White lines)", "explanation": "White lines separate lanes of traffic moving in the same direction."}, {"q": "What do yellow lines separate?", "options": ["The same direction", "Traffic moving in opposite directions", "Parking areas"], "answer": 1, "ref": "CO Handbook - Pavement Markings (Yellow lines)", "explanation": "Yellow lines separate traffic moving in opposite directions."}, {"q": "What can a two-way center left-turn lane be used for?", "options": ["Can be used for continuous travel/passing", "It is only for left turns; it cannot be used for travel or passing", "Only for parking"], "answer": 1, "ref": "CO Handbook - Lane Controls (Two-way left-turn lane)", "explanation": "A shared center left-turn lane is only for left turns; it cannot be used for travel or passing."}, {"q": "What is the applicable BAC (blood alcohol concentration) threshold for DWAI (Driving While Ability Impaired) in Colorado?", "options": ["0.05%", "0.08%", "0.02%"], "answer": 0, "ref": "CO Handbook - Driving Under the Influence (Table 1)", "explanation": "A first DWAI conviction is defined by a 0.05% BAC."}, {"q": "What is the applicable BAC threshold for DUI (Driving Under the Influence) in Colorado?", "options": ["0.05%", "0.08%", "0.10%"], "answer": 1, "ref": "CO Handbook - Driving Under the Influence (Table 1)", "explanation": "A first DUI conviction is defined by a 0.08% BAC and leads to a 9-month license revocation."}, {"q": "What is the BAC threshold that leads to license revocation for a driver under 21?", "options": ["0.08%", "0.05%", "0.02%"], "answer": 2, "ref": "CO Handbook - Driving Under the Influence", "explanation": "For drivers under 21, a BAC above 0.02 causes license revocation."}, {"q": "Under Colorado's Express Consent law, what is the penalty if you refuse an alcohol/drug test?", "options": ["Fine only", "1-year license revocation + 2-year ignition interlock requirement", "No penalty"], "answer": 1, "ref": "CO Handbook - Driving Under the Influence (Express Consent Law)", "explanation": "Refusing the test brings a 1-year license revocation and a requirement to install an ignition interlock for 2 years."}, {"q": "Body alcohol only dissipates over time. On average, how much does BAC drop per hour?", "options": ["0.005%", "0.015%", "0.05%"], "answer": 1, "ref": "CO Handbook - Driving Under the Influence", "explanation": "BAC drops on average by 0.015% per hour; the only way to sober up is time."}, {"q": "What is the BAC threshold for a DUI 'per se' (automatic) conviction?", "options": ["Above 0.05%", "Above 0.08%", "Above 0.02%"], "answer": 1, "ref": "CO Handbook - Driving Under the Influence", "explanation": "If a driver's BAC is above 0.08%, they can be convicted of DUI per se."}, {"q": "Under Colorado law, who is required to wear a seat belt?", "options": ["The driver only", "The driver, front-seat passengers, and children under 16", "Only children under 16"], "answer": 1, "ref": "CO Handbook - Seat Belt Laws", "explanation": "The driver, front-seat passengers, and children under 16 are required to wear seat belts."}, {"q": "Which of the following is an EXCEPTION to the seat belt requirement?", "options": ["Taxi driver", "School bus", "Front-seat passenger"], "answer": 1, "ref": "CO Handbook - Seat Belt Laws (Exceptions)", "explanation": "School buses (and passenger buses) are exempt from the seat belt requirement."}, {"q": "How must a child under 2 years old and lighter than 40 pounds be restrained?", "options": ["In a forward-facing seat in the front seat", "In a rear-facing child seat in the back seat", "With a seat belt only"], "answer": 1, "ref": "CO Handbook - Seat Belt Laws (Child restraint)", "explanation": "A child under 2 years and under 40 pounds must be in a rear-facing child seat in the back seat."}, {"q": "What limits the number of passengers in a vehicle driven by someone under 18?", "options": ["The number of seat belts in the vehicle", "Only 2 passengers", "Unlimited regardless of age"], "answer": 0, "ref": "CO Handbook - Seat Belt Laws", "explanation": "The number of passengers in a vehicle driven by a driver under 18 cannot exceed the number of seat belts."}, {"q": "How far away must you stop when you see a stopped school bus with flashing red lights?", "options": ["10 feet", "20 feet", "30 feet"], "answer": 1, "ref": "CO Handbook - Right-of-Way (School bus)", "explanation": "You must stop at least 20 feet before a school bus with flashing red lights."}, {"q": "In which of the following cases do you NOT need to stop for a school bus?", "options": ["If the bus is coming from the opposite lane", "If there is a median or physical barrier between you", "If the bus is on a curve"], "answer": 1, "ref": "CO Handbook - Right-of-Way (School bus)", "explanation": "If there is a median or physical barrier between you, you do not need to stop for the school bus."}, {"q": "When can you start moving again while a school bus's red lights are flashing?", "options": ["You must wait until the lights stop flashing", "After 5 seconds", "Once the children board"], "answer": 0, "ref": "CO Handbook - Right-of-Way (School bus)", "explanation": "You must wait until the flashing red lights go off (stop flashing)."}, {"q": "What do you do if a school bus's red lights are flashing and the stop arm is out?", "options": ["You may pass slowly", "Passing is prohibited", "You may only pass on the right"], "answer": 1, "ref": "CO Handbook - Passing (illegal behaviors)", "explanation": "Passing a school bus with flashing red lights and its stop arm out is illegal."}, {"q": "Which of the following is a PROHIBITED location for parking?", "options": ["Roadside where there is no sign", "Within 30 feet of a traffic signal / 15 feet of a fire hydrant", "Right next to the curb"], "answer": 1, "ref": "CO Handbook - Parking", "explanation": "Parking is prohibited within 30 feet of a traffic signal/stop sign/railroad crossing and within 15 feet of a fire hydrant."}, {"q": "Where parallel parking is allowed, how close to the curb must your vehicle be?", "options": ["24 inches", "12 inches", "3 feet"], "answer": 1, "ref": "CO Handbook - Parking (Parallel parking)", "explanation": "In parallel parking, the vehicle must be within 12 inches of the curb (or as close as possible)."}, {"q": "When parking downhill, which way should you turn the front wheels?", "options": ["Toward the curb", "Away from the road", "Straight ahead"], "answer": 0, "ref": "CO Handbook - Parking (Downhill)", "explanation": "When parking downhill, you turn the front wheels toward the curb."}, {"q": "When parking uphill with a curb, which way should you turn the front wheels?", "options": ["Away from the curb", "Toward the curb", "Straight ahead"], "answer": 0, "ref": "CO Handbook - Parking (Uphill with curb)", "explanation": "When parking uphill with a curb, you turn the front wheels away from the curb."}, {"q": "Which of the following is true about parking without permission in a bicycle lane or a disabled parking space?", "options": ["Only a warning is issued", "Unauthorized parking in a disabled space is a crime and can result in a fine of $350-$5,000", "Parking in a bicycle lane is allowed"], "answer": 1, "ref": "CO Handbook - Pavement Markings / Parking (Disabled parking)", "explanation": "Parking without permission in a disabled space is a crime and carries penalties up to a $350-$5,000 fine."}, {"q": "At a steady red light, after stopping and yielding to pedestrians and traffic, what can you do (if no sign prohibits it)?", "options": ["No turn can be made", "A right turn can be made", "Only a left turn"], "answer": 1, "ref": "CO Handbook - Traffic Signals (Steady red light)", "explanation": "If no sign prohibits it, a right turn on a red light is allowed after stopping and yielding."}, {"q": "What does a lit green arrow mean?", "options": ["You may turn in the direction the arrow points", "You must stop", "You may only go straight"], "answer": 0, "ref": "CO Handbook - Traffic Signals (Green arrow)", "explanation": "A green arrow indicates you may turn in the direction shown."}, {"q": "What do you do when turning left with a flashing yellow arrow?", "options": ["You must stop", "Proceed with caution and yield to oncoming traffic/pedestrians", "Turn immediately"], "answer": 1, "ref": "CO Handbook - Traffic Signals (Flashing yellow arrow)", "explanation": "With a flashing yellow arrow, you make the left turn with caution and yield to oncoming traffic and pedestrians."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maryland DMV Practice Test (MD) — Free MD Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Maryland (MD) DMV practice test with 50 questions from the official Maryland driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/md/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Maryland</strong></div>
+  <header>
+    <h1>Maryland <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free MD permit and license practice test — 50 questions from the official Maryland driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Maryland (MD MVA)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Maryland DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "md";
+const STATE_DATA = {"name": "Maryland (MD MVA)", "source": "Official MD Driver Manual (public domain)", "questions": [{"q": "To qualify for a Maryland driver's license, what is the minimum visual acuity required in each eye?", "options": ["At least 20/40 in each eye", "At least 20/20 in each eye", "At least 20/70 in one eye"], "answer": 0, "ref": "MD Manual - Section I - Vision Screening", "explanation": "Manual: applicants need binocular vision, visual acuity of at least 20/40 in each eye, and a continuous field of at least 140 degrees."}, {"q": "What is the minimum age to obtain a Type 1 Learner's Instructional Permit if you are under 25?", "options": ["15 years and 9 months", "16 years", "15 years"], "answer": 0, "ref": "MD Manual - Section II - Learner's Instructional Permit", "explanation": "Applicants younger than 25 must be at least 15 years and 9 months of age."}, {"q": "If you are under 18, what is the minimum violation-free period you must hold a Learner's Permit before a Provisional License?", "options": ["9 months", "3 months", "45 days"], "answer": 0, "ref": "MD Manual - Section II - Learner's Instructional Permit", "explanation": "Drivers under 18 must hold the permit a minimum of nine (9) months violation-free."}, {"q": "For drivers age 18 (with a diploma) or age 19 to 24, the minimum Learner's Permit holding period is:", "options": ["3 months violation-free", "9 months violation-free", "45 days"], "answer": 0, "ref": "MD Manual - Section II - Learner's Instructional Permit", "explanation": "Age 18 (diploma/equivalent) or 19-24 must hold the permit a minimum of three months violation-free."}, {"q": "A driver under 18 must accumulate at least how many practice hours with a supervising driver?", "options": ["60 hours (at least 10 at night)", "14 hours (at least 3 at night)", "30 hours"], "answer": 0, "ref": "MD Manual - Section II - Learner's Instructional Permit", "explanation": "Under 18 must complete 60 practice hours, with at least 10 at night (30 min before sunset to 30 min after sunrise)."}, {"q": "To be eligible for a full Driver's License, you must be at least 18 and have held your Provisional License for at least:", "options": ["18 months", "12 months", "6 months"], "answer": 0, "ref": "MD Manual - Section II - Driver's License", "explanation": "A Driver's License requires being at least 18 and holding the Provisional License for at least 18 months."}, {"q": "Converting an out-of-country license to a Maryland license requires, in addition to vision/knowledge/skills tests:", "options": ["A 3-hour MVA-approved alcohol and drug education program", "Only a vision screening", "No additional requirements"], "answer": 0, "ref": "MD Manual - Section II - Out-of-Country Licenses", "explanation": "Out-of-country license holders must also complete an MVA-approved three-hour alcohol and drug education program."}, {"q": "At a four-way intersection controlled by stop signs, you must yield to:", "options": ["The driver on your right", "The driver on your left", "The driver who arrives last"], "answer": 0, "ref": "MD Manual - Section III - Right-of-Way", "explanation": "Yield to the driver on your right at a four-way intersection controlled by stop signs."}, {"q": "When entering a public highway from a driveway or private road, you must:", "options": ["Yield to drivers already on the highway", "Expect highway drivers to yield to you", "Proceed without stopping"], "answer": 0, "ref": "MD Manual - Section III - Right-of-Way", "explanation": "You must yield to drivers on a public highway when entering from a driveway or private road."}, {"q": "In Maryland, the posted speed limit is:", "options": ["The maximum legal speed under ideal conditions; you may go slower but never faster", "A minimum speed you must maintain", "Only a suggestion in light traffic"], "answer": 0, "ref": "MD Manual - Section III - Understanding Vehicle Speed", "explanation": "The posted limit is the maximum legal speed under ideal conditions; never drive faster than it."}, {"q": "Under ideal conditions, the recommended minimum following distance is:", "options": ["3 to 4 seconds", "1 to 2 seconds", "10 seconds"], "answer": 0, "ref": "MD Manual - Section III - Following Distance", "explanation": "A minimum following distance of 3 to 4 seconds is recommended under ideal driving conditions."}, {"q": "You may NOT pass another vehicle when:", "options": ["Within 100 feet of an intersection or railroad grade crossing", "On a straight, level road with clear view", "Going uphill with good visibility"], "answer": 0, "ref": "MD Manual - Section III - Passing", "explanation": "You may not pass when crossing or within 100 feet of an intersection or railroad grade crossing."}, {"q": "Before returning to your original lane after passing, you should:", "options": ["See both headlights of the passed vehicle in your rear-view mirror", "Wait until the car disappears", "Signal right immediately"], "answer": 0, "ref": "MD Manual - Section III - Passing", "explanation": "See both headlights of the passed vehicle in your rear-view mirror before returning to the original lane."}, {"q": "When a traffic signal is not working, you must:", "options": ["Stop, then yield to vehicles/pedestrians in the intersection before proceeding", "Treat it as a green light", "Honk and drive through quickly"], "answer": 0, "ref": "MD Manual - Section IV - Traffic Signals", "explanation": "When a signal is not working, stop, yield to traffic/pedestrians there, then proceed when safe."}, {"q": "On a steady red signal, after coming to a complete stop you may:", "options": ["Turn right (unless prohibited) or turn left from one-way to one-way, yielding first", "Turn left from any street", "Proceed straight if no cars are coming"], "answer": 0, "ref": "MD Manual - Section IV - Steady Red Signal", "explanation": "Unless a sign prohibits it, after a full stop you may turn right, or left from a one-way to a one-way street, yielding to all."}, {"q": "A flashing red traffic signal means you must:", "options": ["Come to a complete stop, then yield and proceed when clear", "Slow down and proceed with caution", "Continue through if no cars are visible"], "answer": 0, "ref": "MD Manual - Section IV - Flashing Red Signal", "explanation": "A flashing red signal requires a complete stop; yield to all, then proceed when the way is clear."}, {"q": "A steady red arrow signal means you must:", "options": ["Come to a complete stop before the stop line/crosswalk and remain stopped while red", "Slow down and turn with caution", "Proceed straight only"], "answer": 0, "ref": "MD Manual - Section IV - Steady Red Arrow Signal", "explanation": "If moving in the arrow's direction, come to a complete stop before the line/crosswalk and stay stopped while red."}, {"q": "A red 'X' signal over a lane means:", "options": ["You must never drive in that lane", "You may drive in that lane", "You should move out of the lane as soon as possible"], "answer": 0, "ref": "MD Manual - Section IV - Lane Use Signals", "explanation": "You must never drive in a lane under a red 'X' signal."}, {"q": "On traffic signs, the color RED is used to indicate:", "options": ["Prohibitive messages: stop, yield, do not enter, wrong way", "General warnings of what is ahead", "Construction and maintenance"], "answer": 0, "ref": "MD Manual - Section IV - Sign Colors", "explanation": "Red is prohibitive - stop, yield, do not enter, or wrong way."}, {"q": "Orange traffic signs and markings indicate:", "options": ["Construction and maintenance work zones", "School and pedestrian areas", "Regulatory speed limits"], "answer": 0, "ref": "MD Manual - Section IV - Sign Colors", "explanation": "Orange is the standard color for construction and maintenance work area warning."}, {"q": "Fluorescent yellow-green signs are used for:", "options": ["School, pedestrian and bicycle signs", "Recreation and cultural areas", "Route guidance/destinations"], "answer": 0, "ref": "MD Manual - Section IV - Sign Colors", "explanation": "Fluorescent yellow-green is used for school, pedestrian and bicycle signs."}, {"q": "An eight-sided (octagon) sign always means:", "options": ["Stop", "Yield", "Railroad crossing"], "answer": 0, "ref": "MD Manual - Section IV - Sign Shapes", "explanation": "The octagonal shape always means STOP; the Stop sign is the only 8-sided sign."}, {"q": "A five-sided (pentagon) sign warns of:", "options": ["School zones and school crossings", "Railroad crossings", "Yield requirements"], "answer": 0, "ref": "MD Manual - Section IV - Sign Shapes", "explanation": "The pentagon shape warns of school zones and marks school crossings."}, {"q": "Single broken white lines on the roadway separate:", "options": ["Lanes of traffic moving in the same direction, where crossing is permitted", "Opposing-direction traffic, where passing is allowed", "The left edge of a divided highway"], "answer": 0, "ref": "MD Manual - Section IV - Pavement Markings", "explanation": "Single broken white lines separate same-direction lanes; crossing is permitted."}, {"q": "Double solid yellow lines in the center of the road mean:", "options": ["Passing is prohibited in both directions", "Passing is permitted in both directions", "Only left turns are allowed"], "answer": 0, "ref": "MD Manual - Section IV - Pavement Markings", "explanation": "Double solid yellow lines separate opposing traffic and passing is prohibited in both directions."}, {"q": "You must turn on your headlights whenever you cannot clearly see at least:", "options": ["1,000 feet ahead", "500 feet ahead", "200 feet ahead"], "answer": 0, "ref": "MD Manual - Section V - Headlight Use", "explanation": "Turn on headlights anytime there is not enough light to clearly see at least 1,000 feet ahead."}, {"q": "Maryland law requires you to turn on your headlights when:", "options": ["You are using your windshield wipers in inclement weather", "You are driving faster than 45 mph", "It is after 8 p.m."], "answer": 0, "ref": "MD Manual - Section V - Headlight Use", "explanation": "Maryland law requires headlights when using windshield wipers in inclement weather."}, {"q": "When driving in fog, you should:", "options": ["Use low-beam headlights only (and fog lights if equipped)", "Use high-beam headlights", "Drive with parking lights only"], "answer": 0, "ref": "MD Manual - Section V - Driving in Fog", "explanation": "In fog, use low beam headlights only, and special fog lights if you have them."}, {"q": "If your vehicle begins to skid, the manual says you should:", "options": ["Release the accelerator/brake and steer in the direction of the skid", "Slam on the brakes immediately", "Turn the steering wheel away from the skid"], "answer": 0, "ref": "MD Manual - Section V - Skidding", "explanation": "Release the applied pedal to regain balance and steer in the direction of the skid; look where you want to go."}, {"q": "If you detect hydroplaning (riding on a cushion of water), you should:", "options": ["Take your foot off the gas, do not brake, and keep the vehicle straight", "Press the brakes hard", "Steer sharply to regain traction"], "answer": 0, "ref": "MD Manual - Section V - Hydroplaning", "explanation": "Take your foot off the gas, do not apply brakes, maintain direction, and let the vehicle slow to a manageable speed."}, {"q": "In a work zone, which of the following is true?", "options": ["Speed fines may be much higher and speed cameras may be used", "Work zone speeding carries no extra penalty", "You may ignore flaggers if in a hurry"], "answer": 0, "ref": "MD Manual - Section V - Work Zone Safety", "explanation": "Work zones are marked orange; speeding fines may be much higher and you must obey flaggers and signs."}, {"q": "When approaching a roundabout, entering traffic must:", "options": ["Yield to traffic already in the roundabout", "Yield only to traffic entering from the left", "Never stop before entering"], "answer": 0, "ref": "MD Manual - Section V - Roundabouts", "explanation": "Roundabout approach roads are controlled by yield signs; entering traffic must yield to traffic already in the roundabout."}, {"q": "On an interstate highway, stopping on the traveled portion of the road is:", "options": ["Prohibited except when disabled or in an emergency", "Allowed anytime to check a map", "Permitted if you use hazard lights"], "answer": 0, "ref": "MD Manual - Section V - Interstate Driving", "explanation": "Stopping on the traveled portion is prohibited; the shoulder may be used only if disabled or in an emergency."}, {"q": "A slow-moving vehicle emblem on the back of a vehicle warns that it is traveling:", "options": ["25 mph or less", "45 mph or less", "At the speed limit"], "answer": 0, "ref": "MD Manual - Section V - Slow Moving Vehicles", "explanation": "The slow-moving emblem warns other drivers the vehicle is only going 25 mph or less."}, {"q": "In Maryland, a driver is considered to be driving under the influence of alcohol at a BAC of:", "options": [".08 or higher", ".05 or higher", ".10 or higher"], "answer": 0, "ref": "MD Manual - Section VI - Alcohol, Drugs and Driving", "explanation": "In Maryland a driver is considered DUI when BAC is .08 or higher."}, {"q": "In Maryland, it is illegal to operate a vehicle with:", "options": ["An open alcohol container in the passenger area", "A sealed bottle in the trunk", "Alcohol in the glove box if unopened"], "answer": 0, "ref": "MD Manual - Section VI - Open Alcohol Container", "explanation": "It is against the law to operate a vehicle with an open alcohol container in the passenger area."}, {"q": "If convicted of a drunk/drugged driving offense with a child in the vehicle, the judge can:", "options": ["Double your fine and jail time", "Reduce the penalty", "Only suspend your license"], "answer": 0, "ref": "MD Manual - Section VI - Transporting Children", "explanation": "A drunk/drugged driving conviction with a child can result in doubled fine and jail time."}, {"q": "A driver under 18 years of age may use a wireless communications device while driving:", "options": ["Only to make a 911 emergency call", "Anytime if it is hands-free", "Anytime to answer a call"], "answer": 0, "ref": "MD Manual - Section VI - Distracted Driving (Cell Phones)", "explanation": "A driver under 18 may not use a wireless device while driving, except for a 911 emergency call."}, {"q": "At a crosswalk with no traffic signal, drivers must stop for pedestrians who are:", "options": ["On the half of the roadway the vehicle is traveling, or approaching from the nearest lane on the other half", "Only in a marked crosswalk", "Only if a school guard is present"], "answer": 0, "ref": "MD Manual - Section VII - Pedestrian Right-of-Way", "explanation": "Stop for pedestrians in a crosswalk on your half of the road or approaching from the nearest lane of the other half."}, {"q": "When you see or hear an emergency vehicle approaching with sirens/flashing lights, you must:", "options": ["Move to the edge of the roadway and remain stopped until it passes", "Speed up to get out of the way", "Continue driving normally"], "answer": 0, "ref": "MD Manual - Section VII - Emergency Vehicles", "explanation": "Move as close as possible to the edge, clear of intersections, and remain stopped until the emergency vehicle passes."}, {"q": "When a school vehicle has its alternately flashing red lights activated, you must stop at least:", "options": ["20 feet from the front or rear of the school vehicle", "5 feet from the school vehicle", "50 feet from the school vehicle"], "answer": 0, "ref": "MD Manual - Section VII - School Vehicles", "explanation": "Stop at least 20 feet from the rear (if behind) or front (if ahead); not required on a physically divided highway."}, {"q": "When passing a bicyclist, you must allow at least:", "options": ["3 feet of clearance", "1 foot of clearance", "6 inches of clearance"], "answer": 0, "ref": "MD Manual - Section VII - Bicycles", "explanation": "Pass a bicyclist as you would any slow vehicle and allow at least 3 feet of clearance."}, {"q": "Leaving the scene of a crash that results in a death is a felony punishable by up to:", "options": ["10 years in prison and a $10,000 fine", "1 year in prison and a $1,000 fine", "5 years in prison and a $5,000 fine"], "answer": 0, "ref": "MD Manual - Section VIII - Crashes", "explanation": "Fleeing a fatal crash is a felony with up to 10 years imprisonment and a $10,000 fine."}, {"q": "Maryland's seat belt law requires that:", "options": ["The driver and all passengers wear a seat belt or child safety seat", "Only the driver must wear a seat belt", "Only front-seat passengers need a seat belt"], "answer": 0, "ref": "MD Manual - Section X - Seat Belt Law", "explanation": "The driver and all passengers must wear a seat belt or be restrained in a child safety seat if applicable."}, {"q": "A supervising driver for a learner's permit holder must be:", "options": ["At least 21 and licensed for at least 3 years in MD or another state, seated beside the holder", "At least 18 and newly licensed", "Any licensed adult in the back seat"], "answer": 0, "ref": "MD Manual - Section X - Supervising Driver", "explanation": "The supervising driver must be at least 21, licensed at least 3 years in MD or another state, and seated beside the permit holder."}, {"q": "A child under age 8 must ride in an appropriate child safety seat unless the child is:", "options": ["4'9\" or taller", "40 pounds or heavier", "Age 5 or older"], "answer": 0, "ref": "MD Manual - Section X - Child Safety Seats", "explanation": "All children under 8 must use a child safety seat unless they are 4'9\" or taller."}, {"q": "Under Maryland's Implied Consent law, refusing a lawful alcohol/drug test results in:", "options": ["A license suspension imposed by the MVA", "No penalty since you cannot be compelled to test", "An automatic warning only"], "answer": 0, "ref": "MD Manual - Section IX - Implied Consent", "explanation": "By driving you consent to testing; refusing triggers a suspension period imposed by the MVA."}, {"q": "How does a license REVOCATION differ from a SUSPENSION?", "options": ["Revocation has a minimum waiting period to reapply and can be denied by the MVA", "Revocation ends at a set time like a suspension", "They are exactly the same"], "answer": 0, "ref": "MD Manual - Section IX - Administrative Actions", "explanation": "Unlike a suspension (temporary, ends at a set time), a revocation has a minimum waiting period to reapply and is subject to MVA denial."}, {"q": "During a traffic stop, the manual advises you to:", "options": ["Stay in your vehicle, keep your seat belt fastened, and keep hands on the steering wheel", "Get out and walk toward the officer", "Put your hands in your pockets"], "answer": 0, "ref": "MD Manual - Section VIII - Traffic Stops", "explanation": "Stay in the vehicle with seat belt fastened, roll down the window, and keep hands in plain view on the steering wheel."}, {"q": "Regarding large trucks, the manual states:", "options": ["If you cannot see the truck's mirrors, the truck driver cannot see you", "Trucks have no blind spots", "You should always pass trucks on the right"], "answer": 0, "ref": "MD Manual - Section VII - Large Trucks (No-Zones)", "explanation": "Trucks have No-Zones (blind spots); if you can't see the driver's mirrors, the driver can't see you."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

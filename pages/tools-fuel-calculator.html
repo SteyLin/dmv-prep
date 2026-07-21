@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuel Cost Calculator — DriveReady Hub</title>
+<style>
+  :root{--bg:#f7f9fc;--card:#ffffff;--ink:#1f2933;--muted:#6b7280;--accent:#2563eb;--accent-soft:#eff4ff;--good:#16a34a;--bad:#dc2626;--line:#e5e7eb;}
+  html[data-theme="dark"]{--bg:#0f1419;--card:#1a2027;--ink:#e6e9ee;--muted:#9aa4b2;--accent:#3b82f6;--accent-soft:#16233b;--line:#2a323c;}
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);line-height:1.6;padding:28px 20px 64px;}
+  .wrap{max-width:780px;margin:0 auto;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:600;}
+  .theme-btn:hover{border-color:var(--accent);}
+  .btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.06);margin-bottom:18px;}
+  h1{font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+  label{font-weight:700;font-size:.92rem;display:block;margin:12px 0 6px;}
+  input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .result{margin-top:14px;padding:14px;border-radius:12px;background:var(--accent-soft);color:var(--accent);font-weight:700;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:12px;}
+
+  .layout{display:grid;grid-template-columns:1fr;gap:20px;max-width:1200px;margin:0 auto;}
+  .sidebar{position:sticky;top:20px;align-self:start;}
+  .sidebar .ad-slot{min-height:250px;max-width:300px;margin:0 0 14px;}
+  @media (max-width: 1024px){
+    .layout{grid-template-columns:1fr;}
+    .sidebar{display:none;}
+  }
+</style>
+</head>
+<body>
+<main>
+<div class="wrap">
+  <div class="topbar">
+    <a href="/"><button class="btn">← Back to all sections</button></a>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+  <div class="ad-slot medium">Advertisement — 300x250</div>
+<div class="ad-slot" style="min-height:250px;max-width:336px;margin:14px auto 18px;text-align:center;">Advertisement — 336x280</div>
+<div class="card">
+    <span class="badge">Car Tools</span>
+    <h1>Fuel Cost Calculator</h1>
+    <p>Estimate trip or monthly fuel cost from distance, MPG, and fuel price.</p>
+    <label>Trip distance (miles)</label>
+    <input id="miles" type="number" value="300">
+    <div class="row">
+      <div>
+        <label>Vehicle MPG</label>
+        <input id="mpg" type="number" value="28">
+      </div>
+      <div>
+        <label>Fuel price per gallon ($)</label>
+        <input id="price" type="number" value="3.90">
+      </div>
+    </div>
+    <button class="btn" style="background:var(--accent);color:#fff;border:none;margin-top:16px;padding:12px 16px;" onclick="calc()">Calculate</button>
+    <div id="out" class="result" style="display:none;"></div>
+  </div>
+</div>
+<script>
+function calc(){
+  const miles = Number(document.getElementById('miles').value);
+  const mpg = Number(document.getElementById('mpg').value);
+  const price = Number(document.getElementById('price').value);
+  if(!miles || !mpg || !price){ return; }
+  const gallons = miles / mpg;
+  const cost = gallons * price;
+  const out = document.getElementById('out');
+  out.style.display = 'block';
+  out.innerHTML = 'Estimated fuel needed: ' + gallons.toFixed(1) + ' gal<br>Estimated cost: $' + cost.toFixed(2);
+}
+</script>
+<script>
+(function(){
+  const themeBtn = document.getElementById('themeBtn');
+  if (!themeBtn) return;
+  function applyTheme(t){document.documentElement.setAttribute('data-theme', t); themeBtn.textContent = t === 'dark' ? '☀️ Light' : '🌙 Dark'; try { localStorage.setItem('dmvTheme', t); } catch(e) {}}
+  let savedTheme = 'light';
+  try { savedTheme = localStorage.getItem('dmvTheme') || 'light'; } catch(e) {}
+  applyTheme(savedTheme);
+  themeBtn.onclick = function(){ applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); };
+})();
+</script>
+
+<div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+  <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+  <span style="margin:0 8px;">·</span>
+  <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+  <br>
+  DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+</div>
+</main>
+</body>
+</html>

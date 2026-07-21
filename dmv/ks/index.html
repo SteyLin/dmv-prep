@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kansas DMV Practice Test (KS) — Free KS Permit & License Prep | DriveReady Hub</title>
+<meta name="description" content="Free Kansas (KS) DMV practice test with 57 questions from the official Kansas driver handbook. Study, answer, and check explanations — 100% free.">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<link rel="canonical" href="/dmv/ks/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  a{color:var(--accent);}
+  .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
+  .breadcrumb a{text-decoration:none;}
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>Kansas</strong></div>
+  <header>
+    <h1>Kansas <span class="em">DMV Practice</span></h1>
+    <p class="sub">Free KS permit and license practice test — 57 questions from the official Kansas driver handbook.</p>
+  </header>
+
+  <div id="quiz">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge">Kansas (KS DOR)</span>
+        <span id="qProg"></span>
+      </div>
+      <div id="qHolder"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+    </div>
+  </div>
+
+  <p class="foot src">Questions sourced from official Kansas DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+  <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+    <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <br>
+    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+  </div>
+</div>
+
+<script>
+const STATE_KEY = "ks";
+const STATE_DATA = {"name": "Kansas (KS DOR)", "source": "Official KS Driver Handbook (public domain)", "questions": [{"q": "What is the minimum age to obtain a driver's license in Kansas?", "options": ["At least 16 years old", "At least 18 years old", "At least 21 years old"], "answer": 0, "ref": "KS Handbook - Section 1: The Driver's License", "explanation": "Manual: 'You may obtain a Driver's License if you: Are at least 16 years of age.'"}, {"q": "Which vehicles can you drive with a Class C driver's license?", "options": ["Gross vehicle weight rating: Vehicles over 26,001 pounds", "Gross vehicle weight rating vehicles under 26,001 pounds", "Vehicles of all sizes and weights"], "answer": 1, "ref": "KS Handbook - Section 1: The Driver's License", "explanation": "According to the Part 1 sample question, a Class C license covers GVWR vehicles under 26,001 pounds."}, {"q": "When does a Kansas driver's license expire?", "options": ["on your birthday", "5 years after issue", "Never (indefinitely)"], "answer": 0, "ref": "KS Handbook - Section 1: The Driver's License", "explanation": "Part 1 'Test Your Knowledge' question: 'Your Driver's License will: a. 'Expire on your birthday' (answer a)."}, {"q": "What is the minimum vision required in the vision test to obtain a driver's license?", "options": ["20/40 in one eye", "20/20 in both eyes", "20/200 in both eyes"], "answer": 0, "ref": "KS Handbook - Section 1 & 3: Vision", "explanation": "Kansas requires 20/40 vision (even with correction) in at least one eye; Otherwise, an eye examination form is required."}, {"q": "How many questions does the Kansas knowledge exam consist of?", "options": ["25 questions", "20 questions", "50 questions"], "answer": 0, "ref": "KS Handbook - Section 1 & 11: Knowledge Test", "explanation": "Chapter 11: 'The knowledge test consists of 25 multiple choice questions.'"}, {"q": "If you do not pass the written (knowledge) exam, how many times do you have the right to try?", "options": ["4 times, then 6 months waiting", "2 times, then 1 year waiting", "Unlimited attempts"], "answer": 0, "ref": "KS Handbook - Section 1: Unsuccessful Examinations", "explanation": "In case of fourth failure, it is necessary to wait at least 6 months from the last failed exam for the re-process."}, {"q": "What should you do according to Kansas' Basic Speed \u200b\u200bLaw?", "options": ["Always drive at maximum legal speed", "Driving at a reasonable and prudent speed according to road, weather and vehicle conditions", "Just obey the posted speed limit."], "answer": 1, "ref": "KS Handbook - Section 2: Basic Speed \u200b\u200bLaw", "explanation": "K.S.A. 8-1557: you should never drive at a speed that is not reasonable and prudent in the prevailing conditions."}, {"q": "What is the maximum speed in the city/urban district if there is no other sign?", "options": ["30 mph", "55mph", "65mph"], "answer": 0, "ref": "KS Handbook - Section 2: Speed \u200b\u200bLimits", "explanation": "If there is no sign, the maximum speed in urban areas is 30 mph."}, {"q": "What is the maximum speed on a State/Federal Highway outside of town if there is no sign?", "options": ["55mph", "65mph", "75 mph"], "answer": 1, "ref": "KS Handbook - Section 2: Speed \u200b\u200bLimits", "explanation": "Maximum speed on State/Federal highways is 65 mph unless otherwise marked (75 mph only on designated multi-lane highways with separation)."}, {"q": "What type of violation is seat belt use in Kansas?", "options": ["Primary violation - you can only be stopped for this reason", "secondary violation", "It is not a violation"], "answer": 0, "ref": "KS Handbook - Section 2: Seatbelts (K.S.A. 8-2501)", "explanation": "In Kansas, seat belts are now 'Primary Violation'; If an adult is seen without a belt, the vehicle may be stopped for that reason only."}, {"q": "What is the right restraint for children under 4 years old?", "options": ["Just a seat belt is enough", "Federally approved child safety seat is mandatory", "Can use a belt like an 8 year old"], "answer": 1, "ref": "KS Handbook - Section 2: Child Restraints (K.S.A. 8-1344)", "explanation": "All children under age 4 must be in a federally approved child safety seat."}, {"q": "In what situation can a child between the ages of 4 and 8 use a normal seat belt?", "options": ["Just the belt is always enough", "Belt if taller than 4 feet 9 inches OR over 80 pounds", "Never uses a belt, always a booster"], "answer": 1, "ref": "KS Handbook - Section 2: Child Restraints", "explanation": "Between the ages of 4 and 8, the child is in a booster seat until he/she is over 4'9\" tall or weighs over 80 pounds, in which case he/she uses a belt."}, {"q": "At least how many feet before turning or changing lanes should the signal be given?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "KS Handbook - Section 2: Signaling (K.S.A. 8-1548)", "explanation": "All signals must be given at least 100 feet before departure/turn."}, {"q": "Where should a 'U' turn not be made?", "options": ["On level road where visibility is 500 feet", "Right next to the sidewalk", "On hills or in areas with no visibility beyond 500 feet"], "answer": 2, "ref": "KS Handbook - Section 2: U-Turns (K.S.A. 8-1546)", "explanation": "Not near the victim; No U-turns are made on a curve, over a hill, or where you cannot be seen by other drivers for 500 feet."}, {"q": "Where is overtaking prohibited on a two-way road?", "options": ["Within 100 feet of a bridge, viaduct or tunnel", "Only in marked prohibited areas", "It is never forbidden"], "answer": 0, "ref": "KS Handbook - Section 2: Passing (K.S.A. 8-1516/1518/1520)", "explanation": "Overtaking is prohibited within 100 feet of a bridge/viaduct/tunnel where visibility is obstructed, within 100 feet of an intersection/level crossing and in a no-passing zone."}, {"q": "Which of the two vehicles arriving at the intersection at the same time has priority (right-of-way)?", "options": ["vehicle on the left", "vehicle on the right", "larger vehicle"], "answer": 1, "ref": "KS Handbook - Section 2: Right-of-Way", "explanation": "If two vehicles enter at the same time from different roads, the vehicle on the left gives way to the vehicle on the right."}, {"q": "How close to a fire hydrant is parking prohibited?", "options": ["15 feet", "30 feet", "50 feet"], "answer": 0, "ref": "KS Handbook - Section 2: Parking (K.S.A. 8-1571/1572)", "explanation": "Parking within 15 feet of a fire hydrant is prohibited."}, {"q": "What are the legal regulations regarding cell phone use in Kansas?", "options": ["Talking while driving is completely prohibited", "Writing/sending/reading (messaging) is prohibited; talking is not specifically prohibited", "Mobile phone use is completely prohibited"], "answer": 1, "ref": "KS Handbook - Section 2: Cell Phones (K.S.A. 8-1598)", "explanation": "Kansas prohibits writing/sending/reading (texting, email) while driving; talking or dialing is not specifically illegal."}, {"q": "What is the alcohol-related 'zero tolerance' BAC limit for a driver under 21?", "options": [".08", ".02", ".05"], "answer": 1, "ref": "KS Handbook - Section 3: Alcohol, Other Drugs and Driving", "explanation": "For those under the age of 21, even a .02 BAC can be arrested for DUI (Zero Tolerance)."}, {"q": "How long can your driver's license be suspended if your BAC is .08 or above?", "options": ["30 days", "6 months", "1 year"], "answer": 0, "ref": "KS Handbook - Section 3: Alcohol and the Law", "explanation": "With a BAC of .08 or higher, your driving license may be suspended for 30 days and criminal penalties may apply."}, {"q": "According to the Kansas implied consent law, if the police ask for a BAC test and you refuse, how long will your driver's license be revoked?", "options": ["1 year", "6 months", "90 days"], "answer": 0, "ref": "KS Handbook - Section 3: Implied Consent (K.S.A. 8-1001)", "explanation": "Refusing to take a BAC test will result in a 1-year license revocation."}, {"q": "What is the best method to prevent a fatigue-related accident?", "options": ["Drink coffee and keep driving", "Take a 15-20 minute nap in a safe place", "Keep driving late at night"], "answer": 1, "ref": "KS Handbook - Section 3: Fatigue", "explanation": "The way to prevent a fatigue accident is to take a 15-20 minute nap in a safe area; The best preventative is sleep."}, {"q": "Which statement is correct about seat belts?", "options": ["If your vehicle has an airbag, there is no need to install it.", "Only worn on long trips", "Must be worn at all times"], "answer": 2, "ref": "KS Handbook - Section 4: Using Safety Belts", "explanation": "In Kansas, it is illegal to drive in the front seat or be a passenger without a belt; The belt must always be worn (even with an airbag)."}, {"q": "In what types of collisions do front air bags deploy?", "options": ["In side and rear collision", "In frontal/near-frontal collision", "In rollover"], "answer": 1, "ref": "KS Handbook - Section 4: Air Bags", "explanation": "Front airbags deploy only in frontal and near-frontal collisions; Not designed for side, rear or tipping."}, {"q": "Where should a child under 12 sit in a vehicle with airbags?", "options": ["in the front seat", "in the backseat", "It doesn't matter"], "answer": 1, "ref": "KS Handbook - Section 4: Child Passenger Safety Laws", "explanation": "Children under 12 years old should sit in the back seat to avoid airbag injury."}, {"q": "What should be done before starting the vehicle?", "options": ["Parking brake must be applied", "You should keep your foot on the gas pedal", "Doors should be locked"], "answer": 0, "ref": "KS Handbook - Section 5: Starting", "explanation": "Before starting the vehicle, you should make sure that the parking brake is applied."}, {"q": "Where should your hands be when gripping the steering wheel hand-to-hand?", "options": ["Left hand between 7-8, right hand between 4-5", "Left hand between 10-11, right hand between 1-2", "Always in position 12"], "answer": 0, "ref": "KS Handbook - Section 5: Steering", "explanation": "In hand-to-hand (push/pull) steering, the left hand is held between 7-8 points and the right hand is held between 4-5 points; This is the preferred method."}, {"q": "From what position should the steering wheel be gripped when performing a reversing maneuver?", "options": ["with left hand from position 12", "from position 3", "With right hand from position 6"], "answer": 0, "ref": "KS Handbook - Section 5: Backing", "explanation": "In reversing, the steering wheel is gripped at position 12 with the left hand, the right arm is extended behind the seat and you look directly through the rear window."}, {"q": "What shape is the STOP sign?", "options": ["Octagon (octagon), red-white", "downward facing triangle", "Apartment"], "answer": 0, "ref": "KS Handbook - Section 6: Traffic Signs (Stop Sign)", "explanation": "The stop sign is octagonal (8-sided), written in white on a red background."}, {"q": "What does a YIELD (yield) sign look like?", "options": ["Red-white downward-pointing triangle", "yellow diamond", "blue rectangle"], "answer": 0, "ref": "KS Handbook - Section 6: Traffic Signs (Yield Sign)", "explanation": "The Yield sign is a red-white downward-pointing triangle; slows down to allow priority traffic to pass."}, {"q": "What color and shape are warning signs usually?", "options": ["Yellow color, black text/icon, diamond shape", "white rectangle", "blue round"], "answer": 0, "ref": "KS Handbook - Section 6: Warning Signs", "explanation": "Warning signs are usually yellow diamonds with black text (some, such as the school zone, are fluorescent yellow)."}, {"q": "What does a flashing red traffic light mean?", "options": ["Slow down and drive carefully", "Stop; make a full stop like a stop sign", "Speed \u200b\u200bup and pass"], "answer": 1, "ref": "KS Handbook - Section 6: Traffic Signals", "explanation": "At a flashing red light, you come to a complete stop at the stop line and give way as at the stop sign."}, {"q": "What is required when making a left turn on a steady green light?", "options": ["Only the light should be green", "If the intersection is clear, you can turn; Give way to opposing traffic and pedestrians", "No control required"], "answer": 1, "ref": "KS Handbook - Section 6: Traffic Signals", "explanation": "A left turn on solid green can only be made if the intersection is clear; Oncoming traffic and pedestrians are given way."}, {"q": "What do the yellow lines separating opposite directions indicate?", "options": ["Lanes going in the same direction", "traffic going in opposite directions", "Parking limit only"], "answer": 1, "ref": "KS Handbook - Section 6: Pavement Markings", "explanation": "Yellow lines separate traffic going in opposite directions; white lines separate lanes in the same direction."}, {"q": "What does double solid yellow line mean?", "options": ["No passing from either direction (overtaking prohibited)", "Can only be crossed during the day", "Passable when turning right"], "answer": 0, "ref": "KS Handbook - Section 6: Pavement Markings", "explanation": "A double solid yellow line prohibits traffic from crossing into the opposite lane from either direction."}, {"q": "What to do if a school bus coming from the opposite direction has its red lights on on a divided (physical median) highway?", "options": ["In any case you have to stop", "No stopping required if the road is separated by a physical median/barrier", "Stops only during school hours"], "answer": 1, "ref": "KS Handbook - Section 6: Rules for School Buses", "explanation": "If the bus is coming from the opposite direction and the road is separated by a median or physical barrier, it is not necessary to stop."}, {"q": "Where should the front wheels be turned when parking uphill and on a curb?", "options": ["away from the curb", "Toward the curb", "straight forward"], "answer": 0, "ref": "KS Handbook - Section 6: Parking (Uphill with Curb)", "explanation": "When there is uphill and pavement, the wheels are turned away from the pavement; so that if the vehicle rolls back, it moves away from the curb."}, {"q": "What shape is the 'No Passing Zone' sign?", "options": ["It is hung to the left of the road in the form of a pennant", "circular", "square shaped"], "answer": 0, "ref": "KS Handbook - Section 2/6: Passing", "explanation": "No Passing Zone is a single pennant-shaped warning sign showing the head of the no-passing zone facing the left of the road."}, {"q": "How many times does the crash impact and braking distance increase if you double your speed (e.g. 20 -> 40 mph)?", "options": ["2 layers", "4 floors", "8 floors"], "answer": 1, "ref": "KS Handbook - Section 7: Speed \u200b\u200bManagement", "explanation": "Doubling the speed from 20 to 40 mph increases impact force and braking distance by 4 times."}, {"q": "How many seconds of safe space should be sought in traffic when changing lanes?", "options": ["4-6 seconds", "1-2 seconds", "10-12 seconds"], "answer": 0, "ref": "KS Handbook - Section 7: Space to Merge", "explanation": "A 4-6 second gap should be chosen when changing lanes, entering the road or merging; The vehicle is entered in the middle of this space."}, {"q": "What to do if you need to stop quickly with a vehicle with ABS (Anti-lock Braking System) friction?", "options": ["The brake pedal is pressed and held as hard as possible", "The brake is pressed by pumping (kezzab)", "Press slowly and gradually"], "answer": 0, "ref": "KS Handbook - Section 7/8: ABS", "explanation": "To stop quickly with ABS, the brake pedal must be pressed all the way down and not released (do not pull back on the pedal while ABS is running)."}, {"q": "Approximately at what mph do modern tires start hydroplaning on a rainy/wet road?", "options": ["45-50mph", "25-30mph", "60-65mph"], "answer": 0, "ref": "KS Handbook - Section 7: Water on the Roadway", "explanation": "In heavy rain, tires can lose all grip at 45-50 mph (worn tires at much lower speeds)."}, {"q": "What should be done in case of tire blowout?", "options": ["sudden hard braking", "Holding the steering wheel tightly and slowing down slowly, not braking when not necessary", "Accelerate"], "answer": 1, "ref": "KS Handbook - Section 8: Hyphen Blowout", "explanation": "If a tire blows out, hold the steering wheel tightly, take your foot off the gas and slow down slowly; If possible, do not brake, pull to a safe place."}, {"q": "What is the maximum safe speed when visibility is less than 100 feet due to rain, snow, dust or fog?", "options": ["30 mph", "45 mph", "55mph"], "answer": 0, "ref": "KS Handbook - Section 8: Vision Limitations", "explanation": "Cannot safely drive over 30 mph if visibility is less than 100 feet; If necessary, retreat to a safe place and wait."}, {"q": "What should you do if your vehicle is hit from behind?", "options": ["Lean your head and body against the back of the seat and get ready", "Immediately apply the brakes and crash until you stop.", "Leave the vehicle and go outside"], "answer": 0, "ref": "KS Handbook - Section 8: Protect Yourself in Collisions", "explanation": "In case of a rear impact, the head and body lean against the back of the seat, the head rests on the head restraint; Be ready to brake to avoid hitting others."}, {"q": "In which vehicles are rollover accidents more common?", "options": ["SUVs, vans, pickup trucks and small trucks with a high center of gravity", "low sports cars", "Standard sedans"], "answer": 0, "ref": "KS Handbook - Section 8: Rollovers", "explanation": "SUVs, vans, pickup trucks and small trucks are more prone to rollovers due to their higher center of gravity."}, {"q": "What is the pedestrian rule?", "options": ["Stop only at pedestrian crossings", "Pedestrians are always given way; stop even if there is no pedestrian crossing (including jaywalking)", "There's no need to ever stop"], "answer": 1, "ref": "KS Handbook - Section 9: Pedestrians", "explanation": "Pedestrians are always given way; They must be stopped even if they are jaywalking."}, {"q": "What should you do when a visually impaired pedestrian carrying a white cane or a guide dog passes by?", "options": ["It just slows down", "It stops completely", "Warned by sounding the horn"], "answer": 1, "ref": "KS Handbook - Section 9: Pedestrians (blind)", "explanation": "A visually impaired pedestrian (white cane or guide dog) must stop completely when passing; The horn is not honked."}, {"q": "What to do when an emergency vehicle such as an ambulance, police or fire department approaches?", "options": ["Pull to the right, stay aside and keep intersections clear", "Continues while maintaining speed", "Moving to the left lane"], "answer": 0, "ref": "KS Handbook - Section 9: Emergency Vehicles", "explanation": "When an emergency vehicle with a siren/flash is seen, pull to the right and stay aside, intersections are kept open; The vehicle is not followed at least 500 feet away."}, {"q": "Which is the correct statement about the blind spots (No-Zone) of large trucks?", "options": ["Trucks have no blind spots", "There are large blind spots (No-Zone) on the side, rear and front of the truck", "There is only a blind spot in front of you"], "answer": 1, "ref": "KS Handbook - Section 9: The No-Zone", "explanation": "No-Zones are giant blind spots on the side, rear and front of a large truck/bus; If the driver cannot see you, the risk of a collision increases."}, {"q": "What is a slow-moving vehicle sign and how fast do these vehicles go?", "options": ["Orange-red reflective triangle; below 25 mph", "Yellow circle; below 35 mph", "Blue square; below 45 mph"], "answer": 0, "ref": "KS Handbook - Section 9: Slow Moving Vehicles", "explanation": "An orange-red reflective triangle on the rear of the vehicle indicates the vehicle is traveling below 25 mph; Be careful when passing."}, {"q": "What should be done if an animal (e.g. deer) suddenly jumps out in front of you?", "options": ["Avoiding the animal by turning in the opposite direction or off the road", "Keeping the vehicle under control and not swerving; hit the animal if necessary", "Immediately press the brake until it locks"], "answer": 1, "ref": "KS Handbook - Section 10: Avoiding Collisions with Animals", "explanation": "Turning in the opposite direction or off the road to avoid the animal poses a more serious risk of accident; Keep the vehicle under control and do not swerve."}, {"q": "Should you use low beam or high beam when driving at night in heavy fog/rain without fog lights?", "options": ["Low beam", "Far beam (high beam)", "hazard warning flashers"], "answer": 0, "ref": "KS Handbook - Section 10 / 8: Night Driving & Vision Limitations", "explanation": "Near beam (and fog lights, if equipped) are used to improve visibility in fog, snow or heavy rain; The far beam increases glare."}, {"q": "What should you do if you see a flooded roadway in front of you?", "options": ["Check the depth of the water and cross it carefully", "Stopping the vehicle on the road", "Go back and find another route"], "answer": 2, "ref": "KS Handbook - Section 10: Flooded Roadways", "explanation": "6 inches of water will cover the underside of most vehicles and cause loss of control; Do not cross the wet road, go back and find another route."}, {"q": "What is the passing score required to pass the Kansas knowledge exam?", "options": ["80%", "60%", "100%"], "answer": 0, "ref": "KS Handbook - Section 11: Passing the Knowledge Test", "explanation": "An 80% accuracy rate is required to pass the quiz."}, {"q": "Which of the vehicles arriving at the same time at a 4-way intersection with a stop sign is given priority?", "options": ["First vehicle to arrive", "To the vehicle on the left", "to the biggest vehicle"], "answer": 0, "ref": "KS Handbook - Section 6/11: Right-of-Way (4-way stop)", "explanation": "In a 4-way stop, priority is given to the vehicle that reaches the intersection first; If reached at the same time, the one on the right goes."}, {"q": "Between what dates is it legal to use studded snow tires for winter driving in Kansas?", "options": ["1 November - 1 April", "1 December - 1 March", "Throughout the year"], "answer": 0, "ref": "KS Handbook - Section 12: Winter Driving", "explanation": "In Kansas, studded snow tires are only legal from November 1 to April 1."}]};
+</script>
+<script>
+/* Quiz logic (identical to homepage, scoped to a single state) */
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
+  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<QS.length-1){idx++;render();} else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+function finish(){
+  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+}
+document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
+document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+
+/* Deep-link to a question: /dmv/ny/#q5 */
+function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
+window.addEventListener('hashchange', gotoHash);
+render(); gotoHash();
+</script>
+<script>
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+</script>
+<script>
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

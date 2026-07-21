@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveReady Hub — Free DMV Practice Tests, Car Tools & Driver Guides</title>
+<meta name="description" content="Free DMV practice tests by state, driver guides, insurance tips, car buying help, maintenance checklists, and simple car tools for U.S. drivers.">
+<link rel="canonical" href="/">
+<meta name="google-adsense-account" content="ca-pub-7503096549502749">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
+<style>
+  :root{
+    --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
+    --accent:#2563eb; --accent-soft:#eff4ff; --good:#16a34a; --good-soft:#ecfdf3;
+    --bad:#dc2626; --bad-soft:#fef2f2; --line:#e5e7eb; --explain:#f8fafc;
+  }
+  html[data-theme="dark"]{
+    --bg:#0f1419; --card:#1a2027; --ink:#e6e9ee; --muted:#9aa4b2;
+    --accent:#3b82f6; --accent-soft:#16223b; --good:#22c55e; --good-soft:#0f2a1c;
+    --bad:#ef4444; --bad-soft:#2a1518; --line:#2a323c; --explain:#141a21;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  body{background:var(--bg);color:var(--ink);min-height:100vh;line-height:1.5;transition:background .2s,color .2s;}
+  body{background-image:radial-gradient(1200px 600px at 50% -10%, var(--accent-soft) 0%, transparent 60%);}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 80px;}
+  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;transition:.15s;}
+  .theme-btn:hover{border-color:var(--accent);}
+  header{text-align:center;margin:18px 0 26px;}
+  h1{font-size:2.2rem;font-weight:900;letter-spacing:-.03em;}
+  h1 .em{color:var(--accent);}
+  .sub{color:var(--muted);margin-top:10px;font-size:1.05rem;max-width:780px;margin-left:auto;margin-right:auto;}
+  .hint{color:var(--muted);margin-top:8px;font-size:.88rem;}
+  .search{width:100%;background:var(--card);border:1px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:14px;font-size:1.05rem;margin:0 0 26px;outline:none;transition:.15s;}
+  .search:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);}
+
+  /* home */
+  .sections-row{display:grid; grid-template-columns: repeat(3, 1fr); gap:16px;}
+  .section-card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,.05); cursor:pointer; transition:.15s; display:flex; flex-direction: column; justify-content: space-between; min-width:0; height:100%;}
+  .section-card:hover{border-color:var(--accent); box-shadow:0 12px 28px rgba(37,99,235,.12); transform:translateY(-3px);}
+  .section-card .icon{font-size:1.25rem;}
+  .section-card .section-title{font-size:1.02rem; font-weight:800; margin-top:8px;}
+  .section-card .section-desc{font-size:.82rem; color:var(--muted); margin-top:3px; line-height:1.4;}
+  .section-card .arrow{margin-left:auto; color:var(--accent); font-weight:700; font-size:.8rem;}
+  .home-detail{margin-top:24px;}
+  .hidden{display:none;}
+  @media (max-width: 900px){
+    .sections-row{grid-template-columns: repeat(2, 1fr);}
+  }
+  @media (max-width: 560px){
+    .sections-row{grid-template-columns: 1fr;}
+  }
+
+  /* tiles */
+  .section{margin-bottom:32px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 22px 26px;box-shadow:0 8px 24px rgba(0,0,0,.06);}
+  .section-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+  .icon{font-size:1.35rem;line-height:1;}
+  .section-title{font-size:1.1rem;font-weight:800;letter-spacing:-.01em;}
+  .section-desc{color:var(--muted);font-size:.88rem;margin-top:2px;}
+  .state-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;}
+  .tile{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:15px 14px;cursor:pointer;text-align:left;transition:.12s;box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .tile:hover{border-color:var(--accent);box-shadow:0 8px 20px rgba(37,99,235,.15);transform:translateY(-2px);}
+  .tile .nm{font-weight:750;font-size:.96rem;display:block;margin-bottom:3px;}
+  .tile .desc{font-size:.78rem;color:var(--muted);line-height:1.4;display:block;}
+  .sec{font-size:.8rem;font-weight:750;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:0 0 10px 2px;}
+  .nomatch{text-align:center;color:var(--muted);font-size:.95rem;padding:18px 0;}
+  .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
+
+  /* quiz */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
+  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
+  .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);color:var(--ink);padding:15px 18px;border-radius:12px;margin-bottom:12px;cursor:pointer;font-size:1.02rem;transition:.12s;}
+  .opt:hover{border-color:var(--accent);background:var(--accent-soft);}
+  .opt.sel{border-color:var(--accent);background:var(--accent-soft);font-weight:700;}
+  .opt.correct{border-color:var(--good);background:var(--good-soft);color:var(--good);font-weight:700;}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad);font-weight:700;}
+  .opt:disabled{cursor:default;}
+  .explain{background:var(--explain);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:.9rem;color:var(--muted);line-height:1.5;}
+  .nav{display:flex;justify-content:space-between;gap:12px;margin-top:20px;}
+  .act{background:var(--accent);color:#fff;border:none;padding:13px 24px;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:.12s;}
+  .act:hover{filter:brightness(.92);}
+  .act.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line);}
+  .act:disabled{opacity:.4;cursor:not-allowed;}
+  .result{text-align:center;padding:8px 0;}
+  .score{font-size:3.4rem;font-weight:900;letter-spacing:-.04em;margin:10px 0;}
+  .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
+  .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .ad-slot{width:100%;min-height:90px;background:var(--card);border:1px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;margin:14px 0 10px;letter-spacing:.04em;}
+  .ad-slot.medium{min-height:250px;max-width:300px;margin:14px auto 10px;}
+  @media (min-width: 728px){
+    .ad-slot.leaderboard{height:90px;}
+  }
+
+  .layout{display:grid;grid-template-columns:1fr 300px;gap:20px;max-width:1200px;margin:0 auto;}
+  .sidebar{position:sticky;top:20px;align-self:start;}
+  .sidebar .ad-slot{min-height:250px;max-width:300px;margin:0 0 14px;}
+  .sidebar .ad-slot.wide{min-height:600px;}
+  .main{min-width:0;}
+  @media (max-width: 1024px){
+    .layout{grid-template-columns:1fr;}
+    .sidebar{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div id="google_translate_element"></div>
+    <button class="theme-btn" id="themeBtn">🌙 Dark</button>
+  </div>
+
+  <div class="layout"><main class="main">
+<header>
+    <h1 id="homeTitle" style="cursor:pointer;" title="Back to all sections">🚗 RoadReady <span class="em">Hub</span></h1>
+    <p class="sub">Free practice tests, driver guides, and car tools for new drivers, new residents, and car owners in the U.S.</p>
+    <p class="hint">Practice · Learn · Protect · Buy · Maintain · Tools</p>
+  </header>
+
+  <input type="search" id="search" class="search" placeholder="Search states, topics, tools…" autocomplete="off">
+  <div class="ad-slot leaderboard">Advertisement — 728x90</div>
+
+  <div id="home">
+    <div style="margin-bottom:14px; color:var(--muted); font-size:.9rem;">Browse what you need — tap any section to see quick tools and guides inside it.</div>
+    <div id="sectionsRow" class="sections-row"></div>
+    <div id="homeDetail" class="home-detail hidden"></div>
+    <p class="foot src" style="margin-top:24px;">Questions sourced from official state DMV publications (public domain). Tools and guides are informational only and not a substitute for official resources.</p>
+  </div>
+
+  <div class="ad-slot medium">Advertisement — 300x250</div>
+<div id="quiz" class="hidden">
+    <div class="card">
+      <div class="meta">
+        <span class="badge" id="stateBadge"></span>
+        <span id="qProg"></span>
+      </div>
+      <div class="q-text" id="qText"></div>
+      <div id="opts"></div>
+      <div class="nav">
+        <button class="act ghost" id="prevBtn">← Back</button>
+        <button class="act" id="nextBtn">Next →</button>
+      </div>
+    </div>
+    <p class="foot" id="qCount"></p>
+  </div>
+
+  <div id="done" class="hidden">
+    <div class="card result">
+      <span class="badge" id="doneBadge"></span>
+      <h2 style="margin-top:10px;">Exam Complete</h2>
+      <div class="score" id="score"></div>
+      <p class="verdict" id="verdict"></p>
+      <button class="act" id="retryBtn">Restart This State</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All Sections</button>
+    </div>
+  </div>
+</div>
+
+<script src="questions.js"></script>
+<script>
+const STATES = window.QUESTIONS || {};
+
+const SECTIONS = [
+  {
+    id: 'dmv',
+    title: 'DMV Practice Tests',
+    desc: 'Real-state permit and license prep by state.',
+    icon: '🅿️',
+    items: Object.keys(STATES).map(k => ({ key: 'st-'+k, label: STATES[k].name, desc: `${STATES[k].questions.length} questions`, href: 'dmv/'+k+'/' }))
+  },
+  {
+    id: 'ed',
+    title: "Driver's Ed & Guides",
+    desc: 'New resident checklists, handbook summaries, and road rules.',
+    icon: '📘',
+    items: [
+      { key:'g1', label: 'New Resident License Guide', desc: 'Documents, steps, and office tips.', href: 'pages/new-resident.html' },
+      { key:'g2', label: 'Road Signs Quick Reference', desc: 'Shapes, colors, and meanings.', href: 'pages/road-signs.html' },
+      { key:'g3', label: 'Right-of-Way Basics', desc: 'Intersections, turns, and stops.', href: 'pages/right-of-way.html' },
+      { key:'g4', label: 'Alcohol & Drug Laws', desc: 'DUI penalties, BAC, and Zero Tolerance.', href: 'pages/alcohol-laws.html' }
+    ]
+  },
+  {
+    id: 'insurance',
+    title: 'Car Insurance Basics',
+    desc: 'How coverage works, cost factors, and saving tips.',
+    icon: '🛡️',
+    items: [
+      { key:'i1', label: 'Liability vs Full Coverage', desc: 'Differences, minimums by state, and when to choose.', href: 'pages/insurance-liability.html' },
+      { key:'i2', label: 'New Driver Insurance Tips', desc: 'Teen and first-time driver premium strategies.', href: 'pages/insurance-newdriver.html' },
+      { key:'i3', label: 'Free Insurance Estimate Tool', desc: 'Estimate monthly cost quickly.', href: 'pages/insurance-estimate.html' },
+      { key:'i4', label: 'What Affects Your Rate', desc: 'Credit, ZIP, vehicle, and driving history.', href: 'pages/insurance-factors.html' }
+    ]
+  },
+  {
+    id: 'buying',
+    title: 'Buying a Car',
+    desc: 'From test drive to paperwork — buyer\'s playbook.',
+    icon: '🚘',
+    items: [
+      { key:'b1', label: 'New vs Used Checklist', desc: 'Pros, cons, price ranges, and red flags.', href: 'pages/buying-newused.html' },
+      { key:'b2', label: 'Financing & Credit Tips', desc: 'APR, down payment, and preapproval.', href: 'pages/buying-financing.html' },
+      { key:'b3', label: 'Vehicle History Report Guide', desc: 'CARFAX, AutoCheck, title checks.', href: 'pages/buying-history.html' },
+      { key:'b4', label: 'How to Negotiate Price', desc: 'Dealer and private-party negotiation tips.', href: 'pages/buying-negotiate.html' }
+    ]
+  },
+  {
+    id: 'maintenance',
+    title: 'Maintenance & Ownership',
+    desc: 'Ownership costs and upkeep for first-time owners.',
+    icon: '🔧',
+    items: [
+      { key:'m1', label: 'Essential Maintenance by Mileage', desc: 'Oil, tires, brakes, and fluids.', href: 'pages/maintenance-mileage.html' },
+      { key:'m2', label: 'Registration & Title Steps', desc: 'How to transfer ownership by state.', href: 'pages/maintenance-registration.html' },
+      { key:'m3', label: 'Emergency Kit & Safety', desc: 'Tire pressure, spare, and triage checklist.', href: 'pages/maintenance-safety.html' },
+      { key:'m4', label: 'Fuel Economy Tips', desc: 'Save money each fill-up with simple habits.', href: 'pages/maintenance-mpg.html' }
+    ]
+  },
+  {
+    id: 'tools',
+    title: 'Car Tools',
+    desc: 'Simple calculators and checks backed by official sources.',
+    icon: '🧰',
+    items: [
+      { key:'t1', label: 'NHTSA Recall Checker', desc: 'Check safety recalls by VIN or make/model.', href: 'pages/tools-recalls.html' },
+      { key:'t2', label: 'Title Transfer Guide by State', desc: 'Step-by-step title transfer info.', href: 'pages/tools-title-transfer.html' },
+      { key:'t3', label: 'Simple Loan Calculator', desc: 'Estimate monthly payment from APR and term.', href: 'pages/tools-loan-calculator.html' },
+      { key:'t4', label: 'Fuel Cost Calculator', desc: 'Trip fuel cost from miles, MPG, and price.', href: 'pages/tools-fuel-calculator.html' },
+      { key:'t5', label: 'Vehicle Safety Ratings', desc: 'NHTSA and IIHS official safety sources.', href: 'pages/tools-safety-ratings.html' },
+      { key:'t6', label: 'VIN Decoder Basics', desc: 'What a VIN represents and official lookup options.', href: 'pages/tools-vin-basics.html' }
+    ]
+  },
+  {
+    id: 'state',
+    title: 'State Guides',
+    desc: 'Quick state-specific DMV overviews.',
+    icon: '🗺️',
+    items: [
+      { key:'s1', label: 'California DMV Guide', desc: 'Real ID, DL 44, offices, and tips.', href: 'pages/state-ca.html' },
+      { key:'s2', label: 'Texas DPS Guide', desc: 'Scheduler, ITTD, teen licensing, and renewal.', href: 'pages/state-tx.html' },
+      { key:'s3', label: 'Florida DMV Guide', desc: 'Class E license, TLSAE, and insurance.', href: 'pages/state-fl.html' },
+      { key:'s4', label: 'New York DMV Guide', desc: 'Real ID, junior license, and offices.', href: 'pages/state-ny.html' }
+    ]
+  },
+  {
+    id: 'howto',
+    title: 'How-To',
+    desc: 'Step-by-step beginner car and driving tasks.',
+    icon: '🛠️',
+    items: [
+      { key:'h1', label: 'How to Change a Tire', desc: 'Safety steps and torque tips.', href: 'pages/howto-change-tire.html' },
+      { key:'h2', label: 'How to Jump Start a Car', desc: 'Battery safety and cable order.', href: 'pages/howto-jump-start.html' },
+      { key:'h3', label: 'How to Check Oil', desc: 'Dipstick method and when to add oil.', href: 'pages/howto-check-oil.html' },
+      { key:'h4', label: 'How to Parallel Park', desc: 'Reference points and practice routine.', href: 'pages/howto-parallel-park.html' }
+    ]
+  },
+  {
+    id: 'checklist',
+    title: 'Checklists',
+    desc: 'Printable-ready checklists for tests, trips, and buying.',
+    icon: '📋',
+    items: [
+      { key:'c1', label: 'Test Day Checklist', desc: 'Documents, appointment, and car prep.', href: 'pages/checklist-test-day.html' },
+      { key:'c2', label: 'Emergency Kit Checklist', desc: 'Spare, jumper cables, flares, and first aid.', href: 'pages/checklist-emergency.html' },
+      { key:'c3', label: 'New Car Buying Checklist', desc: 'Budget, test drive, financing, and out-the-door price.', href: 'pages/checklist-buying.html' },
+      { key:'c4', label: 'FAQ', desc: 'DMV, insurance, calculators, and privacy.', href: 'pages/faq.html' }
+    ]
+  },
+  {
+    id: 'legal',
+    title: 'Legal & License',
+    desc: 'High-interest legal topics: Real ID, SR-22, suspensions, and more.',
+    icon: '⚖️',
+    items: [
+      { key:'l1', label: 'Real ID & Federal ID', desc: 'Documents, enforcement, and state differences.', href: 'pages/legal-real-id.html' },
+      { key:'l2', label: 'SR-22 Insurance', desc: 'Who needs it, cost factors, and how to stay compliant.', href: 'pages/legal-sr22.html' },
+      { key:'l3', label: 'Out-of-State License Transfer', desc: 'Residency timelines, tests, and paperwork.', href: 'pages/license-outofstate.html' },
+      { key:'l4', label: 'Lost or Stolen License / ID', desc: 'Replacement steps, fees, and expedited options.', href: 'pages/license-lost-stolen.html' },
+      { key:'l5', label: 'Points & Suspensions', desc: 'Point thresholds, removal options, and reinstatement.', href: 'pages/legal-points-suspension.html' },
+      { key:'l6', label: 'Traffic School & Defensive Driving', desc: 'Ticket reduction, insurance discounts, and eligibility.', href: 'pages/legal-traffic-school.html' },
+      { key:'l7', label: 'Lemon Law Basics', desc: 'Defects, repair attempts, refund or replacement.', href: 'pages/legal-lemon-law.html' }
+    ]
+  }
+];
+
+const home=document.getElementById('home');
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+const search=document.getElementById('search');
+const sectionsRow=document.getElementById('sectionsRow');
+const homeDetail=document.getElementById('homeDetail');
+let currentSectionId = null;
+
+function describeAction(sec){
+  if(sec.id === 'dmv') return 'Choose a state to start DMV practice';
+  const map = { ed:'Read checklist and guides', insurance:'Compare coverage and estimate costs', buying:'Car buying playbook', maintenance:'Ownership checklist and upkeep tips', tools:'Simple calculators and official checks', state:'Top state-specific DMV guides', howto:'Step-by-step beginner how-tos', checklist:'Printable-ready checklists' };
+  return map[sec.id] || 'Explore items';
+}
+
+function renderHomeRow(sections){
+  sectionsRow.innerHTML = sections.map(sec => `
+    <div class="section-card" onclick="${sec.id === 'dmv' ? "openDmvQuick()" : "openSection('"+sec.id+"')"}">
+      <div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <span class="icon" aria-hidden="true">${sec.icon}</span>
+          <div style="flex:1;">
+            <div class="section-title">${sec.title}</div>
+            <div class="section-desc">${sec.desc}</div>
+          </div>
+        </div>
+        <div style="margin-top:14px; font-size:.82rem; color:var(--muted); line-height:1.4;">${describeAction(sec)}</div>
+      </div>
+      <div style="margin-top:14px; display:flex; justify-content:flex-end;">
+        <div class="arrow">→</div>
+      </div>
+    </div>
+  `).join('');
+  if(!sections.length){
+    sectionsRow.innerHTML = `<div style="color:var(--muted);padding:10px 4px;">No matching section</div>`;
+  }
+}
+
+function sectionItemHTML(item){
+  if(item.action && item.action.startsWith('quiz:')){
+    const key=item.action.split(':')[1];
+    const label=STATES[key]?STATES[key].name:item.label;
+    return `<div class="tile" onclick="startQuiz('${key}')" role="link"><span class="nm">${label}</span><span class="desc">${item.desc}</span></div>`;
+  }
+  if(item.href){
+    return `<a class="tile" href="${item.href}" style="text-decoration:none;color:inherit;"><span class="nm">${item.label}</span><span class="desc">${item.desc}</span></a>`;
+  }
+  return `<div class="tile"><span class="nm">${item.label}</span><span class="desc">${item.desc}</span></div>`;
+}
+
+function openSection(id){
+  const sec = SECTIONS.find(s => s.id === id);
+  if(!sec) return;
+  currentSectionId = id;
+  homeDetail.classList.remove('hidden');
+  search.value='';
+  homeDetail.innerHTML = `
+    <div class="section">
+      <div class="section-head">
+        <span class="icon" aria-hidden="true">${sec.icon}</span>
+        <div>
+          <div class="section-title">${sec.title}</div>
+          <div class="section-desc">${sec.desc}</div>
+        </div>
+        <button class="act ghost" style="margin-left:auto;padding:8px 12px;font-size:.82rem;" onclick="closeDetail()">← Back</button>
+      </div>
+      <div class="grid">${sec.items.map(sectionItemHTML).join('')}</div>
+    </div>`;
+  homeDetail.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function openDmvQuick(){
+  currentSectionId='dmv';
+  homeDetail.classList.remove('hidden');
+  search.value='';
+  const items = Object.keys(STATES).map(k => ({ key: 'st-'+k, label: STATES[k].name, desc: `${STATES[k].questions.length} questions`, href: 'dmv/'+k+'/' }));
+  homeDetail.innerHTML = `
+    <div class="section">
+      <div class="section-head">
+        <span class="icon" aria-hidden="true">🅿️</span>
+        <div>
+          <div class="section-title">DMV Practice Tests</div>
+          <div class="section-desc">Real-state permit and license prep by state.</div>
+        </div>
+        <button class="act ghost" style="margin-left:auto;padding:8px 12px;font-size:.82rem;" onclick="closeDetail()">← Back</button>
+      </div>
+      <div class="state-grid">${items.map(sectionItemHTML).join('')}</div>
+    </div>`;
+  homeDetail.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function closeDetail(){
+  homeDetail.classList.add('hidden');
+  homeDetail.innerHTML='';
+  currentSectionId = null;
+}
+
+function filterHome(q){
+  q=q.trim().toLowerCase();
+  if(!q){ renderHomeRow(SECTIONS); return; }
+  const filtered = SECTIONS.map(sec => {
+    const items = sec.items.filter(it => it.label.toLowerCase().includes(q) || (it.desc || '').toLowerCase().includes(q));
+    return { ...sec, items };
+  }).filter(sec => sec.items.length > 0);
+  renderHomeRow(filtered);
+}
+
+search.oninput = () => filterHome(search.value);
+document.getElementById('homeTitle').onclick = () => { search.value=''; filterHome(''); };
+
+renderHomeRow(SECTIONS);
+
+// Theme
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
+// Quiz
+let cur=null, idx=0, picks=[], answered=[];
+function startQuiz(k){
+  cur=k;
+  const qs=STATES[k].questions;
+  picks=new Array(qs.length).fill(-1);
+  answered=new Array(qs.length).fill(false);
+  idx=0;
+  home.classList.add('hidden'); done.classList.add('hidden'); quiz.classList.remove('hidden');
+  document.getElementById('stateBadge').textContent=STATES[k].name;
+  render();
+}
+function render(){
+  const q=STATES[cur].questions[idx];
+  document.getElementById('qProg').textContent=`${idx+1} / ${STATES[cur].questions.length}`;
+  document.getElementById('qCount').textContent=`Answered ${answered.filter(Boolean).length} of ${STATES[cur].questions.length}`;
+  document.getElementById('qText').textContent=q.q;
+  const opts=document.getElementById('opts');
+  opts.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=()=>choose(i);
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){
+    const ex=document.createElement('div');
+    ex.className='explain'; ex.innerHTML='💡 ' + q.explanation;
+    opts.appendChild(ex);
+  }
+  document.getElementById('prevBtn').disabled = idx===0;
+  const last = idx===STATES[cur].questions.length-1;
+  document.getElementById('nextBtn').textContent = (last && allAnswered()) ? 'Finish ✓' : (last?'Finish ✓':'Next →');
+}
+function allAnswered(){return answered.every(Boolean);}
+function choose(i){
+  if(answered[idx]) return;
+  picks[idx]=i; answered[idx]=true; render();
+}
+document.getElementById('nextBtn').onclick=()=>{
+  if(!answered[idx]){alert('Please select an answer.');return;}
+  if(idx<STATES[cur].questions.length-1){idx++;render();}
+  else finish();
+};
+document.getElementById('prevBtn').onclick=()=>{if(idx>0){idx--;render();}};
+function finish(){
+  let correct=0;
+  STATES[cur].questions.forEach((q,i)=>{if(picks[i]===q.answer)correct++;});
+  const total=STATES[cur].questions.length;
+  const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATES[cur].name;
+  document.getElementById('score').textContent=`${correct} / ${total}`;
+  let v=`${pct}% correct. `;
+  v += pct>=80 ? 'You’re in the passing range — nice work!' : 'Keep studying the handbook and try again.';
+  document.getElementById('verdict').textContent=v;
+}
+document.getElementById('retryBtn').onclick=()=>startQuiz(cur);
+document.getElementById('homeBtn').onclick=()=>{ done.classList.add('hidden'); home.classList.remove('hidden'); };
+function goHome(){ quiz.classList.add('hidden'); done.classList.add('hidden'); home.classList.remove('hidden'); search.value=''; filterHome(''); }
+function homeBack(){ goHome(); }
+</script>
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
+  <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
+  <span style="margin:0 8px;">·</span>
+  <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+  <br>
+  DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+</div>
+</body>
+</html>
