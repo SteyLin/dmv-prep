@@ -202,6 +202,15 @@
   <!-- International: Canada knowledge practice -->
   <url><loc>/ca/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- International: Australia DKT practice -->
+  <url><loc>/au/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- International: Ireland DTT practice -->
+  <url><loc>/ie/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- International: Germany Fahrschule practice -->
+  <url><loc>/de/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- Guides & tools: previously blocked by Disallow:/pages/ in robots.txt -->
   <url><loc>/pages/alcohol-laws.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>/pages/buying-financing.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
