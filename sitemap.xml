@@ -195,4 +195,50 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- International: UK DVSA theory practice -->
+  <url><loc>/uk/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- International: Canada knowledge practice -->
+  <url><loc>/ca/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Guides & tools: previously blocked by Disallow:/pages/ in robots.txt -->
+  <url><loc>/pages/alcohol-laws.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/buying-financing.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/buying-history.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/buying-negotiate.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/buying-newused.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/checklist-buying.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/checklist-emergency.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/checklist-test-day.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/howto-change-tire.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/howto-check-oil.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/howto-jump-start.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/howto-parallel-park.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/insurance-estimate.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/insurance-factors.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/insurance-liability.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/insurance-newdriver.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/legal-lemon-law.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/legal-points-suspension.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/legal-real-id.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/legal-sr22.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/legal-traffic-school.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/license-lost-stolen.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/license-outofstate.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/maintenance-mileage.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/maintenance-mpg.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/maintenance-registration.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/maintenance-safety.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/right-of-way.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/state-ca.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/state-fl.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/state-ny.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/state-tx.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-fuel-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-loan-calculator.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-recalls.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-safety-ratings.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-title-transfer.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>/pages/tools-vin-basics.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

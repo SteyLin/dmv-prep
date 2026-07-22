@@ -1,32 +1,16 @@
 #!/usr/bin/env python3
 """
-Generates per-state static DMV practice pages under dmv/ so each state has its
-own indexable URL (e.g. /dmv/ny/) with shareable question anchors (/dmv/ny/#q5)
-and AdSense AUTO-ADS (page-level) for maximum revenue with zero slot-ID hassle.
-
-Uses AdSense Auto-ads: a single async client script in <head>. Google places
-and optimizes all ad units (in-content, anchor, sidebar) automatically. No
-manual data-ad-slot IDs required.
-
-Does NOT touch any existing file. Only writes into dmv/.
+Generates /uk/ DVSA theory practice page (single country mode).
+Does NOT touch existing dmv/ state pages or any other file.
+Reuses the same COMMON_CSS + AdSense Auto-ads pattern as _gen_states.py.
 """
-import json, os
+import os, json
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(ROOT, "dmv")
+OUT = os.path.join(ROOT, "uk")
 os.makedirs(OUT, exist_ok=True)
 
-with open("/tmp/states.json") as f:
-    STATES = json.load(f)
-
-import re
-with open(os.path.join(ROOT, "index.html")) as f:
-    idx = f.read()
-m = re.search(r'ca-pub-\d+', idx)
 PUB = "ca-pub-7503096549502749"
-print("AdSense publisher:", PUB, "| states:", len(STATES))
-
-# Auto-ads: single script in <head>. Google handles all placement/optimization.
 ADSENSE = f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={PUB}" crossorigin="anonymous"></script>'
 
 COMMON_CSS = """
@@ -54,7 +38,6 @@ COMMON_CSS = """
   a{color:var(--accent);}
   .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
   .breadcrumb a{text-decoration:none;}
-  /* quiz */
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
   .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
@@ -78,22 +61,16 @@ COMMON_CSS = """
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
 """
 
-def state_full_name(s):
-    return STATES[s]["name"].split(" (")[0]
-
-def page_html(state_key):
-    st = STATES[state_key]
-    full = state_full_name(state_key)
-    short = state_key.upper()
-    name = st["name"]
+def page_html(data):
+    st = data
+    full = "United Kingdom (DVSA Theory)"
     nq = len(st["questions"])
-    title = f"{full} DMV Practice Test ({short}) — Free {short} Permit & License Prep | DriveReady Hub"
-    desc = f"Free {full} ({short}) DMV practice test with {nq} questions from the official {full} driver handbook. Study, answer, and check explanations — 100% free."
-    canonical = f"https://drivereadyhub.com/dmv/{state_key}/"
-    ld = {"@context": "https://schema.org", "@type": "QAPage", "name": title,
-          "url": canonical, "about": {"@type": "Thing", "name": "Driver's license permit practice test"},
-          "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}
-    ld_json = json.dumps(ld, ensure_ascii=False)
+    title = f"UK Driving Theory Practice Test — Free DVSA Style Prep | DriveReady Hub"
+    desc = f"Free UK (DVSA) driving theory practice test with {nq} questions covering road signs, safety, and the Highway Code. Study and check answers — 100% free."
+    canonical = "https://drivereadyhub.com/uk/"
+    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+          "about":{"@type":"Thing","name":"UK driving theory test"},
+          "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -121,7 +98,7 @@ def page_html(state_key):
 <meta name="twitter:url" content="{canonical}">
 <meta name="twitter:image" content="https://drivereadyhub.com/og-image.png">
 {ADSENSE}
-<script type="application/ld+json">{ld_json}</script>
+<script type="application/ld+json">{json.dumps(ld,ensure_ascii=False)}</script>
 <style>{COMMON_CSS}</style>
 </head>
 <body>
@@ -131,16 +108,16 @@ def page_html(state_key):
     <button class="theme-btn" id="themeBtn">🌙 Dark</button>
   </div>
 
-  <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>{full}</strong></div>
+  <div class="breadcrumb"><a href="/">Home</a> &middot; <strong>UK Driving Theory</strong></div>
   <header>
-    <h1>{full} <span class="em">DMV Practice</span></h1>
-    <p class="sub">Free {short} permit and license practice test — {nq} questions from the official {full} driver handbook.</p>
+    <h1>UK <span class="em">Theory Practice</span></h1>
+    <p class="sub">Free DVSA-style driving theory test — {nq} questions covering road signs, safety margins, and the Highway Code.</p>
   </header>
 
   <div id="quiz">
     <div class="card">
       <div class="meta">
-        <span class="badge" id="stateBadge">{name}</span>
+        <span class="badge" id="stateBadge">{full}</span>
         <span id="qProg"></span>
       </div>
       <div id="qHolder"></div>
@@ -160,11 +137,11 @@ def page_html(state_key):
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
-      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
+      <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All Tests</button>
     </div>
   </div>
 
-  <p class="foot src">Questions sourced from official {full} DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+  <p class="foot src">Questions are DVSA-theory-style practice material (public domain style). Informational only, not affiliated with DVSA or any government agency.</p>
 
   <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
     <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
@@ -176,11 +153,11 @@ def page_html(state_key):
 </div>
 
 <script>
-const STATE_KEY = "{state_key}";
+const STATE_KEY = "uk";
 const STATE_DATA = {json.dumps(st)};
 </script>
 <script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
+/* Quiz logic (scoped to UK) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
 const quiz=document.getElementById('quiz');
@@ -223,15 +200,11 @@ function finish(){{
   quiz.classList.add('hidden'); done.classList.remove('hidden');
   document.getElementById('doneBadge').textContent=STATE_DATA.name;
   document.getElementById('score').textContent=`${{correct}} / ${{total}}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range — nice work!` : `${{pct}}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range — nice work!` : `${{pct}}% correct. Keep studying the Highway Code and try again.`;
 }}
 document.getElementById('retryBtn').onclick=()=>{{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); }};
 document.getElementById('homeBtn').onclick=()=>{{ window.location.href='/'; }};
-
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){{ const h=location.hash.match(/^#q(\d+)$/); if(h){{ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){{ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); }} }} }}
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+render();
 </script>
 <script>
 /* Theme toggle */
@@ -247,11 +220,11 @@ function googleTranslateElementInit(){{ new google.translate.TranslateElement({{
 </body>
 </html>'''
 
-for k in STATES:
-    d = os.path.join(OUT, k)
-    os.makedirs(d, exist_ok=True)
-    with open(os.path.join(d, "index.html"), "w") as f:
-        f.write(page_html(k))
-    print("wrote dmv/%s/index.html" % k)
-
-print("DONE. Total states:", len(STATES))
+if __name__ == "__main__":
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("ukdata", os.path.join(ROOT, "_uk_data.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    with open(os.path.join(OUT, "index.html"), "w") as f:
+        f.write(page_html(mod.UK))
+    print("wrote uk/index.html with", len(mod.UK["questions"]), "questions")
