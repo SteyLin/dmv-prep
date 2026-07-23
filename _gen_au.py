@@ -2,13 +2,9 @@
 """
 Generates /au/ Australia DKT practice page (category mode).
 
-Unlike the single-list UK/CA pages, this page uses a TABBED layout:
-  - Full DKT Practice Test (all questions mixed, exam-style)
-  - Road Signs & Markings
-  - Traffic Rules & Safety
-  - Alcohol & Drugs / Hazard Perception
-Users switch between tabs without leaving the page (longer dwell time).
-Does NOT touch any other file. Reuses COMMON_CSS + AdSense Auto-ads.
+Tabbed layout: Full DKT + Road Signs & Markings + Traffic Rules & Safety
++ Alcohol & Hazards. Adds Timed Mock Exam (countdown) and a "Review Wrong
+Answers" mode on the result screen. Reuses COMMON_CSS + AdSense Auto-ads.
 """
 import os, json
 
@@ -46,12 +42,15 @@ COMMON_CSS = """
   .breadcrumb a{text-decoration:none;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
 
-  /* Tabs */
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
   .tab{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;cursor:pointer;font-size:.92rem;font-weight:700;transition:.12s;flex:1 1 auto;text-align:center;}
   .tab:hover{border-color:var(--accent);}
   .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   .tab .tcount{display:block;font-size:.74rem;font-weight:600;opacity:.8;margin-top:2px;}
+
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
   .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
@@ -98,9 +97,9 @@ def page_html(au):
     nsigns = len(data["signs"])
     nrules = len(data["rules"])
     nalcohol = len(data["alcohol"])
-    title = "Australia DKT Practice Tests — Free Driver Knowledge Test | DriveReady Hub"
+    title = "Australia DKT Practice Tests - Free Driver Knowledge Test | DriveReady Hub"
     desc = (f"Free Australia DKT (Driver Knowledge Test) practice with {nsigns}+{nrules}+{nalcohol} questions. "
-            f"Study road signs, traffic rules, alcohol limits and hazard perception — 100% free.")
+            f"Study road signs, traffic rules, alcohol limits and hazard perception - 100% free.")
     canonical = "https://drivereadyhub.com/au/"
     ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Australia driver knowledge test (DKT)"},
@@ -145,8 +144,13 @@ def page_html(au):
   <div class="breadcrumb"><a href="/">Home</a> &middot; <strong>Australia DKT Practice</strong></div>
   <header>
     <h1>🇦🇺 Australia <span class="em">DKT Practice</span></h1>
-    <p class="sub">Free Driver Knowledge Test practice for learner drivers across Australia — road signs, traffic rules, alcohol limits and hazard perception.</p>
+    <p class="sub">Free Driver Knowledge Test practice for learner drivers across Australia - road signs, traffic rules, alcohol limits and hazard perception.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div class="tabs">
     <div class="tab active" data-tab="full">Full DKT Practice<span class="tcount">{nfull} questions</span></div>
@@ -179,6 +183,7 @@ def page_html(au):
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="tabsBtn" style="margin-left:8px;">← All Tests</button>
     </div>
   </div>
@@ -192,7 +197,7 @@ def page_html(au):
     <span style="margin:0 8px;">·</span>
     <a href="/ca/" style="color:var(--muted);text-decoration:none;">Canada</a>
     <br>
-    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+    DriveReady Hub - Informational only. Not affiliated with any DMV or government agency.
   </div>
 </div>
 
@@ -201,61 +206,58 @@ const DATA = {json.dumps(data)};
 const TAB_LABEL = {{full:"Full DKT", signs:"Road Signs & Markings", rules:"Traffic Rules & Safety", alcohol:"Alcohol & Hazards"}};
 let curTab = "full";
 let idx=0, picks=[], answered=[];
+let timed = false, timeLeft = 0, timerId = null;
 
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
 const tabBadge=document.getElementById('tabBadge');
+const timeBox=document.getElementById('timeBox');
 
-function loadTab(tab){{
-  curTab=tab;
-  idx=0;
+function fmt(s){{ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }}
+function startTimer(){{ clearInterval(timerId); timeLeft = DATA[curTab].length * 60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(()=>{{ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){{ clearInterval(timerId); finish(); }} }},1000); }}
+function stopTimer(){{ clearInterval(timerId); timeBox.style.display='none'; }}
+
+function loadTab(tab, useTimed){{
+  curTab=tab; idx=0; timed = !!useTimed;
   const qs=DATA[tab];
-  picks=new Array(qs.length).fill(-1);
-  answered=new Array(qs.length).fill(false);
+  picks=new Array(qs.length).fill(-1); answered=new Array(qs.length).fill(false);
   done.classList.add('hidden'); quiz.classList.remove('hidden');
-  tabBadge.textContent=TAB_LABEL[tab];
+  tabBadge.textContent=TAB_LABEL[tab]+(timed?' (Timed)':'');
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+  if(timed) startTimer(); else stopTimer();
   render();
 }}
 
 function render(){{
-  const qs=DATA[curTab];
-  const q=qs[idx];
+  const qs=DATA[curTab]; const q=qs[idx];
   document.getElementById('qProg').textContent=`${{idx+1}} / ${{qs.length}}`;
   document.getElementById('qCount').textContent=`Answered ${{answered.filter(Boolean).length}} of ${{qs.length}}`;
   let holder=document.getElementById('qHolder');
   holder.innerHTML=`<div class="q-text" id="q${{idx+1}}">${{idx+1}}. ${{q.q}}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
   q.options.forEach((opt,i)=>{{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){{
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }}
-    b.onclick=()=>choose(i);
-    opts.appendChild(b);
+    b.onclick=()=>choose(i); opts.appendChild(b);
   }});
-  if(answered[idx] && q.explanation){{
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }}
+  if(answered[idx] && q.explanation){{ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }}
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===qs.length-1)?'Finish ✓':'Next →';
   renderGrid();
 }}
 
 function renderGrid(){{
-  const qs=DATA[curTab];
-  const g=document.getElementById('pickGrid'); g.innerHTML='';
+  const qs=DATA[curTab]; const g=document.getElementById('pickGrid'); g.innerHTML='';
   qs.forEach((q,i)=>{{
-    const b=document.createElement('button'); b.className='pn';
-    b.textContent=(i+1);
+    const b=document.createElement('button'); b.className='pn'; b.textContent=(i+1);
     if(answered[i]){{ b.classList.add('done'); if(picks[i]!==q.answer) b.classList.add('wrong'); }}
-    b.onclick=()=>{{ idx=i; render(); }};
-    g.appendChild(b);
+    b.onclick=()=>{{ idx=i; render(); }}; g.appendChild(b);
   }});
 }}
 
@@ -266,18 +268,55 @@ document.getElementById('nextBtn').onclick=()=>{{
 }};
 document.getElementById('prevBtn').onclick=()=>{{ if(idx>0){{idx--;render();}} }};
 
+function wrongList(){{ return DATA[curTab].map((q,i)=>i).filter(i=>picks[i]!==DATA[curTab][i].answer); }}
+
 function finish(){{
+  stopTimer();
   const qs=DATA[curTab];
   let correct=0; qs.forEach((q,i)=>{{ if(picks[i]===q.answer) correct++; }});
   const total=qs.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=TAB_LABEL[curTab];
+  document.getElementById('doneBadge').textContent=TAB_LABEL[curTab]+(timed?' (Timed)':'');
   document.getElementById('score').textContent=`${{correct}} / ${{total}}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range — nice work!` : `${{pct}}% correct. Keep studying the road rules and try again.`;
+  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range - nice work!` : `${{pct}}% correct. Keep studying the road rules and try again.`;
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }}
-document.getElementById('retryBtn').onclick=()=>loadTab(curTab);
+document.getElementById('retryBtn').onclick=()=>loadTab(curTab, timed);
 document.getElementById('tabsBtn').onclick=()=>{{ done.classList.add('hidden'); quiz.classList.remove('hidden'); }};
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>loadTab(t.dataset.tab));
+document.getElementById('reviewBtn').onclick=()=>{{ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); }};
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>loadTab(t.dataset.tab, false));
+document.getElementById('timedBtn').onclick=()=>loadTab('full', true);
+
+function reviewMode(wl){{
+  const qs=DATA[curTab];
+  const rq = wl.map(i=>({{q:qs[i], a:picks[i]}}));
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  tabBadge.textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  picks=new Array(qs.length).fill(-1); answered=new Array(qs.length).fill(false);
+  function showR(){{
+    if(r>=rq.length){{ const doneHtml='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=doneHtml; document.getElementById('reviewDoneBtn').onclick=()=>{{ document.getElementById('tabsBtn').click(); }}; return; }}
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach((opt,i)=>{{
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    }});
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=()=>{{ if(item.a===q.answer) rcorrect++; r++; showR(); }};
+  }}
+  showR();
+}}
 
 render();
 </script>

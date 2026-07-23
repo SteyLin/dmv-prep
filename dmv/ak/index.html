@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Alaska <span class="em">DMV Practice</span></h1>
     <p class="sub">Free AK permit and license practice test — 50 questions from the official Alaska driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "ak";
 const STATE_DATA = {"name": "Alaska (AK DMV)", "source": "Official Alaska DMV Driver Manual (REV 10/2025, public domain)", "questions": [{"q": "In Alaska, at what minimum age may a person obtain an instruction (learner's) permit to practice driving?", "options": ["14 years of age or older", "16 years of age or older", "18 years of age or older"], "answer": 0, "ref": "AK Driver Manual - Instruction Permit", "explanation": "AK Driver Manual - Instruction Permit"}, {"q": "An Alaska instruction permit is valid for how long?", "options": ["Two years", "Six months", "One year"], "answer": 0, "ref": "AK Driver Manual - Instruction Permit", "explanation": "AK Driver Manual - Instruction Permit"}, {"q": "While driving on an Alaska instruction permit, the licensed accompanying driver must be at least 21 and have at least:", "options": ["One year of driving experience for that vehicle class", "Six months of experience", "No experience required"], "answer": 0, "ref": "AK Driver Manual - Instruction Permit", "explanation": "AK Driver Manual - Instruction Permit"}, {"q": "For passenger vehicles on an Alaska instruction permit, where must the licensed supervising driver sit?", "options": ["In the seat beside the permit holder", "In the back seat", "Anywhere in the vehicle"], "answer": 0, "ref": "AK Driver Manual - Instruction Permit", "explanation": "AK Driver Manual - Instruction Permit"}, {"q": "To qualify for any Alaska license or permit, the minimum vision standard is at least:", "options": ["20/40 in each eye or both eyes together", "20/100 in each eye", "15/20 in one eye"], "answer": 0, "ref": "AK Driver Manual - Vision", "explanation": "AK Driver Manual - Vision"}, {"q": "If you are under 18 in Alaska, you must hold a valid instruction permit for at least how long before a provisional Class D license can be issued?", "options": ["Six months", "Three months", "One year"], "answer": 0, "ref": "AK Driver Manual - Provisional Licenses", "explanation": "AK Driver Manual - Provisional Licenses"}, {"q": "Under Alaska's provisional license, a new driver may NOT operate a vehicle between which hours unless accompanied by a parent, guardian, or a person at least 21?", "options": ["1:00 a.m. and 5:00 a.m.", "Midnight and 6:00 a.m.", "10:00 p.m. and 5:00 a.m."], "answer": 0, "ref": "AK Driver Manual - Provisional Licenses", "explanation": "AK Driver Manual - Provisional Licenses"}, {"q": "Under Alaska's provisional license, the driver may not carry passengers unless one is a parent, legal guardian, or a person at least 21, except:", "options": ["Siblings may ride without a parent present", "Any friends may ride", "No passengers ever"], "answer": 0, "ref": "AK Driver Manual - Provisional Licenses", "explanation": "AK Driver Manual - Provisional Licenses"}, {"q": "Alaska's Mandatory Insurance Law requires minimum liability coverage of:", "options": ["$50,000/$100,000 bodily injury and $25,000 property damage", "$25,000/$50,000 and $15,000", "$15,000/$30,000 and $5,000"], "answer": 0, "ref": "AK Driver Manual - Financial Responsibility", "explanation": "AK Driver Manual - Financial Responsibility"}, {"q": "Under Alaska's implied consent law, when arrested for DUI you are deemed to have consented to:", "options": ["A chemical (breath) test of your blood alcohol concentration", "No testing whatsoever", "Only a field sobriety test"], "answer": 0, "ref": "AK Driver Manual - Implied Consent", "explanation": "AK Driver Manual - Implied Consent"}, {"q": "In Alaska, a breath alcohol concentration of .08 or higher (or refusal to submit to testing) after a DUI arrest results in an administrative revocation of at least:", "options": ["90 days for a first offense", "30 days for a first offense", "10 days for a first offense"], "answer": 0, "ref": "AK Driver Manual - Administrative Revocations", "explanation": "AK Driver Manual - Administrative Revocations"}, {"q": "For a driver under 21 in Alaska, operating a vehicle after consuming any amount of alcohol can result in revocation of at least:", "options": ["30 days for a first offense", "90 days for a first offense", "One year for a first offense"], "answer": 0, "ref": "AK Driver Manual - Under 21 Violations", "explanation": "AK Driver Manual - Under 21 Violations"}, {"q": "Under Alaska's point system, accumulating how many points in 12 months (or 18 in 24 months) mandates suspension or revocation?", "options": ["12 points in 12 months (or 18 in 24)", "6 points in 12 months", "24 points in 12 months"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "In Alaska, a conviction for Driving While Intoxicated (DUI) adds how many points to your driving record?", "options": ["10 points", "4 points", "2 points"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "In Alaska, failing to stop for a school bus that is loading or unloading students adds how many points?", "options": ["6 points", "2 points", "10 points"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "Alaska speeding point values: driving 3 to 9 mph over the limit adds how many points?", "options": ["2 points", "4 points", "6 points"], "answer": 0, "ref": "AK Driver Manual - Points (Speeding)", "explanation": "AK Driver Manual - Points (Speeding)"}, {"q": "Alaska speeding point values: driving 20 mph or more over the limit adds how many points?", "options": ["6 points", "2 points", "4 points"], "answer": 0, "ref": "AK Driver Manual - Points (Speeding)", "explanation": "AK Driver Manual - Points (Speeding)"}, {"q": "Alaska's minimum tire tread depth requirement is at least:", "options": ["2/32 of an inch", "1/16 of an inch", "4/32 of an inch"], "answer": 0, "ref": "AK Driver Manual - Maintenance (tires)", "explanation": "AK Driver Manual - Maintenance (tires)"}, {"q": "The Alaska Driver Manual uses the 'penny test' for tire tread: if you can see the top of Lincoln's head, your tires are:", "options": ["Worn out and should be replaced", "Brand new", "Overinflated"], "answer": 0, "ref": "AK Driver Manual - Maintenance (tires)", "explanation": "AK Driver Manual - Maintenance (tires)"}, {"q": "Alaska recommends the 'Two-Second Rule' for following distance. This means:", "options": ["When the car ahead reaches a fixed point, you should not reach it before two seconds pass", "You must stay two car-lengths back always", "You should count to two only at night"], "answer": 0, "ref": "AK Driver Manual - Safe Driving", "explanation": "AK Driver Manual - Safe Driving"}, {"q": "Wearing seat belts is which of the following in Alaska?", "options": ["Mandatory - seat belts save lives", "Optional for adults", "Required only for children"], "answer": 0, "ref": "AK Driver Manual - Safety Belts", "explanation": "AK Driver Manual - Safety Belts"}, {"q": "If you are involved in an Alaska crash with bodily injury or property damage over $501, you must provide proof of insurance to the DMV within:", "options": ["15 days", "5 days", "30 days"], "answer": 0, "ref": "AK Driver Manual - Financial Responsibility (crash)", "explanation": "AK Driver Manual - Financial Responsibility (crash)"}, {"q": "After a crash in Alaska that must be reported, you must report it to the Division of Motor Vehicles within:", "options": ["10 days", "24 hours", "30 days"], "answer": 0, "ref": "AK Driver Manual - What To Do In Case Of Every Crash", "explanation": "AK Driver Manual - What To Do In Case Of Every Crash"}, {"q": "In Alaska, if you strike an unattended vehicle or private property, you must:", "options": ["Stop and leave a written note with name, address, and phone number", "Leave immediately", "Only call your insurance later"], "answer": 0, "ref": "AK Driver Manual - Crash procedures", "explanation": "AK Driver Manual - Crash procedures"}, {"q": "Alaska's littering penalty can be a fine up to:", "options": ["$1,000 and up to 90 days imprisonment", "$100 only", "Community service only"], "answer": 0, "ref": "AK Driver Manual - Litter", "explanation": "AK Driver Manual - Litter"}, {"q": "Under Alaska's regulatory sign rules, a red, eight-sided sign means:", "options": ["Stop", "Yield", "Railroad crossing"], "answer": 0, "ref": "AK Driver Manual - Signs", "explanation": "AK Driver Manual - Signs"}, {"q": "A yellow diamond-shaped sign in Alaska is generally a:", "options": ["Warning sign", "Regulatory sign", "Guide sign"], "answer": 0, "ref": "AK Driver Manual - Signs", "explanation": "AK Driver Manual - Signs"}, {"q": "In Alaska, a solid yellow line on your side of the centerline means:", "options": ["You may not cross it to pass", "You may pass at any time", "It marks a bike lane"], "answer": 0, "ref": "AK Driver Manual - Pavement Markings", "explanation": "AK Driver Manual - Pavement Markings"}, {"q": "A broken white line between lanes in Alaska means:", "options": ["Lanes of traffic moving in the same direction; you may change lanes when safe", "You may never change lanes", "It is a railroad marking"], "answer": 0, "ref": "AK Driver Manual - Pavement Markings", "explanation": "AK Driver Manual - Pavement Markings"}, {"q": "At an Alaska intersection with a steady red light, you must:", "options": ["Come to a complete stop and may turn right after stopping unless prohibited", "Proceed if no police are present", "Speed through quickly"], "answer": 0, "ref": "AK Driver Manual - Traffic Lights", "explanation": "AK Driver Manual - Traffic Lights"}, {"q": "At an Alaska intersection with a steady yellow light, you should:", "options": ["Stop if it is safe to do so, as the light is changing to red", "Speed up to beat the red", "Ignore it"], "answer": 0, "ref": "AK Driver Manual - Traffic Lights", "explanation": "AK Driver Manual - Traffic Lights"}, {"q": "A flashing red traffic light in Alaska means:", "options": ["The same as a stop sign - stop completely, then proceed when safe", "Go immediately", "Yield only"], "answer": 0, "ref": "AK Driver Manual - Traffic Lights", "explanation": "AK Driver Manual - Traffic Lights"}, {"q": "When an emergency vehicle with flashing lights and siren approaches in Alaska, you must:", "options": ["Yield the right of way and pull to the right edge of the road", "Keep driving at the same speed", "Pass it on the left"], "answer": 0, "ref": "AK Driver Manual - Emergency Vehicles", "explanation": "AK Driver Manual - Emergency Vehicles"}, {"q": "Alaska's Move Over law (school bus section) assigns 6 points for failing to stop for a school bus that is:", "options": ["Loading or unloading passengers", "Simply parked", "Driving ahead of you"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "Alaska requires headlights from sunset to sunrise and when visibility is poor. You should dim high beams to low beams within:", "options": ["500 feet of an oncoming vehicle", "1,000 feet of an oncoming vehicle", "100 feet of an oncoming vehicle"], "answer": 0, "ref": "AK Driver Manual - Lighting Equipment", "explanation": "AK Driver Manual - Lighting Equipment"}, {"q": "In Alaska, the minimum age to obtain a Class D (regular passenger) license is:", "options": ["16 years of age", "14 years of age", "18 years of age"], "answer": 0, "ref": "AK Driver Manual - License Requirements", "explanation": "AK Driver Manual - License Requirements"}, {"q": "An Alaska license held by a driver under 21 will expire:", "options": ["90 days after the 21st birthday", "On the 21st birthday", "After 10 years"], "answer": 0, "ref": "AK Driver Manual - License Requirements", "explanation": "AK Driver Manual - License Requirements"}, {"q": "In Alaska, a conviction for leaving the scene of a crash adds how many points?", "options": ["9 points", "6 points", "10 points"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "Alaska's 'Four-Second Rule' is mentioned in the manual for:", "options": ["Increased following distance in adverse conditions", "Parking", "Turning"], "answer": 0, "ref": "AK Driver Manual - Index", "explanation": "AK Driver Manual - Index"}, {"q": "Under Alaska law, the privilege to drive is described as:", "options": ["A privilege, not a right", "An unlimited right", "Guaranteed at birth"], "answer": 0, "ref": "AK Driver Manual - Privilege", "explanation": "AK Driver Manual - Privilege"}, {"q": "Alaska requires a written knowledge test covering traffic laws, safe driving, and:", "options": ["Highway sign recognition", "Only parking rules", "Only fuel economy"], "answer": 0, "ref": "AK Driver Manual - Written Examination", "explanation": "AK Driver Manual - Written Examination"}, {"q": "If you fail the Alaska written test, you may retake it:", "options": ["The following day", "After one year", "Only once"], "answer": 0, "ref": "AK Driver Manual - Written Examination", "explanation": "AK Driver Manual - Written Examination"}, {"q": "Alaska drivers must notify the DMV in writing of an address or name change within:", "options": ["30 days", "10 days", "90 days"], "answer": 0, "ref": "AK Driver Manual - Address/Name Change", "explanation": "AK Driver Manual - Address/Name Change"}, {"q": "In Alaska, the holder of an out-of-state license may be required to do which before an AK license is issued?", "options": ["Surrender the out-of-state license", "Pay double fees", "Retake the road test only"], "answer": 0, "ref": "AK Driver Manual - License Requirements", "explanation": "AK Driver Manual - License Requirements"}, {"q": "Alaska's financial responsibility law can suspend your driving privilege for up to three years if you are at fault and fail to:", "options": ["Make a financial settlement with the other parties", "Attend school", "Buy a new car"], "answer": 0, "ref": "AK Driver Manual - Financial Responsibility", "explanation": "AK Driver Manual - Financial Responsibility"}, {"q": "Under Alaska's point system, 'all other moving violations' generally add:", "options": ["2 points", "6 points", "10 points"], "answer": 0, "ref": "AK Driver Manual - Points", "explanation": "AK Driver Manual - Points"}, {"q": "A roundabout in Alaska is designed so that traffic flows:", "options": ["Counterclockwise with yield-to-the-circle entering", "Always at 30 mph minimum", "Without any yielding"], "answer": 0, "ref": "AK Driver Manual - Roundabouts", "explanation": "AK Driver Manual - Roundabouts"}, {"q": "Alaska's Driver Manual states that tired drivers can be as dangerous as:", "options": ["Drunk drivers", "Experienced drivers", "Passengers"], "answer": 0, "ref": "AK Driver Manual - Tired Driving", "explanation": "AK Driver Manual - Tired Driving"}, {"q": "In Alaska, if your vehicle is disabled at night after a crash, you should place flares or signals to:", "options": ["Warn other traffic", "Entertain bystanders", "Mark a parking spot"], "answer": 0, "ref": "AK Driver Manual - Crash procedures", "explanation": "AK Driver Manual - Crash procedures"}, {"q": "Alaska requires you to report a crash to the DMV even if a police officer investigated it?", "options": ["No - the report is not required if investigated by a police officer", "Yes - always, even if police investigated", "Only for injuries"], "answer": 0, "ref": "AK Driver Manual - Crash reporting", "explanation": "AK Driver Manual - Crash reporting"}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

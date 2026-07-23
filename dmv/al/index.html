@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Alabama <span class="em">DMV Practice</span></h1>
     <p class="sub">Free AL permit and license practice test — 51 questions from the official Alabama driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "al";
 const STATE_DATA = {"name": "Alabama (AL DPS)", "source": "Official ALEA Alabama Driver Manual (Nov 2024, public domain)", "questions": [{"q": "In Alabama, a Learner (Restricted) License holder may operate a motor vehicle only while accompanied by a licensed driver who is at least:", "options": ["21 years of age or older and duly licensed in Alabama", "18 years of age or older", "16 years of age or older"], "answer": 0, "ref": "AL Driver Manual - Learner/Restricted License", "explanation": "AL Driver Manual - Learner/Restricted License"}, {"q": "Once an Alabama Learner License holder reaches his or her sixteenth birthday, the holder may then drive with:", "options": ["Any licensed driver occupying the seat beside the driver", "Only a parent or guardian", "Only a driver education instructor"], "answer": 0, "ref": "AL Driver Manual - Learner/Restricted License", "explanation": "AL Driver Manual - Learner/Restricted License"}, {"q": "How long is an Alabama Learner (Restricted) License valid, and how many times may it be renewed?", "options": ["Four years, and it can be renewed once", "Two years, and it cannot be renewed", "One year, renewable indefinitely"], "answer": 0, "ref": "AL Driver Manual - Learner/Restricted License", "explanation": "AL Driver Manual - Learner/Restricted License"}, {"q": "At what minimum age may a person in Alabama obtain a motorcycle (Class M) license?", "options": ["16 years of age or older", "14 years of age or older", "18 years of age or older"], "answer": 0, "ref": "AL Driver Manual - Class M License", "explanation": "AL Driver Manual - Class M License"}, {"q": "At what minimum age may a person in Alabama obtain a vessel (boat) license after passing the vessel examination?", "options": ["12 years of age or older", "16 years of age or older", "18 years of age or older"], "answer": 0, "ref": "AL Driver Manual - Vessel License", "explanation": "AL Driver Manual - Vessel License"}, {"q": "Under Alabama's Graduated Driver License (GDL) program, a person under 18 may NOT apply for an unrestricted license until he or she has held a learner license for at least:", "options": ["A six-month period with no restriction violations", "Three months", "One year"], "answer": 0, "ref": "AL Driver Manual - GDL Summary", "explanation": "AL Driver Manual - GDL Summary"}, {"q": "A 16-year-old Alabama applicant must have whose permission to receive a license and to drive without supervision?", "options": ["A parent or legal guardian's permission", "Any licensed friend's permission", "No one's permission at age 16"], "answer": 0, "ref": "AL Driver Manual - GDL Summary", "explanation": "AL Driver Manual - GDL Summary"}, {"q": "For an Alabama driver who is 16 (or 17 with a license less than 6 months), how many nonfamily passengers are allowed besides a parent, guardian, or supervising licensed driver at least 21?", "options": ["No more than one nonfamily passenger", "Up to three nonfamily passengers", "Unlimited nonfamily passengers"], "answer": 0, "ref": "AL Driver Manual - GDL Restrictions", "explanation": "AL Driver Manual - GDL Restrictions"}, {"q": "Alabama's GDL restrictions do NOT apply to which of the following drivers?", "options": ["A person 17 or older who has had a valid driver license for 6 months or longer", "Any 16-year-old", "Any person with a learner license"], "answer": 0, "ref": "AL Driver Manual - GDL Summary", "explanation": "AL Driver Manual - GDL Summary"}, {"q": "If an Alabama GDL driver violates a restriction, the restrictive period is extended by:", "options": ["Six months or until the driver reaches 18 years of age", "30 days", "One year"], "answer": 0, "ref": "AL Driver Manual - GDL Enforcement", "explanation": "AL Driver Manual - GDL Enforcement"}, {"q": "How much is the fee for each Alabama driver license knowledge test, and what form of payment is NOT accepted?", "options": ["$5.00, and no checks are accepted", "$10.00, and no cash is accepted", "Free, but only money orders are accepted"], "answer": 0, "ref": "AL Driver Manual - Knowledge Test", "explanation": "AL Driver Manual - Knowledge Test"}, {"q": "Before an Alabama road test may begin, the examiner inspects the vehicle for required equipment. Which of the following must be present and working?", "options": ["Brake lights, left and right turn signals, and a horn", "A DVD player", "A roof rack"], "answer": 0, "ref": "AL Driver Manual - The Road Test", "explanation": "AL Driver Manual - The Road Test"}, {"q": "At an Alabama road test, the applicant must present which of the following in addition to the vehicle?", "options": ["Proof of insurance and vehicle registration", "A copy of the manual", "A parent's credit card"], "answer": 0, "ref": "AL Driver Manual - The Road Test", "explanation": "AL Driver Manual - The Road Test"}, {"q": "If an Alabama vision screening shows that corrective lenses are needed to improve eyesight, the driver will be:", "options": ["Required to wear corrective lenses while driving", "Issued a license with no restrictions", "Exempt from wearing glasses"], "answer": 0, "ref": "AL Driver Manual - Vision Screening", "explanation": "AL Driver Manual - Vision Screening"}, {"q": "Under Alabama law, a motor vehicle horn may lawfully be used:", "options": ["Only to give warning when reasonably necessary for safe operation", "For any purpose, including greeting friends", "To signal frustration in traffic"], "answer": 0, "ref": "AL Driver Manual - Required Equipment (HORNS)", "explanation": "AL Driver Manual - Required Equipment (HORNS)"}, {"q": "An Alabama tire is illegal when its tread depth is less than:", "options": ["1/16 of an inch", "1/8 of an inch", "1/2 of an inch"], "answer": 0, "ref": "AL Driver Manual - Required Equipment (tires)", "explanation": "AL Driver Manual - Required Equipment (tires)"}, {"q": "Which statement about safety belts is true under Alabama law?", "options": ["It is the law in Alabama to buckle up, and the state vigorously enforces it", "Seat belts are optional for front-seat occupants", "Only children are required to wear seat belts"], "answer": 0, "ref": "AL Driver Manual - Safety Belt Law", "explanation": "AL Driver Manual - Safety Belt Law"}, {"q": "According to the Alabama manual, in a traffic crash, steering assemblies and striking the windshield/frame account for a large share of fatal injuries. What does the manual state?", "options": ["Steering assemblies cause about 30% of fatal injuries and windshield/frame another ~40%", "Seat belts cause most fatal injuries", "Airbags cause most fatal injuries"], "answer": 0, "ref": "AL Driver Manual - Safety Belts", "explanation": "AL Driver Manual - Safety Belts"}, {"q": "The Alabama manual warns that the majority of children injured or killed in pupil transportation are:", "options": ["Outside the bus, not on it (the 'death zone')", "Always seated on the bus", "In the front rows of the bus"], "answer": 0, "ref": "AL Driver Manual - School Bus Safety (Death Zone)", "explanation": "AL Driver Manual - School Bus Safety (Death Zone)"}, {"q": "In Alabama, when you register as an organ, eye, and tissue donor on your driver license application, what mark is placed on the license?", "options": ["A red heart in the lower right-hand corner", "A blue star", "No mark is shown"], "answer": 0, "ref": "AL Driver Manual - Organ, Eye, and Tissue Donation", "explanation": "AL Driver Manual - Organ, Eye, and Tissue Donation"}, {"q": "If an Alabama donor later changes their mind, they may remove themselves from the registry at which website?", "options": ["www.registerme.org", "www.alea.gov only in person", "They cannot remove themselves"], "answer": 0, "ref": "AL Driver Manual - Organ, Eye, and Tissue Donation", "explanation": "AL Driver Manual - Organ, Eye, and Tissue Donation"}, {"q": "Alabama's Hand-Free Law generally prohibits which of the following while driving?", "options": ["Holding or using a hand-held wireless device for calls/texting", "Using a mounted GPS", "Using hands-free Bluetooth"], "answer": 0, "ref": "AL Driver Manual - Alabama's Hand-Free Law", "explanation": "AL Driver Manual - Alabama's Hand-Free Law"}, {"q": "Alabama's Move Over Law requires drivers to move over or slow down for:", "options": ["Stopped emergency/utility vehicles with flashing lights", "Any parked car", "Bicycles only"], "answer": 0, "ref": "AL Driver Manual - Move Over Law", "explanation": "AL Driver Manual - Move Over Law"}, {"q": "Which of the following is TRUE about Alabama's Mandatory Liability Insurance Law?", "options": ["Drivers must carry proof of liability insurance", "Insurance is optional in Alabama", "Only commercial vehicles need insurance"], "answer": 0, "ref": "AL Driver Manual - Mandatory Liability Insurance Law", "explanation": "AL Driver Manual - Mandatory Liability Insurance Law"}, {"q": "Under Alabama's Drinking and Driving laws, which behavior is prohibited?", "options": ["Driving while impaired by alcohol or controlled substances", "Drinking water while parked", "Riding as a passenger after one drink"], "answer": 0, "ref": "AL Driver Manual - Drinking and Driving", "explanation": "AL Driver Manual - Drinking and Driving"}, {"q": "Under Alabama's Parent-Teen Driving Agreement, if a teen breaks the law by drinking anything alcoholic, the agreement states they will:", "options": ["Not drive for 24 hours", "Still drive normally", "Only drive to school"], "answer": 0, "ref": "AL Driver Manual - Parent/Teen Driving Agreement", "explanation": "AL Driver Manual - Parent/Teen Driving Agreement"}, {"q": "Which topic is covered as its own section in the Alabama Driver Manual, confirming the rule's existence?", "options": ["Right of Way and Yielding", "How to change a tire brand", "Where to buy fuel"], "answer": 0, "ref": "AL Driver Manual - Chapter 6 (Traffic Laws)", "explanation": "AL Driver Manual - Chapter 6 (Traffic Laws)"}, {"q": "The Alabama manual includes a dedicated section on rules for approaching which stopped vehicle?", "options": ["School buses with flashing lights", "Garbage trucks", "Delivery vans"], "answer": 0, "ref": "AL Driver Manual - School Buses", "explanation": "AL Driver Manual - School Buses"}, {"q": "Alabama's Driver Manual lists 'Following Emergency Vehicles' as a traffic-law topic. When an emergency vehicle with sirens/lights approaches, you should:", "options": ["Yield the right of way and pull to the right", "Speed up to stay ahead of it", "Ignore it if you are late"], "answer": 0, "ref": "AL Driver Manual - Following Emergency Vehicles", "explanation": "AL Driver Manual - Following Emergency Vehicles"}, {"q": "The Alabama manual includes a section on 'Changing Lanes.' Before changing lanes you must:", "options": ["Signal and check mirrors and blind spots", "Only honk", "Never signal on highways"], "answer": 0, "ref": "AL Driver Manual - Changing Lanes", "explanation": "AL Driver Manual - Changing Lanes"}, {"q": "Alabama's manual covers 'Railroad Crossings' as a driving topic. At a railroad crossing you should:", "options": ["Slow down, look and listen, and stop if a train is approaching", "Always cross at full speed", "Never stop for trains"], "answer": 0, "ref": "AL Driver Manual - Railroad Crossings", "explanation": "AL Driver Manual - Railroad Crossings"}, {"q": "The Alabama Driver Manual includes 'Parking' rules. A safe parking practice is to:", "options": ["Park parallel within the space and not block traffic", "Park in the middle of the lane", "Double-park on busy streets"], "answer": 0, "ref": "AL Driver Manual - Parking", "explanation": "AL Driver Manual - Parking"}, {"q": "Alabama's manual covers 'Pedestrians' under traffic laws. You should:", "options": ["Yield to pedestrians in crosswalks and at intersections", "Always honk at pedestrians", "Never yield to pedestrians"], "answer": 0, "ref": "AL Driver Manual - Pedestrians", "explanation": "AL Driver Manual - Pedestrians"}, {"q": "Under Alabama's 'Window Tinting' law, window tint is regulated because:", "options": ["Excessive tint can reduce driver visibility and is restricted by law", "Tint improves speed", "Tint is required on all windows"], "answer": 0, "ref": "AL Driver Manual - Window Tinting", "explanation": "AL Driver Manual - Window Tinting"}, {"q": "Alabama requires identification when applying for a license. A common required document is:", "options": ["Proof of identity such as a birth certificate or passport", "A library card", "A membership card"], "answer": 0, "ref": "AL Driver Manual - Identification Requirements", "explanation": "AL Driver Manual - Identification Requirements"}, {"q": "A director of ALEA may impose license restrictions when necessary for safe operation. A common restriction is:", "options": ["Requiring corrective lenses while driving", "Limiting the color of the car", "Banning daytime driving only"], "answer": 0, "ref": "AL Driver Manual - License Restrictions", "explanation": "AL Driver Manual - License Restrictions"}, {"q": "In Alabama, operating a vehicle in violation of a license restriction may result in:", "options": ["Loss of your license", "A speeding ticket only", "No penalty"], "answer": 0, "ref": "AL Driver Manual - License Restrictions", "explanation": "AL Driver Manual - License Restrictions"}, {"q": "The Alabama Driver Manual states that the privilege to drive is:", "options": ["A privilege that can be suspended or revoked for violations", "An unconditional right", "Guaranteed for life"], "answer": 0, "ref": "AL Driver Manual - Your License to Drive", "explanation": "AL Driver Manual - Your License to Drive"}, {"q": "Alabama's Driver Manual lists 'Stopping' as a traffic-law topic. A driver must stop:", "options": ["At a red traffic signal and at stop signs", "Only when police wave", "Never at yellow lights"], "answer": 0, "ref": "AL Driver Manual - Stopping", "explanation": "AL Driver Manual - Stopping"}, {"q": "Alabama's Driver Manual lists 'Passing' as a traffic-law topic. When passing another vehicle you must:", "options": ["Pass only when safe and return without crossing a solid line", "Pass on the right shoulder always", "Pass by crossing a double solid yellow line"], "answer": 0, "ref": "AL Driver Manual - Passing", "explanation": "AL Driver Manual - Passing"}, {"q": "Alabama's Driver Manual includes 'Traffic Signals' and 'Roundabouts.' In a roundabout you should:", "options": ["Yield to traffic already in the circle", "Always enter without yielding", "Stop in the middle"], "answer": 0, "ref": "AL Driver Manual - Driving Through Roundabouts", "explanation": "AL Driver Manual - Driving Through Roundabouts"}, {"q": "The Alabama Driver Manual is published by which agency?", "options": ["The Alabama Law Enforcement Agency (ALEA), Driver License Division", "A private driving school", "The federal government only"], "answer": 0, "ref": "AL Driver Manual - Publisher", "explanation": "AL Driver Manual - Publisher"}, {"q": "Alabama's Driver Manual states that a license 'does not apply' to certain people. Which person may drive in Alabama without an AL license?", "options": ["A non-resident at least 16 with a valid home-state license", "Any tourist of any age", "Anyone visiting for a week"], "answer": 0, "ref": "AL Driver Manual - License Not Required (exemptions)", "explanation": "AL Driver Manual - License Not Required (exemptions)"}, {"q": "Alabama's Driver Manual explains that a common restriction for vision is wearing corrective lenses. If you fail the vision exam you must:", "options": ["Have your eyes examined by a licensed specialist and return the report", "Pay a larger fee only", "Retake the written test only"], "answer": 0, "ref": "AL Driver Manual - Vision Screening", "explanation": "AL Driver Manual - Vision Screening"}, {"q": "Alabama's Driver Manual lists equipment your car MUST have. Which of these is required?", "options": ["Horn, brakes, lights, tires, seat belts, mirrors", "A radar detector", "A spoiler"], "answer": 0, "ref": "AL Driver Manual - Required Equipment", "explanation": "AL Driver Manual - Required Equipment"}, {"q": "Under Alabama's safety belt law emphasis, the manual encourages drivers to:", "options": ["Ensure all passengers buckle up before driving", "Let passengers decide", "Only buckle the driver"], "answer": 0, "ref": "AL Driver Manual - Safety Belt Law", "explanation": "AL Driver Manual - Safety Belt Law"}, {"q": "Alabama's Driver Manual includes 'What to Expect at Traffic Stops' and 'Documents Required at Traffic Stops.' At a stop you should be ready to show:", "options": ["License, registration, and proof of insurance", "Only your phone", "A credit card"], "answer": 0, "ref": "AL Driver Manual - Documents at Traffic Stops", "explanation": "AL Driver Manual - Documents at Traffic Stops"}, {"q": "Alabama's Driver Manual covers 'Loads Must Conform to Law,' meaning cargo must be:", "options": ["Secured so it cannot fall or shift onto the roadway", "Piled as high as possible", "Left uncovered"], "answer": 0, "ref": "AL Driver Manual - Loads Must Conform to Law", "explanation": "AL Driver Manual - Loads Must Conform to Law"}, {"q": "The Alabama Driver Manual states that driving is a privilege and that unsafe drivers may face:", "options": ["Suspension or revocation of their license", "Only a warning forever", "No consequences"], "answer": 0, "ref": "AL Driver Manual - You May Lose Your License", "explanation": "AL Driver Manual - You May Lose Your License"}, {"q": "Alabama's Driver Manual notes that the minimum age to apply for a regular (unrestricted) license path begins with a learner license, and a 16-year-old needs parental permission. This describes Alabama's:", "options": ["Graduated Driver License (GDL) program", "Instant licensing at 14", "NoMinimum age law"], "answer": 0, "ref": "AL Driver Manual - GDL Summary", "explanation": "AL Driver Manual - GDL Summary"}, {"q": "Alabama's Driver Manual includes 'Speed Limits' as a topic. Drivers must:", "options": ["Obey posted speed limits and adjust for conditions", "Always drive the maximum speed", "Ignore limits at night"], "answer": 0, "ref": "AL Driver Manual - Speed Limits", "explanation": "AL Driver Manual - Speed Limits"}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Indiana <span class="em">DMV Practice</span></h1>
     <p class="sub">Free IN permit and license practice test — 25 questions from the official Indiana driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "in";
 const STATE_DATA = {"name": "Indiana (IN BMV)", "source": "Official IN Driver's Manual (public domain)", "questions": [{"q": "Indiana law requires drivers to operate vehicles at the posted speed limit. On a rural interstate highway, passenger vehicles may not exceed what speed?", "options": ["70 miles per hour", "65 miles per hour", "55 miles per hour"], "answer": 0, "ref": "IN BMV Manual - SPEED LIMITS (Rural Interstate)", "explanation": "Rural interstate highways allow passenger vehicles up to 70 mph or the posted limit, whichever is lower."}, {"q": "In most urban residential areas in Indiana, what is the maximum speed limit unless a lower limit is posted?", "options": ["30 miles per hour", "40 miles per hour", "55 miles per hour"], "answer": 0, "ref": "IN BMV Manual - SPEED LIMITS (Urban Speed Limits)", "explanation": "Most urban residential areas are limited to 30 mph unless a lower posted speed limit applies."}, {"q": "In Indiana, the maximum speed limit for a school bus when NOT driving on an interstate or state highway is:", "options": ["40 miles per hour", "50 miles per hour", "60 miles per hour"], "answer": 0, "ref": "IN BMV Manual - School Bus Speed Limits", "explanation": "Off interstate/state highways the school bus maximum is 40 mph unless the posted limit is lower."}, {"q": "Indiana highway work zone speed limits are always set at least how far below the maximum established speed limit for the area?", "options": ["10 miles per hour", "15 miles per hour", "5 miles per hour"], "answer": 0, "ref": "IN BMV Manual - Highway Work Zone Speed Limits", "explanation": "Work site speed limits are always at least 10 mph below the area's maximum established limit."}, {"q": "When driving near a school in Indiana, common hours for school zone speed limits are:", "options": ["7 a.m. to 4:30 p.m., Monday through Friday", "8 a.m. to 3 p.m., Monday through Friday", "7:30 a.m. to 4 p.m., Monday through Saturday"], "answer": 0, "ref": "IN BMV Manual - School Zone Speed Limits", "explanation": "Common school zone hours are 7 a.m. to 4:30 p.m., Monday through Friday, though locals may set others."}, {"q": "In Indiana, a steady yellow traffic light means:", "options": ["Your right of way is ending and you should stop if you can do so safely", "You may proceed through the intersection immediately", "The intersection is closed"], "answer": 0, "ref": "IN BMV Manual - Driving through an Intersection", "explanation": "A steady yellow means the green has ended; if too close to stop safely you may complete the movement."}, {"q": "A red flashing light at an intersection in Indiana is equivalent to what traffic control device?", "options": ["A stop sign", "A yield sign", "A green light"], "answer": 0, "ref": "IN BMV Manual - Red Flashing Lights", "explanation": "A red flashing light requires a complete stop, the same as a stop sign, before proceeding with caution."}, {"q": "When approaching a yield sign in Indiana, a driver must:", "options": ["Slow down and be prepared to stop for any vehicle or pedestrian with the right of way", "Always come to a complete stop regardless of traffic", "Speed up to clear the intersection"], "answer": 0, "ref": "IN BMV Manual - Approaching a Yield Sign", "explanation": "A yield sign requires slowing and stopping only if a vehicle or pedestrian with the right of way approaches."}, {"q": "At an intersection with no sign or signal, before entering a street from an alley or driveway you should:", "options": ["Stop and yield the right of way to other vehicles", "Proceed without stopping since you are already moving", "Honk your horn but need not stop"], "answer": 0, "ref": "IN BMV Manual - Approaching an Intersection with No Sign or Signal", "explanation": "You must stop and yield the right of way to other vehicles when entering from an alley or driveway."}, {"q": "When facing a red light in Indiana, you may turn right after a full stop ONLY if:", "options": ["There is no 'No Turn on Red' sign and the path is clear of vehicles and pedestrians", "The light has been red for at least 10 seconds", "A police officer waves you through"], "answer": 0, "ref": "IN BMV Manual - Turning through a Solid Red Light", "explanation": "A right turn on red requires a full stop, a clear path, and no 'No Turn on Red' sign posted."}, {"q": "In Indiana, eight-sided traffic signs warn drivers that they must:", "options": ["Stop and yield the right of way at an intersection", "Slow down and prepare to yield at an intersection", "Yield to oncoming traffic only"], "answer": 0, "ref": "IN BMV Manual - TRAFFIC SIGN SHAPES (Eight-Sided)", "explanation": "The eight-sided (octagon) sign is the stop sign, requiring a stop and yielding the right of way."}, {"q": "Five-sided traffic signs in Indiana warn drivers that they are entering:", "options": ["An area near a school where children may be crossing the road", "A railroad crossing", "A construction zone"], "answer": 0, "ref": "IN BMV Manual - TRAFFIC SIGN SHAPES (Five-Sided)", "explanation": "The five-sided sign indicates an area near a school where children may be crossing."}, {"q": "Diamond-shaped traffic signs in Indiana are used to:", "options": ["Warn drivers of upcoming road conditions and hazards", "Display speed limits and traffic regulations", "Indicate railroad crossings"], "answer": 0, "ref": "IN BMV Manual - TRAFFIC SIGN SHAPES (Diamond-Shaped)", "explanation": "Diamond-shaped signs warn of road conditions and hazards such as 'Divided Highway Ends.'"}, {"q": "Orange traffic signs in Indiana are used to warn drivers of:", "options": ["Temporary conditions such as highway construction and maintenance", "School zones and pedestrians", "Regulations they must obey"], "answer": 0, "ref": "IN BMV Manual - Orange Traffic Signs", "explanation": "Orange signs warn of temporary traffic conditions from construction and maintenance projects."}, {"q": "In Indiana, operating a vehicle with a blood alcohol concentration (BAC) in excess of what legal limit is a criminal offense?", "options": [".08", ".05", ".10"], "answer": 0, "ref": "IN BMV Manual - Operating a Vehicle While Intoxicated", "explanation": "A BAC over .08 is the legal limit and constitutes a criminal offense in Indiana."}, {"q": "In Indiana, a motorist who REFUSES to submit to a chemical test when required faces a driving privilege suspension of:", "options": ["One year", "180 days", "Two years"], "answer": 0, "ref": "IN BMV Manual - Operating a Vehicle While Intoxicated", "explanation": "Refusing a chemical test results in a one-year suspension of driving privileges."}, {"q": "According to the Indiana manual, going how long without sleep leaves a driver equally impaired to a driver with a .08 BAC?", "options": ["18 hours", "12 hours", "24 hours"], "answer": 0, "ref": "IN BMV Manual - IMPAIRED AND DANGEROUS DRIVING (Drowsy Driving)", "explanation": "Studies cited show 18 hours without sleep equals impairment of a .08 BAC driver."}, {"q": "Indiana law requires all occupants of a motor vehicle equipped with a manufacturer-installed seat belt to wear it:", "options": ["Any time the motor vehicle is in motion", "Only on highways with a speed limit over 40 mph", "Only when a child under 8 is in the vehicle"], "answer": 0, "ref": "IN BMV Manual - PUBLIC SAFETY RESTRICTIONS (Seat Belts)", "explanation": "Seat belts must be worn by all occupants any time the vehicle equipped with them is in motion."}, {"q": "In Indiana, you must stop when you approach a school bus with flashing red lights and stop arm extended. If the roadway is divided by a barrier or unimproved median, you must stop:", "options": ["Only if you are traveling in the same direction as the school bus", "Whenever the bus is visible from either direction", "Only if children are crossing"], "answer": 0, "ref": "IN BMV Manual - School Buses", "explanation": "On a divided roadway you stop only when traveling the same direction as the bus with activated red lights."}, {"q": "School buses in Indiana are equipped with both amber and red flashing lights. The amber lights indicate that the bus is:", "options": ["Slowing and about to load or unload children", "Stopped and children are boarding", "Broken down and disabled"], "answer": 0, "ref": "IN BMV Manual - School Buses", "explanation": "Amber lights warn other drivers the bus is slowing and will load or unload children."}, {"q": "Disregarding a school bus stop arm in Indiana can result in:", "options": ["A Class A misdemeanor, or a felony if it causes injury or death", "Only a small fine with no criminal charge", "Automatic lifetime license suspension"], "answer": 0, "ref": "IN BMV Manual - School Buses", "explanation": "Ignoring the stop arm is a Class A misdemeanor, escalating to a felony if it results in injury or death."}, {"q": "When turning and the posted speed limit is 50 mph or more, Indiana requires you to give a proper turn signal at least how far before turning?", "options": ["300 feet", "200 feet", "100 feet"], "answer": 0, "ref": "IN BMV Manual - Signaling Intention to Turn", "explanation": "At 50 mph or more you must signal at least 300 feet before turning or changing lanes."}, {"q": "In Indiana, a good rule for following distance is to stay at least how far behind the vehicle ahead?", "options": ["Two to three seconds", "One second", "Five to six seconds"], "answer": 0, "ref": "IN BMV Manual - BRAKING AND FOLLOWING DISTANCES", "explanation": "Drivers should keep a two-to-three second following distance behind the vehicle ahead."}, {"q": "In Indiana, drivers must use headlights between sunset and sunrise and whenever visibility is less than:", "options": ["500 feet", "200 feet", "1,000 feet"], "answer": 0, "ref": "IN BMV Manual - Headlights", "explanation": "Headlights are required between sunset and sunrise and whenever visibility is under 500 feet."}, {"q": "In Indiana, when a railroad crossbuck is displayed WITH a stop sign, a driver must:", "options": ["Come to a complete stop and proceed only after confirming no train is approaching", "Treat it as a yield sign and decide whether to stop", "Slow down but need not stop"], "answer": 0, "ref": "IN BMV Manual - RAILROAD CROSSINGS (Crossbucks)", "explanation": "A crossbuck with a stop sign requires a full stop and crossing only when no train is approaching."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

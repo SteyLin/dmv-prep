@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>New Hampshire <span class="em">DMV Practice</span></h1>
     <p class="sub">Free NH permit and license practice test — 50 questions from the official New Hampshire driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "nh";
 const STATE_DATA = {"name": "New Hampshire (NH DMV)", "source": "Official NH Driver Manual (public domain)", "questions": [{"q": "What is the minimum age to obtain a New Hampshire driver license?", "options": ["15 years", "16 years", "18 years"], "answer": 1, "ref": "NH Manual - PART TWO: Driver Licensing Information (AGE REQUIREMENT)", "explanation": "The manual states you must be at least 16 years of age to get a NH driver license; 16-17 year-olds must pass an approved driver education program."}, {"q": "How many positive means of identification must an applicant furnish for a NH driver license?", "options": ["One (1)", "Two (2)", "Three (3)"], "answer": 1, "ref": "NH Manual - PART ONE: General Information (MOTOR VEHICLE LICENSING LOCATIONS)", "explanation": "Applicants must be prepared to furnish two (2) positive means of identification to the Licensing Representative."}, {"q": "New residents moving to New Hampshire are allowed up to how many days to obtain a NH driver license?", "options": ["30 days", "60 days", "90 days"], "answer": 1, "ref": "NH Manual - PART TWO: WHO NEEDS A NEW HAMPSHIRE DRIVER LICENSE?", "explanation": "New residents are allowed up to 60 days to obtain a New Hampshire driver license."}, {"q": "A Youth Operator license (for those under 21) expires on the holder's:", "options": ["18th birthday", "21st birthday", "25th birthday"], "answer": 1, "ref": "NH Manual - PART TWO: YOUTH OPERATOR LICENSE", "explanation": "All youth operator licenses will expire on the holder's 21st birthday."}, {"q": "A youth operator under 18 may not operate a motor vehicle between which hours?", "options": ["12:00 a.m. and 5:00 a.m.", "1:00 a.m. and 4:00 a.m.", "10:00 p.m. and 6:00 a.m."], "answer": 1, "ref": "NH Manual - PART TWO: YOUTH OPERATOR LICENSE", "explanation": "A youth operator under 18 shall not operate a motor vehicle between the hours of 1:00 a.m. and 4:00 a.m."}, {"q": "During the first 6 months after issuance, a youth operator under 18 may not drive with more than one passenger under 25 who is not a family member unless accompanied by a licensed adult at least:", "options": ["18 years old", "21 years old", "25 years old"], "answer": 2, "ref": "NH Manual - PART TWO: YOUTH OPERATOR LICENSE", "explanation": "Unless accompanied by a licensed responsible adult who is at least 25 years of age."}, {"q": "A person under 18 must complete how many hours of supervised practice driving (in addition to the 10 hours required by driver education)?", "options": ["20 hours", "40 hours", "60 hours"], "answer": 1, "ref": "NH Manual - PART TWO: PRACTICE DRIVING", "explanation": "A person under 18 is required to complete 40 hours of supervised practice driving, in addition to the 10 hours required by driver education."}, {"q": "If you hold an out-of-state license, you will not be issued a NH license until you:", "options": ["Pay a double fee", "Turn in any and all out-of-state licenses", "Pass a road test only"], "answer": 1, "ref": "NH Manual - PART TWO: ONE LICENSE CONCEPT", "explanation": "No person shall hold more than one valid driver license; you must turn in out-of-state licenses before a NH license is issued."}, {"q": "To pass the vision test you must be able to read the 20/__ vision line with both eyes.", "options": ["20/20", "20/40", "20/50"], "answer": 1, "ref": "NH Manual - PART TWO: Vision Test", "explanation": "To pass, you must be able to read the 20/40 vision line with both eyes. If blind in one eye, you must read 20/30."}, {"q": "The computer-based knowledge test consists of how many multiple-choice questions?", "options": ["25 questions", "40 questions", "50 questions"], "answer": 1, "ref": "NH Manual - PART TWO: Computer based knowledge test", "explanation": "The knowledge test is a 40 question multiple choice test; you have 40 minutes to complete it."}, {"q": "On the knowledge test, if you miss more than 8 questions the test automatically terminates. How long must you wait to retest?", "options": ["Not sooner than 10 days", "Not sooner than 30 days", "Not sooner than 60 days"], "answer": 0, "ref": "NH Manual - PART TWO: Computer based knowledge test", "explanation": "If you miss more than 8 questions the test terminates and you may request a retest not sooner than ten days from the current date."}, {"q": "A Class D Operator license allows you to drive a vehicle with a gross vehicle weight of:", "options": ["10,000 pounds or less", "26,000 pounds or less", "30,000 pounds or less"], "answer": 1, "ref": "NH Manual - PART TWO: Classified License System (Class D)", "explanation": "Class D - Operator allows driving a vehicle with a GVWR of 26,000 pounds or less (if not towing over 10,000 lbs, etc.)."}, {"q": "A 'Z' restriction on a NH driver license means:", "options": ["Outside mirror required", "Daylight only", "Alcohol Interlock Device required"], "answer": 2, "ref": "NH Manual - PART TWO: License restrictions", "explanation": "Restriction 'Z' means an Alcohol Interlock Device is required."}, {"q": "A moped is defined as a motor-driven cycle with a motor not over 50 cc or 2 horsepower that does NOT require shifting gears and cannot exceed:", "options": ["20 MPH on level ground", "30 MPH on level ground", "45 MPH on level ground"], "answer": 1, "ref": "NH Manual - PART TWO: Moped", "explanation": "To be registered as a moped, the vehicle must not require shifting, have a motor not more than 2 hp or 50 cc, and not go faster than 30 MPH on level ground."}, {"q": "Your NH driver license is valid for how many birthdays from the date of issuance?", "options": ["3 birthdays", "5 birthdays", "10 birthdays"], "answer": 1, "ref": "NH Manual - PART TWO: License expiration", "explanation": "Your license is valid for 5 birthdays from the date of issuance."}, {"q": "If you change your name or address you must notify the Division of Motor Vehicles in writing within:", "options": ["5 days", "10 days", "30 days"], "answer": 1, "ref": "NH Manual - PART TWO: Change of name or address", "explanation": "The law requires you to notify the DMV in writing within 10 days of a name or address change."}, {"q": "New residents are given how many days from the date they move to New Hampshire to register their vehicles?", "options": ["30 days", "60 days", "90 days"], "answer": 1, "ref": "NH Manual - PART THREE: REGISTRATION", "explanation": "New residents are given 60 days from the date they move to New Hampshire to register their vehicles."}, {"q": "Vehicles registered to an individual (not a company) expire on:", "options": ["The last day of the owner's month of birth", "December 31st each year", "The anniversary of purchase"], "answer": 0, "ref": "NH Manual - PART THREE: REGISTRATION", "explanation": "All vehicles registered and titled in the name of an individual will expire on the last day of the owner's month of birth."}, {"q": "Wearing a safety belt roughly doubles your chances of survival in a crash. With both a seat belt and shoulder strap your chances are:", "options": ["About the same", "3 to 4 times better", "10 times better"], "answer": 1, "ref": "NH Manual - PART FOUR: SAFETY EQUIPMENT", "explanation": "Your chances are 3 to 4 times better if you are wearing both a seat belt and a shoulder strap."}, {"q": "NH law requires all children under what age to wear a seat belt or be secured in a child seat while a passenger in a motor vehicle?", "options": ["12 years", "16 years", "18 years"], "answer": 2, "ref": "NH Manual - PART FOUR: CHILD PASSENGER RESTRAINTS REQUIRED", "explanation": "New Hampshire law requires that all children under 18 years of age must wear a seat belt or be secured in a child seat."}, {"q": "NH law requires motorcycle operators and passengers under what age to wear a DOT-approved helmet?", "options": ["16 years", "18 years", "21 years"], "answer": 1, "ref": "NH Manual - PART FOUR: MOTORCYCLE HELMET USE", "explanation": "New Hampshire law requires all riders and passengers under the age of 18 to wear helmets approved by the U.S. Department of Transportation."}, {"q": "An eight-sided (octagonal) sign always means:", "options": ["Yield", "Stop", "Warning"], "answer": 1, "ref": "NH Manual - PART FIVE: SIGNS (Standard shapes)", "explanation": "Octagon (8 sides) means Stop."}, {"q": "A diamond-shaped sign indicates:", "options": ["Regulation/law", "Warning of special hazards ahead", "School zone"], "answer": 1, "ref": "NH Manual - PART FIVE: SIGNS (Standard shapes)", "explanation": "Diamond means Warning - special hazards are ahead."}, {"q": "A brown sign is used for:", "options": ["General warning", "Tourist and recreation guidance", "Driver services"], "answer": 1, "ref": "NH Manual - PART FIVE: SIGNS (Standard colors)", "explanation": "Brown - Tourist and recreation guidance."}, {"q": "A pentagon-shaped sign warns of:", "options": ["Railroad crossing", "School zone and school crossing", "No passing zone"], "answer": 1, "ref": "NH Manual - PART FIVE: SIGNS (Standard shapes)", "explanation": "Pentagon (shaped like a school house) - School zone and school crossing."}, {"q": "You may make a right turn on a red signal ONLY if:", "options": ["There is no sign prohibiting it and you yield", "The intersection is empty", "It is after sunset"], "answer": 0, "ref": "NH Manual - PART FIVE: TRAFFIC LIGHTS (Red)", "explanation": "You may make a right turn on red only if there is no sign prohibiting it and you yield to pedestrians and other traffic (and no walk signal is displayed)."}, {"q": "When approaching a railroad crossing with stop signs, lights, or other stop devices, a driver must stop not less than 15 feet nor more than:", "options": ["25 feet from the nearest rail", "50 feet from the nearest rail", "100 feet from the nearest rail"], "answer": 1, "ref": "NH Manual - PART FIVE: RAILROAD CROSSING", "explanation": "A driver must stop not less than 15 feet, nor more than 50 feet, from the nearest rail of the track."}, {"q": "Whenever you approach a school bus from any direction that has stopped with flashing red lights, you must stop your vehicle at least:", "options": ["10 feet away", "25 feet away", "50 feet away"], "answer": 1, "ref": "NH Manual - PART FIVE: SCHOOL BUS", "explanation": "You must stop your vehicle at least 25 feet from the school bus, unless you are on the other side of a divided highway."}, {"q": "When being approached by an emergency vehicle with siren/flashing lights, you must:", "options": ["Speed up to get out of the way", "Drive to the right side of the road and stop", "Continue at the same speed"], "answer": 1, "ref": "NH Manual - PART FIVE: RIGHT-OF-WAY", "explanation": "You must immediately drive to the right side of the road clear of any intersection and stop until the emergency vehicle has passed."}, {"q": "At an intersection with no traffic sign or signal, the vehicle on your right should generally go first. Which vehicle has the right-of-way over a vehicle turning left?", "options": ["The vehicle turning left", "The vehicle going straight ahead", "The vehicle on the left"], "answer": 1, "ref": "NH Manual - PART FIVE: RIGHT-OF-WAY", "explanation": "A vehicle going straight ahead has the right-of-way over a vehicle turning left."}, {"q": "You should signal your intention to turn at least how many feet before the turn (in city driving)?", "options": ["50 feet", "100 feet", "300 feet"], "answer": 1, "ref": "NH Manual - PART SIX: TURNING", "explanation": "If already in the proper lane you must signal at least 100 feet before the turn; on the highway at least 500 feet."}, {"q": "To make a right turn safely, you should start from the:", "options": ["Left lane", "Right lane", "Center lane"], "answer": 1, "ref": "NH Manual - PART SIX: TURNING", "explanation": "Start from the lane closest to where you want to go - if turning right, start from the right lane."}, {"q": "The '3 second rule' is used to determine a safe:", "options": ["Following distance", "Stopping distance at a sign", "Turning radius"], "answer": 0, "ref": "NH Manual - PART SEVEN: Following Distance", "explanation": "Use the 3 second rule to maintain a minimum following distance under ideal conditions, adding a second for each negative condition."}, {"q": "You must not follow a fire truck responding to an alarm closer than:", "options": ["200 feet", "300 feet", "500 feet"], "answer": 2, "ref": "NH Manual - PART SEVEN: Following fire trucks", "explanation": "You must not follow a fire truck going to a fire alarm closer than 500 feet."}, {"q": "Passing on the right is allowed when the vehicle ahead is:", "options": ["Stopped at a red light", "Making a left turn", "Going slower than you"], "answer": 1, "ref": "NH Manual - PART SEVEN: Passing on the right", "explanation": "Passing on the right is allowed when the vehicle ahead is making a left turn (also on one-way streets or limited-access highways with 2+ lanes)."}, {"q": "You must not pass another vehicle within how many feet of a bridge, viaduct, or tunnel?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "NH Manual - PART SEVEN: Passing is not allowed", "explanation": "Passing is not allowed within 100 feet of a viaduct, bridge or tunnel."}, {"q": "When you double your speed, the stopping distance becomes nearly:", "options": ["Twice as great", "Four times as great", "Ten times as great"], "answer": 1, "ref": "NH Manual - PART NINE: Speed (Think about these facts)", "explanation": "When you double your speed, the stopping distance is nearly 4 times greater."}, {"q": "The maximum speed limit in a business or urban residence district in New Hampshire is:", "options": ["25 MPH", "30 MPH", "35 MPH"], "answer": 1, "ref": "NH Manual - PART NINE: Speed limits", "explanation": "30 MPH - In any business or urban residence district."}, {"q": "The maximum speed limit in a rural residence district is:", "options": ["30 MPH", "35 MPH", "45 MPH"], "answer": 1, "ref": "NH Manual - PART NINE: Speed limits", "explanation": "35 MPH - In any rural residence district."}, {"q": "The maximum speed limit on all other areas, including interstate highways not otherwise posted, is:", "options": ["45 MPH", "55 MPH", "65 MPH"], "answer": 1, "ref": "NH Manual - PART NINE: Speed limits", "explanation": "55 MPH - All other areas, including interstate highways not otherwise posted."}, {"q": "The minimum speed you may drive on a NH interstate highway (unless conditions are unsafe) is:", "options": ["40 MPH", "45 MPH", "50 MPH"], "answer": 1, "ref": "NH Manual - PART NINE: The slow driver", "explanation": "The minimum speed on an interstate highway is 45 MPH unless road and weather conditions are so bad it is unsafe."}, {"q": "When parking along a curb, you cannot be more than how far from the curb?", "options": ["Six inches", "One foot", "Two feet"], "answer": 1, "ref": "NH Manual - PART TEN: Parking and Backing", "explanation": "You cannot be more than one foot away from the curb when parked."}, {"q": "It is illegal to park within how many feet of a fire hydrant?", "options": ["10 feet", "15 feet", "20 feet"], "answer": 1, "ref": "NH Manual - PART TEN: Illegal parking", "explanation": "Parking is not allowed within 15 feet of a fire hydrant."}, {"q": "Hydroplaning on most vehicles begins at about what speed?", "options": ["25 MPH", "35 MPH", "45 MPH"], "answer": 1, "ref": "NH Manual - PART ELEVEN: Hazardous Driving Conditions (Hydroplaning)", "explanation": "In most vehicles, hydroplaning begins at about 35 MPH and increases with speed to about 55 MPH."}, {"q": "You must turn on your headlights from one-half hour after sunset to one-half hour before sunrise, and dim them within:", "options": ["100 feet of an oncoming vehicle", "150 feet of an oncoming vehicle", "200 feet of an oncoming vehicle"], "answer": 1, "ref": "NH Manual - PART ELEVEN: NIGHT DRIVING (Glare/Dim lights)", "explanation": "You must dim your lights when within 150 feet of an oncoming vehicle and within 150 feet when following another vehicle."}, {"q": "In a skid with a rear-wheel-drive vehicle, you should:", "options": ["Stay off the brake and steer in the direction the rear is sliding", "Brake hard immediately", "Accelerate quickly"], "answer": 0, "ref": "NH Manual - PART TWELVE: Driving Emergencies (Skidding)", "explanation": "Stay off the brake pedal and steer in the direction the rear of the vehicle is sliding to recover from a skid."}, {"q": "If you miss your exit on a freeway or turnpike, you should:", "options": ["Stop and back up", "Drive to the next exit", "Make a U-turn immediately"], "answer": 1, "ref": "NH Manual - PART THIRTEEN: Expressway Driving (Leaving)", "explanation": "If you miss your exit, you MUST NOT stop, back up or turn around - drive to the next exit."}, {"q": "For a person under 21, a BAC of ___ is legal evidence of intoxication in New Hampshire.", "options": [".02%", ".05%", ".08%"], "answer": 0, "ref": "NH Manual - PART FOURTEEN: Alcohol, Drugs and Driving (BAC)", "explanation": "A BAC level of .02% if you are under the age of 21 is evidence that you are legally intoxicated."}, {"q": "For a person 21 or older, the legal limit (BAC) is:", "options": [".05%", ".08%", ".10%"], "answer": 1, "ref": "NH Manual - PART FOURTEEN: Alcohol, Drugs and Driving (BAC / Administrative License Suspension)", "explanation": "The legal limit is 0.08 for persons 21 years of age or older."}, {"q": "Under Implied Consent, if you refuse a blood/breath/urine test when arrested for an alcohol/drug offense, your license is suspended for at least:", "options": ["90 days", "180 days", "1 year"], "answer": 1, "ref": "NH Manual - PART FOURTEEN: IMPLIED CONSENT", "explanation": "If you refuse a test, your license/operating privileges shall be suspended for 180 days (2 years with a prior refusal/conviction within 10 years)."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

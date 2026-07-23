@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Missouri <span class="em">DMV Practice</span></h1>
     <p class="sub">Free MO permit and license practice test — 58 questions from the official Missouri driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "mo";
 const STATE_DATA = {"name": "Missouri (MO DOR)", "source": "Official MO Driver Guide (public domain)", "questions": [{"q": "According to the Missouri Driver Guide, how many questions are on the Class F written test and how many must you answer correctly to pass?", "options": ["25 questions, 20 correct", "20 questions, 16 correct", "30 questions, 24 correct"], "answer": 0, "ref": "MO Guide - Chapter 1 (Introduction)", "explanation": "The guide states the written test has 25 multiple-choice questions and you must correctly answer 20 to pass."}, {"q": "At what minimum age may a Missouri teen obtain an Instruction Permit under the Graduated Driver License (GDL) program?", "options": ["14 years", "15 years", "16 years"], "answer": 1, "ref": "MO Guide - Chapter 1 (Types of Permits)", "explanation": "The Instruction Permit is the first GDL step and is available at age 15."}, {"q": "Under the GDL program, before getting an Intermediate License you must hold the instruction permit for at least how long and complete how many hours of driving instruction?", "options": ["3 months and 20 hours", "6 months (182 days) and 40 hours", "12 months and 50 hours"], "answer": 1, "ref": "MO Guide - Chapter 1 (GDL Law)", "explanation": "You must hold the permit at least 182 days (6 months) and complete 40 hours of driving instruction, including 10 hours at night."}, {"q": "Which license class is Missouri's basic operator (full) driver license?", "options": ["Class E", "Class M", "Class F"], "answer": 2, "ref": "MO Guide - Chapter 1 (Types of Licenses)", "explanation": "The Full Driver License (Class F) is the basic operator license; it does not allow a motorcycle without an M endorsement."}, {"q": "A Missouri For-Hire (Class E) license is generally required to drive for pay transporting how many passengers or fewer?", "options": ["7 or fewer", "14 or fewer", "20 or fewer"], "answer": 1, "ref": "MO Guide - Chapter 1 (For-Hire License Class E)", "explanation": "You need a Class E license if you receive pay for driving a vehicle transporting 14 or fewer passengers, such as a day-care center driver."}, {"q": "What is the eligible age for a Missouri Commercial Driver License (CDL)?", "options": ["16 years", "18 years", "21 years"], "answer": 1, "ref": "MO Guide - Chapter 1 (Commercial Driver License)", "explanation": "You must be at least 18 to apply for a CDL; at least 21 for a HazMat or School Bus endorsement."}, {"q": "Under Missouri's GDL, an Intermediate License holder may NOT drive alone between which hours?", "options": ["Midnight and 5:00 a.m.", "1:00 a.m. and 5:00 a.m.", "10:00 p.m. and 6:00 a.m."], "answer": 1, "ref": "MO Guide - Chapter 1 (GDL Driving Restrictions)", "explanation": "Intermediate drivers may not drive alone between 1:00 a.m. and 5:00 a.m. except to/from school activity, job, or emergency."}, {"q": "During the first six months with an Intermediate License, how many passengers under age 19 who are not immediate family may you have?", "options": ["No more than one", "No more than three", "Unlimited if supervised"], "answer": 0, "ref": "MO Guide - Chapter 1 (GDL Driving Restrictions)", "explanation": "In the first six months you may not have more than one passenger under 19 who is not an immediate family member."}, {"q": "Which document is NOT acceptable as proof of lawful status for a U.S. citizen applying for a Missouri license?", "options": ["Certified U.S. Birth Certificate with a raised seal", "Hospital birth certificate", "Certificate of Naturalization"], "answer": 1, "ref": "MO Guide - Chapter 1 (Required Documents)", "explanation": "Hospital birth certificates and birth registration cards are not acceptable; a certified birth certificate with an embossed/sealed is required."}, {"q": "How many documents verifying Missouri residency are required to obtain a REAL ID-compliant document?", "options": ["One", "Two", "Three"], "answer": 1, "ref": "MO Guide - Chapter 1 (Missouri Residency)", "explanation": "Two documents are needed for a REAL ID-compliant document; one is needed for a non-REAL ID-compliant document."}, {"q": "A Post Office Box is acceptable as your residential address on a Missouri license application.", "options": ["True", "False", "Only in rural areas"], "answer": 1, "ref": "MO Guide - Chapter 1 (Missouri Residency)", "explanation": "A Post Office Box is NOT acceptable as a residential address; you must show your true, fixed residential address."}, {"q": "If your Missouri driver license has been expired for more than six months (184 days), what must you do to renew?", "options": ["Only pay the fee by mail", "Take the vision and road sign tests only", "Retake the written and driving tests plus vision/road sign"], "answer": 2, "ref": "MO Guide - Chapter 1 (Renewing a License)", "explanation": "If expired more than 184 days, you must take the written and driving tests in addition to vision and road sign tests."}, {"q": "Restriction code 'C' on a Missouri license means:", "options": ["Corrective Lenses", "Daylight Driving Only", "Auto Transmission only"], "answer": 1, "ref": "MO Guide - Chapter 1 (Restriction Codes)", "explanation": "Restriction 'C' is Daylight Driving Only; 'A' is Corrective Lenses."}, {"q": "The Missouri driver examination consists of how many parts?", "options": ["Two parts", "Three parts", "Four parts"], "answer": 2, "ref": "MO Guide - Chapter 2 (The Driver Examination)", "explanation": "The exam has four parts: written test, vision test, road sign test, and driving (skills) test."}, {"q": "Who administers the Missouri driver examination?", "options": ["The Department of Revenue clerks", "The Missouri State Highway Patrol (MSHP)", "Private testing companies"], "answer": 1, "ref": "MO Guide - Chapter 2 (Where to Take the Exam)", "explanation": "The MSHP administers the driver examination at testing centers."}, {"q": "On the driving skills test, if you lose more than how many points you will fail?", "options": ["10 points", "20 points", "30 points"], "answer": 2, "ref": "MO Guide - Chapter 2 (Your Grade)", "explanation": "The examiner subtracts points for errors; losing more than 30 points is a failing grade."}, {"q": "If you fail the Missouri driving test three times, what happens?", "options": ["You may retake it the next day", "No further tests allowed without written authorization from the Department", "You automatically receive a license"], "answer": 1, "ref": "MO Guide - Chapter 2 (Failing the Driving Test)", "explanation": "After three failures, no further tests are allowed without written Department authorization and proof of additional training."}, {"q": "Committing fraud during a Missouri license examination is a Class 'A' misdemeanor punishable by loss of driving privilege for up to:", "options": ["30 days", "Six months", "One year"], "answer": 2, "ref": "MO Guide - Chapter 2 (Fraud)", "explanation": "Fraud (e.g., using recording/communicating devices) may result in loss of driving privilege for up to one year."}, {"q": "The standard minimum vision acuity required for a Missouri driver license is at least:", "options": ["20/20", "20/40 with either or both eyes", "20/60"], "answer": 1, "ref": "MO Guide - Chapter 2 (Vision Test)", "explanation": "The standard minimum acuity is at least 20/40 with either or both eyes."}, {"q": "On the driving test, parallel parking requires parking no more than how far from the curb?", "options": ["12 inches", "18 inches", "24 inches"], "answer": 1, "ref": "MO Guide - Chapter 2 (Driving Test - Parking)", "explanation": "You must park no more than 18 inches from the curb when parallel parking and on a hill."}, {"q": "When passing on the left, you must NOT drive to the left side of the roadway when approaching within how many feet of a bridge, viaduct, or tunnel?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "MO Guide - Chapter 3 (Passing on the Left)", "explanation": "No passing on the left within 100 feet of a bridge, viaduct, or tunnel, or within 100 feet of an intersection/railroad crossing."}, {"q": "At a four-way stop, which driver has the right-of-way?", "options": ["The driver on the right", "The driver who reaches the intersection first (after stopping)", "The driver turning left"], "answer": 1, "ref": "MO Guide - Chapter 3 (Intersections)", "explanation": "At a four-way stop, the driver reaching the intersection first may proceed before the others after a complete stop."}, {"q": "When approaching a roundabout, you should:", "options": ["Make a left turn to enter", "Yield to traffic already in the circle and go counterclockwise", "Stop in the center"], "answer": 1, "ref": "MO Guide - Chapter 3 (Roundabout Intersections)", "explanation": "Roundabouts use yield signs; you yield to traffic in the circle, make a slight right turn, and go counterclockwise."}, {"q": "When must you stop for a school bus with flashing red lights and stop arm activated on a two-lane road?", "options": ["Only if you are behind the bus", "Both oncoming and following traffic must stop", "Never on a two-lane road"], "answer": 1, "ref": "MO Guide - Chapter 3 (School Buses)", "explanation": "On a two-lane road, both oncoming and following traffic must stop when the bus's red lights and stop arm are activated."}, {"q": "You do NOT have to stop for a school bus with activated signals if you are:", "options": ["On a two-lane road behind the bus", "Traveling the opposite direction on a highway divided by a median", "In a school loading zone"], "answer": 1, "ref": "MO Guide - Chapter 3 (School Buses)", "explanation": "You need not stop when traveling the opposite direction on a highway divided by a median where vehicles are on separate roads."}, {"q": "Amber warning lights on a school bus begin flashing how far before the bus reaches its designated stop?", "options": ["100 feet", "250 feet", "500 feet"], "answer": 2, "ref": "MO Guide - Chapter 3 (School Buses)", "explanation": "Amber warning lights flash 500 feet before the bus comes to a designated stop."}, {"q": "When an emergency vehicle with a siren and flashing red/blue lights approaches, you must:", "options": ["Speed up to get out of the way", "Pull over to the right edge of the road and stop", "Keep driving normally"], "answer": 1, "ref": "MO Guide - Chapter 3 (Emergency Vehicles)", "explanation": "Pull over to the right edge (or as near right as possible) and remain stopped until the emergency vehicle passes."}, {"q": "You should signal at least how many feet before you turn, change lanes, or stop?", "options": ["50 feet", "75 feet", "100 feet"], "answer": 2, "ref": "MO Guide - Chapter 3 (Hand and Vehicle Signals)", "explanation": "Signal at least 100 feet before turning, changing lanes, or stopping."}, {"q": "When sharing the road with a motorcycle, you should:", "options": ["Share the lane to save space", "Give the motorcyclist a full lane width when passing", "Pass quickly within the same lane"], "answer": 1, "ref": "MO Guide - Chapter 4 (Sharing the Road with Motorcycles)", "explanation": "Do not share a lane with a motorcycle; when passing, give a full lane width."}, {"q": "The large blind spots around trucks and buses are called the:", "options": ["Blind Zone", "No-Zone", "Dead Zone"], "answer": 1, "ref": "MO Guide - Chapter 4 (Sharing the Road with Large Trucks)", "explanation": "Truck/bus blind spots are called the 'No-Zone'; avoid driving there except when necessary."}, {"q": "A fully loaded tractor-trailer traveling at 55 mph may take about how far to come to a complete stop?", "options": ["About 130 feet", "About 250 feet", "Almost 400 feet"], "answer": 2, "ref": "MO Guide - Chapter 4 (Sharing the Road with Large Trucks)", "explanation": "A loaded tractor-trailer may take almost 400 feet to stop; a car at 55 mph stops in about 130-140 feet."}, {"q": "Drivers must always yield the right-of-way to:", "options": ["Pedestrians in a marked or unmarked crosswalk", "Vehicles on a green light", "Bicyclists on the sidewalk"], "answer": 0, "ref": "MO Guide - Chapter 4 (Sharing the Road with Pedestrians)", "explanation": "Drivers must yield to pedestrians in a marked or unmarked crosswalk and to blind pedestrians with a white cane."}, {"q": "A motorized bicycle (moped) in Missouri is defined as having a motor cylinder capacity of not more than:", "options": ["30 cubic centimeters", "50 cubic centimeters", "100 cubic centimeters"], "answer": 1, "ref": "MO Guide - Chapter 4 (Moped Drivers Need a Driver License)", "explanation": "A moped has an automatic transmission, under 50 cc motor, less than 3 brake horsepower, and max 30 mph."}, {"q": "Bicyclists must ride:", "options": ["Against traffic to see oncoming cars", "With traffic, never against it", "Anywhere they choose"], "answer": 1, "ref": "MO Guide - Chapter 4 (Where to Ride Mopeds and Bicycles)", "explanation": "Bicyclists have the same rights/responsibilities as motorists and must ride with traffic, never against it."}, {"q": "Regarding handicapped parking spaces, a violator may be fined:", "options": ["No less than $50 and no more than $300", "Exactly $100", "Up to $1,000"], "answer": 0, "ref": "MO Guide - Chapter 5 (Parking - Handicapped)", "explanation": "Handicapped parking violators face a fine of no less than $50 and no more than $300."}, {"q": "When parking on a hill, you should turn your wheels sharply toward the side of the road so the vehicle will roll:", "options": ["Into traffic", "Away from traffic", "It does not matter"], "answer": 1, "ref": "MO Guide - Chapter 5 (Parking on Hills)", "explanation": "Turn wheels toward the side of the road so the vehicle rolls away from traffic if it starts to move."}, {"q": "On a highway with four or more lanes, you should normally keep to the:", "options": ["Left lane", "Right lane unless passing or turning left", "Center lane always"], "answer": 1, "ref": "MO Guide - Chapter 6 (Drive in the Proper Lane)", "explanation": "On four or more lane highways, keep right unless passing slower traffic, letting someone enter, or making a left turn."}, {"q": "If you miss your exit on a controlled-access highway, you should:", "options": ["Stop and back up", "Cross the median", "Take the next exit and return"], "answer": 2, "ref": "MO Guide - Chapter 6 (Leaving the Highway)", "explanation": "Do not stop, back up, or turn around; get off at the next exit and come back."}, {"q": "What is the minimum speed limit on Missouri interstate highways under normal conditions?", "options": ["40 mph", "45 mph", "55 mph"], "answer": 0, "ref": "MO Guide - Chapter 7 (Speed Limit)", "explanation": "You may not drive slower than 40 mph on interstates under normal roadway conditions."}, {"q": "A steady yellow traffic light means:", "options": ["Speed up to clear the intersection", "The signal is changing from green to red; stop if you can safely", "You may turn left"], "answer": 1, "ref": "MO Guide - Chapter 7 (Traffic Signals)", "explanation": "A steady yellow tells you the light is changing to red; stop unless you are already in or too close to the intersection to stop safely."}, {"q": "A flashing red traffic light means:", "options": ["Slow down and proceed with caution", "The same as a stop sign", "Yield only to pedestrians"], "answer": 1, "ref": "MO Guide - Chapter 7 (Traffic Signals)", "explanation": "A flashing red light means the same as a stop sign: come to a complete stop."}, {"q": "Unless a 'No Right Turn On Red' sign is posted, after a complete stop you may turn right on red:", "options": ["Only at night", "If the way is clear of pedestrians and traffic", "Never in Missouri"], "answer": 1, "ref": "MO Guide - Chapter 7 (Traffic Signals)", "explanation": "After a complete stop, you may turn right on red if the way is clear, unless a 'No Right Turn On Red' sign is posted."}, {"q": "Which sign shape indicates a STOP sign?", "options": ["Triangle", "Octagon (eight sides)", "Diamond"], "answer": 1, "ref": "MO Guide - Chapter 7 (Sign Shapes)", "explanation": "Octagon = Stop. Triangle = Yield; Diamond = Warning; Pentagon = School."}, {"q": "A railroad crossing is marked by a white, X-shaped sign also called a:", "options": ["Crossbuck", "Yield sign", "Diamond"], "answer": 0, "ref": "MO Guide - Chapter 7 (Railroad Crossing)", "explanation": "The white X-shaped 'crossbuck' at a railroad crossing has the same meaning as a yield sign."}, {"q": "You must stop at a railroad crossing with flashing red lights or a lowered gate within:", "options": ["5 to 15 feet", "15 to 50 feet", "50 to 100 feet"], "answer": 1, "ref": "MO Guide - Chapter 7 (Railroad Crossing)", "explanation": "Stop within 15 to 50 feet before the tracks when lights flash or the gate is down; do not go around the gate."}, {"q": "Yellow pavement lines separate traffic traveling in:", "options": ["The same direction", "Opposite directions", "Only in work zones"], "answer": 1, "ref": "MO Guide - Chapter 7 (Pavement Markings)", "explanation": "Yellow separates opposite-direction traffic; white separates same-direction traffic."}, {"q": "Two solid yellow lines in the center of a road mean:", "options": ["You may pass with caution", "You must never cross them to pass", "The road is one-way"], "answer": 1, "ref": "MO Guide - Chapter 7 (Pavement Markings / No Passing Zones)", "explanation": "Never cross two solid yellow lines to pass; they separate opposing traffic."}, {"q": "If you are convicted of DWI with a BAC of .08% or more for a first offense, your administrative action is:", "options": ["A $1,000 fine only", "A 90-day suspension", "One-year revocation"], "answer": 1, "ref": "MO Guide - Chapter 10 (Alcohol, Drugs, and Driving)", "explanation": "A first DWI/BAC .08%+ offense carries a 90-day administrative suspension (with possible restricted driving privilege)."}, {"q": "In Missouri, the illegal BAC level is .08% or more for adults, .04% for commercial drivers, and for those under 21 it is:", "options": [".10%", ".05%", ".02%"], "answer": 2, "ref": "MO Guide - Chapter 10 (Alcohol)", "explanation": "Under 21, a BAC of .02% or more is illegal (Missouri's Abuse and Lose Law / MIP provisions)."}, {"q": "If you refuse to submit to a chemical BAC test when requested by police, your license will be taken away for:", "options": ["30 days", "90 days", "One year"], "answer": 2, "ref": "MO Guide - Chapter 10 (Refusal to Submit to a Chemical Test)", "explanation": "Refusing the chemical test results in a one-year license revocation."}, {"q": "Under Missouri's point system, your license will be suspended once you accumulate 8 or more points in:", "options": ["12 months", "18 months", "24 months"], "answer": 1, "ref": "MO Guide - Chapter 11 (The Point System)", "explanation": "Accumulating 8 or more points in 18 months triggers suspension (first 30 days, second 60, third/subsequent 90)."}, {"q": "A conviction for Speeding adds how many points to your Missouri driving record?", "options": ["2 points", "3 points", "4 points"], "answer": 1, "ref": "MO Guide - Chapter 11 (The Point System)", "explanation": "Speeding is 3 points; Careless & Imprudent Driving is 4; leaving the scene of a crash is 12."}, {"q": "Your driving privilege will be revoked for one year if you accumulate 12 or more points in:", "options": ["12 months", "18 months", "24 months"], "answer": 0, "ref": "MO Guide - Chapter 11 (The Point System)", "explanation": "12+ points in 12 months, 18+ in 24 months, or 24+ in 36 months results in a one-year revocation."}, {"q": "Missouri's minimum liability insurance coverage required by law is:", "options": ["$10,000/$20,000/$10,000", "$25,000 per person / $50,000 per crash BI / $25,000 property damage", "$50,000/$100,000/$50,000"], "answer": 1, "ref": "MO Guide - Chapter 13 (Mandatory Insurance)", "explanation": "Minimums: $25,000 per person BI, $50,000 per crash BI, $25,000 per crash property damage, plus $25,000/$50,000 uninsured motorist."}, {"q": "Under Missouri's 'Move Over' / Move It law, vehicles involved in a minor, non-injury crash should:", "options": ["Stay exactly where they are", "Move off the roadway to clear traffic", "Wait for a tow truck in the lane"], "answer": 1, "ref": "MO Guide - Chapter 13 (Traffic Crashes - Steer It and Clear It)", "explanation": "The 'Steer It and Clear It' (Move It) law requires vehicles in minor, non-injury crashes to move off the roadway."}, {"q": "An accident report must be filed with the Department if the crash involved an uninsured motorist and damage exceeded:", "options": ["$100", "$250", "$500"], "answer": 2, "ref": "MO Guide - Chapter 13 (Filing an Accident Report)", "explanation": "Report within 30 days if there was an uninsured motorist AND property damage over $500, or injury/death."}, {"q": "Under Missouri's new electronic communication device law, while driving a vehicle in motion it is illegal to:", "options": ["Use hands-free voice calls", "Use GPS navigation mounted on the vehicle", "Physically hold or support a cellphone with any part of the body"], "answer": 2, "ref": "MO Guide - Chapter 16 (Distracted Driving)", "explanation": "It is illegal to physically hold/support a phone, type/read texts, or watch video while the vehicle is in motion; hands-free and mounted GPS are allowed."}, {"q": "Under the GDL, a minor convicted of Minor in Possession (MIP) for a third offense faces:", "options": ["30-day suspension", "90-day suspension", "One-year revocation"], "answer": 2, "ref": "MO Guide - Chapter 10 (Minor in Possession / Abuse and Lose)", "explanation": "MIP: 1st = 30-day suspension, 2nd = 90-day suspension, 3rd = one-year revocation."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

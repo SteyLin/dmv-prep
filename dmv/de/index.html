@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Delaware <span class="em">DMV Practice</span></h1>
     <p class="sub">Free DE permit and license practice test — 50 questions from the official Delaware driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "de";
 const STATE_DATA = {"name": "Delaware (DE DMV)", "source": "Official DE Driver Manual (public domain)", "questions": [{"q": "In a Delaware school zone, what is the maximum speed limit when children are present?", "options": ["15 mph", "20 mph", "25 mph"], "answer": 1, "ref": "DE Handbook - SPEED / Speed Limits", "explanation": "Per the official manual's table, the speed limit in school zones is 20 mph."}, {"q": "In Delaware, what is the maximum speed limit on two-lane roads only?", "options": ["45 mph", "50 mph", "55 mph"], "answer": 1, "ref": "DE Handbook - SPEED / Speed Limits", "explanation": "On two-lane roads the speed limit is 50 mph."}, {"q": "In Delaware, what is the speed limit on divided roads and roads with four or more lanes?", "options": ["55 mph", "60 mph", "65 mph"], "answer": 0, "ref": "DE Handbook - SPEED / Speed Limits", "explanation": "On divided roads and roads with four or more lanes the speed limit is 55 mph."}, {"q": "In Delaware, what is the speed limit on Route 1 and Interstate 495?", "options": ["55 mph", "65 mph", "70 mph"], "answer": 1, "ref": "DE Handbook - SPEED / Speed Limits", "explanation": "On Route 1 and I-495 the speed limit is 65 mph; this is the highest common limit in the state."}, {"q": "Under the General Speed Restriction, if road and weather conditions are unfavorable, what should you do?", "options": ["You may go as fast as the posted limit", "You must reduce speed to what is reasonable for the conditions", "You may only drive at the limit during the day"], "answer": 1, "ref": "DE Handbook - SPEED / General Speed Restriction", "explanation": "Traffic law requires you not to travel at a speed unreasonable under the current conditions; the posted limit is not always legal."}, {"q": "What color background do advisory speed signs have and what do they indicate?", "options": ["White background, legally required limit", "Yellow background, warning that conditions may be unsafe", "Green background, target direction"], "answer": 1, "ref": "DE Handbook - SPEED / Speed Signs", "explanation": "Advisory speed signs are black on yellow and warn that conditions may make speed dangerous; even if not a special limit, exceeding them creates liability in a crash."}, {"q": "At a 4-way stop intersection, if two vehicles arrive at the same time, who has priority?", "options": ["The vehicle on the left", "The vehicle on the right", "The larger vehicle"], "answer": 1, "ref": "DE Handbook - Right-Of-Way", "explanation": "At a 4-way stop reached at the same time, the vehicle on the right goes first; the first-to-arrive rule yields to right on simultaneity."}, {"q": "A driver turning left must do what regarding oncoming vehicles going straight?", "options": ["Yield to the oncoming vehicle", "May turn first", "Honk and proceed"], "answer": 0, "ref": "DE Handbook - Right-Of-Way", "explanation": "A driver turning left must yield to oncoming vehicles going straight."}, {"q": "When entering a roundabout/traffic circle, to whom do you yield?", "options": ["To drivers already in the circle", "To vehicles coming from the left", "To the newly entering driver"], "answer": 0, "ref": "DE Handbook - Right-Of-Way", "explanation": "A driver entering a rotary or circle must yield to drivers already inside the circle."}, {"q": "When an emergency vehicle (police, fire, ambulance) approaches with siren and flashing red/blue lights, what should you do?", "options": ["Speed up and clear the intersection", "Pull over to the right side/edge and stop", "Slow down in the middle lane"], "answer": 1, "ref": "DE Handbook - Right-Of-Way (Emergency Vehicles)", "explanation": "When an emergency vehicle approaches you must pull over to the right edge of the road and stop and obey instructions; if in an intersection, clear it first."}, {"q": "When a driver pulls out from a garage entrance, alley, or roadside onto a main road, to whom do they yield?", "options": ["To vehicles already on the main road", "To vehicles coming from the left", "To no one; they have priority"], "answer": 0, "ref": "DE Handbook - Right-Of-Way", "explanation": "A driver entering a main road from a garage/driveway, alley, or roadside must yield to vehicles already on the main road."}, {"q": "In Delaware, when a school bus has its red lights and stop arm activated, what must an oncoming driver do?", "options": ["Must always stop", "May slow and proceed only if on the opposite side of a road with 4 or more lanes", "May pass without stopping"], "answer": 1, "ref": "DE Handbook - Stopping For School Buses", "explanation": "If you are on the opposite side of a road with four or more lanes you do not stop but proceed slowly; otherwise both directions stop."}, {"q": "What do a school bus's yellow flashing lights mean and about how many seconds before do they come on?", "options": ["Come on about 10 seconds before the red lights, a warning to prepare to stop", "Indicate the bus is broken down", "Only come on at night"], "answer": 0, "ref": "DE Handbook - Stopping For School Buses (Yellow Lights)", "explanation": "The yellow lights come on about 10 seconds before the red lights and warn that a stop/loading is approaching."}, {"q": "In Delaware, what is the first-offense penalty for passing a stopped school bus with red lights flashing?", "options": ["Just a $115 fine, no jail", "$115-$230 fine and/or 30-60 days jail and 1 month license suspension", "Immediate license revocation"], "answer": 1, "ref": "DE Handbook - Stopping For School Buses (Penalties)", "explanation": "For a first offense, a $115-$230 fine, 30-60 days jail, and 1 month suspension of license/driving privilege is provided."}, {"q": "What is the rule regarding pedestrians using a dog or white cane who are blind?", "options": ["They have no right-of-way; you have priority", "They have absolute right-of-way; do not honk", "They have priority only at marked crosswalks"], "answer": 1, "ref": "DE Handbook - Right-Of-Way (Pedestrians)", "explanation": "Pedestrians using a guide dog or white cane have absolute right-of-way; honking may startle and confuse them."}, {"q": "For an adult driver in Delaware, what BAC (blood alcohol concentration) level is conclusive proof of being 'under the influence'?", "options": [".05 or above", ".08 or above", ".10 or above"], "answer": 1, "ref": "DE Handbook - Drinking And Blood Alcohol Concentration", "explanation": "In Delaware, a BAC of .08 or above is conclusive proof the driver is under the influence."}, {"q": "For drivers under 21, what is the zero tolerance BAC threshold?", "options": [".02", ".05", ".08"], "answer": 0, "ref": "DE Handbook - Drinking And Blood Alcohol Concentration (Zero Tolerance)", "explanation": "For drivers under 21, a .02 BAC leads to license revocation under the zero tolerance law."}, {"q": "For a driver operating a commercial motor vehicle (CMV), what BAC level counts as 'under the influence'?", "options": [".04 or above", ".08 or above", ".10 or above"], "answer": 0, "ref": "DE Handbook - Drinking And Blood Alcohol Concentration (Commercial)", "explanation": "For a commercial vehicle driver, a BAC of .04 or above results in disqualification from commercial driving for one year."}, {"q": "If you refuse a chemical (breath/blood) test, what happens to your license in Delaware?", "options": ["Only a fine", "Your license may be revoked", "Nothing happens"], "answer": 1, "ref": "DE Handbook - Drinking And Blood Alcohol Concentration / Implied Consent", "explanation": "Refusing the test can lead to revocation of the license and/or driving privilege for 1-2 years under the Implied Consent law."}, {"q": "In Delaware, for a first DUI offense with BAC under .15 or due to drugs, how many months is the license loss by the DMV?", "options": ["6 months", "12 months", "24 months"], "answer": 1, "ref": "DE Handbook - DUI Penalties For A First Offense", "explanation": "For a first offense with BAC under .15 or due to drugs, the license is taken for 12 months."}, {"q": "About how long does it take for alcohol to reach the brain?", "options": ["5-10 seconds", "20-40 minutes", "2-3 hours"], "answer": 1, "ref": "DE Handbook - If You Drink, When Can You Drive", "explanation": "Alcohol goes from stomach to blood to brain in about 20-40 minutes and begins to affect judgment."}, {"q": "Under Delaware law, what minimum distance must be left when passing a motorcyclist (cyclist)?", "options": ["1 foot", "3 feet", "10 feet"], "answer": 1, "ref": "DE Handbook - Overtaking (Passing) Other Vehicles", "explanation": "When passing a bicyclist leave at least 3 feet (about 1 meter); on multi-lane roads move to an adjacent lane if possible."}, {"q": "In Delaware, when a vehicle wants to overtake another vehicle, from which side must it do so?", "options": ["From the right", "From the left (at a safe distance)", "Equally from both sides"], "answer": 1, "ref": "DE Handbook - Overtaking (Passing) Other Vehicles", "explanation": "The law requires vehicles to pass only on the left, at a safe distance, and return right when clear."}, {"q": "In Delaware, what can a police officer do if they see a passenger not wearing a seat belt?", "options": ["Can only warn, cannot stop", "Can pull the vehicle over for the unbelted/improperly secured passenger", "Can do nothing"], "answer": 1, "ref": "DE Handbook - Use Safety Belts", "explanation": "Delaware law requires all passengers to wear belts and an officer can pull the vehicle over for an unbelted passenger (primary enforcement)."}, {"q": "By what proportion does using a seat belt reduce the risk of death or serious injury?", "options": ["About half", "Very little, 5%", "One third"], "answer": 0, "ref": "DE Handbook - Use Safety Belts", "explanation": "Studies show wearing a seat belt reduces the chance of death or serious injury by nearly half."}, {"q": "In Delaware, how must children under 2 years AND under 30 pounds be transported?", "options": ["In a forward-facing seat", "In a rear-facing car seat", "With just a seat belt"], "answer": 1, "ref": "DE Handbook - Use Child Restraints (Car Seats)", "explanation": "The law requires children under 2 AND under 30 pounds to be transported in a rear-facing car seat."}, {"q": "In Delaware, for children under 4 years AND under 40 pounds, which restraint applies?", "options": ["May only sit in the front seat", "Must be transported in a harnessed car seat", "No belt needed"], "answer": 1, "ref": "DE Handbook - Use Child Restraints (Car Seats)", "explanation": "Children under 4 AND under 40 pounds must be transported in a harnessed car seat."}, {"q": "In a vehicle with air bags, is it necessary to wear a seat belt?", "options": ["No, the air bag is enough", "Yes, the belt and air bag work together", "Only on highways"], "answer": 1, "ref": "DE Handbook - Use Safety Belts", "explanation": "Seat belts work with air bags; air bags do not protect in side or rollover crashes, so the belt is required."}, {"q": "In Delaware, the pentagon (5-sided), black-on-yellow sign marking a school zone warns of what?", "options": ["Only school zones and school crossings", "A railroad crossing", "A dangerous curve"], "answer": 0, "ref": "DE Handbook - Warning Signs (School)", "explanation": "The black-on-yellow pentagon is used only to warn of schools and school crossings; slow down and watch for children when approaching."}, {"q": "What does the round, black-on-yellow sign indicating you are approaching a railroad crossing mean?", "options": ["School zone", "Advance warning of a railroad crossing", "Stop sign"], "answer": 1, "ref": "DE Handbook - Warning Signs (Highway-Rail)", "explanation": "The round black-on-yellow 'X' and 'RR' sign is an advance warning that you are approaching a railroad crossing."}, {"q": "The only octagonal (8-sided) sign you see on the road is which?", "options": ["Yield", "Stop", "Speed limit"], "answer": 1, "ref": "DE Handbook - Regulatory Signs (Stop)", "explanation": "The Stop sign is the only octagonal sign on the road; it is red with white lettering and requires a full stop."}, {"q": "In work zones, what color and shape are most traffic warning signs?", "options": ["Yellow and diamond-shaped", "Orange and diamond-shaped", "Green and rectangular"], "answer": 1, "ref": "DE Handbook - WORK ZONES / Warning Signs", "explanation": "Most work zone signs are orange and diamond-shaped; a few are rectangular."}, {"q": "What color scheme do road guide signs generally have?", "options": ["White lettering on green background", "Black lettering on yellow background", "Red lettering on white background"], "answer": 0, "ref": "DE Handbook - Guide Signs", "explanation": "Guide signs are mostly rectangles with white lettering on a green background and give direction/road information."}, {"q": "What does a reserved lane marked 'HOV' mean?", "options": ["Bus only", "High Occupancy Vehicles - vehicles carrying a specified number of people", "Bicycle only"], "answer": 1, "ref": "DE Handbook - Reserved Lanes (HOV)", "explanation": "HOV means 'High Occupancy Vehicles'; the sign states how many people are required and the days/hours in effect (e.g., HOV 3 = at least 3 people)."}, {"q": "At a steady red light, when may a right turn be made in Delaware?", "options": ["Never allowed", "After a full stop, if no sign or red arrow prohibits it", "Only at night"], "answer": 1, "ref": "DE Handbook - Understanding Traffic Signals (Steady Red)", "explanation": "After a full stop, a right turn may be made if no sign or steady red arrow prohibits it; turn carefully when safe."}, {"q": "What does a flashing red light mean?", "options": ["Slow down and proceed with caution", "Same as a stop sign; full stop, proceed when safe", "Speed limit"], "answer": 1, "ref": "DE Handbook - Understanding Traffic Signals (Flashing Red)", "explanation": "A flashing red light has the same meaning as a stop sign; come to a full stop and proceed when safe."}, {"q": "In Delaware, when making a turn or lane change by hand or signal light, how many feet ahead must you signal?", "options": ["100 feet", "300 feet", "500 feet"], "answer": 1, "ref": "DE Handbook - SOME IMPORTANT DELAWARE LAWS / Signaling", "explanation": "The law requires you to signal at least 300 feet before the intended maneuver."}, {"q": "In Delaware, is talking/writing messages on a hand-held cell phone prohibited?", "options": ["No, it is permitted", "Yes, prohibited; hands-free must be used", "Prohibited only on highways"], "answer": 1, "ref": "DE Handbook - Cell Phone/Hand-Held Electronic Device Use While Driving", "explanation": "Delaware law prohibits using a hand-held cell phone and texting while driving; a hands-free device is required."}, {"q": "When approaching a stopped emergency vehicle (e.g., police/fire/DelDOT/tow truck), what does the Move Over law require?", "options": ["Nothing, pass at normal speed", "Change lanes to yield if possible, or slow to a safe speed if you cannot change lanes", "Just honk"], "answer": 1, "ref": "DE Handbook - Move Over Laws", "explanation": "The Move Over law requires, when approaching a stopped emergency vehicle, changing a lane to yield if possible, or slowing to a safe speed if not."}, {"q": "On a two-lane road, when passing a stopped emergency vehicle at the roadside, how should speed be adjusted?", "options": ["Stay at the posted limit", "Slow below the posted limit until fully passed", "Speed up"], "answer": 1, "ref": "DE Handbook - Move Over Laws (Two-lane Roadway)", "explanation": "On a two-lane road you must slow below the posted limit until the stopped vehicle is fully passed."}, {"q": "Reversible lanes are marked with which line, and what does a red 'X' light mean?", "options": ["Double broken yellow line; red X shows you may not use that lane", "Single broken white line; red X is a speed limit", "Blue line; red X means stop"], "answer": 0, "ref": "DE Handbook - Reversible Lanes", "explanation": "Reversible lanes are marked with double broken yellow lines; a red 'X' light shows you may not use that lane, a green arrow shows you may."}, {"q": "In a roundabout, which direction does traffic travel and what is the rule regarding vehicles inside?", "options": ["Clockwise; no yielding to those inside", "Counterclockwise; yield to traffic already inside", "Both directions free"], "answer": 1, "ref": "DE Handbook - Roundabouts", "explanation": "In a roundabout, traffic travels counterclockwise around the center island and you yield to traffic already inside."}, {"q": "What is a shared center lane used for?", "options": ["Only for acceleration", "For left turns (or permitted U-turns) from either direction", "Only for bicycles"], "answer": 1, "ref": "DE Handbook - Shared Center Lane", "explanation": "The shared center lane is reserved for vehicles from either direction to make a left turn (or permitted U-turn)."}, {"q": "How far from a crosswalk or stop sign/traffic light at an intersection may you not park?", "options": ["30 feet", "20 feet", "50 feet"], "answer": 0, "ref": "DE Handbook - Stopping And Parking Violations", "explanation": "You may not park within 30 feet of a flashing beacon, stop sign, or traffic light; or within 20 feet of a crosswalk at an intersection."}, {"q": "How far from a railroad crossing may you not park (unless otherwise indicated)?", "options": ["30 feet", "50 feet", "75 feet"], "answer": 1, "ref": "DE Handbook - Stopping And Parking Violations", "explanation": "Parking within 50 feet (about 15 meters) of a railroad crossing is prohibited unless otherwise indicated."}, {"q": "When parallel parking in Delaware, how far from the curb may the vehicle be at most?", "options": ["6 inches", "12 inches", "24 inches"], "answer": 1, "ref": "DE Handbook - PARKING (Parallel Parking)", "explanation": "When parallel parking the vehicle must be at most 12 inches (about 30 cm) from the curb."}, {"q": "When parking downhill, which way should the front wheels be turned?", "options": ["Toward the curb or road edge", "Toward the road (uphill)", "Straight ahead"], "answer": 0, "ref": "DE Handbook - Parking on Hill", "explanation": "When parking downhill the front wheels should be turned toward the curb or the edge of the road."}, {"q": "In Delaware, who may park in a 'Handicapped Parking' space?", "options": ["Anyone for a short time", "Only vehicles with a handicapped plate or a handicapped tag hanging from the mirror", "Only package delivery vehicles"], "answer": 1, "ref": "DE Handbook - PARKING (Handicapped Parking)", "explanation": "Only a vehicle with a handicapped plate or a handicapped ID card hanging from the mirror may park in a handicapped space; otherwise it is illegal."}, {"q": "On a road with two or more lanes in the same direction, which lane should you use for normal driving?", "options": ["The right lane (except when passing)", "The far left lane", "The middle lane always"], "answer": 0, "ref": "DE Handbook - General Rules (Lane Use)", "explanation": "On a road with two or more lanes in the same direction, use the right lane except when passing; the left lane is for passing slower vehicles."}, {"q": "What do yellow road lines show?", "options": ["Traffic in the same direction", "Separate traffic going in opposite directions", "Only the bicycle lane"], "answer": 1, "ref": "DE Handbook - Pavement Markings (Yellow)", "explanation": "Yellow lines separate traffic going in opposite directions; a broken yellow line permits passing if safe, a double solid yellow permits neither side to pass."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

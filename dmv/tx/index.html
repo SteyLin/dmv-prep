@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Texas <span class="em">DMV Practice</span></h1>
     <p class="sub">Free TX permit and license practice test — 54 questions from the official Texas driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "tx";
 const STATE_DATA = {"name": "Texas (TX DPS)", "source": "Official TX Driver Handbook / TX DPS (public domain)", "questions": [{"q": "What is the maximum speed limit in an urban district (unless otherwise posted) in Texas?", "options": ["30 mph", "45 mph", "55 mph"], "answer": 0, "ref": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)", "explanation": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)"}, {"q": "What is the speed limit in an alley in Texas (unless otherwise posted)?", "options": ["25 mph", "15 mph", "30 mph"], "answer": 1, "ref": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)", "explanation": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)"}, {"q": "In Texas, at what blood alcohol concentration (BAC) is a driver age 21 or older considered legally intoxicated?", "options": ["0.05 or more", "0.08 or more", "0.10 or more"], "answer": 1, "ref": "TX Driver Handbook - Chapter 10: Alcohol and Drug Impact / Know Your Legal Limit", "explanation": "TX Driver Handbook - Chapter 10: Alcohol and Drug Impact / Know Your Legal Limit"}, {"q": "Who is required to wear a safety belt in a passenger vehicle in Texas?", "options": ["Only the driver and front-seat passengers", "The driver and all passengers, regardless of age, if occupying a seat with a safety belt", "Only passengers under 18 years of age"], "answer": 1, "ref": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts", "explanation": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts"}, {"q": "A child under 8 years old must be secured in a federally approved child car seat in Texas unless the child is taller than what height?", "options": ["4 feet 9 inches", "4 feet 0 inches", "5 feet 2 inches"], "answer": 0, "ref": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts", "explanation": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts"}, {"q": "At an intersection not controlled by signs, signals, or lane markings, which vehicle must be yielded the right-of-way?", "options": ["The vehicle on your left", "The vehicle that has entered or is approaching from your right", "The larger vehicle"], "answer": 1, "ref": "TX Driver Handbook - Chapter 4: Right-of-Way at Intersections", "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way at Intersections"}, {"q": "When turning left in Texas, you must always yield the right-of-way to whom?", "options": ["Any vehicle coming straight through from the other direction", "Pedestrians only", "Vehicles behind you"], "answer": 0, "ref": "TX Driver Handbook - Chapter 4: Right-of-Way / Turning Left", "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way / Turning Left"}, {"q": "If you approach a school bus from either direction and it is displaying alternately flashing red lights, what must you do?", "options": ["Slow down and pass carefully", "Stop and not pass until the bus resumes motion", "Honk and continue"], "answer": 1, "ref": "TX Driver Handbook - Chapter 4: Yield Right-of-Way to School Buses", "explanation": "TX Driver Handbook - Chapter 4: Yield Right-of-Way to School Buses"}, {"q": "When required to stop at a railroad grade crossing, where must you stop?", "options": ["Between 15 and 50 feet from the nearest rail", "At least 5 feet from the nearest rail", "Directly on the crossing"], "answer": 0, "ref": "TX Driver Handbook - Chapter 4: Right-of-Way (Railroad Grade Crossings)", "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way (Railroad Grade Crossings)"}, {"q": "A school zone speed limit sign (e.g., SCHOOL SPEED LIMIT 20) is in effect at what time?", "options": ["24 hours a day", "Only when the yellow light is flashing", "Only on weekends"], "answer": 1, "ref": "TX Driver Handbook - Chapter 5: Signals, Signs, and Markers (Regulatory and Warning Signs)", "explanation": "TX Driver Handbook - Chapter 5: Signals, Signs, and Markers (Regulatory and Warning Signs)"}, {"q": "On most Texas highways outside urban districts the default speed limit is:", "options": ["70 mph", "55 mph", "45 mph"], "answer": 0, "ref": "TX Speed", "explanation": "Many rural highways default to 70 mph, and some to 75 mph whereposted."}, {"q": "Texas uses which side of the road?", "options": ["Right-hand side", "Left-hand side", "Either"], "answer": 0, "ref": "TX Rules", "explanation": "Texas, like the rest of the US, drives on the right; overtake on the left."}, {"q": "What is the legal BAC limit for adult drivers in Texas?", "options": ["0.08%", "0.05%", "0.00%"], "answer": 0, "ref": "TX DUI", "explanation": "For drivers 21+, the limit is 0.08% BAC; zero for minors."}, {"q": "A Texas driver under 21 with any detectable alcohol (DUI minor) faces:", "options": ["A fine, license suspension and possible jail", "No penalty", "Only a warning"], "answer": 0, "ref": "TX DUI", "explanation": "Texas has zero tolerance for under-21 drinking and driving."}, {"q": "When may you turn right on red in Texas?", "options": ["After a full stop, if no sign prohibits it", "Never", "Only on highways"], "answer": 0, "ref": "TX Turns", "explanation": "Turn right after stopping unless a sign forbids it and the way is clear."}, {"q": "A steady red light means:", "options": ["Stop and wait for green", "Go if no police", "Slow down"], "answer": 0, "ref": "TX Signals", "explanation": "Red means stop behind the line until the light is green."}, {"q": "A flashing yellow light means:", "options": ["Proceed with caution", "Stop fully", "Speed up"], "answer": 0, "ref": "TX Signals", "explanation": "Flashing yellow tells you to slow and go carefully."}, {"q": "At a 4-way stop, who goes first?", "options": ["The first driver to stop", "The largest vehicle", "Whoever honks"], "answer": 0, "ref": "TX Right of Way", "explanation": "At a 4-way stop, the first to arrive proceeds first; if tied, yield right."}, {"q": "When two cars reach an intersection at the same time, who yields?", "options": ["The driver on the left yields to the right", "The driver on the right yields", "Nobody"], "answer": 0, "ref": "TX Right of Way", "explanation": "Yield to the vehicle on your right at an uncontrolled intersection."}, {"q": "Texas 'Move Over' law requires drivers to:", "options": ["Move over or slow down for stopped emergency vehicles", "Speed past", "Ignore them"], "answer": 0, "ref": "TX Move Over", "explanation": "Move over a lane or slow down for stopped police, fire, EMS and tow trucks."}, {"q": "You must stop for a school bus with flashing red lights:", "options": ["In both directions unless divided by a barrier", "Only if behind it", "Never on highways"], "answer": 0, "ref": "TX School Bus", "explanation": "On undivided roads all traffic stops; on divided roads only same-direction traffic stops."}, {"q": "The minimum learner permit age in Texas is:", "options": ["15 years", "14 years", "16 years"], "answer": 0, "ref": "TX Licensing", "explanation": "Texas issues a learner license at 15 (with driver education)."}, {"q": "A Texas teen with a learner license must be supervised by a licensed driver aged at least:", "options": ["21 years", "16 years", "18 years"], "answer": 0, "ref": "TX Licensing", "explanation": "A licensed driver 21+ must ride in the front seat with a learner."}, {"q": "Texas requires headlights from:", "options": ["30 minutes after sunset to 30 before sunrise", "Noon only", "Never"], "answer": 0, "ref": "TX Lights", "explanation": "Use headlights from dusk to dawn and in poor visibility."}, {"q": "When parking downhill with a curb, turn your wheels:", "options": ["Toward the curb", "Away from the curb", "Straight"], "answer": 0, "ref": "TX Parking", "explanation": "Curb the front wheels so the car rolls into the curb if it moves."}, {"q": "A solid yellow line on your side of the centre means:", "options": ["No passing", "Pass freely", "Bus lane"], "answer": 0, "ref": "TX Markings", "explanation": "A solid yellow on your side prohibits crossing to pass."}, {"q": "A broken white line separates:", "options": ["Lanes of traffic moving the same direction", "Opposite directions", "A bike lane"], "answer": 0, "ref": "TX Markings", "explanation": "Broken white lines separate same-direction lanes; change with care."}, {"q": "What does a red octagonal sign mean?", "options": ["Stop", "Yield", "Speed limit"], "answer": 0, "ref": "TX Signs", "explanation": "The red octagon is the STOP sign; stop fully at the line."}, {"q": "What does a red triangle with an exclamation mark warn of?", "options": ["A hazard ahead", "A stop", "A hospital"], "answer": 0, "ref": "TX Signs", "explanation": "Red triangles warn of hazards such as curves or crossings."}, {"q": "What does a yellow diamond sign indicate?", "options": ["A warning of a specific hazard", "A speed limit", "A direction"], "answer": 0, "ref": "TX Signs", "explanation": "Diamond signs warn of road hazards like deer or bumps."}, {"q": "A green sign gives:", "options": ["Direction and distance information", "Warnings", "Stops"], "answer": 0, "ref": "TX Signs", "explanation": "Green signs guide with route numbers and destinations."}, {"q": "What does a flashing red light at a crossing mean?", "options": ["Stop, then go when safe", "Slow down", "Ignore"], "answer": 0, "ref": "TX Signals", "explanation": "Flashing red is treated like a stop sign."}, {"q": "When approaching a railroad crossing with flashing lights you must:", "options": ["Stop and wait until safe", "Look then go quickly", "Speed up"], "answer": 0, "ref": "TX Rail", "explanation": "Stop for flashing lights or a descending gate; trains cannot stop quickly."}, {"q": "If your vehicle breaks down on a highway you should:", "options": ["Pull off the road, use hazard lights, call for help", "Stand in the lane", "Keep driving"], "answer": 0, "ref": "TX Breakdown", "explanation": "Get off the roadway, warn others and call for assistance."}, {"q": "You must yield to pedestrians:", "options": ["In crosswalks and at intersections", "Only on green", "Never"], "answer": 0, "ref": "TX Pedestrians", "explanation": "Pedestrians in crosswalks have the right of way."}, {"q": "Texas child passengers must use an approved restraint until:", "options": ["8 years old or 4'9\" tall", "2 years old", "12 years old"], "answer": 0, "ref": "TX Child Safety", "explanation": "Children need a car seat or booster until age 8 or 4'9\"."}, {"q": "What is the speed limit in a Texas school zone when active?", "options": ["20 mph (or as posted)", "45 mph", "35 mph"], "answer": 0, "ref": "TX School Zone", "explanation": "School zones drop to 20 mph (or posted) when children are present/lights flash."}, {"q": "When being passed you should:", "options": ["Keep your speed and stay right", "Speed up", "Move left"], "answer": 0, "ref": "TX Overtaking", "explanation": "Don't speed up; hold steady and let the passer finish."}, {"q": "A vehicle turning left must yield to:", "options": ["Oncoming traffic going straight", "Pedestrians only", "Nobody"], "answer": 0, "ref": "TX Turns", "explanation": "A left turn crosses oncoming traffic, so yield to straight-moving vehicles."}, {"q": "What should you do in heavy fog?", "options": ["Slow down and use low beams", "Use high beams", "Speed up"], "answer": 0, "ref": "TX Weather", "explanation": "Low beams cut glare in fog; high beams reflect back."}, {"q": "If you skid on a wet road you should:", "options": ["Steer gently toward where you want to go", "Brake hard", "Accelerate"], "answer": 0, "ref": "TX Weather", "explanation": "Ease off and steer smoothly; avoid hard braking."}, {"q": "In Texas, using a handheld phone while driving is banned for:", "options": ["Drivers in school zones and bus operators, and texting is banned for all", "Nobody", "Only learners"], "answer": 0, "ref": "TX Distraction", "explanation": "Handheld use is restricted in school zones and for bus drivers; texting is banned for all."}, {"q": "When parking on a hill without a curb you should turn wheels:", "options": ["Toward the side of the road", "Toward traffic", "Straight"], "answer": 0, "ref": "TX Parking", "explanation": "Turn wheels toward the shoulder so the car rolls off the road, not into it."}, {"q": "What is the purpose of an advisory curve speed sign?", "options": ["A safe suggested speed for the curve", "A legal maximum", "A minimum"], "answer": 0, "ref": "TX Signs", "explanation": "Advisory speeds recommend a safe pace through curves and ramps."}, {"q": "A blue sign with an 'H' shows:", "options": ["Hospital / medical services", "Highway", "Hazard"], "answer": 0, "ref": "TX Signs", "explanation": "Blue service signs point to hospitals and help."}, {"q": "If you are in a collision you must:", "options": ["Stop, help and exchange information", "Leave if minor", "Hide"], "answer": 0, "ref": "TX Crashes", "explanation": "Stop, check for injuries, call 911 if needed and swap details."}, {"q": "A round sign with a red ring and white bar means:", "options": ["Do not enter", "Yield", "Stop"], "answer": 0, "ref": "TX Signs", "explanation": "The round red-and-white bar is a 'do not enter' sign."}, {"q": "When a traffic signal is dark (power out) you should treat it as:", "options": ["A 4-way stop", "A green light", "Ignore it"], "answer": 0, "ref": "TX Signals", "explanation": "A dark signal is treated like a stop sign; proceed when safe."}, {"q": "Texas minimum tyre tread depth is:", "options": ["2/32 of an inch", "1/8 of an inch", "1/2 inch"], "answer": 0, "ref": "TX Vehicle", "explanation": "Tyres must have at least 2/32 inch tread to be legal."}, {"q": "When merging onto a freeway you should:", "options": ["Accelerate on the ramp and merge with a gap", "Stop at the end", "Force in"], "answer": 0, "ref": "TX Merging", "explanation": "Build speed on the ramp and merge smoothly with traffic."}, {"q": "A flashing yellow arrow means:", "options": ["Left turn permitted after yielding", "Stop", "Go straight"], "answer": 0, "ref": "TX Signals", "explanation": "A flashing yellow arrow allows a left turn after yielding to oncoming traffic."}, {"q": "In Texas, headlights must also be on when:", "options": ["Wipers are in use (if required by local rule) or low visibility", "Only at night", "Never"], "answer": 0, "ref": "TX Lights", "explanation": "Use lights whenever visibility is poor, including heavy rain."}, {"q": "What does a white rectangular sign with black letters usually give?", "options": ["A regulation or instruction", "A warning", "A direction only"], "answer": 0, "ref": "TX Signs", "explanation": "White rectangular signs state laws and regulations."}, {"q": "When sharing the road with a large truck you should:", "options": ["Avoid its blind spots and give room", "Tailgate", "Cut in front closely"], "answer": 0, "ref": "TX Large Vehicles", "explanation": "Trucks have big blind spots and long stopping distances; don't linger beside them."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

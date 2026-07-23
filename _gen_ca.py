@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generates /ca/ Canada knowledge practice page (country mode).
-Does NOT touch existing dmv/ state pages, uk/, or any other file.
-Reuses the same COMMON_CSS + AdSense Auto-ads pattern as _gen_uk.py.
+Timed Mock Exam + Review Wrong Answers added. JS kept OUTSIDE the f-string
+to avoid brace-escaping pitfalls. Reuses COMMON_CSS + AdSense Auto-ads.
 """
 import os, json, importlib.util
 
@@ -38,6 +38,11 @@ COMMON_CSS = """
   .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
   .breadcrumb a{text-decoration:none;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
+
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
   .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
   .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
@@ -60,18 +65,124 @@ COMMON_CSS = """
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
 """
 
+# JS kept as a plain string (no f-string) so { } are literal.
+JS = r"""
+const STATE_KEY = "__STATE_KEY__";
+const STATE_DATA = __STATE_JSON__;
+const QS = STATE_DATA.questions;
+let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
+function render(){
+  const q=QS[idx];
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=function(){ choose(i); };
+    opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
+}
+
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
+};
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
+function finish(){
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
+  const total=QS.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
+}
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
+
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+"""
+
 def page_html(data):
     st = data
     full = "Canada (G1 / Class 7)"
     nq = len(st["questions"])
-    title = f"Canada Driving Knowledge Practice Test — Free G1 / Class 7 Prep | DriveReady Hub"
-    desc = f"Free Canada driver knowledge practice test with {nq} questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers — 100% free."
+    title = "Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub"
+    desc = "Free Canada driver knowledge practice test with " + str(nq) + " questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers - 100% free."
     canonical = "https://drivereadyhub.com/ca/"
     ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Canada driving knowledge test"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 
-    return f'''<!DOCTYPE html>
+    js = JS.replace("__STATE_KEY__", "ca").replace("__STATE_JSON__", json.dumps(st))
+    extra = """
+/* Theme toggle */
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+"""
+    gtrans = """
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+"""
+    head = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -110,8 +221,13 @@ def page_html(data):
   <div class="breadcrumb"><a href="/">Home</a> &middot; <strong>Canada Driving Knowledge</strong></div>
   <header>
     <h1>Canada <span class="em">Knowledge Practice</span></h1>
-    <p class="sub">Free G1 / Class 7 style knowledge test — {nq} questions covering signs, speed limits (km/h), winter driving, and licensing.</p>
+    <p class="sub">Free G1 / Class 7 style knowledge test - {nq} questions covering signs, speed limits (km/h), winter driving, and licensing.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -136,6 +252,7 @@ def page_html(data):
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All Tests</button>
     </div>
   </div>
@@ -147,77 +264,23 @@ def page_html(data):
     <span style="margin:0 8px;">·</span>
     <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
     <br>
-    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+    DriveReady Hub - Informational only. Not affiliated with any DMV or government agency.
   </div>
 </div>
 
 <script>
-const STATE_KEY = "ca";
-const STATE_DATA = {json.dumps(st)};
+{js}
 </script>
 <script>
-/* Quiz logic (scoped to Canada) */
-const QS = STATE_DATA.questions;
-let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
-const quiz=document.getElementById('quiz');
-const done=document.getElementById('done');
-function render(){{
-  const q=QS[idx];
-  document.getElementById('qProg').textContent=`${{idx+1}} / ${{QS.length}}`;
-  document.getElementById('qCount').textContent=`Question ${{idx+1}} of ${{QS.length}}`;
-  let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${{idx+1}}">${{idx+1}}. ${{q.q}}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
-    if(picks[idx]===i) b.classList.add('sel');
-    if(answered[idx]){{
-      if(i===q.answer) b.classList.add('correct');
-      else if(i===picks[idx]) b.classList.add('wrong');
-      b.disabled=true;
-    }}
-    b.onclick=()=>choose(i);
-    opts.appendChild(b);
-  }});
-  if(answered[idx] && q.explanation){{
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }}
-  document.getElementById('prevBtn').disabled = idx===0;
-  document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
-}}
-function choose(i){{ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }}
-document.getElementById('nextBtn').onclick=()=>{{
-  if(!answered[idx]){{alert('Please select an answer.');return;}}
-  if(idx<QS.length-1){{idx++;render();}} else finish();
-}};
-document.getElementById('prevBtn').onclick=()=>{{ if(idx>0){{idx--;render();}} }};
-function finish(){{
-  let correct=0; QS.forEach((q,i)=>{{ if(picks[i]===q.answer) correct++; }});
-  const total=QS.length; const pct=Math.round(correct/total*100);
-  quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${{correct}} / ${{total}}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range — nice work!` : `${{pct}}% correct. Keep studying the handbook and try again.`;
-}}
-document.getElementById('retryBtn').onclick=()=>{{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); }};
-document.getElementById('homeBtn').onclick=()=>{{ window.location.href='/'; }};
-render();
+{extra}
 </script>
 <script>
-/* Theme toggle */
-const themeBtn=document.getElementById('themeBtn');
-function applyTheme(t){{document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{{localStorage.setItem('dmvTheme',t);}}catch(e){{}} }}
-let savedTheme='light'; try{{savedTheme=localStorage.getItem('dmvTheme')||'light';}}catch(e){{}} applyTheme(savedTheme);
-themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
-</script>
-<script>
-function googleTranslateElementInit(){{ new google.translate.TranslateElement({{pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE}},'google_translate_element'); }}
+{gtrans}
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>'''
+    return head
 
 if __name__ == "__main__":
     spec = importlib.util.spec_from_file_location("cadata", os.path.join(ROOT, "_ca_data.py"))

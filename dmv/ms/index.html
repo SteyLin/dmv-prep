@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Mississippi <span class="em">DMV Practice</span></h1>
     <p class="sub">Free MS permit and license practice test — 50 questions from the official Mississippi driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "ms";
 const STATE_DATA = {"name": "Mississippi (MS DPS)", "source": "Official MS Driver Manual (public domain)", "questions": [{"q": "What is the minimum age to apply for a Regular Learner's Permit in Mississippi?", "options": ["15 years old", "16 years old", "14 years old"], "answer": 0, "ref": "Types of Licenses & Permits - Regular Learner's Permit", "explanation": "You must be at least fifteen years old to apply for a Regular Learner's Permit."}, {"q": "How long must you hold a Learner's Permit before upgrading to a Class R license (if you do not turn 17 first)?", "options": ["6 months", "1 year", "2 years"], "answer": 1, "ref": "Types of Licenses & Permits - Regular Learner's Permit", "explanation": "You must hold the Learner's Permit for one year before upgrading, unless you turn seventeen first."}, {"q": "A Learner's Permit holder must be accompanied by a licensed driver who is at least how old, sitting next to them?", "options": ["18 years old", "21 years old", "25 years old"], "answer": 1, "ref": "Types of Licenses & Permits - Regular Learner's Permit", "explanation": "The permit entitles you to drive only when accompanied by a licensed driver aged 21 or older physically occupying the seat next to you."}, {"q": "How long is your Computerized Exam score valid?", "options": ["1 year", "2 years", "6 months"], "answer": 1, "ref": "The Examination", "explanation": "Your Computerized Exam score is valid for two years before you must retake it."}, {"q": "If you move to Mississippi, within how many days must you obtain a Mississippi driver's license?", "options": ["30 days", "60 days", "90 days"], "answer": 1, "ref": "Out-of-State Drivers: Moving to Mississippi", "explanation": "You must obtain a Mississippi driver's license within sixty days of moving to the state."}, {"q": "After moving to Mississippi, within how many days must you obtain a Mississippi license plate/tag?", "options": ["10 days", "30 days", "60 days"], "answer": 1, "ref": "Out-of-State Drivers: Moving to Mississippi", "explanation": "You must obtain a Mississippi license plate/tag within thirty days."}, {"q": "If you have a valid driver's license from another state, what happens to the Computerized Exam?", "options": ["It is required", "It is waived (you must still pass a vision screening)", "It is optional"], "answer": 1, "ref": "Out-of-State Drivers: Moving to Mississippi", "explanation": "With a valid out-of-state license the Computerized Exam is waived, but you must pass a vision screening."}, {"q": "If you are 17 years old or older when you first apply, you may:", "options": ["Only get a Learner's Permit first", "Apply directly for a Regular Driver's License", "Only apply after holding a permit 1 year"], "answer": 1, "ref": "Regular Driver's License (Class R)", "explanation": "At age seventeen or older you may apply directly for a Regular Driver's License and take the exam the same day."}, {"q": "What may happen if you make a false statement on your driver's license application?", "options": ["You receive only a warning", "Your driving privileges may be suspended", "You pay a small fine only"], "answer": 1, "ref": "Application Requirements - Signatures", "explanation": "If you make a false statement on the application, your driving privileges may be suspended."}, {"q": "If you are under 18, the Certification of Attendance form must not be older than:", "options": ["30 days", "60 days", "90 days"], "answer": 0, "ref": "Certification of Attendance", "explanation": "The Certification of Attendance form must not be over thirty days old."}, {"q": "If you are 18 or older applying for an original license, how many proofs of residency are required?", "options": ["One", "Two", "None"], "answer": 1, "ref": "Proof of Residency", "explanation": "You must show two pieces of documentation proving residency; each must show a physical address (no P.O. boxes)."}, {"q": "A Class D license is required to operate a commercial vehicle under what gross vehicle weight rating?", "options": ["10,000 pounds", "26,000 pounds", "40,000 pounds"], "answer": 1, "ref": "Class D License", "explanation": "A Class D license is required for commercial operation of a vehicle under 26,000 pounds GVWR."}, {"q": "What is the minimum age to be eligible for a license to drive a school bus in Mississippi?", "options": ["18 years old", "21 years old", "25 years old"], "answer": 1, "ref": "School Bus License", "explanation": "You must be at least twenty-one years old to be eligible for a school bus license per the Mississippi Department of Education."}, {"q": "In Mississippi, when operating a motorcycle or motor scooter on public roads, a crash helmet:", "options": ["Must be worn and meet NHTA guidelines", "Is optional", "Is only required on highways"], "answer": 0, "ref": "Motorcycle Endorsement", "explanation": "A crash helmet must be worn and must comply with minimum guidelines established by the National Highway Traffic Administration."}, {"q": "Your vehicle's foot brake must be strong enough to stop the vehicle within:", "options": ["30 feet at 20 mph", "55 feet at 20 mph", "30 feet at 40 mph"], "answer": 0, "ref": "Vehicle Equipment - Brakes", "explanation": "The foot brake must stop the vehicle within thirty feet at a speed of twenty miles per hour."}, {"q": "Your vehicle's horn must be audible from a distance of:", "options": ["100 feet", "200 feet", "500 feet"], "answer": 1, "ref": "Vehicle Equipment - Horn", "explanation": "The horn must be heard two hundred feet away; sirens and exhaust/spark whistles are illegal."}, {"q": "What color must your taillight be, and how far behind must it be visible?", "options": ["Red, 500 feet", "White, 200 feet", "Amber, 500 feet"], "answer": 0, "ref": "Vehicle Equipment - Lights", "explanation": "The taillight must be red and visible five hundred feet behind the vehicle."}, {"q": "Under Mississippi's Squatted Vehicle Law, it is unlawful if the front fender is raised:", "options": ["2 or more inches above the rear", "4 or more inches above the rear", "6 or more inches above the rear"], "answer": 1, "ref": "Squatted Vehicle Law", "explanation": "It is unlawful if the front fender is raised four or more inches greater than the height of the rear fender."}, {"q": "The recommended hand position on the steering wheel is:", "options": ["2 and 10 o'clock", "3 and 9 o'clock", "12 o'clock"], "answer": 1, "ref": "Before You Drive - While You Drive", "explanation": "Place both hands at the 3 and 9 o'clock positions; 2 and 10 is no longer recommended because of airbags."}, {"q": "The maximum speed in a school zone is:", "options": ["15 mph", "25 mph", "20 mph"], "answer": 0, "ref": "Warning Signs / Legal Speeds - School Zone", "explanation": "The maximum speed for any vehicle in a school zone is 15 mph during recess or when children are arriving/leaving."}, {"q": "Mississippi law requires that drivers and ALL passengers wear seat belts. Children under age 4 must be:", "options": ["In the front seat only", "Secured in a child restraint (car seat)", "Unrestrained if in the back seat"], "answer": 1, "ref": "Seat Belts, Car Seats, and Child Restraints", "explanation": "All passengers front and back must buckle up; children under 4 must be in a child passenger restraint device (car seat)."}, {"q": "At night, you must use your LOW beams when approaching within how many feet of an oncoming vehicle?", "options": ["100 feet", "500 feet", "1,000 feet"], "answer": 1, "ref": "Using Your Headlights", "explanation": "You must use low beams when within 500 feet of an oncoming vehicle or when following within 500 feet of another vehicle."}, {"q": "Which of the following MUST stop at ALL railroad crossings in Mississippi?", "options": ["A school bus carrying even one child", "A pickup truck", "A bicycle"], "answer": 0, "ref": "Railroad Crossings", "explanation": "A school bus carrying even one child, a vehicle for hire carrying passengers, or a vehicle carrying explosives/flammable liquids must stop at all crossings."}, {"q": "You must report a traffic accident to law enforcement if it involves injury, death, or property damage exceeding:", "options": ["$100", "$500", "$1,000"], "answer": 1, "ref": "In Case of an Accident", "explanation": "Report immediately if the accident involves injury, death, or apparent property damage exceeding $500.00."}, {"q": "A solid RED traffic light means you must:", "options": ["Slow down and proceed", "Make a complete stop and remain stopped until green", "Stop only if you are turning"], "answer": 1, "ref": "Traffic Signal Lights", "explanation": "A solid red light means you must make a complete stop and remain stopped until the light turns green."}, {"q": "You may turn right on a red light only after you:", "options": ["Slow down", "Come to a complete stop and yield to traffic and pedestrians", "Flash your headlights"], "answer": 1, "ref": "Traffic Signal Lights", "explanation": "You may turn right on red only after a complete stop and yielding; merely yielding without stopping is illegal."}, {"q": "A solid YELLOW traffic light means:", "options": ["The light will soon turn red; slow down and prepare to stop", "You may speed up", "You have the right of way"], "answer": 0, "ref": "Traffic Signal Lights", "explanation": "A solid yellow light means the light will soon turn red, so slow down and prepare to stop."}, {"q": "A flashing RED traffic light means you must:", "options": ["Slow down and use caution", "Stop completely and proceed with caution, yielding right-of-way", "Ignore it if no one is around"], "answer": 1, "ref": "Traffic Signal Lights", "explanation": "A flashing red light means stop completely and proceed with caution, yielding the right-of-way at intersections."}, {"q": "A flashing YELLOW traffic light means you must:", "options": ["Stop completely", "Slow down and exercise caution", "Speed up to clear the intersection"], "answer": 1, "ref": "Traffic Signal Lights", "explanation": "A flashing yellow light means slow down and exercise caution."}, {"q": "A green ARROW means you may turn in its direction and you have a:", "options": ["Protected turn (oncoming traffic has a red light)", "Unprotected turn (you must yield to oncoming traffic)", "Permission to stop in the intersection"], "answer": 0, "ref": "Traffic Signal Lights", "explanation": "A green arrow gives a protected turn; oncoming traffic has a red light while your arrow is green."}, {"q": "When traffic lanes are controlled by overhead signals, you may ONLY travel in a lane marked with a:", "options": ["Red light", "Green light", "Yellow light"], "answer": 1, "ref": "Lane Direction Control", "explanation": "You may travel ONLY in a lane marked by a green light and never in a lane marked with a red light."}, {"q": "If a police officer is directing traffic at an intersection, you must:", "options": ["Follow the officer's directions over signs/signals", "Follow the traffic signal instead", "Ignore the officer"], "answer": 0, "ref": "Traffic Officers", "explanation": "You must always follow an officer's directions; an officer overrides traffic signs and signals."}, {"q": "The maximum speed limit on Mississippi interstates is:", "options": ["55 mph", "65 mph", "70 mph"], "answer": 2, "ref": "Legal Speeds", "explanation": "The interstate speed limit is 70 mph for both day and night (minimum 40 mph)."}, {"q": "On a two-lane State or U.S. highway in Mississippi, the maximum speed is:", "options": ["55 mph", "65 mph", "70 mph"], "answer": 0, "ref": "Legal Speeds", "explanation": "Two-lane State and U.S. highways have a maximum speed of 55 mph."}, {"q": "The speed limit on the Natchez Trace Parkway is:", "options": ["50 mph", "55 mph", "65 mph"], "answer": 0, "ref": "Legal Speeds", "explanation": "The Natchez Trace Parkway maximum speed is 50 mph."}, {"q": "The basic following-distance rule is one car length of space for every:", "options": ["5 mph of speed", "10 mph of speed", "20 mph of speed"], "answer": 1, "ref": "Following", "explanation": "Allow at least one car length between you for every ten miles per hour of speed."}, {"q": "A double solid yellow line in the center of the roadway means:", "options": ["Passing is allowed in both directions", "No passing from either direction", "Passing is allowed only at night"], "answer": 1, "ref": "Traffic Lanes / Passing Other Vehicles", "explanation": "You may never cross a double yellow line to pass; it means no passing from either direction."}, {"q": "You may legally pass another vehicle on the right when the vehicle ahead is:", "options": ["Making or about to make a left turn", "Going straight", "Speeding"], "answer": 0, "ref": "Passing on the Right", "explanation": "You may pass on the right when the vehicle you are passing is making or about to make a left turn (and other safe conditions apply)."}, {"q": "You should NOT pass within how many feet of a railroad crossing, crosswalk, or intersection?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "Safe Passing Guidelines", "explanation": "Do not pass on hills, curves, or within 100 feet of bridges, railroad crossings, crosswalks, or intersections."}, {"q": "At a four-way stop, who has the right of way?", "options": ["The first vehicle to arrive; if arriving together, the vehicle on the right", "The largest vehicle", "Whoever honks first"], "answer": 0, "ref": "Four-Way Stop", "explanation": "The first vehicle to arrive has right-of-way; if multiple arrive at the same time, the vehicle on the right goes first."}, {"q": "At a two-way stop, traffic on the cross street that has NO stop sign has:", "options": ["The right of way", "To yield to you", "No rules"], "answer": 0, "ref": "Two-Way Stop", "explanation": "At a two-way stop, the cross-traffic with no stop signs has the right of way."}, {"q": "When entering a roundabout (traffic circle), you must:", "options": ["Yield to traffic already circulating and enter counterclockwise", "Yield only to pedestrians", "Enter clockwise"], "answer": 0, "ref": "Roundabouts", "explanation": "Vehicles travel counterclockwise and entering traffic must yield the right-of-way to circulating traffic."}, {"q": "When a school bus has its red lights flashing and/or stop sign extended, you must stop at least:", "options": ["5 feet away", "10 feet away", "20 feet away"], "answer": 1, "ref": "Yielding Right-of-Way to School Buses", "explanation": "You must come to a complete stop at least ten feet away from the bus."}, {"q": "On a divided highway with four or more lanes, if you are traveling the OPPOSITE direction of a stopped school bus, you:", "options": ["Must also stop", "May continue without stopping", "Must slow to 5 mph"], "answer": 1, "ref": "Yielding Right-of-Way to School Buses", "explanation": "On a divided highway you may continue without stopping if traveling in the opposite direction of the stopped bus."}, {"q": "In a crosswalk, pedestrians:", "options": ["Always have the right of way, whether marked or not", "Only have right-of-way if the crosswalk is painted", "Must yield to vehicles"], "answer": 0, "ref": "Yielding Right-of-Way to Pedestrians / Intersections", "explanation": "Pedestrians always have the right of way in crosswalks, whether the crosswalk is marked or not."}, {"q": "Parking is prohibited within how many feet of a fire hydrant?", "options": ["5 feet", "10 feet", "15 feet"], "answer": 1, "ref": "Parking - Prohibited Parking", "explanation": "You may not park within ten feet of a fire hydrant."}, {"q": "When parallel parking, your tires should be within how many inches of the curb?", "options": ["6 inches", "12 inches", "18 inches"], "answer": 1, "ref": "Parallel Parking", "explanation": "For parallel parking, tires should be within twelve inches of the curb."}, {"q": "When parking uphill next to a curb, you should turn your front wheels:", "options": ["Toward the left (away from the curb)", "Toward the right", "Straight ahead"], "answer": 0, "ref": "Parking on a Hill", "explanation": "Uphill with a curb: turn wheels sharply to the left. (Downhill or uphill with no curb: wheels to the right.)"}, {"q": "To report an emergency on a Mississippi interstate or highway by cell phone, you dial:", "options": ["*HP (*47)", "*911", "#MSP"], "answer": 0, "ref": "In Case of an Accident / Emergency", "explanation": "Dial *HP (*47) on a cellular phone to reach a Mississippi Highway Patrol dispatcher toll free."}, {"q": "For drivers 21 or older, the blood alcohol concentration (BAC) that defines 'under the influence' is:", "options": [".08% or more", ".02% or more", ".05% or more"], "answer": 0, "ref": "Driving Under the Influence & Implied Consent", "explanation": "For drivers 21+, a BAC of .08% or more is 'under the influence.' (Under 21: .02% or more - zero tolerance.)"}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

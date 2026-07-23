@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Arkansas <span class="em">DMV Practice</span></h1>
     <p class="sub">Free AR permit and license practice test — 52 questions from the official Arkansas driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "ar";
 const STATE_DATA = {"name": "Arkansas (AR DFA/ASP)", "source": "Official Arkansas Driver License Study Guide (Vol 1 Ed 8, July 2023, public domain)", "questions": [{"q": "Under Arkansas's primary seat belt law (effective June 30, 2009), a driver or front-seat passenger who is not buckled up can be stopped and fined up to:", "options": ["$25.00", "$100.00", "$250.00"], "answer": 0, "ref": "AR Study Guide - Arkansas Seat Belt Law", "explanation": "AR Study Guide - Arkansas Seat Belt Law"}, {"q": "Under Arkansas's Child Passenger Protection Act, a child less than 6 years of age and weighing less than 60 pounds must be:", "options": ["Properly restrained in a child passenger safety seat", "In the front seat with a lap belt", "Unrestrained for short trips"], "answer": 0, "ref": "AR Study Guide - Child Passenger Protection Act", "explanation": "AR Study Guide - Child Passenger Protection Act"}, {"q": "Arkansas law requires all children under the age of 15 to:", "options": ["Wear appropriate safety restraints while the vehicle is in motion", "Only wear belts on highways", "Never wear belts"], "answer": 0, "ref": "AR Study Guide - Child Passenger Protection Act", "explanation": "AR Study Guide - Child Passenger Protection Act"}, {"q": "Arkansas's Protection from Secondhand Smoke law prohibits smoking in a vehicle when a child under age:", "options": ["14 is a passenger", "18 is a passenger", "5 is a passenger"], "answer": 0, "ref": "AR Study Guide - Secondhand Smoke", "explanation": "AR Study Guide - Secondhand Smoke"}, {"q": "Under Arkansas's Move Over Law, when an emergency vehicle approaches with siren/air horn and red or blue flashing lights, you should:", "options": ["Pull over to the right edge of the road or as near to the right as possible", "Speed up", "Stop in the middle of the road"], "answer": 0, "ref": "AR Study Guide - Move Over Law", "explanation": "AR Study Guide - Move Over Law"}, {"q": "On an Arkansas multilane highway, when a law enforcement vehicle is stopped with its lights on, you must move to:", "options": ["The farthest lane away from that vehicle when possible", "The lane closest to it", "The shoulder on the left"], "answer": 0, "ref": "AR Study Guide - Move Over Law / Approaching LE Vehicle", "explanation": "AR Study Guide - Move Over Law / Approaching LE Vehicle"}, {"q": "A violation of Arkansas's Move Over Law can result in a fine up to $1,000, jail time, or:", "options": ["Suspension of the driver's license up to six months", "A warning only", "No penalty"], "answer": 0, "ref": "AR Study Guide - Move Over Law", "explanation": "AR Study Guide - Move Over Law"}, {"q": "In Arkansas, when approaching a stopped school bus with its red lights flashing, you must:", "options": ["Make a complete stop until the lights turn off, regardless of your lane or intersection", "Only stop if you are directly behind it", "Never stop"], "answer": 0, "ref": "AR Study Guide - School Bus Law and Rules", "explanation": "AR Study Guide - School Bus Law and Rules"}, {"q": "Arkansas exempts drivers from stopping for a school bus with red lights flashing only when the bus is on an opposite roadway separated by a median of at least:", "options": ["20 feet or more in width", "5 feet or more in width", "Any painted median"], "answer": 0, "ref": "AR Study Guide - School Bus Law and Rules", "explanation": "AR Study Guide - School Bus Law and Rules"}, {"q": "Failing to stop for a school bus with red lights flashing in Arkansas is a Class A misdemeanor with a fine of at least $500 and up to:", "options": ["$2,500 and/or one year in jail", "$100", "$500 only"], "answer": 0, "ref": "AR Study Guide - School Bus Law and Rules", "explanation": "AR Study Guide - School Bus Law and Rules"}, {"q": "In Arkansas, school buses are required to stop at:", "options": ["All railroad crossings", "Only unmarked crossings", "No crossings"], "answer": 0, "ref": "AR Study Guide - School Bus Law and Rules", "explanation": "AR Study Guide - School Bus Law and Rules"}, {"q": "Under Arkansas's littering law, a first offense can result in a fine up to $1,000 and not more than:", "options": ["Eight hours of community service", "One hour of community service", "No community service"], "answer": 0, "ref": "AR Study Guide - Littering", "explanation": "AR Study Guide - Littering"}, {"q": "Under Arkansas's littering law, a second or subsequent offense within three years can result in a fine up to $2,000 and not more than:", "options": ["Twenty-four hours of community service", "Two hours of community service", "Life in prison"], "answer": 0, "ref": "AR Study Guide - Littering", "explanation": "AR Study Guide - Littering"}, {"q": "In Arkansas, at what minimum age may a person obtain an instruction permit?", "options": ["14 years of age", "16 years of age", "18 years of age"], "answer": 0, "ref": "AR Study Guide - Instruction Permit", "explanation": "AR Study Guide - Instruction Permit"}, {"q": "An Arkansas Learner's License is a restricted license issued to persons between:", "options": ["14 and 16 years of age", "16 and 18 years of age", "18 and 21 years of age"], "answer": 0, "ref": "AR Study Guide - Learner's License", "explanation": "AR Study Guide - Learner's License"}, {"q": "An Arkansas Intermediate License is a restricted license issued to persons between:", "options": ["16 and 18 years of age", "14 and 16 years of age", "21 and 25 years of age"], "answer": 0, "ref": "AR Study Guide - Intermediate License", "explanation": "AR Study Guide - Intermediate License"}, {"q": "A Class D (non-restricted) license in Arkansas is issued to persons:", "options": ["18 years of age or older", "14 years of age or older", "Any age with a permit"], "answer": 0, "ref": "AR Study Guide - Class D License", "explanation": "AR Study Guide - Class D License"}, {"q": "An Arkansas Intermediate License holder may not operate a vehicle between which hours unless accompanied by a licensed driver 21+ or for school/church/job/emergency?", "options": ["11:00 p.m. and 4:00 a.m.", "9:00 p.m. and 5:00 a.m.", "Midnight and 6:00 a.m."], "answer": 0, "ref": "AR Study Guide - Intermediate License", "explanation": "AR Study Guide - Intermediate License"}, {"q": "An Arkansas Intermediate License holder may not have more than how many unrelated minor passengers unless a licensed driver 21+ is in the front seat?", "options": ["One (1) unrelated minor passenger", "Three unrelated minor passengers", "Unlimited"], "answer": 0, "ref": "AR Study Guide - Intermediate License", "explanation": "AR Study Guide - Intermediate License"}, {"q": "Under Arkansas law, a Class D driver who is at least 18 but under 21 may use a hands-free device, but hand-held phones are only allowed for:", "options": ["Emergencies", "Any call", "Texting"], "answer": 0, "ref": "AR Study Guide - Class D License", "explanation": "AR Study Guide - Class D License"}, {"q": "In Arkansas, text messaging while driving is:", "options": ["Not allowed regardless of age", "Allowed for adults", "Required by law"], "answer": 0, "ref": "AR Study Guide - Class D / Learner's License", "explanation": "AR Study Guide - Class D / Learner's License"}, {"q": "Arkansas vision requirements: the minimum uncorrected visual acuity for an unrestricted license is:", "options": ["20/40", "20/100", "15/20"], "answer": 0, "ref": "AR Study Guide - Vision Requirement", "explanation": "AR Study Guide - Vision Requirement"}, {"q": "In Arkansas, if corrective lenses are needed, the minimum corrected acuity for a restricted license is:", "options": ["20/70", "20/20", "20/200"], "answer": 0, "ref": "AR Study Guide - Vision Requirement", "explanation": "AR Study Guide - Vision Requirement"}, {"q": "Arkansas requires a field of vision of at least 140 degrees for a person with two functional eyes, or:", "options": ["105 degrees for a person with one functional eye", "90 degrees for one eye", "180 degrees for one eye"], "answer": 0, "ref": "AR Study Guide - Vision Requirement", "explanation": "AR Study Guide - Vision Requirement"}, {"q": "In Arkansas work zones, when workers and advance warning signs are present, fines for moving violations are:", "options": ["Doubled", "Waived", "Reduced by half"], "answer": 0, "ref": "AR Study Guide - Construction/Maintenance Safety Zone", "explanation": "AR Study Guide - Construction/Maintenance Safety Zone"}, {"q": "In Arkansas, work zone warning signs are typically:", "options": ["Diamond-shaped, orange, with black letters or symbols", "Square, blue, with white text", "Round, green"], "answer": 0, "ref": "AR Study Guide - Work Zone Signs", "explanation": "AR Study Guide - Work Zone Signs"}, {"q": "In Arkansas, a steady red traffic light means you must:", "options": ["Stop and not proceed until it turns green and is safe", "Go if no police", "Turn left immediately"], "answer": 0, "ref": "AR Study Guide - Lighted Traffic Signals", "explanation": "AR Study Guide - Lighted Traffic Signals"}, {"q": "In Arkansas, a steady yellow traffic light means:", "options": ["Caution - stop if safe as it is changing to red", "Speed up", "Turn right only"], "answer": 0, "ref": "AR Study Guide - Lighted Traffic Signals", "explanation": "AR Study Guide - Lighted Traffic Signals"}, {"q": "A flashing red light in Arkansas means the same as:", "options": ["A stop sign", "A yield sign", "A green light"], "answer": 0, "ref": "AR Study Guide - Flashing Lights", "explanation": "AR Study Guide - Flashing Lights"}, {"q": "A flashing yellow light in Arkansas means you should:", "options": ["Slow down and proceed with caution", "Stop completely", "Speed up"], "answer": 0, "ref": "AR Study Guide - Flashing Lights", "explanation": "AR Study Guide - Flashing Lights"}, {"q": "In Arkansas, a right turn on red is generally allowed after:", "options": ["A complete stop, unless a sign prohibits it", "Never", "Only at midnight"], "answer": 0, "ref": "AR Study Guide - Right on Red Rule", "explanation": "AR Study Guide - Right on Red Rule"}, {"q": "Arkansas's tire tread safety rule: tires should be replaced when tread is worn down to:", "options": ["1/16 of an inch", "1/4 of an inch", "1/2 of an inch"], "answer": 0, "ref": "AR Study Guide - Tires (Skills Test Guidelines)", "explanation": "AR Study Guide - Tires (Skills Test Guidelines)"}, {"q": "Arkansas's penny test for tire tread: if you can see the top of Lincoln's head, you are:", "options": ["Ready for new tires", "Fine for another year", "Overinflated"], "answer": 0, "ref": "AR Study Guide - Tires", "explanation": "AR Study Guide - Tires"}, {"q": "Under Arkansas's 'Right of Way at Stop Signs' rule, at a four-way stop the driver who should yield is the one who:", "options": ["Arrived last / did not arrive first", "Arrived first", "Is in the biggest vehicle"], "answer": 0, "ref": "AR Study Guide - Right of Way", "explanation": "AR Study Guide - Right of Way"}, {"q": "In Arkansas, at an intersection you must yield to pedestrians in:", "options": ["Crosswalks", "Only school zones", "Never"], "answer": 0, "ref": "AR Study Guide - Right of Way (Pedestrians)", "explanation": "AR Study Guide - Right of Way (Pedestrians)"}, {"q": "Arkansas requires you to report a traffic crash to the Office of Driver Services if there is an injury, death, or property damage over:", "options": ["$3,000 to one person's property", "$500 to one person's property", "$10,000 to one person's property"], "answer": 0, "ref": "AR Study Guide - Keep a Record of Crash Information", "explanation": "AR Study Guide - Keep a Record of Crash Information"}, {"q": "The Arkansas crash report must be filed within:", "options": ["30 days of the accident", "24 hours", "One year"], "answer": 0, "ref": "AR Study Guide - Keep a Record of Crash Information", "explanation": "AR Study Guide - Keep a Record of Crash Information"}, {"q": "If you are stopped by law enforcement in Arkansas, you are required to provide your driver's license, proof of insurance, and:", "options": ["Vehicle registration", "A credit card", "Your phone"], "answer": 0, "ref": "AR Study Guide - Stopped by Officer", "explanation": "AR Study Guide - Stopped by Officer"}, {"q": "In Arkansas, when passing a stopped law enforcement or authorized vehicle on the side of the road, if you cannot change lanes you must:", "options": ["Reduce your speed and exercise due caution", "Maintain speed", "Honk"], "answer": 0, "ref": "AR Study Guide - Approaching LE Vehicle", "explanation": "AR Study Guide - Approaching LE Vehicle"}, {"q": "Arkansas is a 'move over' state; the law protects officers and others from traffic moving too close by requiring drivers to:", "options": ["Move to the farthest lane away from a stopped authorized vehicle with lights on", "Drive faster past them", "Stay in the closest lane"], "answer": 0, "ref": "AR Study Guide - Move Over Law", "explanation": "AR Study Guide - Move Over Law"}, {"q": "In Arkansas, a handicap (accessible) parking space may be used only by a person with the appropriate plate or:", "options": ["Special Certificate (hang tag) and the disabled person must be present", "Any family member", "Anyone in a hurry"], "answer": 0, "ref": "AR Study Guide - Accessible Parking", "explanation": "AR Study Guide - Accessible Parking"}, {"q": "Arkansas law requires headlights from sunset to sunrise and when visibility is poor; you should use low beams in:", "options": ["Fog, rain, and snow", "Bright daylight", "Only on highways"], "answer": 0, "ref": "AR Study Guide - External Vehicle Lights", "explanation": "AR Study Guide - External Vehicle Lights"}, {"q": "Under Arkansas's 'Unattended Children and Pets' guidance, even on a mild 70-degree day the inside of a parked car can reach about:", "options": ["89 degrees within 10 minutes", "60 degrees", "Exactly outside temperature"], "answer": 0, "ref": "AR Study Guide - Unattended Children and Pets", "explanation": "AR Study Guide - Unattended Children and Pets"}, {"q": "In Arkansas, a driver with an instruction permit must be accompanied by a licensed driver who is at least:", "options": ["21 years of age or older", "16 years of age or older", "18 years of age or older"], "answer": 0, "ref": "AR Study Guide - Instruction Permit", "explanation": "AR Study Guide - Instruction Permit"}, {"q": "Arkansas's graduated license program began on July 1, 2001, and was designed to let drivers:", "options": ["Gradually become safe and experienced", "Get a license instantly at 14", "Skip the road test"], "answer": 0, "ref": "AR Study Guide - Graduated Driver's Licenses", "explanation": "AR Study Guide - Graduated Driver's Licenses"}, {"q": "Under Arkansas's Act 1289 of 2015, each written (knowledge) examination costs a fee of:", "options": ["$5.00", "$10.00", "Free"], "answer": 0, "ref": "AR Study Guide - Act 1289 of 2015", "explanation": "AR Study Guide - Act 1289 of 2015"}, {"q": "In Arkansas, an instruction permit is issued for how long from the date of the passed knowledge exam?", "options": ["2 (two) years", "6 months", "1 year"], "answer": 0, "ref": "AR Study Guide - Instruction Permit", "explanation": "AR Study Guide - Instruction Permit"}, {"q": "Under Arkansas's handicap (accessible) parking rules, illegal use of another person's special certificate is fraud punishable up to a Class A misdemeanor; a second offense carries a fine of not less than $250 and up to $1,000 plus a:", "options": ["Six (6) month driver's license suspension", "One-day suspension", "No suspension"], "answer": 0, "ref": "AR Study Guide - Accessible Parking", "explanation": "AR Study Guide - Accessible Parking"}, {"q": "Arkansas recognizes reciprocal driver-license testing exemptions for certain countries, including:", "options": ["Manitoba (Canada), Germany, France, Taiwan, and South Korea", "No foreign countries", "Only Mexico"], "answer": 0, "ref": "AR Study Guide - Countries Exempt from Testing", "explanation": "AR Study Guide - Countries Exempt from Testing"}, {"q": "In Arkansas, the skills (road) test allows a driver to miss up to how many vehicle controls before the test is failed?", "options": ["Three (3) missed controls", "One missed control", "No misses allowed"], "answer": 0, "ref": "AR Study Guide - Skills Test Performance Guidelines", "explanation": "AR Study Guide - Skills Test Performance Guidelines"}, {"q": "Arkansas does not cancel a road test because of rain, but does not administer it in severe thunderstorms, fog, sleet, or:", "options": ["Snow", "Light drizzle", "Sunshine"], "answer": 0, "ref": "AR Study Guide - Skills Test Guidelines", "explanation": "AR Study Guide - Skills Test Guidelines"}, {"q": "Arkansas requires an applicant under 18 to present, among other items, an original or certified copy of a:", "options": ["Birth certificate (no hospital certificates or photocopies)", "Library card", "Passport photo only"], "answer": 0, "ref": "AR Study Guide - 1-2-3 Checklist (under 18)", "explanation": "AR Study Guide - 1-2-3 Checklist (under 18)"}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

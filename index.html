@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DriveReady Hub — Free DMV Practice Tests, Car Tools & Driver Guides</title>
-<meta name="description" content="Free DMV practice tests by state, driver guides, insurance tips, car buying help, maintenance checklists, and simple car tools for U.S. drivers.">
+<title>DriveReady Hub — Free Driving Theory Tests Worldwide | Practice Permit & License Exams</title>
+<meta name="description" content="Free driving theory tests, driver's license exams, and permit practice for multiple countries. Official-style practice tests, driver guides, and car tools for drivers worldwide.">
 <link rel="canonical" href="https://drivereadyhub.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DriveReady Hub">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="DriveReady Hub — Free DMV Practice Tests, Car Tools & Driver Guides">
-<meta property="og:description" content="Free DMV practice tests by state, driver guides, insurance tips, car buying help, maintenance checklists, and simple car tools for U.S. drivers.">
+<meta property="og:title" content="DriveReady Hub — Free Driving Theory Tests Worldwide | Practice Permit & License Exams">
+<meta property="og:description" content="Free driving theory tests, driver's license exams, and permit practice for multiple countries. Official-style practice tests, driver guides, and car tools for drivers worldwide.">
 <meta property="og:url" content="https://drivereadyhub.com/">
 <meta property="og:image" content="https://drivereadyhub.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://drivereadyhub.com/og-image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DriveReady Hub — Free DMV Practice Tests, Car Tools & Driver Guides">
-<meta name="twitter:description" content="Free DMV practice tests by state, driver guides, insurance tips, car buying help, maintenance checklists, and simple car tools for U.S. drivers.">
+<meta name="twitter:title" content="DriveReady Hub — Free Driving Theory Tests Worldwide | Practice Permit & License Exams">
+<meta name="twitter:description" content="Free driving theory tests, driver's license exams, and permit practice for multiple countries. Official-style practice tests, driver guides, and car tools for drivers worldwide.">
 <meta name="twitter:url" content="https://drivereadyhub.com/">
 <meta name="google-adsense-account" content="ca-pub-7503096549502749">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
@@ -150,15 +150,15 @@
 
   <div class="layout"><main class="main">
   <div class="hero">
-    <h2>Free DMV Practice Tests &amp; Driver Guides</h2>
-    <p>Pass your permit and license exam with free, state-by-state practice tests, quick guides, and simple car tools — built for new drivers, new residents, and car owners across the U.S.</p>
-    <a class="cta" href="#dmv" onclick="openDmvQuick();return false;">▶ Start a Free Practice Test</a>
+    <h2>Free Driving Theory Tests Worldwide</h2>
+    <p>Practice official-style driving theory tests, driver's license exams, permit tests, and driver guides for multiple countries — all free in one place.</p>
+    <a class="cta" href="#countryRow" onclick="document.getElementById('countryRow').scrollIntoView({behavior:'smooth'});return false;">Choose Your Country</a>
   </div>
 
 <header>
-    <h1 id="homeTitle" style="cursor:pointer;" title="Back to all sections">🚗 RoadReady <span class="em">Hub</span></h1>
-    <p class="sub">Free practice tests, driver guides, and car tools for new drivers, new residents, and car owners in the U.S.</p>
-    <p class="hint">Practice · Learn · Protect · Buy · Maintain · Tools</p>
+    <h1 id="homeTitle" style="cursor:pointer;" title="Back to all sections">🚗 DriveReady <span class="em">Hub</span></h1>
+    <p class="sub">Free driving theory tests, driver guides, and car tools for drivers worldwide.</p>
+    <p class="hint">Practice · Learn · Drive · Protect · Maintain</p>
   </header>
 
   <input type="search" id="search" class="search" placeholder="Search states, topics, tools…" autocomplete="off">
@@ -180,7 +180,7 @@
 
   <div id="home">
     <div style="margin-bottom:14px; color:var(--muted); font-size:.9rem;">Browse what you need — tap any section to see quick tools and guides inside it.</div>
-    <div id="sectionsRow" class="sections-row"></div>
+    <div id="countryRow" class="sections-row"></div>
     <div id="homeDetail" class="home-detail hidden"></div>
     <p class="foot src" style="margin-top:24px;">Questions sourced from official state DMV publications (public domain). Tools and guides are informational only and not a substitute for official resources.</p>
   </div>
@@ -262,6 +262,24 @@ const SECTIONS = [
     items: [{ key:'de-all', label: 'Test Starten / Start Practice', desc: 'Go to Germany test', href: 'de/' }]
   },
   {
+    id: 'handbooks',
+    title: "Official Driving Handbooks",
+    desc: 'Step-by-step driver handbooks, state DMV rules, and international license requirements.',
+    icon: '📚',
+    items: [
+      { key:'s1', label: 'California DMV Guide', desc: 'Real ID, DL 44, offices, and tips.', href: 'pages/state-ca.html' },
+      { key:'s2', label: 'Texas DPS Guide', desc: 'Scheduler, ITTD, teen licensing, and renewal.', href: 'pages/state-tx.html' },
+      { key:'s3', label: 'Florida DMV Guide', desc: 'Class E license, TLSAE, and insurance.', href: 'pages/state-fl.html' },
+      { key:'s4', label: 'New York DMV Guide', desc: 'Real ID, junior license, and offices.', href: 'pages/state-ny.html' },
+      { key:'hb-us', label: 'US Driver Handbook', desc: 'Permit & license rules by state.', href: 'pages/road-signs.html' },
+      { key:'hb-uk', label: 'UK Highway Code', desc: 'DVSA theory & road rules.', href: 'uk/' },
+      { key:'hb-ca', label: 'Canada Driving Guide', desc: 'G1 / Class 7 licence steps.', href: 'ca/' },
+      { key:'hb-au', label: 'Australia DKT Handbook', desc: 'State road rules & signs.', href: 'au/' },
+      { key:'hb-ie', label: 'Ireland RSA Rules', desc: 'DTT & Rules of the Road.', href: 'ie/' },
+      { key:'hb-de', label: 'Germany Fahrschule', desc: 'StVO & theory exam prep.', href: 'de/' }
+    ]
+  },
+  {
     id: 'ed',
     title: "Driver's Ed & Guides",
     desc: 'New resident checklists, handbook summaries, and road rules.',
@@ -275,14 +293,18 @@ const SECTIONS = [
   },
   {
     id: 'insurance',
-    title: 'Car Insurance Basics',
-    desc: 'How coverage works, cost factors, and saving tips.',
+    title: 'Global Car Insurance & Cost Guides',
+    desc: 'Coverage, cost factors and saving tips for the U.S., UK, Canada, Australia, Ireland and Germany.',
     icon: '🛡️',
     items: [
-      { key:'i1', label: 'Liability vs Full Coverage', desc: 'Differences, minimums by state, and when to choose.', href: 'pages/insurance-liability.html' },
+      { key:'i1', label: 'Liability vs Full Coverage', desc: 'Differences, minimums by country, and when to choose.', href: 'pages/insurance-liability.html' },
       { key:'i2', label: 'New Driver Insurance Tips', desc: 'Teen and first-time driver premium strategies.', href: 'pages/insurance-newdriver.html' },
       { key:'i3', label: 'Free Insurance Estimate Tool', desc: 'Estimate monthly cost quickly.', href: 'pages/insurance-estimate.html' },
-      { key:'i4', label: 'What Affects Your Rate', desc: 'Credit, ZIP, vehicle, and driving history.', href: 'pages/insurance-factors.html' }
+      { key:'i4', label: 'What Affects Your Rate', desc: 'Credit, ZIP, vehicle, and driving history.', href: 'pages/insurance-factors.html' },
+      { key:'i5', label: 'UK & EU Cover', desc: 'Third-party, comprehensive, no-claims.', href: 'pages/insurance-liability.html' },
+      { key:'i6', label: 'Canada Provinces', desc: 'Public vs private, mandatory limits.', href: 'pages/insurance-liability.html' },
+      { key:'i7', label: 'Australia & NZ', desc: 'CTP, comprehensive, state rules.', href: 'pages/insurance-liability.html' },
+      { key:'i8', label: 'Germany & Ireland', desc: 'Haftpflicht, EU minimums.', href: 'pages/insurance-liability.html' }
     ]
   },
   {
@@ -321,18 +343,6 @@ const SECTIONS = [
       { key:'t4', label: 'Fuel Cost Calculator', desc: 'Trip fuel cost from miles, MPG, and price.', href: 'pages/tools-fuel-calculator.html' },
       { key:'t5', label: 'Vehicle Safety Ratings', desc: 'NHTSA and IIHS official safety sources.', href: 'pages/tools-safety-ratings.html' },
       { key:'t6', label: 'VIN Decoder Basics', desc: 'What a VIN represents and official lookup options.', href: 'pages/tools-vin-basics.html' }
-    ]
-  },
-  {
-    id: 'state',
-    title: 'State Guides',
-    desc: 'Quick state-specific DMV overviews.',
-    icon: '🗺️',
-    items: [
-      { key:'s1', label: 'California DMV Guide', desc: 'Real ID, DL 44, offices, and tips.', href: 'pages/state-ca.html' },
-      { key:'s2', label: 'Texas DPS Guide', desc: 'Scheduler, ITTD, teen licensing, and renewal.', href: 'pages/state-tx.html' },
-      { key:'s3', label: 'Florida DMV Guide', desc: 'Class E license, TLSAE, and insurance.', href: 'pages/state-fl.html' },
-      { key:'s4', label: 'New York DMV Guide', desc: 'Real ID, junior license, and offices.', href: 'pages/state-ny.html' }
     ]
   },
   {
@@ -380,7 +390,7 @@ const home=document.getElementById('home');
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
 const search=document.getElementById('search');
-const sectionsRow=document.getElementById('sectionsRow');
+const countryRow=document.getElementById('countryRow');
 const homeDetail=document.getElementById('homeDetail');
 let currentSectionId = null;
 
@@ -391,7 +401,7 @@ function describeAction(sec){
 }
 
 function renderHomeRow(sections){
-  sectionsRow.innerHTML = sections.map(sec => `
+  countryRow.innerHTML = sections.map(sec => `
     <div class="section-card" onclick="${sec.id === 'dmv' ? "openDmvQuick()" : "openSection('"+sec.id+"')"}">
       <div>
         <div style="display:flex;gap:10px;align-items:center;">
@@ -409,7 +419,7 @@ function renderHomeRow(sections){
     </div>
   `).join('');
   if(!sections.length){
-    sectionsRow.innerHTML = `<div style="color:var(--muted);padding:10px 4px;">No matching section</div>`;
+    countryRow.innerHTML = `<div style="color:var(--muted);padding:10px 4px;">No matching section</div>`;
   }
 }
 

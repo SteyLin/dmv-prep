@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Hawaii <span class="em">DMV Practice</span></h1>
     <p class="sub">Free HI permit and license practice test — 25 questions from the official Hawaii driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "hi";
 const STATE_DATA = {"name": "Hawaii (HI DMV)", "source": "Official HI Driver's Manual (public domain)", "questions": [{"q": "In Hawaii, how are speed limits established?", "options": ["Indicated only by posted signs along the road", "Always 55 mph", "The driver decides for themselves"], "answer": 0, "ref": "HI Driver Manual - Chapter V (Traffic Laws)", "explanation": "The Manual states that speed limits are indicated by posted signs along the road."}, {"q": "In Hawaii, which of two vehicles arriving at an intersection at the same time has the right-of-way?", "options": ["The vehicle on the right", "The vehicle on the left", "The faster vehicle"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Right-of-Way)", "explanation": "When vehicles approach at the same time, yield to the car on the right."}, {"q": "In Hawaii, when the light turns green, what happens to pedestrians and vehicles still in the intersection?", "options": ["You must yield to them", "You may enter the intersection immediately", "You should honk"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Right-of-Way)", "explanation": "Even when the light turns green, you must yield to pedestrians and vehicles still in the intersection."}, {"q": "In Hawaii, when making a left turn and oncoming traffic poses a hazard, what should be done?", "options": ["Yield to that traffic", "Make the turn first", "Increase speed"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Right-of-Way)", "explanation": "When turning left, you must yield to close oncoming traffic."}, {"q": "In Hawaii, what should be done when entering a main road from an alley, driveway, or farm road?", "options": ["Stop and yield to all traffic on the road", "Enter slowly, no need to stop", "Honk and enter"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Right-of-Way)", "explanation": "When entering a main road from an alley/driveway, you must stop and yield to all traffic."}, {"q": "In Hawaii, what shape and color are warning traffic signs typically?", "options": ["Diamond-shaped with a black symbol and border on a yellow background", "Rectangle with red text on a white background", "White circle on a blue background"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Signs)", "explanation": "Warning signs are typically diamond-shaped with a black symbol and border on a yellow background."}, {"q": "In Hawaii, what color and shape are most regulatory signs?", "options": ["Rectangle with black or red text on a white background", "Black diamond on a yellow background", "White circle on a green background"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Signs)", "explanation": "Most regulatory signs are rectangles with black or red text on a white background."}, {"q": "In Hawaii, what is the basic color of construction and maintenance traffic control devices?", "options": ["Orange", "Yellow", "Red"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Construction Devices)", "explanation": "The basic color of construction and maintenance devices is orange."}, {"q": "In Hawaii, what is the speed limit when there is a School Crossing sign and children are present?", "options": ["A reduced speed limit applies", "The normal speed limit applies", "The speed limit is removed"], "answer": 0, "ref": "HI Driver Manual - Chapter V (Speed Limits)", "explanation": "Near schools and playgrounds, a reduced speed limit is required when there is a 'School Crossing' sign and children are present."}, {"q": "In Hawaii, how is a driver with a blood alcohol content (BAC) of .08 or more defined?", "options": ["Under the influence of alcohol", "Only 'impaired'", "Completely harmless"], "answer": 0, "ref": "HI Driver Manual - Chapter IX (Alcohol)", "explanation": "If the BAC is .08 or more, the driver is considered 'under the influence of alcohol.'"}, {"q": "In Hawaii, what is the Zero Tolerance limit for drivers under 21?", "options": ["BAC .02 or more", "BAC .08 or more", "BAC .05 or more"], "answer": 0, "ref": "HI Driver Manual - Chapter IX (Alcohol)", "explanation": "For drivers under 21, a BAC of .02 or more is prohibited (Zero Tolerance)."}, {"q": "In Hawaii, if the BAC is more than .05 but less than .08, how is the driver defined?", "options": ["Impaired", "Under the influence", "Completely sober"], "answer": 0, "ref": "HI Driver Manual - Chapter IX (Alcohol)", "explanation": "If the BAC is more than .05 but less than .08, the driver is considered 'impaired.'"}, {"q": "In Hawaii, do black coffee, food, or a cold shower work to 'sober up' from alcohol?", "options": ["No, alcohol is only burned off by the liver and takes time", "Yes, it sobers you up immediately", "Only black coffee sobers you up"], "answer": 0, "ref": "HI Driver Manual - Chapter IX (Alcohol)", "explanation": "Coffee, food, or a shower may wake you up but will not sober you up; the liver burns off alcohol and this takes time."}, {"q": "In Hawaii, under the Implied Consent rule, what happens if a driver refuses an alcohol test?", "options": ["Refusing the test is deemed as consent given; there is a penalty for refusal", "The test is entirely optional, no penalty for refusal", "Only a speeding ticket is issued"], "answer": 0, "ref": "HI Driver Manual - Chapter IX (Alcohol)", "explanation": "Everyone who drives on Hawaii's roads is deemed to have given consent to the test; refusal is subject to penalty."}, {"q": "In Hawaii, when must a safety belt be worn?", "options": ["Always when driving or riding in a vehicle", "Only on highways", "Only at night"], "answer": 0, "ref": "HI Driver Manual - Chapter X (Safety Belts)", "explanation": "Safety belts are 'life belts' and must always be worn when driving/riding in a vehicle."}, {"q": "In Hawaii, how must children age 4 and under be transported?", "options": ["In a child restraint", "Only with a safety belt", "Sitting on someone's lap"], "answer": 0, "ref": "HI Driver Manual - Chapter II (Vehicle Equipment)", "explanation": "Children age 4 and under must be in a child restraint."}, {"q": "In Hawaii, how many times more likely is a person ejected from a vehicle to die?", "options": ["5 times", "2 times", "Not at all"], "answer": 0, "ref": "HI Driver Manual - Chapter X (Safety Belts)", "explanation": "If you are ejected from a vehicle, you are 5 times more likely to die."}, {"q": "In Hawaii, what should be done when a school bus is stopped with its red lights flashing?", "options": ["All vehicles in the bus's lane and adjacent lanes must stop", "Only the vehicles behind it stop", "Do not stop, pass slowly"], "answer": 0, "ref": "HI Driver Manual - Chapter XII (School Bus)", "explanation": "You must stop in the lane of a stopped school bus with flashing red lights and in all adjacent lanes."}, {"q": "In Hawaii, what does the school bus rule say about vehicles coming from the opposite direction on a divided highway?", "options": ["On a divided highway, vehicles in the opposite direction are not required to stop", "They must always stop", "They stop only below 10 mph"], "answer": 0, "ref": "HI Driver Manual - Chapter XII (School Bus)", "explanation": "On a divided highway, vehicles traveling in the opposite direction are not required to stop."}, {"q": "In Hawaii, what is the penalty for failing to comply with the school bus rule?", "options": ["Up to $1,000", "Up to $50", "There is no penalty"], "answer": 0, "ref": "HI Driver Manual - Chapter XII (School Bus)", "explanation": "Failing to comply with the school bus rule can cost up to $1,000 (291C-95, HRS)."}, {"q": "In Hawaii, what is the maximum distance from the curb when parking?", "options": ["12 inches (30 cm)", "24 inches (60 cm)", "36 inches (90 cm)"], "answer": 0, "ref": "HI Driver Manual - Chapter V (Parking)", "explanation": "A vehicle must be parked no more than 12 inches (30 cm) from the curb."}, {"q": "In Hawaii, whom do you yield to when entering a roundabout?", "options": ["Traffic already circulating in the roundabout", "All vehicles entering", "The fastest vehicle goes first"], "answer": 0, "ref": "HI Driver Manual - Chapter X (Roundabout)", "explanation": "At a roundabout, entering traffic must yield to traffic already circulating."}, {"q": "In Hawaii, when approaching a railroad crossing where a train poses a visible hazard, at least how many feet away must you stop?", "options": ["15 feet (4.6 m)", "50 feet", "100 feet"], "answer": 0, "ref": "HI Driver Manual - Chapter V (Railroad Crossings)", "explanation": "At a railroad crossing, a vehicle must stop at least 15 feet (4.6 m) from the nearest rail."}, {"q": "In Hawaii, when can passing be done on a road with a double solid yellow line?", "options": ["Only when making a left turn (into an alley, private road, or driveway)", "It is always allowed", "Never, under no circumstances"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Pavement Markings)", "explanation": "With a double solid yellow line, passing is prohibited in both directions; it may only be crossed to make a left turn."}, {"q": "In Hawaii, what does a flashing red traffic light mean?", "options": ["It means the same as a stop sign; you must stop", "You may proceed with caution", "Just slow down"], "answer": 0, "ref": "HI Driver Manual - Chapter VI (Traffic Signals)", "explanation": "A flashing red light means the same as a stop sign; the vehicle must stop."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

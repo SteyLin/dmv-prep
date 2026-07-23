@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Virginia <span class="em">DMV Practice</span></h1>
     <p class="sub">Free VA permit and license practice test — 58 questions from the official Virginia driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "va";
 const STATE_DATA = {"name": "Virginia (VA DMV)", "source": "Official VA Driver's Manual (public domain)", "questions": [{"q": "According to Virginia law, when may a law enforcement officer charge you with reckless driving regardless of the posted speed limit?", "options": ["When driving 20 or more MPH above the limit or over 85 MPH", "When driving 10 MPH above the limit", "Whenever you exceed the posted speed limit"], "answer": 0, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "Virginia law allows a reckless driving charge if you drive 20+ MPH over the limit or over 85 MPH."}, {"q": "Unless a sign states otherwise, what is the maximum speed limit for passenger vehicles in school, business, and residential areas in Virginia?", "options": ["25 MPH", "35 MPH", "55 MPH"], "answer": 0, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The default limit is 25 MPH for school, business, and residential areas when no sign is posted."}, {"q": "Unless posted otherwise, what is the maximum speed limit on all other roads (not school, business, residential, or unpaved) for passenger vehicles in Virginia?", "options": ["35 MPH", "55 MPH", "65 MPH"], "answer": 1, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The default limit is 55 MPH for all other roads when no speed limit sign is posted."}, {"q": "What is the default maximum speed limit on unpaved roads in Virginia when no sign is posted?", "options": ["25 MPH", "35 MPH", "45 MPH"], "answer": 1, "ref": "VA Driver Manual - Section 3: Speed Limits", "explanation": "The manual states the default limit on unpaved roads is 35 MPH."}, {"q": "At an intersection with no signs or signals, when two vehicles arrive at the same time, who must yield?", "options": ["The driver on the left must yield to the driver on the right", "The driver on the right must yield to the driver on the left", "The larger vehicle must yield"], "answer": 0, "ref": "VA Driver Manual - Section 3: Yielding the Right-of-Way", "explanation": "The driver on the left must allow the driver on the right to go first."}, {"q": "When entering a roundabout in Virginia, what must you do?", "options": ["Yield to traffic already in the circle and travel counter-clockwise", "Yield to traffic already in the circle and travel clockwise", "Have the right-of-way over traffic already in the circle"], "answer": 0, "ref": "VA Driver Manual - Section 3: Roundabouts", "explanation": "Entering traffic must yield to traffic already in the circle and drive counter-clockwise."}, {"q": "When must you stop for a school bus that has stopped with flashing red lights and an extended stop sign?", "options": ["Only if you are directly behind the bus", "When approaching from any direction on a highway, private road, or school driveway, unless a median or barrier separates you", "Only on interstate highways"], "answer": 1, "ref": "VA Driver Manual - Section 3: Stopping for School Buses", "explanation": "You must stop from any direction unless a median or barrier divides the roadway and the bus is on the opposite side."}, {"q": "What does an eight-sided (octagon) traffic sign always mean?", "options": ["Yield", "Stop", "Warning"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "The octagon shape always means stop."}, {"q": "What does a five-sided (pentagon) traffic sign mark?", "options": ["School zones and school crossings", "Railroad crossings", "A warning of a curve"], "answer": 0, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "The pentagon shape marks school zones and warns about school crossings."}, {"q": "What do diamond-shaped traffic signs warn you about?", "options": ["Regulatory or legal instructions", "Special conditions or hazards ahead", "Directions or helpful information"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Shapes", "explanation": "Diamond signs warn of special conditions or hazards ahead; slow down and drive with caution."}, {"q": "In Virginia, what does the color yellow used with black on a traffic sign convey?", "options": ["Regulatory information", "A warning", "Helpful destination information"], "answer": 1, "ref": "VA Driver Manual - Section 2: Sign Colors", "explanation": "Yellow with black conveys a warning such as curve ahead or slippery when wet."}, {"q": "For drivers age 21 or older in Virginia, at what blood alcohol content (BAC) are you considered to be driving under the influence (DUI)?", "options": [".08 percent or higher", ".05 percent or higher", ".02 percent or higher"], "answer": 0, "ref": "VA Driver Manual - Section 3: Drunk and Drugged Driving", "explanation": "A BAC of .08 percent or higher constitutes DUI for drivers 21 and older."}, {"q": "If a driver under age 21 is convicted of driving after illegally consuming alcohol with a BAC of at least .02 but less than .08, what is the result?", "options": ["They may be convicted of illegal consumption of alcohol", "They are never penalized", "They are automatically charged with a full adult DUI"], "answer": 0, "ref": "VA Driver Manual - Section 3: Drunk and Drugged Driving", "explanation": "Under age 21, a BAC of at least .02 but less than .08 can result in a conviction for illegal consumption."}, {"q": "Under Virginia law, who must wear safety belts?", "options": ["Only the driver and front-seat passengers", "The driver and all passengers, both front and rear", "Only children under age 18"], "answer": 1, "ref": "VA Driver Manual - Section 4: Seat Belts", "explanation": "Virginia law requires the driver and all passengers, front and rear, to wear safety belts."}, {"q": "According to the manual, wearing a seat belt can do what for your chances of surviving a crash?", "options": ["Double your chances of surviving", "Have no effect on survival", "Slightly reduce your chances"], "answer": 0, "ref": "VA Driver Manual - Section 4: Seat Belts", "explanation": "Wearing a seat belt can double your chances of surviving a crash and more than double avoiding serious injury."}, {"q": "What does a double solid yellow line in the center of the road mean?", "options": ["Passing is allowed in either direction", "Passing is not allowed in either direction", "Passing is allowed only at night"], "answer": 1, "ref": "VA Driver Manual - Section 2: Pavement Markings", "explanation": "Double solid yellow lines separate two-way traffic and passing is not allowed in either direction."}, {"q": "A broken yellow line alongside a solid yellow line means passing is allowed:", "options": ["From the side of the solid line only", "From the side of the broken line, but not from the side of the solid line", "In both directions"], "answer": 1, "ref": "VA Driver Manual - Section 2: Pavement Markings", "explanation": "Passing is allowed from the broken-line side but not from the solid-line side."}, {"q": "Using the following-distance rule, how many seconds should you allow when driving between 35 and 45 MPH on a dry surface?", "options": ["2 seconds", "3 seconds", "4 seconds"], "answer": 1, "ref": "VA Driver Manual - Section 3: Following Distance", "explanation": "The manual specifies a 3-second following distance for speeds of 35-45 MPH."}, {"q": "When parking next to a curb on a public road in Virginia, how far from the curb may you park?", "options": ["No more than one foot from the curb", "Up to three feet from the curb", "As far from the curb as you like"], "answer": 0, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "You may not park more than one foot from the curb."}, {"q": "Within how many feet of a fire hydrant is parking prohibited in Virginia?", "options": ["10 feet", "15 feet", "20 feet"], "answer": 1, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "You may not park within 15 feet of a fire hydrant."}, {"q": "Within how many feet of an intersection is parking prohibited in Virginia?", "options": ["10 feet", "20 feet", "30 feet"], "answer": 1, "ref": "VA Driver Manual - Section 3: Parking", "explanation": "Parking is prohibited within 20 feet of an intersection."}, {"q": "At a flashing red light, what must you do?", "options": ["Slow down and proceed with caution without stopping", "Come to a complete stop, yield to traffic and pedestrians, and go when clear", "Speed up to clear the intersection"], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "A flashing red light requires a complete stop, yielding, then proceeding when the way is clear."}, {"q": "In Virginia, when may you turn right at a red light?", "options": ["Anytime without stopping", "After a complete stop and yielding the right-of-way, unless signs or a red arrow prohibit it", "Only between midnight and 6 a.m."], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "You may turn right on red only after a complete stop and yielding, unless posted otherwise or a red arrow is shown."}, {"q": "When a traffic light turns yellow and you have not yet entered the intersection, what should you do?", "options": ["Speed up to beat the light", "Stop if you can do so safely", "Immediately make a U-turn"], "answer": 1, "ref": "VA Driver Manual - Section 2: Traffic Signals", "explanation": "A yellow light is a caution; if you have not entered the intersection, stop\u2014do not speed up to beat it."}, {"q": "In Virginia, where are U-turns allowed in business districts, cities, and towns?", "options": ["Anywhere on the roadway", "Only at intersections", "Never under any circumstances"], "answer": 1, "ref": "VA Driver Manual - Section 3: U-Turns", "explanation": "In business districts, cities, and towns, U-turns are allowed only at intersections and never on a highway."}, {"q": "In Virginia, what is the basic speed rule?", "options": ["You must drive at a speed that is reasonable and prudent for conditions", "Always at the posted limit regardless of weather", "As fast as the car behind you allows"], "answer": 0, "ref": "VA Driver Manual - Speed", "explanation": "Virginia uses the basic speed rule: never drive faster than is reasonable and prudent for current conditions, even below the posted limit."}, {"q": "What is Virginia's default speed limit in a business or residential district unless posted otherwise?", "options": ["25 mph", "35 mph", "45 mph"], "answer": 0, "ref": "VA Driver Manual - Speed", "explanation": "Unless signs say otherwise, the limit is 25 mph in business and residential areas."}, {"q": "Under Virginia law, you can be charged with reckless driving for exceeding the limit by how much?", "options": ["20 mph or more above the limit, or over 85 mph", "Any amount over the limit", "Only over 100 mph"], "answer": 0, "ref": "VA Reckless Driving", "explanation": "Reckless driving includes driving 20 mph or more above the limit or faster than 85 mph, regardless of the posted limit."}, {"q": "What is the minimum age for a Virginia learner's permit (driver's license)?", "options": ["15 years and 6 months", "14 years", "16 years"], "answer": 0, "ref": "VA Licensing", "explanation": "Virginia issues a learner's permit at age 15 years and 6 months."}, {"q": "A Virginia driver with a learner's permit must be accompanied by a licensed driver who is at least:", "options": ["21 years old", "16 years old", "18 years old"], "answer": 0, "ref": "VA Licensing", "explanation": "A licensed driver age 21 or older must supervise a permit holder."}, {"q": "When must Virginia headlights be on?", "options": ["From sunset to sunrise and in low visibility", "Only on highways", "Never in city"], "answer": 0, "ref": "VA Lights", "explanation": "Use headlights from sunset to sunrise and whenever you cannot see 500 feet ahead."}, {"q": "In Virginia, a right turn on red is allowed unless:", "options": ["A sign prohibits it or it is unsafe", "Always prohibited", "Only in rural areas"], "answer": 0, "ref": "VA Turns", "explanation": "You may turn right on red after stopping, unless a sign forbids it or cross traffic is present."}, {"q": "What is the legal BAC limit for drivers 21 and older in Virginia?", "options": ["0.08%", "0.05%", "0.00%"], "answer": 0, "ref": "VA DUI", "explanation": "For drivers 21+, the limit is 0.08% BAC; lower for younger/novice drivers."}, {"q": "Virginia's 'Move Over' law requires you to:", "options": ["Move over or slow down for stopped emergency/utility vehicles", "Speed up to pass", "Ignore them"], "answer": 0, "ref": "VA Move Over", "explanation": "You must move over one lane or slow to a safe speed when approaching stopped emergency, tow or utility vehicles."}, {"q": "When approaching a school bus with flashing red lights on a two-lane road you must:", "options": ["Stop in both directions", "Pass slowly", "Only stop if behind it"], "answer": 0, "ref": "VA School Bus", "explanation": "On a two-lane road all traffic must stop for a school bus with flashing red lights."}, {"q": "What should you do at a steady red traffic signal?", "options": ["Stop, then turn right if safe (unless signed otherwise)", "Go immediately", "Stop only if turning left"], "answer": 0, "ref": "VA Signals", "explanation": "A red light means stop; a right turn after stopping is allowed unless posted otherwise."}, {"q": "A yellow (amber) traffic signal means:", "options": ["Stop if you can do so safely", "Accelerate", "Always go"], "answer": 0, "ref": "VA Signals", "explanation": "Amber warns the light is changing; stop if you can safely, otherwise clear the intersection."}, {"q": "In Virginia, following too closely (tailgating) is:", "options": ["Illegal and a traffic infraction", "Allowed in fast lanes", "Only illegal at night"], "answer": 0, "ref": "VA Following", "explanation": "You must keep a safe distance; tailgating is an infraction that raises crash risk."}, {"q": "What is the penalty risk for driving without insurance in Virginia?", "options": ["Fines, license suspension, and uninsured motorist fee", "None", "Only a warning"], "answer": 0, "ref": "VA Insurance", "explanation": "Virginia requires insurance or payment of an uninsured motorist fee; driving uninsured risks fines and suspension."}, {"q": "When parking downhill with a curb you should turn your wheels:", "options": ["Toward the curb", "Away from the curb", "Straight"], "answer": 0, "ref": "VA Parking", "explanation": "Turn wheels toward the curb so the car rolls into it if it moves."}, {"q": "A solid white line on the road means:", "options": ["You should not change lanes", "You may pass freely", "It is a bike lane"], "answer": 0, "ref": "VA Markings", "explanation": "Solid white lines separate lanes where lane changes are discouraged or prohibited."}, {"q": "What does a round sign with a red ring and a white horizontal bar mean?", "options": ["Do not enter", "Yield", "Stop"], "answer": 0, "ref": "VA Signs", "explanation": "The round red-and-white bar is the 'do not enter' sign."}, {"q": "In Virginia, child passengers must be in an approved restraint until what age?", "options": ["8 years old (and 4'9\" tall)", "2 years old", "12 years old"], "answer": 0, "ref": "VA Child Safety", "explanation": "Children must use a proper car seat/booster until age 8 or 4 feet 9 inches tall."}, {"q": "What is the speed limit in a school zone when children are present?", "options": ["25 mph", "45 mph", "35 mph"], "answer": 0, "ref": "VA School Zone", "explanation": "School zone limits drop to 25 mph when children are present."}, {"q": "When two vehicles reach an uncontrolled intersection at the same time, who yields?", "options": ["The driver on the left yields to the right", "The driver on the right yields", "Larger vehicle"], "answer": 0, "ref": "VA Right of Way", "explanation": "At an uncontrolled intersection, yield to the vehicle on your right."}, {"q": "A flashing yellow traffic signal means:", "options": ["Proceed with caution", "Stop fully", "Speed up"], "answer": 0, "ref": "VA Signals", "explanation": "Flashing yellow means slow down and proceed with caution."}, {"q": "In Virginia, you may not text or email while driving:", "options": ["True, it is prohibited for all drivers", "Only for learners", "Only at night"], "answer": 0, "ref": "VA Distraction", "explanation": "Handheld texting/emailing is banned for all drivers; use hands-free if needed."}, {"q": "What should you do if your car starts to hydroplane?", "options": ["Ease off the accelerator and steer straight", "Brake hard", "Turn sharply"], "answer": 0, "ref": "VA Weather", "explanation": "Hydroplaning means tyres ride on water; ease off the gas and keep the wheel straight."}, {"q": "A green arrow with a red light means:", "options": ["You may go only in the arrow direction", "Go straight", "Stop"], "answer": 0, "ref": "VA Signals", "explanation": "A green arrow permits movement only in that direction, even if the main light is red."}, {"q": "What is the minimum tread depth for tyres in Virginia?", "options": ["2/32 of an inch", "1/16 of an inch", "1/4 of an inch"], "answer": 0, "ref": "VA Vehicle", "explanation": "Tyres must have at least 2/32 inch tread to be legal and safe."}, {"q": "When approaching a railroad crossing with flashing lights you must:", "options": ["Stop and wait until lights stop", "Look both ways then go", "Speed up"], "answer": 0, "ref": "VA Rail", "explanation": "Flashing lights mean a train is coming; stop and wait until it is safe."}, {"q": "In Virginia, a driver under 18 with a provisional license may not drive between:", "options": ["Midnight and 4 a.m. without exception", "6 a.m. and 8 p.m.", "No restriction"], "answer": 0, "ref": "VA Licensing", "explanation": "Provisional drivers under 18 face a curfew from midnight to 4 a.m."}, {"q": "What does a pentagon-shaped (house) sign indicate?", "options": ["A school zone or crossing", "A hospital", "A curve"], "answer": 0, "ref": "VA Signs", "explanation": "The yellow pentagon warns of a school area and child pedestrians."}, {"q": "When merging onto a highway you should:", "options": ["Match the speed of traffic and merge safely", "Stop at the end of the ramp", "Force your way in"], "answer": 0, "ref": "VA Merging", "explanation": "Build speed on the ramp and merge with a safe gap in traffic."}, {"q": "What is the purpose of an advisory speed sign on a curve?", "options": ["A suggested safe speed for that curve", "A legal maximum", "A minimum speed"], "answer": 0, "ref": "VA Signs", "explanation": "Advisory speeds are recommended for safe travel through curves or ramps."}, {"q": "If you are involved in a crash you must:", "options": ["Stop, help the injured, and report it", "Drive away if minor", "Hide"], "answer": 0, "ref": "VA Crashes", "explanation": "You must stop, aid the injured and report the crash to police if required."}, {"q": "A blue sign with a large 'H' indicates:", "options": ["A hospital / medical service", "A highway", "A hazard"], "answer": 0, "ref": "VA Signs", "explanation": "Blue service signs point to hospitals, gas and assistance."}, {"q": "In Virginia, you must yield to a pedestrian:", "options": ["In any crosswalk, marked or unmarked", "Only at lights", "Never"], "answer": 0, "ref": "VA Pedestrians", "explanation": "Pedestrians in crosswalks have the right of way; stop and let them cross."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

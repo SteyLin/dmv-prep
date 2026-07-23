@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Canada Driving Knowledge Practice Test — Free G1 / Class 7 Prep | DriveReady Hub</title>
-<meta name="description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers — 100% free.">
+<title>Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub</title>
+<meta name="description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers - 100% free.">
 <meta name="google-adsense-account" content="ca-pub-7503096549502749">
 <link rel="canonical" href="https://drivereadyhub.com/ca/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,19 +12,19 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="DriveReady Hub">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Canada Driving Knowledge Practice Test — Free G1 / Class 7 Prep | DriveReady Hub">
-<meta property="og:description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers — 100% free.">
+<meta property="og:title" content="Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub">
+<meta property="og:description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers - 100% free.">
 <meta property="og:url" content="https://drivereadyhub.com/ca/">
 <meta property="og:image" content="https://drivereadyhub.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Canada Driving Knowledge Practice Test — Free G1 / Class 7 Prep | DriveReady Hub">
-<meta name="twitter:description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers — 100% free.">
+<meta name="twitter:title" content="Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub">
+<meta name="twitter:description" content="Free Canada driver knowledge practice test with 60 questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers - 100% free.">
 <meta name="twitter:url" content="https://drivereadyhub.com/ca/">
 <meta name="twitter:image" content="https://drivereadyhub.com/og-image.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7503096549502749" crossorigin="anonymous"></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "name": "Canada Driving Knowledge Practice Test — Free G1 / Class 7 Prep | DriveReady Hub", "url": "https://drivereadyhub.com/ca/", "about": {"@type": "Thing", "name": "Canada driving knowledge test"}, "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "QAPage", "name": "Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub", "url": "https://drivereadyhub.com/ca/", "about": {"@type": "Thing", "name": "Canada driving knowledge test"}, "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
 <style>
   :root{
     --bg:#f7f9fc; --card:#ffffff; --ink:#1f2933; --muted:#6b7280;
@@ -51,6 +51,11 @@
   .breadcrumb{color:var(--muted);font-size:.85rem;margin-bottom:12px;}
   .breadcrumb a{text-decoration:none;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
+
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
+
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
   .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
   .q-text{font-size:1.18rem;font-weight:700;line-height:1.45;margin-bottom:18px;scroll-margin-top:20px;}
@@ -83,8 +88,13 @@
   <div class="breadcrumb"><a href="/">Home</a> &middot; <strong>Canada Driving Knowledge</strong></div>
   <header>
     <h1>Canada <span class="em">Knowledge Practice</span></h1>
-    <p class="sub">Free G1 / Class 7 style knowledge test — 60 questions covering signs, speed limits (km/h), winter driving, and licensing.</p>
+    <p class="sub">Free G1 / Class 7 style knowledge test - 60 questions covering signs, speed limits (km/h), winter driving, and licensing.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -109,6 +119,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All Tests</button>
     </div>
   </div>
@@ -120,73 +131,118 @@
     <span style="margin:0 8px;">·</span>
     <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
     <br>
-    DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
+    DriveReady Hub - Informational only. Not affiliated with any DMV or government agency.
   </div>
 </div>
 
 <script>
+
 const STATE_KEY = "ca";
 const STATE_DATA = {"name": "Canada (G1 / Class 7 Knowledge Test)", "source": "Provincial driver handbook syllabus (public domain style)", "questions": [{"q": "In most provinces, a new driver starts with which licence class?", "options": ["A learner's permit (G1 / Class 7)", "A full licence", "A commercial licence"], "answer": 0, "ref": "Graduated licensing", "explanation": "Canada uses graduated licensing; you begin with a learner permit (G1 in Ontario, Class 7 in BC/Alberta) and progress in stages."}, {"q": "As a G1 / Class 7 learner you must usually be accompanied by:", "options": ["A fully licensed driver with 4+ years experience", "Any friend", "No one needed"], "answer": 0, "ref": "Graduated licensing", "explanation": "Learners must drive with a qualified supervisor (e.g. 4+ years licensed) and often observe zero blood alcohol."}, {"q": "New drivers in Canada typically face what alcohol limit?", "options": ["Zero (0.00%)", "0.08%", "0.05%"], "answer": 0, "ref": "Alcohol", "explanation": "Novice drivers are held to a zero tolerance (0.00% BAC) standard in most provinces."}, {"q": "The federal criminal BAC limit for experienced drivers is:", "options": ["0.08%", "0.05%", "0.00%"], "answer": 0, "ref": "Alcohol", "explanation": "Over 0.08% BAC is a criminal offence nationwide, though many provinces suspend at 0.05%."}, {"q": "How long is a G1 / Class 7 learner licence normally valid?", "options": ["About 1 year before the next stage", "Life", "3 months"], "answer": 0, "ref": "Graduated licensing", "explanation": "You usually hold the learner stage for about 12 months (sometimes less with driver training) before the road test."}, {"q": "In Canada you must generally drive:", "options": ["On the right-hand side of the road", "On the left", "In the middle"], "answer": 0, "ref": "Rules of the road", "explanation": "Canada drives on the right, the opposite of the UK; overtake on the left."}, {"q": "On a multi-lane road you should normally use:", "options": ["The right lane and pass on the left", "The left lane always", "Any lane you like"], "answer": 0, "ref": "Lane discipline", "explanation": "Keep right and use the left lane only to pass, then move back."}, {"q": "When two vehicles meet at an uncontrolled intersection, who goes first?", "options": ["The driver on the right", "The driver on the left", "Whoever is bigger"], "answer": 0, "ref": "Right of way", "explanation": "At an intersection with no signs, yield to the vehicle on your right."}, {"q": "A 4-way stop sign means:", "options": ["First to stop goes first", "Left goes first", "Whoever is fastest"], "answer": 0, "ref": "Right of way", "explanation": "At a 4-way stop, the first vehicle to stop proceeds first; if tied, yield right."}, {"q": "When turning left you must yield to:", "options": ["Oncoming traffic going straight", "Pedestrians only", "Nobody"], "answer": 0, "ref": "Right of way", "explanation": "A left turn crosses oncoming traffic, so wait for a safe gap in straight-ahead vehicles."}, {"q": "Speed limits in Canada are posted in:", "options": ["km/h", "mph", "knots"], "answer": 0, "ref": "Speed limits", "explanation": "Canada uses the metric system; limits such as 50 km/h in cities are shown in kilometres per hour."}, {"q": "A typical city speed limit in Canada is:", "options": ["50 km/h", "30 mph", "80 km/h"], "answer": 0, "ref": "Speed limits", "explanation": "Most urban areas set 50 km/h unless signed otherwise."}, {"q": "On a rural highway without signs the limit is often:", "options": ["80 km/h", "50 km/h", "110 km/h"], "answer": 0, "ref": "Speed limits", "explanation": "Many provinces default to 80 km/h on rural roads unless posted."}, {"q": "School zones usually have a reduced limit of:", "options": ["30-40 km/h when children present", "70 km/h", "No special limit"], "answer": 0, "ref": "Speed limits", "explanation": "School zones drop to about 30-40 km/h during posted times for child safety."}, {"q": "You must always drive at a speed that is:", "options": ["Safe for the conditions", "The exact posted limit even in a storm", "As fast as traffic"], "answer": 0, "ref": "Speed limits", "explanation": "The limit is a maximum; slow further for weather, light and traffic."}, {"q": "A red octagonal sign means:", "options": ["Stop", "Yield", "Speed limit"], "answer": 0, "ref": "Signs", "explanation": "The red octagon is the universal STOP sign; stop fully at the line."}, {"q": "A red triangle sign with an exclamation means:", "options": ["Warning / hazard ahead", "Stop", "Parking"], "answer": 0, "ref": "Signs", "explanation": "Red triangles warn of hazards such as curves, hills or crossings."}, {"q": "A circular red and white sign means:", "options": ["Do not enter / prohibition", "Yield", "Information"], "answer": 0, "ref": "Signs", "explanation": "Circular red-and-white signs are prohibitions, e.g. 'do not enter'."}, {"q": "A green sign usually gives:", "options": ["Directions and information", "Warnings", "Stops"], "answer": 0, "ref": "Signs", "explanation": "Green signs guide drivers with route and destination information."}, {"q": "A yellow pennant on the left warns of:", "options": ["A no-passing zone", "A school", "A railway"], "answer": 0, "ref": "Signs", "explanation": "The left-side yellow pennant marks where passing is not allowed."}, {"q": "A pentagon sign (house shape) warns of:", "options": ["A school zone / crossing", "A hospital", "A curve"], "answer": 0, "ref": "Signs", "explanation": "The yellow pentagon indicates a school area and child pedestrians."}, {"q": "A diamond sign warns of:", "options": ["A specific hazard (e.g. deer, bumps)", "A speed limit", "A stop"], "answer": 0, "ref": "Signs", "explanation": "Diamond shapes warn of road hazards such as wildlife, bumps or slippery sections."}, {"q": "A flashing red light at an intersection means:", "options": ["Stop, then go when safe", "Slow down", "Ignore it"], "answer": 0, "ref": "Signals", "explanation": "A flashing red is treated like a stop sign: stop, yield, proceed when clear."}, {"q": "A flashing green light (Quebec) means:", "options": ["Go, but pedestrians may be crossing / left turn permitted", "Stop", "Road closed"], "answer": 0, "ref": "Signals", "explanation": "In Quebec a flashing green allows you to turn left or go, watching for pedestrians."}, {"q": "In winter you should increase your following distance because:", "options": ["Braking takes longer on ice/snow", "Cars are faster", "Laws require it"], "answer": 0, "ref": "Winter driving", "explanation": "Snow and ice lengthen stopping distance, so leave much more space."}, {"q": "Winter tires are recommended or required in many provinces because:", "options": ["They grip better below 7\u00b0C", "They look nicer", "They are cheaper"], "answer": 0, "ref": "Winter driving", "explanation": "Rubber stays flexible in cold; some provinces mandate winter tires in season."}, {"q": "If your car starts to skid on ice you should:", "options": ["Steer gently in the direction you want to go", "Brake hard", "Accelerate"], "answer": 0, "ref": "Winter driving", "explanation": "Ease off, look where you want to go and steer smoothly; avoid hard braking."}, {"q": "Before a long winter trip you should:", "options": ["Carry a scraper, blanket and charged phone", "Nothing extra needed", "Remove the spare"], "answer": 0, "ref": "Winter driving", "explanation": "Winter kits (scraper, warmth, phone) help if you get stuck in cold."}, {"q": "Black ice is dangerous because:", "options": ["It is nearly invisible", "It is blue", "It is warm"], "answer": 0, "ref": "Winter driving", "explanation": "Black ice is a thin clear glaze that looks like wet road; slow down on bridges and shaded spots."}, {"q": "Using cruise control on snowy roads is:", "options": ["Not advised", "Required", "Faster"], "answer": 0, "ref": "Winter driving", "explanation": "Cruise control can cause sudden acceleration on slip; keep manual control."}, {"q": "In heavy snow your headlights should be on:", "options": ["Always, for visibility", "Only at night", "Never"], "answer": 0, "ref": "Winter driving", "explanation": "Low light and whiteout reduce sight; use lights so others see you."}, {"q": "At a railway crossing with flashing lights you must:", "options": ["Stop and wait until lights stop", "Go if no train is visible", "Speed up"], "answer": 0, "ref": "Railways", "explanation": "Flashing lights mean a train is coming; stop well back and do not proceed until safe."}, {"q": "You should never stop a vehicle:", "options": ["On a railway crossing", "At a red light", "In a parking spot"], "answer": 0, "ref": "Railways", "explanation": "Never stop on the tracks; a stalled car can be hit by a train."}, {"q": "When a train is approaching you should:", "options": ["Stop at least 5 metres back", "Cross quickly", "Honk"], "answer": 0, "ref": "Railways", "explanation": "Stop well behind the crossing and only move once the train has fully passed."}, {"q": "Trains are dangerous because they:", "options": ["Cannot stop quickly and are wider than the track", "Are slow", "Are small"], "answer": 0, "ref": "Railways", "explanation": "A train needs a long distance to stop and overhangs the rails; never race it."}, {"q": "In rural Canada a deer on the road means you should:", "options": ["Slow down and be ready to stop", "Speed up to pass", "Hoot constantly"], "answer": 0, "ref": "Wildlife", "explanation": "Deer (and moose) can dart out; brake smoothly and watch for more."}, {"q": "If a large animal like a moose is on the road you should:", "options": ["Brake firmly and do not swerve hard", "Swerve into the ditch", "Accelerate"], "answer": 0, "ref": "Wildlife", "explanation": "Hitting a moose is severe; brake hard but avoid a violent swerve that could roll the car."}, {"q": "At dusk and dawn in wooded areas you should:", "options": ["Be extra alert for animals", "Drive faster", "Close your eyes"], "answer": 0, "ref": "Wildlife", "explanation": "Animals are most active at low light; reduce speed near forests and water."}, {"q": "You must yield to pedestrians:", "options": ["At crosswalks and intersections", "Only on green lights", "Never"], "answer": 0, "ref": "Pedestrians", "explanation": "Pedestrians have priority at marked and unmarked crosswalks; stop and let them cross."}, {"q": "When a school bus has its red lights flashing you must:", "options": ["Stop in both directions (except divided highways in some provinces)", "Pass slowly", "Honk"], "answer": 0, "ref": "School bus", "explanation": "Stop for a stopped school bus with flashing reds; children may be crossing. Rules vary slightly on divided roads."}, {"q": "A pedestrian with a white cane is:", "options": ["Visually impaired; give way", "A worker", "A cyclist"], "answer": 0, "ref": "Vulnerable road users", "explanation": "A white cane signals blindness; stop and help them cross safely."}, {"q": "When cycling you should:", "options": ["Follow the same rules as cars", "Ignore signs", "Ride against traffic"], "answer": 0, "ref": "Cyclists", "explanation": "Cyclists are vehicle operators; obey signs, signal and ride with traffic."}, {"q": "In Canada you must carry which documents when driving?", "options": ["Licence, insurance and registration", "Passport only", "Birth certificate"], "answer": 0, "ref": "Documents", "explanation": "Have your licence, proof of insurance and vehicle registration available if stopped."}, {"q": "Seat belts are required for:", "options": ["The driver and all passengers", "Only the driver", "Nobody"], "answer": 0, "ref": "Safety", "explanation": "Every occupant must wear a seat belt; children need approved restraints."}, {"q": "Using a handheld phone while driving is:", "options": ["Prohibited in every province", "Allowed", "Only banned at night"], "answer": 0, "ref": "Distraction", "explanation": "Handheld device use is banned nationwide; use hands-free only and minimize distraction."}, {"q": "If you are in a collision you must:", "options": ["Stop, help and exchange information", "Drive away", "Hide"], "answer": 0, "ref": "Collisions", "explanation": "Stop, check for injuries, call 911 if needed and swap licence/insurance details."}, {"q": "A child under a certain age/size must ride:", "options": ["In an approved child car seat", "In the front seat", "Unrestrained"], "answer": 0, "ref": "Child safety", "explanation": "Young children need the correct car seat or booster per provincial law."}, {"q": "When parked on a hill you should:", "options": ["Turn wheels to the curb and set the brake", "Leave it in gear only", "Point downhill"], "answer": 0, "ref": "Parking", "explanation": "Curb your wheels so the car rolls into the curb, not the road, if it moves."}, {"q": "When being passed you should:", "options": ["Keep speed and stay right", "Speed up", "Move left"], "answer": 0, "ref": "Overtaking", "explanation": "Don't accelerate; hold steady and let the passer complete safely."}, {"q": "You may pass another car on the right only when:", "options": ["The other car is turning left and road is clear", "Always on highways", "Never"], "answer": 0, "ref": "Overtaking", "explanation": "Passing on the right is allowed only in specific safe situations, e.g. a left-turning vehicle."}, {"q": "A solid line on your side means:", "options": ["Do not pass", "Pass freely", "Bus lane"], "answer": 0, "ref": "Road markings", "explanation": "A solid centre line on your side prohibits crossing to overtake."}, {"q": "At a yellow (amber) light you should:", "options": ["Stop if you can do so safely", "Speed up to beat it", "Always go"], "answer": 0, "ref": "Signals", "explanation": "Amber means stop if safe; only continue if too close to stop."}, {"q": "Headlights must be on from:", "options": ["30 min after sunset to 30 min before sunrise", "Noon only", "Never"], "answer": 0, "ref": "Lighting", "explanation": "Use headlights from dusk to dawn and in poor visibility."}, {"q": "When towing you should:", "options": ["Stay within the speed and weight limits", "Exceed limits", "Not signal"], "answer": 0, "ref": "Towing", "explanation": "Trailers add length and weight; obey lower limits and check connections."}, {"q": "A roundabout is entered by:", "options": ["Yielding to traffic already in it (circulating counterclockwise)", "Barging in", "Stopping in the middle"], "answer": 0, "ref": "Roundabouts", "explanation": "Canadian roundabouts go counterclockwise; yield to cars already circling, then enter."}, {"q": "If your brakes fail you should:", "options": ["Pump the brake, use the parking brake, downshift", "Close your eyes", "Floor the gas"], "answer": 0, "ref": "Emergencies", "explanation": "Try pumping, engage the parking brake gradually and shift down to slow safely."}, {"q": "Visibility is low in fog. You should:", "options": ["Slow down and use low beams", "Use high beams", "Speed up"], "answer": 0, "ref": "Visibility", "explanation": "Low beams reduce glare in fog; high beams reflect back and worsen sight."}, {"q": "You see a construction zone. You should:", "options": ["Slow to the posted temporary limit", "Keep full speed", "Change lanes sharply"], "answer": 0, "ref": "Work zones", "explanation": "Temporary limits in work zones are enforced and protect workers."}, {"q": "Sharing the road with a large truck you should:", "options": ["Give extra room and avoid blind spots", "Cut in front closely", "Tailgate"], "answer": 0, "ref": "Large vehicles", "explanation": "Trucks have big blind spots and long stopping distances; don't linger beside them."}, {"q": "When parallel parking you should:", "options": ["Signal, position, and reverse in smoothly", "Jump in fast", "Not signal"], "answer": 0, "ref": "Parking", "explanation": "Signal, line up, and back into the space with care and observation."}]};
-</script>
-<script>
-/* Quiz logic (scoped to Canada) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
+
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
 render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

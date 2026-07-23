@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Minnesota <span class="em">DMV Practice</span></h1>
     <p class="sub">Free MN permit and license practice test — 50 questions from the official Minnesota driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "mn";
 const STATE_DATA = {"name": "Minnesota (MN DVS)", "source": "Official MN Driver Manual (public domain)", "questions": [{"q": "What is Minnesota's speed limit under ideal conditions on urban or town roads unless otherwise posted?", "options": ["55 mph", "30 mph", "45 mph"], "answer": 1, "ref": "MN Manual - Speed Limits", "explanation": "The manual lists 30 mph for urban or town roads under ideal conditions unless signs indicate otherwise."}, {"q": "Unless otherwise posted, what is the ideal-conditions speed limit for locations not otherwise specified in the manual's list?", "options": ["45 mph", "65 mph", "55 mph"], "answer": 2, "ref": "MN Manual - Speed Limits", "explanation": "The manual sets 55 mph as the limit for all other locations not specified in its list."}, {"q": "What is the speed limit in alleys under ideal conditions?", "options": ["15 mph", "20 mph", "10 mph"], "answer": 2, "ref": "MN Manual - Speed Limits", "explanation": "The manual specifies 10 mph in alleys."}, {"q": "On a two-lane highway posted 55 mph or higher, how much may you increase your speed when lawfully passing?", "options": ["By 5 mph", "By 15 mph", "By 10 mph"], "answer": 2, "ref": "MN Manual - Speed Limits / Passing", "explanation": "You may increase speed by 10 mph when lawfully passing on a two-lane highway posted 55 mph or higher."}, {"q": "Driving over what speed results in revocation of driving privileges for at least six months?", "options": ["Over 85 mph", "Over 100 mph", "Over 90 mph"], "answer": 1, "ref": "MN Manual - Speed Limits and Fines", "explanation": "The manual states driving over 100 mph will revoke driving privileges for at least six months."}, {"q": "At what alcohol concentration can a driver be arrested for DWI in a regular vehicle?", "options": ["0.08 or higher", "0.05 or higher", "0.10 or higher"], "answer": 0, "ref": "MN Manual - Alcohol and Driving", "explanation": "A person with an alcohol concentration of 0.08 or higher can be arrested for DWI."}, {"q": "What is the alcohol concentration threshold for DWI while driving a commercial vehicle?", "options": ["0.08", "0.02", "0.04"], "answer": 2, "ref": "MN Manual - Alcohol and Driving", "explanation": "For commercial vehicles, the DWI threshold is 0.04."}, {"q": "For a driver under 21, how much detectable alcohol makes operating a vehicle illegal under the Not-a-Drop rule?", "options": ["0.02 or more", "0.05 or more", "Any detectable amount"], "answer": 2, "ref": "MN Manual - Underage Drinking - No Tolerance", "explanation": "It is illegal for anyone under 21 to drive with any detectable amount of alcohol."}, {"q": "A first conviction of the underage Not-a-Drop rule suspends driving privileges for how long?", "options": ["90 days", "7 days", "30 days"], "answer": 2, "ref": "MN Manual - Underage Drinking - No Tolerance", "explanation": "A first Not-a-Drop conviction results in a 30-day suspension."}, {"q": "Refusing a blood, breath, or urine test under the Implied Consent law results in revocation for:", "options": ["30 to 90 days", "One to six years", "Exactly one year always"], "answer": 1, "ref": "MN Manual - Implied Consent", "explanation": "Test refusal revokes driving privileges for one to six years depending on prior offenses."}, {"q": "An alcohol concentration of what level counts as an aggravating factor bringing more severe penalties?", "options": ["0.16 or above", "0.10 or above", "0.12 or above"], "answer": 0, "ref": "MN Manual - Alcohol Penalties", "explanation": "Penalties are more severe if the alcohol concentration is 0.16 or above."}, {"q": "When a school bus has flashing red lights and an extended stop arm, you must stop at least how far from the bus?", "options": ["50 feet", "10 feet", "20 feet"], "answer": 2, "ref": "MN Manual - Stopping for a School Bus", "explanation": "You must stop at least 20 feet from a bus displaying flashing red lights and an extended stop arm."}, {"q": "On a divided roadway, must you stop for a school bus with red lights flashing on the opposite side of the divider?", "options": ["No, you do not need to stop", "Yes, always stop", "Only if children are visible"], "answer": 0, "ref": "MN Manual - Passing a School Bus", "explanation": "On a divided roadway you need not stop for a bus with red lights on the opposite side of the divider."}, {"q": "How far before a stop does a bus driver activate flashing yellow lights in a speed zone of 35 mph or less?", "options": ["At least 300 feet", "At least 50 feet", "At least 100 feet"], "answer": 2, "ref": "MN Manual - Stopping for a School Bus", "explanation": "Yellow lights are activated at least 100 feet before stopping in a zone of 35 mph or less."}, {"q": "The minimum fine for illegally passing a stopped school bus with red lights flashing is at least:", "options": ["$500", "$100", "$250"], "answer": 0, "ref": "MN Manual - Stopping for a School Bus", "explanation": "Conviction requires a fine of at least $500 and loss of driving privileges."}, {"q": "In Minnesota, who is required to wear a seat belt?", "options": ["The driver and all passengers, including back seat", "Only the driver", "Only front seat occupants"], "answer": 0, "ref": "MN Manual - Seat Belt Laws", "explanation": "All occupants, including those in the back seat, must wear a properly fastened seat belt."}, {"q": "Seat belt violations in Minnesota are enforced how?", "options": ["Only ticketed with another violation", "Not enforceable by traffic stop", "Law enforcement can stop you solely for a seat belt violation"], "answer": 2, "ref": "MN Manual - Seat Belt Laws", "explanation": "Minnesota's seat belt law is primary; officers can stop motorists solely for the violation."}, {"q": "Children under what age must ride in the back seat if one is available?", "options": ["10 years old", "13 years old", "8 years old"], "answer": 1, "ref": "MN Manual - Infant and Child Safety Seat Laws", "explanation": "Children under 13 must ride in the back seat when it is available."}, {"q": "Children under what age must ride in a rear-facing car seat (until they exceed its limits)?", "options": ["Four years of age", "One year of age", "Two years of age"], "answer": 2, "ref": "MN Manual - Infant and Child Safety Seat Laws", "explanation": "Children under two must ride rear-facing until they reach the seat's weight or height limit."}, {"q": "A child from four to nine years old who is too big for a car seat must use:", "options": ["Only a lap belt", "A rear-facing seat", "A booster seat with a safety belt"], "answer": 2, "ref": "MN Manual - Infant and Child Safety Seat Laws", "explanation": "Children four to nine must use a booster seat secured with a safety belt if too big for the car seat."}, {"q": "Child restraint systems expire how many years from the date of manufacture if no date is stamped?", "options": ["Six years", "Three years", "Ten years"], "answer": 0, "ref": "MN Manual - Child Passenger Safety Guidelines", "explanation": "The manual recommends child restraints expire six years from manufacture."}, {"q": "At an intersection without traffic signals, when two drivers arrive at the same time, who yields?", "options": ["The faster vehicle yields", "The driver on the right yields", "The driver on the left yields to the one on the right"], "answer": 2, "ref": "MN Manual - Right of Way and Yielding", "explanation": "At uncontrolled intersections, the driver on the left must yield to the one on the right."}, {"q": "When making a left turn, you must yield to:", "options": ["Only pedestrians", "Vehicles approaching from the opposite direction close enough to be a risk", "No one if you signal"], "answer": 1, "ref": "MN Manual - Right of Way and Yielding", "explanation": "A left-turning driver must yield to oncoming vehicles in or near the intersection."}, {"q": "When an emergency vehicle approaches with lights and siren on a two-way road, you must:", "options": ["Stop in your current lane immediately", "Pull to the right and stop", "Speed up to clear the road"], "answer": 1, "ref": "MN Manual - Yield to Emergency Vehicles", "explanation": "You must pull to the right and stop until all emergency vehicles have passed."}, {"q": "When entering a roundabout, you must:", "options": ["Yield to vehicles already in the roundabout", "Enter immediately and merge", "Stop fully before entering always"], "answer": 0, "ref": "MN Manual - Roundabouts", "explanation": "Drivers entering a roundabout must yield to traffic already circulating in it."}, {"q": "Which action is prohibited within a roundabout?", "options": ["Stopping, passing, or changing lanes", "Yielding to pedestrians", "Choosing a lane before entering"], "answer": 0, "ref": "MN Manual - Roundabouts", "explanation": "You must not stop, pass, or change lanes within the roundabout."}, {"q": "When flashing lights or gates are activated at a railroad crossing, stop at least how far from the nearest rail?", "options": ["20 feet", "10 feet", "5 feet"], "answer": 1, "ref": "MN Manual - Railroad Crossings", "explanation": "Stop at least 10 feet from the nearest rail or gate when warning devices are active."}, {"q": "It is illegal to pass any vehicle within how many feet of a railroad crossing?", "options": ["50 feet", "100 feet", "200 feet"], "answer": 1, "ref": "MN Manual - Special Vehicles at Railroad Crossings", "explanation": "The manual prohibits passing any vehicle within 100 feet of a railroad crossing."}, {"q": "You may not park within how many feet of a fire hydrant?", "options": ["15 feet", "25 feet", "10 feet"], "answer": 2, "ref": "MN Manual - Parking", "explanation": "Parking is prohibited within 10 feet of a fire hydrant."}, {"q": "You may not park within how many feet of a crosswalk at an intersection?", "options": ["30 feet", "20 feet", "10 feet"], "answer": 1, "ref": "MN Manual - Parking", "explanation": "Parking is prohibited within 20 feet of a crosswalk at an intersection."}, {"q": "You may not park within how many feet of the nearest rail of a railroad crossing?", "options": ["25 feet", "100 feet", "50 feet"], "answer": 2, "ref": "MN Manual - Parking", "explanation": "Parking is prohibited within 50 feet of the nearest rail of a railroad crossing."}, {"q": "You may not park within how many feet of a flashing light, stop sign, or traffic signal on the roadside?", "options": ["30 feet", "50 feet", "10 feet"], "answer": 0, "ref": "MN Manual - Parking", "explanation": "Parking is prohibited within 30 feet of a flashing light, stop sign, or traffic control signal."}, {"q": "The Three-Second Rule is used to determine:", "options": ["A safe following distance", "The time to signal a turn", "Your stopping distance on ice"], "answer": 0, "ref": "MN Manual - Three-Second Rule", "explanation": "The Three-Second Rule helps you keep a safe following distance behind the vehicle ahead."}, {"q": "In poor conditions or when driving a longer vehicle, you should increase the following gap to:", "options": ["A one-second count", "A two-second count", "A four- or five-second count"], "answer": 2, "ref": "MN Manual - Three-Second Rule", "explanation": "The manual advises increasing to a four- or five-second count in poor conditions or with longer vehicles."}, {"q": "You must dim your high beams to low beam when within how many feet of an oncoming vehicle?", "options": ["200 feet", "1,000 feet", "500 feet"], "answer": 1, "ref": "MN Manual - Headlights", "explanation": "Headlights must be on low beam within 1,000 feet of an oncoming vehicle."}, {"q": "When following another vehicle, you must use low beams when within how many feet of it?", "options": ["200 feet", "500 feet", "100 feet"], "answer": 0, "ref": "MN Manual - Headlights", "explanation": "Low beams are required when following another vehicle at 200 feet or less."}, {"q": "Headlights must be turned on:", "options": ["Only in heavy rain", "From sunset to sunrise", "Only on freeways at night"], "answer": 1, "ref": "MN Manual - Headlights", "explanation": "Headlights must be on from sunset until sunrise, and in poor visibility conditions."}, {"q": "You must use headlights any time you cannot clearly see the road ahead for at least:", "options": ["1,000 feet", "500 feet", "300 feet"], "answer": 1, "ref": "MN Manual - Headlights", "explanation": "Headlights are required when you cannot see clearly for at least 500 feet."}, {"q": "A solid yellow line on your side of the center line means:", "options": ["You may pass with caution", "You must not pass", "The road ends ahead"], "answer": 1, "ref": "MN Manual - Yellow Lines", "explanation": "A solid yellow line on your side indicates no passing is allowed."}, {"q": "Double solid yellow lines mean:", "options": ["A center left-turn lane", "Passing allowed from either side", "No passing is allowed in either direction"], "answer": 2, "ref": "MN Manual - Yellow Lines", "explanation": "Double solid yellow lines prohibit passing regardless of which side you are on."}, {"q": "A white dashed line between lanes means:", "options": ["You may change lanes", "The lane is for bicycles only", "You must not change lanes"], "answer": 0, "ref": "MN Manual - White Lines", "explanation": "White dashes separate same-direction lanes and permit lane changes."}, {"q": "A solid white line generally indicates that you:", "options": ["May pass freely", "Should not change lanes", "Are entering oncoming traffic"], "answer": 1, "ref": "MN Manual - White Lines", "explanation": "A solid white line indicates you should not change lanes."}, {"q": "An octagonal (eight-sided) red sign means:", "options": ["Come to a complete stop", "Yield the right of way", "Reduce speed ahead"], "answer": 0, "ref": "MN Manual - Regulatory Signs", "explanation": "The stop sign requires a complete stop until the way is clear."}, {"q": "A triangular Yield sign requires you to:", "options": ["Come to a full stop always", "Merge without slowing", "Slow or stop and give the right of way"], "answer": 2, "ref": "MN Manual - Regulatory Signs", "explanation": "A yield sign means slow or stop if necessary and give the right of way to others."}, {"q": "Most warning signs are what color?", "options": ["Blue", "Red", "Yellow"], "answer": 2, "ref": "MN Manual - Warning Signs", "explanation": "The manual states most warning signs are yellow."}, {"q": "You must signal a turn or lane change at least how far before the maneuver?", "options": ["100 feet", "200 feet", "50 feet"], "answer": 0, "ref": "MN Manual - Signaling", "explanation": "Activate your turn signal at least 100 feet before turning or changing lanes."}, {"q": "You must not pass on a curve or hill unless you can see the road ahead clearly for at least:", "options": ["500 feet", "1,000 feet", "700 feet"], "answer": 2, "ref": "MN Manual - Passing", "explanation": "Do not pass on a curve or hill where you cannot see at least 700 feet ahead."}, {"q": "You must return to the right side of the road after passing before coming within how many feet of an oncoming vehicle?", "options": ["100 feet", "200 feet", "50 feet"], "answer": 0, "ref": "MN Manual - Passing", "explanation": "You must return to the right lane before coming within 100 feet of an oncoming vehicle."}, {"q": "During the first six months of a provisional license, nighttime driving is restricted between:", "options": ["9 p.m. and 5 a.m.", "10 p.m. and 6 a.m.", "Midnight and 5 a.m."], "answer": 2, "ref": "MN Manual - Provisional License Restrictions", "explanation": "For the first six months, provisional drivers must not drive from midnight to 5 a.m. except in listed cases."}, {"q": "During the first six months of a provisional license, how many passengers under 20 are allowed (without a parent/guardian)?", "options": ["Only one", "None at all", "Three"], "answer": 0, "ref": "MN Manual - Provisional License Restrictions", "explanation": "During the first six months, only one passenger under 20 is allowed unless a parent or guardian is present."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>

@@ -2,9 +2,9 @@
 """
 Generates /ie/ Ireland DTT practice page (category mode).
 
-Tabbed layout: Full DTT + Road & Traffic Signs + Rules of the Road & Safety
-+ Alcohol, Drugs & Hazard Perception. Users switch tabs without leaving the
-page (longer dwell time). Reuses COMMON_CSS + AdSense Auto-ads.
+Tabbed layout: Full DTT + Road & Traffic Signs + Rules of the Road + Alcohol
+& Hazards. Timed Mock Exam + Review Wrong Answers added. JS kept OUTSIDE the
+f-string to avoid brace-escaping pitfalls. Reuses COMMON_CSS + AdSense.
 """
 import os, json
 
@@ -42,11 +42,15 @@ COMMON_CSS = """
   .breadcrumb a{text-decoration:none;}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 8px 30px rgba(0,0,0,.08);margin-bottom:16px;}
 
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
   .tab{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:11px 16px;border-radius:12px;cursor:pointer;font-size:.92rem;font-weight:700;transition:.12s;flex:1 1 auto;text-align:center;}
   .tab:hover{border-color:var(--accent);}
   .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
   .tab .tcount{display:block;font-size:.74rem;font-weight:600;opacity:.8;margin-top:2px;}
+
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 
   .meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;}
   .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;}
@@ -74,33 +78,156 @@ COMMON_CSS = """
   .pickgrid .pn.wrong{background:var(--bad-soft);color:var(--bad);border-color:var(--bad);}
 """
 
+JS = r"""
+const DATA = __DATA_JSON__;
+const TAB_LABEL = {full:"Full DTT", signs:"Road & Traffic Signs", rules:"Rules of the Road", alcohol:"Alcohol & Hazards"};
+let curTab = "full";
+let idx=0, picks=[], answered=[];
+let timed = false, timeLeft = 0, timerId = null;
+const quiz=document.getElementById('quiz');
+const done=document.getElementById('done');
+const tabBadge=document.getElementById('tabBadge');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = DATA[curTab].length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
+function loadTab(tab, useTimed){
+  curTab=tab; idx=0; timed = !!useTimed;
+  const qs=DATA[tab];
+  picks=new Array(qs.length).fill(-1); answered=new Array(qs.length).fill(false);
+  done.classList.add('hidden'); quiz.classList.remove('hidden');
+  tabBadge.textContent=TAB_LABEL[tab]+(timed?' (Timed)':'');
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.tab===tab); });
+  if(timed) startTimer(); else stopTimer();
+  render();
+}
+
+function render(){
+  const qs=DATA[curTab]; const q=qs[idx];
+  document.getElementById('qProg').textContent=(idx+1)+' / '+qs.length;
+  document.getElementById('qCount').textContent='Answered '+answered.filter(Boolean).length+' of '+qs.length;
+  let holder=document.getElementById('qHolder');
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+    if(picks[idx]===i) b.classList.add('sel');
+    if(answered[idx]){
+      if(i===q.answer) b.classList.add('correct');
+      else if(i===picks[idx]) b.classList.add('wrong');
+      b.disabled=true;
+    }
+    b.onclick=function(){ choose(i); }; opts.appendChild(b);
+  });
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').textContent = (idx===qs.length-1)?'Finish ✓':'Next →';
+  renderGrid();
+}
+
+function renderGrid(){
+  const qs=DATA[curTab]; const g=document.getElementById('pickGrid'); g.innerHTML='';
+  qs.forEach(function(q,i){
+    const b=document.createElement('button'); b.className='pn'; b.textContent=(i+1);
+    if(answered[i]){ b.classList.add('done'); if(picks[i]!==q.answer) b.classList.add('wrong'); }
+    b.onclick=function(){ idx=i; render(); }; g.appendChild(b);
+  });
+}
+
+function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<DATA[curTab].length-1){ idx++; render(); } else finish();
+};
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return DATA[curTab].map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==DATA[curTab][i].answer; }); }
+
+function finish(){
+  stopTimer();
+  const qs=DATA[curTab];
+  let correct=0; qs.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
+  const total=qs.length; const pct=Math.round(correct/total*100);
+  quiz.classList.add('hidden'); done.classList.remove('hidden');
+  document.getElementById('doneBadge').textContent=TAB_LABEL[curTab]+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the road rules and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
+}
+document.getElementById('retryBtn').onclick=function(){ loadTab(curTab, timed); };
+document.getElementById('tabsBtn').onclick=function(){ done.classList.add('hidden'); quiz.classList.remove('hidden'); };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.querySelectorAll('.tab').forEach(function(t){ t.onclick=function(){ loadTab(t.dataset.tab, false); }; });
+document.getElementById('timedBtn').onclick=function(){ loadTab('full', true); };
+
+function reviewMode(wl){
+  const qs=DATA[curTab];
+  const rq = wl.map(function(i){ return {q:qs[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  tabBadge.textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  picks=new Array(qs.length).fill(-1); answered=new Array(qs.length).fill(false);
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+"""
+
+EXTRA = """
+const themeBtn=document.getElementById('themeBtn');
+function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
+let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
+themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+"""
+GTRANS = """
+function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+"""
+
 def build_data(ie):
     cats = ie["categories"]
     by_id = {c["id"]: c["questions"] for c in cats}
     full = []
     for c in cats:
         full.extend(c["questions"])
-    return {
-        "full": full,
-        "signs": by_id["signs"],
-        "rules": by_id["rules"],
-        "alcohol": by_id["alcohol"],
-    }
+    return {"full": full, "signs": by_id["signs"], "rules": by_id["rules"], "alcohol": by_id["alcohol"]}
 
 def page_html(ie):
     data = build_data(ie)
     nfull = len(data["full"])
-    nsigns = len(data["signs"])
-    nrules = len(data["rules"])
-    nalcohol = len(data["alcohol"])
+    nsigns = len(data["signs"]); nrules = len(data["rules"]); nalcohol = len(data["alcohol"])
     title = "Ireland DTT Practice Tests - Free Driver Theory Test | DriveReady Hub"
-    desc = (f"Free Ireland DTT (Driver Theory Test) practice with {nsigns}+{nrules}+{nalcohol} questions. "
-            f"Study road signs, Rules of the Road, alcohol limits and hazard perception - 100% free.")
+    desc = ("Free Ireland DTT (Driver Theory Test) practice with " + str(nsigns) + "+" + str(nrules) + "+" + str(nalcohol) + " questions. "
+            "Study road signs, Rules of the Road, alcohol limits and hazard perception - 100% free.")
     canonical = "https://drivereadyhub.com/ie/"
     ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Ireland driver theory test (DTT)"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 
+    js = JS.replace("__DATA_JSON__", json.dumps(data))
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +270,11 @@ def page_html(ie):
     <p class="sub">Free Driver Theory Test (DTT) practice for learner drivers in Ireland - road signs, Rules of the Road, alcohol limits and hazard perception.</p>
   </header>
 
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
+
   <div class="tabs">
     <div class="tab active" data-tab="full">Full DTT Practice<span class="tcount">{nfull} questions</span></div>
     <div class="tab" data-tab="signs">Road &amp; Traffic Signs<span class="tcount">{nsigns} questions</span></div>
@@ -174,6 +306,7 @@ def page_html(ie):
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="tabsBtn" style="margin-left:8px;">← All Tests</button>
     </div>
   </div>
@@ -186,107 +319,19 @@ def page_html(ie):
     <a href="/uk/" style="color:var(--muted);text-decoration:none;">UK</a>
     <span style="margin:0 8px;">·</span>
     <a href="/ca/" style="color:var(--muted);text-decoration:none;">Canada</a>
-    <span style="margin:0 8px;">·</span>
-    <a href="/au/" style="color:var(--muted);text-decoration:none;">Australia</a>
     <br>
     DriveReady Hub - Informational only. Not affiliated with any DMV or government agency.
   </div>
 </div>
 
 <script>
-const DATA = {json.dumps(data)};
-const TAB_LABEL = {{full:"Full DTT", signs:"Road & Traffic Signs", rules:"Rules of the Road", alcohol:"Alcohol & Hazards"}};
-let curTab = "full";
-let idx=0, picks=[], answered=[];
-
-const quiz=document.getElementById('quiz');
-const done=document.getElementById('done');
-const tabBadge=document.getElementById('tabBadge');
-
-function loadTab(tab){{
-  curTab=tab;
-  idx=0;
-  const qs=DATA[tab];
-  picks=new Array(qs.length).fill(-1);
-  answered=new Array(qs.length).fill(false);
-  done.classList.add('hidden'); quiz.classList.remove('hidden');
-  tabBadge.textContent=TAB_LABEL[tab];
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
-  render();
-}}
-
-function render(){{
-  const qs=DATA[curTab];
-  const q=qs[idx];
-  document.getElementById('qProg').textContent=`${{idx+1}} / ${{qs.length}}`;
-  document.getElementById('qCount').textContent=`Answered ${{answered.filter(Boolean).length}} of ${{qs.length}}`;
-  let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${{idx+1}}">${{idx+1}}. ${{q.q}}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
-    if(picks[idx]===i) b.classList.add('sel');
-    if(answered[idx]){{
-      if(i===q.answer) b.classList.add('correct');
-      else if(i===picks[idx]) b.classList.add('wrong');
-      b.disabled=true;
-    }}
-    b.onclick=()=>choose(i);
-    opts.appendChild(b);
-  }});
-  if(answered[idx] && q.explanation){{
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }}
-  document.getElementById('prevBtn').disabled = idx===0;
-  document.getElementById('nextBtn').textContent = (idx===qs.length-1)?'Finish ✓':'Next →';
-  renderGrid();
-}}
-
-function renderGrid(){{
-  const qs=DATA[curTab];
-  const g=document.getElementById('pickGrid'); g.innerHTML='';
-  qs.forEach((q,i)=>{{
-    const b=document.createElement('button'); b.className='pn';
-    b.textContent=(i+1);
-    if(answered[i]){{ b.classList.add('done'); if(picks[i]!==q.answer) b.classList.add('wrong'); }}
-    b.onclick=()=>{{ idx=i; render(); }};
-    g.appendChild(b);
-  }});
-}}
-
-function choose(i){{ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }}
-document.getElementById('nextBtn').onclick=()=>{{
-  if(!answered[idx]){{alert('Please select an answer.');return;}}
-  if(idx<DATA[curTab].length-1){{idx++;render();}} else finish();
-}};
-document.getElementById('prevBtn').onclick=()=>{{ if(idx>0){{idx--;render();}} }};
-
-function finish(){{
-  const qs=DATA[curTab];
-  let correct=0; qs.forEach((q,i)=>{{ if(picks[i]===q.answer) correct++; }});
-  const total=qs.length; const pct=Math.round(correct/total*100);
-  quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=TAB_LABEL[curTab];
-  document.getElementById('score').textContent=`${{correct}} / ${{total}}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${{pct}}% correct. You're in the passing range - nice work!` : `${{pct}}% correct. Keep studying the Rules of the Road and try again.`;
-}}
-document.getElementById('retryBtn').onclick=()=>loadTab(curTab);
-document.getElementById('tabsBtn').onclick=()=>{{ done.classList.add('hidden'); quiz.classList.remove('hidden'); }};
-document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>loadTab(t.dataset.tab));
-
-render();
+{js}
 </script>
 <script>
-/* Theme toggle */
-const themeBtn=document.getElementById('themeBtn');
-function applyTheme(t){{document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{{localStorage.setItem('dmvTheme',t);}}catch(e){{}} }}
-let savedTheme='light'; try{{savedTheme=localStorage.getItem('dmvTheme')||'light';}}catch(e){{}} applyTheme(savedTheme);
-themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+{EXTRA}
 </script>
 <script>
-function googleTranslateElementInit(){{ new google.translate.TranslateElement({{pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE}},'google_translate_element'); }}
+{GTRANS}
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
@@ -297,13 +342,9 @@ if __name__ == "__main__":
     spec = importlib.util.spec_from_file_location("iedata", os.path.join(ROOT, "_ie_data.py"))
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    ie = mod.IE
     with open(os.path.join(OUT, "index.html"), "w") as f:
-        f.write(page_html(ie))
-    nfull = sum(len(c["questions"]) for c in ie["categories"])
+        f.write(page_html(mod.IE))
+    nfull = sum(len(c["questions"]) for c in mod.IE["categories"])
     print("wrote ie/index.html | full=%d signs=%d rules=%d alcohol=%d" % (
-        nfull,
-        len(ie["categories"][0]["questions"]),
-        len(ie["categories"][1]["questions"]),
-        len(ie["categories"][2]["questions"]),
-    ))
+        nfull, len(mod.IE["categories"][0]["questions"]),
+        len(mod.IE["categories"][1]["questions"]), len(mod.IE["categories"][2]["questions"])))

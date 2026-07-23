@@ -72,6 +72,9 @@
   .verdict{color:var(--muted);font-size:1.02rem;margin-bottom:20px;}
   .foot{color:var(--muted);font-size:.78rem;margin-top:10px;line-height:1.6;text-align:center;}
   .src{font-size:.76rem;color:var(--muted);margin-top:22px;text-align:center;line-height:1.6;border-top:1px solid var(--line);padding-top:16px;}
+  .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
+  .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
+  .exambar .act{padding:11px 18px;font-size:.92rem;}
 </style>
 </head>
 <body>
@@ -86,6 +89,11 @@
     <h1>Illinois <span class="em">DMV Practice</span></h1>
     <p class="sub">Free IL permit and license practice test — 25 questions from the official Illinois driver handbook.</p>
   </header>
+
+  <div class="exambar">
+    <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
+    <span class="timed" id="timeBox">⏱ 00:00</span>
+  </div>
 
   <div id="quiz">
     <div class="card">
@@ -110,6 +118,7 @@
       <div class="score" id="score"></div>
       <p class="verdict" id="verdict"></p>
       <button class="act" id="retryBtn">Restart This Test</button>
+      <button class="act ghost" id="reviewBtn" style="margin-left:8px;display:none;">🔁 Review Wrong Answers</button>
       <button class="act ghost" id="homeBtn" style="margin-left:8px;">← All States</button>
     </div>
   </div>
@@ -126,72 +135,113 @@
 </div>
 
 <script>
+
 const STATE_KEY = "il";
 const STATE_DATA = {"name": "Illinois (IL SOS)", "source": "Official IL Rules of the Road (public domain)", "questions": [{"q": "In Illinois, what is the speed limit on interstates and tollways (if not posted otherwise)?", "options": ["70 mph", "65 mph", "55 mph"], "answer": 0, "ref": "IL Rules of the Road - Speed Limits", "explanation": "According to the PDF, the default speed limit on interstates and tollways is 70 mph."}, {"q": "In Illinois, what is the default speed limit in city/town areas?", "options": ["30 mph", "25 mph", "35 mph"], "answer": 0, "ref": "IL Rules of the Road - Speed Limits", "explanation": "According to the PDF, the default speed limit in city/town areas is 30 mph."}, {"q": "In Illinois, what is the speed limit when driving in an alley?", "options": ["15 mph", "20 mph", "10 mph"], "answer": 0, "ref": "IL Rules of the Road - Speed Limits", "explanation": "According to the PDF, the speed limit for an alley is 15 mph."}, {"q": "In Illinois school zones, on school days when children are present, what is the speed limit between 6:30 AM and 4:00 PM?", "options": ["20 mph", "25 mph", "15 mph"], "answer": 0, "ref": "IL Rules of the Road - Speed Limits", "explanation": "According to the PDF, the speed limit in school zones is 20 mph (on school days between 6:30 AM and 4:00 PM, when children are present and signs are posted)."}, {"q": "If two vehicles reach an uncontrolled intersection at the same time from different roads, who has the right-of-way?", "options": ["The vehicle on the left yields to the one on the right", "The vehicle on the right yields to the one on the left", "The larger vehicle yields to the smaller"], "answer": 0, "ref": "IL Rules of the Road - Right of Way", "explanation": "According to the PDF, at an uncontrolled intersection the vehicle on the left must yield to the one on the right."}, {"q": "When you encounter a funeral procession, what must the driver do?", "options": ["Must yield to all vehicles in the procession", "Must pull in between the procession vehicles", "Must pass the procession"], "answer": 0, "ref": "IL Rules of the Road - Right of Way (Funeral Processions)", "explanation": "According to the PDF, the driver must yield to all vehicles in a funeral procession and must not cut in between them."}, {"q": "When turning right after a complete stop at a red light, what must the driver do?", "options": ["Must yield to other drivers, bicyclists, and pedestrians", "Has absolute right-of-way and may turn without stopping", "Has priority over everyone, not just pedestrians"], "answer": 0, "ref": "IL Rules of the Road - Right of Way", "explanation": "According to the PDF, when turning right after a complete stop at a red light, you must yield to other drivers, bicyclists, and pedestrians."}, {"q": "When turning left into oncoming traffic, to what must the driver yield?", "options": ["To oncoming traffic", "Oncoming traffic yields to the driver", "There is no rule"], "answer": 0, "ref": "IL Rules of the Road - Right of Way", "explanation": "According to the PDF, when turning left you must yield to oncoming traffic."}, {"q": "A railroad crossing crossbuck (X-shaped) sign is treated like which traffic sign?", "options": ["Yield sign", "Stop sign", "Speed limit sign"], "answer": 0, "ref": "IL Rules of the Road - Signs (Railroad Crossbuck)", "explanation": "According to the PDF, a crossbuck sign is considered a yield sign, and you must yield to trains."}, {"q": "What must a driver approaching a flashing red light do?", "options": ["Must stop, yield to traffic, and proceed when safe", "Only slow down", "Must pass without stopping"], "answer": 0, "ref": "IL Rules of the Road - Signs (Flashing Red Light)", "explanation": "According to the PDF, at a flashing red light you stop, yield, and proceed when it is safe."}, {"q": "On a railroad crossbuck sign for a crossing with multiple tracks, where is the track count posted?", "options": ["On a sign below the crossbuck", "On the speed limit sign", "On the distance sign at the roadside"], "answer": 0, "ref": "IL Rules of the Road - Signs (Railroad Crossbuck)", "explanation": "According to the PDF, if there are multiple tracks, the track count is indicated on a sign below the crossbuck."}, {"q": "In Illinois, driving with a blood alcohol concentration (BAC) of what percentage or higher is illegal?", "options": [".08% or more", ".05% or more", ".10% or more"], "answer": 0, "ref": "IL Rules of the Road - Blood-Alcohol Concentration (BAC)", "explanation": "According to the PDF, driving with a BAC of .08% or more is illegal."}, {"q": "For a person under 21, a 'Zero Tolerance' violation involves an alcohol concentration in what range?", "options": ["More than 0.00 but less than 0.08", "0.08 or more", "Any amount (zero tolerance)"], "answer": 0, "ref": "IL Rules of the Road - Zero Tolerance Violation", "explanation": "According to the PDF, for those under 21, zero tolerance means an alcohol concentration of more than 0.00 but less than 0.08."}, {"q": "A person caught with a BAC of .08% or higher has their driving privileges suspended for at least how long?", "options": ["At least six months", "At least three months", "At least one year"], "answer": 0, "ref": "IL Rules of the Road - BAC Suspension", "explanation": "According to the PDF, being caught with a BAC of .08% or higher results in suspension of driving privileges for at least six months."}, {"q": "Under the Illinois Safety Belt Law, the seat belt requirement applies to which ages (front and rear seats)?", "options": ["Age 8 and older", "Age 16 and older", "Age 12 and older"], "answer": 0, "ref": "IL Rules of the Road - Safety Belt Law", "explanation": "According to the PDF, all drivers and passengers age 8 and older (front and rear seats) must wear a seat belt."}, {"q": "How must passengers under 8 years old be secured in Illinois?", "options": ["In an appropriate child restraint system", "With only a seat belt", "No requirement"], "answer": 0, "ref": "IL Rules of the Road - Safety Belt Law / Child Passenger Protection Act", "explanation": "According to the PDF, passengers under 8 must be in an appropriate child restraint system under the Child Passenger Protection Act."}, {"q": "On a four-lane road, if a school bus is stopped in the opposite direction from you, what should you do?", "options": ["You are not required to stop", "You must stop", "You must stop only if children are present"], "answer": 0, "ref": "IL Rules of the Road - School Buses", "explanation": "According to the PDF, on a four-lane road, if the bus is stopped in the opposite direction, the driver is not required to stop."}, {"q": "On a two-lane road, when approaching a stopped school bus with flashing red warning lights and its stop arm extended, what should you do?", "options": ["You must come to a complete stop", "You should only slow down", "You do not need to stop"], "answer": 0, "ref": "IL Rules of the Road - School Buses", "explanation": "According to the PDF, on a two-lane road you must come to a complete stop for a school bus that is stopped with its lights/stop arm active."}, {"q": "How many feet in advance does a school bus warn that it will stop (and how many feet in rural areas)?", "options": ["100 feet (200 feet in rural areas)", "50 feet", "300 feet"], "answer": 0, "ref": "IL Rules of the Road - School Buses", "explanation": "According to the PDF, a school bus warns of its stop at least 100 feet in advance (200 feet in rural areas)."}, {"q": "When parallel parking on a two-way street, how close must the right wheels be to the curb?", "options": ["12 inches", "6 inches", "24 inches"], "answer": 0, "ref": "IL Rules of the Road - Parking (Parallel Parking)", "explanation": "According to the PDF, when parallel parking on a two-way street, the wheels must be parallel to and within 12 inches of the curb."}, {"q": "On a curbed street, if your vehicle is parked facing downhill, which way should the front wheels be turned?", "options": ["Toward the curb", "Away from the curb", "Straight ahead"], "answer": 0, "ref": "IL Rules of the Road - Parking (Hill Parking)", "explanation": "According to the PDF, when parked facing downhill on a curbed street, the front wheels are turned toward the curb."}, {"q": "On a curbed street, if your vehicle is parked facing uphill, which way should the front wheels be turned?", "options": ["Away from the curb", "Toward the curb", "Straight ahead"], "answer": 0, "ref": "IL Rules of the Road - Parking (Hill Parking)", "explanation": "According to the PDF, when parked facing uphill with a curb, the front wheels are turned away from the curb."}, {"q": "When approaching an intersection with a stop sign, if there is no stop line, where must you stop?", "options": ["Before the crosswalk (or where traffic is visible if none)", "In the middle of the intersection", "After crossing the intersection"], "answer": 0, "ref": "IL Rules of the Road - Right of Way (Stop Sign)", "explanation": "According to the PDF, if there is no stop line, stop before the crosswalk, or where traffic is visible if there is none."}, {"q": "When approaching a railroad crossing, if the lights are flashing or the gate is down, within how many feet must you stop?", "options": ["15-50 feet", "5-10 feet", "100 feet"], "answer": 0, "ref": "IL Rules of the Road - Railroad Crossing", "explanation": "According to the PDF, at a railroad crossing, if the lights are flashing or the gate is down, you must stop within 15-50 feet."}, {"q": "When an emergency vehicle approaches, what must the driver do?", "options": ["Must yield to the emergency vehicle", "Must speed up and pass", "Need not do anything"], "answer": 0, "ref": "IL Rules of the Road - Right of Way (Emergency Vehicles)", "explanation": "According to the PDF, the driver must yield to pedestrians, emergency vehicles, and other vehicles at intersections."}]};
-</script>
-<script>
-/* Quiz logic (identical to homepage, scoped to a single state) */
 const QS = STATE_DATA.questions;
 let idx=0, picks=new Array(QS.length).fill(-1), answered=new Array(QS.length).fill(false);
+let timed=false, timeLeft=0, timerId=null;
 const quiz=document.getElementById('quiz');
 const done=document.getElementById('done');
+const timeBox=document.getElementById('timeBox');
+
+function fmt(s){ const m=Math.floor(s/60), ss=s%60; return (m<10?'0':'')+m+':'+(ss<10?'0':'')+ss; }
+function startTimer(){ clearInterval(timerId); timeLeft = QS.length*60; timeBox.textContent='⏱ '+fmt(timeLeft); timeBox.style.display='inline-block';
+  timerId=setInterval(function(){ timeLeft--; timeBox.textContent='⏱ '+fmt(timeLeft); if(timeLeft<=0){ clearInterval(timerId); finish(); } },1000); }
+function stopTimer(){ clearInterval(timerId); timeBox.style.display='none'; }
+
 function render(){
   const q=QS[idx];
-  document.getElementById('qProg').textContent=`${idx+1} / ${QS.length}`;
-  document.getElementById('qCount').textContent=`Question ${idx+1} of ${QS.length}`;
+  document.getElementById('qProg').textContent=(idx+1)+' / '+QS.length;
+  document.getElementById('qCount').textContent='Question '+(idx+1)+' of '+QS.length;
   let holder=document.getElementById('qHolder');
-  holder.innerHTML=`<div class="q-text" id="q${idx+1}">${idx+1}. ${q.q}</div>`;
-  const opts=document.getElementById('opts');
-  opts.innerHTML='';
-  q.options.forEach((opt,i)=>{
-    const b=document.createElement('button');
-    b.className='opt'; b.textContent=opt;
+  holder.innerHTML='<div class="q-text" id="q'+(idx+1)+'">'+(idx+1)+'. '+q.q+'</div>';
+  const opts=document.getElementById('opts'); opts.innerHTML='';
+  q.options.forEach(function(opt,i){
+    const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
     if(picks[idx]===i) b.classList.add('sel');
     if(answered[idx]){
       if(i===q.answer) b.classList.add('correct');
       else if(i===picks[idx]) b.classList.add('wrong');
       b.disabled=true;
     }
-    b.onclick=()=>choose(i);
+    b.onclick=function(){ choose(i); };
     opts.appendChild(b);
   });
-  if(answered[idx] && q.explanation){
-    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
-  }
+  if(answered[idx] && q.explanation){ const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex); }
   document.getElementById('prevBtn').disabled = idx===0;
   document.getElementById('nextBtn').textContent = (idx===QS.length-1)?'Finish ✓':'Next →';
 }
+
 function choose(i){ if(answered[idx]) return; picks[idx]=i; answered[idx]=true; render(); }
-document.getElementById('nextBtn').onclick=()=>{
-  if(!answered[idx]){alert('Please select an answer.');return;}
-  if(idx<QS.length-1){idx++;render();} else finish();
+document.getElementById('nextBtn').onclick=function(){
+  if(!answered[idx]){ alert('Please select an answer.'); return; }
+  if(idx<QS.length-1){ idx++; render(); } else finish();
 };
-document.getElementById('prevBtn').onclick=()=>{ if(idx>0){idx--;render();} };
+document.getElementById('prevBtn').onclick=function(){ if(idx>0){ idx--; render(); } };
+
+function wrongList(){ return QS.map(function(q,i){ return i; }).filter(function(i){ return picks[i]!==QS[i].answer; }); }
+
 function finish(){
-  let correct=0; QS.forEach((q,i)=>{ if(picks[i]===q.answer) correct++; });
+  stopTimer();
+  let correct=0; QS.forEach(function(q,i){ if(picks[i]===q.answer) correct++; });
   const total=QS.length; const pct=Math.round(correct/total*100);
   quiz.classList.add('hidden'); done.classList.remove('hidden');
-  document.getElementById('doneBadge').textContent=STATE_DATA.name;
-  document.getElementById('score').textContent=`${correct} / ${total}`;
-  document.getElementById('verdict').textContent = pct>=80 ? `${pct}% correct. You're in the passing range — nice work!` : `${pct}% correct. Keep studying the handbook and try again.`;
+  document.getElementById('doneBadge').textContent=STATE_DATA.name+(timed?' (Timed)':'');
+  document.getElementById('score').textContent=correct+' / '+total;
+  document.getElementById('verdict').textContent = pct>=80 ? pct+'% correct. You\'re in the passing range - nice work!' : pct+'% correct. Keep studying the handbook and try again.';
+  const wl=wrongList();
+  const rb=document.getElementById('reviewBtn');
+  rb.style.display = wl.length? 'inline-block':'none';
+  rb.textContent = '🔁 Review Wrong Answers ('+wl.length+')';
 }
-document.getElementById('retryBtn').onclick=()=>{ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); render(); };
-document.getElementById('homeBtn').onclick=()=>{ window.location.href='/'; };
+document.getElementById('retryBtn').onclick=function(){ idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); timed=false; done.classList.add('hidden'); quiz.classList.remove('hidden'); stopTimer(); render(); };
+document.getElementById('homeBtn').onclick=function(){ window.location.href='/'; };
+document.getElementById('reviewBtn').onclick=function(){ const wl=wrongList(); if(!wl.length) return; reviewMode(wl); };
+document.getElementById('timedBtn').onclick=function(){ timed=true; idx=0; picks=new Array(QS.length).fill(-1); answered=new Array(QS.length).fill(false); done.classList.add('hidden'); quiz.classList.remove('hidden'); startTimer(); render(); };
 
-/* Deep-link to a question: /dmv/ny/#q5 */
-function gotoHash(){ const h=location.hash.match(/^#q(\d+)$/); if(h){ const n=parseInt(h[1],10); if(n>=1 && n<=QS.length){ idx=n-1; render(); document.getElementById('q'+n)?.scrollIntoView(); } } }
-window.addEventListener('hashchange', gotoHash);
-render(); gotoHash();
+function reviewMode(wl){
+  const rq = wl.map(function(i){ return {q:QS[i], a:picks[i]}; });
+  quiz.classList.remove('hidden'); done.classList.add('hidden');
+  document.getElementById('stateBadge').textContent='Review Wrong Answers'; stopTimer();
+  let r=0, rcorrect=0;
+  function showR(){
+    if(r>=rq.length){ const h='<div class="card result"><h2>Review Complete</h2><div class="score">'+rcorrect+' / '+rq.length+'</div><p class="verdict">'+(rcorrect===rq.length?'All corrected - great!':'Keep reviewing and try again.')+'</p><button class="act" id="reviewDoneBtn">← Back to Tests</button></div>'; quiz.innerHTML=h; document.getElementById('reviewDoneBtn').onclick=function(){ window.location.reload(); }; return; }
+    const item=rq[r]; const q=item.q;
+    document.getElementById('qProg').textContent='Review '+(r+1)+' / '+rq.length;
+    document.getElementById('qCount').textContent='';
+    document.getElementById('qHolder').innerHTML='<div class="q-text">'+(r+1)+'. '+q.q+'</div>';
+    const opts=document.getElementById('opts'); opts.innerHTML='';
+    q.options.forEach(function(opt,i){
+      const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
+      if(i===q.answer) b.classList.add('correct');
+      if(i===item.a && i!==q.answer) b.classList.add('wrong');
+      b.disabled=true; opts.appendChild(b);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.innerHTML='💡 '+q.explanation; opts.appendChild(ex);
+    document.getElementById('prevBtn').style.display='none';
+    document.getElementById('nextBtn').textContent='Next →';
+    document.getElementById('nextBtn').onclick=function(){ if(item.a===q.answer) rcorrect++; r++; showR(); };
+  }
+  showR();
+}
+
+render();
+
 </script>
 <script>
+
 /* Theme toggle */
 const themeBtn=document.getElementById('themeBtn');
 function applyTheme(t){document.documentElement.setAttribute('data-theme',t); themeBtn.textContent = t==='dark' ? '☀️ Light' : '🌙 Dark'; try{localStorage.setItem('dmvTheme',t);}catch(e){} }
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+
 </script>
 <script>
+
 function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
+
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
