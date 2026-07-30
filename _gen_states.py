@@ -91,7 +91,7 @@ def page_html(state_key):
     name = st["name"]
     nq = len(st["questions"])
     title = f"{full} DMV Practice Test ({short}) — Free {short} Permit & License Prep | DriveReady Hub"
-    desc = f"Free {full} ({short}) DMV practice test with {nq} questions from the official {full} driver handbook. Study, answer, and check explanations — 100% free."
+    desc = f"Free {full} ({short}) DMV practice test with {nq} questions based on {full} driver-handbook topics. Study, answer, and check explanations — 100% free."
     canonical = f"https://drivereadyhub.com/dmv/{state_key}/"
     ld = {"@context": "https://schema.org", "@type": "QAPage", "name": title,
           "url": canonical, "about": {"@type": "Thing", "name": "Driver's license permit practice test"},
@@ -241,7 +241,7 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
   <div class="breadcrumb"><a href="/">Home</a> &middot; <a href="/#dmv">DMV Practice Tests</a> &middot; <strong>{full}</strong></div>
   <header>
     <h1>{full} <span class="em">DMV Practice</span></h1>
-    <p class="sub">Free {short} permit and license practice test — {nq} questions from the official {full} driver handbook.</p>
+    <p class="sub">Free {short} permit and license practice test — {nq} questions based on {full} driver-handbook topics.</p>
   </header>
 
   <div class="exambar">
@@ -277,12 +277,18 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
     </div>
   </div>
 
-  <p class="foot src">Questions sourced from official {full} DMV publications (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+  <p class="foot src">Questions are original practice material based on {full} driver-handbook topics (public domain). Informational only, not affiliated with any DMV or government agency.</p>
 
   <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
     <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
     <span style="margin:0 8px;">·</span>
     <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/about.html" style="color:var(--muted);text-decoration:none;">About</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/privacy-policy.html" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/contact.html" style="color:var(--muted);text-decoration:none;">Contact</a>
     <br>
     DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
   </div>

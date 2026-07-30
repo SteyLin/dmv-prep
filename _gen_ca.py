@@ -263,6 +263,12 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
     <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
     <span style="margin:0 8px;">·</span>
     <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/about.html" style="color:var(--muted);text-decoration:none;">About</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/privacy-policy.html" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+    <span style="margin:0 8px;">·</span>
+    <a href="/pages/contact.html" style="color:var(--muted);text-decoration:none;">Contact</a>
     <br>
     DriveReady Hub - Informational only. Not affiliated with any DMV or government agency.
   </div>
