@@ -11,7 +11,7 @@
 <meta property="og:site_name" content="DriveReady Hub">
 <meta property="og:locale" content="en_US">
 <meta property="og:title" content="NHTSA Recall Checker — DriveReady Hub">
-<meta property="og:description" content="NHTSA Recall Checker — DriveReady Hub">
+<meta property="og:description" content="How to check open safety recalls by VIN or make/model using NHTSA, and what to do if your car is affected.">
 <meta property="og:url" content="https://drivereadyhub.com/pages/tools-recalls.html">
 <meta property="og:image" content="https://drivereadyhub.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -19,33 +19,29 @@
 <meta name="twitter:image" content="https://drivereadyhub.com/og-image.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NHTSA Recall Checker — DriveReady Hub">
-<meta name="twitter:description" content="NHTSA Recall Checker — DriveReady Hub">
+<meta name="twitter:description" content="How to check open safety recalls by VIN or make/model.">
 <meta name="twitter:url" content="https://drivereadyhub.com/pages/tools-recalls.html">
 <style>
-  :root{--bg:#f7f9fc;--card:#ffffff;--ink:#1f2933;--muted:#6b7280;--accent:#2563eb;--accent-soft:#eff4ff;--good:#16a34a;--bad:#dc2626;--line:#e5e7eb;}
-  html[data-theme="dark"]{--bg:#0f1419;--card:#1a2027;--ink:#e6e9ee;--muted:#9aa4b2;--accent:#3b82f6;--accent-soft:#16233b;--line:#2a323c;}
-  *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
-  body{background:var(--bg);color:var(--ink);line-height:1.6;padding:28px 20px 64px;}
-  .wrap{max-width:780px;margin:0 auto;}
-  .topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
-  .theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:600;}
-  .theme-btn:hover{border-color:var(--accent);}
-  .btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.06);margin-bottom:18px;}
-  h1{font-size:1.6rem;font-weight:900;margin-bottom:8px;}
-  p{color:var(--muted);margin-bottom:12px;}
-  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:12px;}
-  a{color:var(--accent);}
-
-  .layout{display:grid;grid-template-columns:1fr;gap:20px;max-width:1200px;margin:0 auto;}
-  .sidebar{position:sticky;top:20px;align-self:start;}
-  .sidebar .ad-slot{min-height:250px;max-width:300px;margin:0 0 14px;}
-  @media (max-width: 1024px){
-    .layout{grid-template-columns:1fr;}
-    .sidebar{display:none;}
-  }
+html[data-theme="dark"]{--bg:#0f1419;--card:#1a2027;--ink:#e6e9ee;--muted:#9aa4b2;--accent:#3b82f6;--accent-soft:#16233b;--line:#2a323c;}
+:root{--bg:#f7f9fc;--card:#ffffff;--ink:#1f2933;--muted:#6b7280;--accent:#2563eb;--accent-soft:#eff4ff;--good:#16a34a;--bad:#dc2626;--line:#e5e7eb;}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+body{background:var(--bg);color:var(--ink);line-height:1.6;padding:28px 20px 64px;}
+.wrap{max-width:780px;margin:0 auto;}
+.topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.theme-btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer;font-size:.82rem;font-weight:600;}
+.theme-btn:hover{border-color:var(--accent);}
+.btn{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.85rem;font-weight:600;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,.06);margin-bottom:18px;}
+h1{font-size:1.6rem;font-weight:900;margin-bottom:8px;}
+h2{font-size:1.15rem;font-weight:800;margin:18px 0 8px;}
+p{color:var(--muted);margin-bottom:12px;}
+ul{margin-left:18px;color:var(--muted);}
+li{margin-bottom:6px;}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;margin-bottom:12px;}
+.tip{background:linear-gradient(180deg,#fff 0%,#f5faff 100%);border-left:3px solid var(--accent);padding:12px 14px;border-radius:10px;color:#334155;font-size:.92rem;}
+a{color:var(--accent);}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "NHTSA Recall Checker — DriveReady Hub", "url": "https://drivereadyhub.com/pages/tools-recalls.html", "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "type": "Article", "headline": "NHTSA Recall Checker — DriveReady Hub", "url": "https://drivereadyhub.com/pages/tools-recalls.html", "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
 </head>
 <body>
 <main>
@@ -57,11 +53,24 @@
   <div class="ad-slot medium">Advertisement — 300x250</div>
 <div class="ad-slot" style="min-height:250px;max-width:336px;margin:14px auto 18px;text-align:center;">Advertisement — 336x280</div>
 <div class="card">
-    <span class="badge">Car Tools</span>
+    <span class="badge">Tools</span>
     <h1>NHTSA Recall Checker</h1>
-    <p>Check for open safety recalls using the official NHTSA database by VIN or make/model.</p>
-    <p><strong>Official source:</strong> <a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">nhtsa.gov/recalls</a></p>
-    <p class="small" style="color:var(--muted);font-size:.9rem;">Use your VIN for the most accurate result. This tool redirects to NHTSA; we do not store your data.</p>
+    <p>Safety recalls are free fixes for defects that could cause crashes or injuries. Every vehicle should be checked regularly, especially before a long trip or a used-car purchase.</p>
+
+    <h2>Check by VIN</h2>
+    <p>The most accurate method is entering your 17-character VIN on the NHTSA recall lookup. This shows open recalls specific to your exact vehicle, even if the prior owner missed the notice.</p>
+
+    <h2>Check by Make and Model</h2>
+    <ul>
+      <li>Enter year, make, and model for a general list of campaigns</li>
+      <li>Useful when shopping, to spot chronic problem years</li>
+      <li>Sign up for recall alerts by email where available</li>
+    </ul>
+
+    <h2>If There Is an Open Recall</h2>
+    <p>Contact any authorized dealer for that brand — the repair is free regardless of where you bought the car or whether it is out of warranty. Unrepaired recalls can lower resale value and, more importantly, risk your safety.</p>
+    <p><strong>Official:</strong> <a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">nhtsa.gov/recalls</a></p>
+    <div class="tip">Tip: Check recalls at every oil change — new campaigns are issued year-round.</div>
   </div>
 </div>
 <script>
@@ -76,13 +85,27 @@
 })();
 </script>
 
-<div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
-  <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
-  <span style="margin:0 8px;">·</span>
-  <a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a>
-  <br>
-  DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.
-</div>
-</main>
+    <h2>Why Recalls Matter</h2>
+    <p>A safety recall means the maker found a defect that can cause a crash or injury. Repairs are free at any franchised dealer, yet many cars on the road carry open recalls because owners never heard or forgot. An unfixed airbag or brake defect is a real daily risk.</p>
+    <h2>How to Check</h2>
+    <ul>
+      <li>Enter your VIN on the NHTSA recall site</li>
+      <li>Check the manufacturer's owner page</li>
+      <li>Watch for mailed recall notices</li>
+    </ul>
+    <h2>After You Find One</h2>
+    <p>Call a dealer with your VIN and book the repair. Parts for high-volume recalls can take months, so schedule early and keep driving cautiously until fixed. The repair does not cost you, only the wait does.</p>
+
+
+    <h2>Used Car Recalls</h2>
+    <p>A recall follows the vehicle, not the owner. A used car you buy may carry an open recall from years ago. Always check the VIN before purchase so you are not surprised by a safety defect after the sale closes.</p>
+    <h2>Rental and Fleet Cars</h2>
+    <p>Rental and commercial fleets must fix recalls, but a recently sold fleet car may have slipped. The same VIN check applies. A few minutes on the lookup site protects you from a known, fixable defect.</p>
+
+
+    <h2>Stay Notified</h2>
+    <p>Register your contact details with the manufacturer so future recalls reach you directly. Mailed notices get lost in moves, but an email or text alert follows you and keeps the car safe.</p>
+
+<div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;"><a href="/" style="color:var(--muted);text-decoration:none;">Home</a><span style="margin:0 8px;">·</span><a href="/pages/faq.html" style="color:var(--muted);text-decoration:none;">FAQ</a><span style="margin:0 8px;">·</span><a href="/pages/about.html" style="color:var(--muted);text-decoration:none;">About</a><span style="margin:0 8px;">·</span><a href="/pages/privacy-policy.html" style="color:var(--muted);text-decoration:none;">Privacy Policy</a><span style="margin:0 8px;">·</span><a href="/pages/contact.html" style="color:var(--muted);text-decoration:none;">Contact</a><br>DriveReady Hub — Informational only. Not affiliated with any DMV or government agency.</div></main>
 </body>
 </html>

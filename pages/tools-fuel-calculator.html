@@ -61,7 +61,22 @@
 <div class="card">
     <span class="badge">Car Tools</span>
     <h1>Fuel Cost Calculator</h1>
-    <p>Estimate trip or monthly fuel cost from distance, MPG, and fuel price.</p>
+    <p>Gas prices change often, and trip costs add up fast. This calculator estimates fuel needed and total cost from your distance, vehicle efficiency, and local price per gallon.</p>
+
+    <h2>How to Use It</h2>
+    <p>Enter your one-way or round-trip distance in miles, your vehicle's real-world MPG (check your last fill-up for accuracy), and the current price per gallon. The result shows gallons used and total dollars.</p>
+
+    <h2>Why It Helps</h2>
+    <ul>
+      <li>Compare driving versus flying for a trip</li>
+      <li>Budget weekly commuting fuel</li>
+      <li>See how MPG improvements save money over a year</li>
+    </ul>
+
+    <h2>Quick Reference</h2>
+    <p>A 300-mile trip at 28 MPG uses about 10.7 gallons. At $3.90 per gallon that is roughly $42 each way. Small MPG gains compound: a jump from 25 to 30 MPG cuts annual fuel cost by about 17 percent at the same mileage.</p>
+    <div class="tip">Tip: Use your actual MPG, not the window-sticker number — real driving is usually 10-20% lower.</div>
+
     <label>Trip distance (miles)</label>
     <input id="miles" type="number" value="300">
     <div class="row">
@@ -102,6 +117,24 @@ function calc(){
   themeBtn.onclick = function(){ applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); };
 })();
 </script>
+
+
+    <h2>How the Math Works</h2>
+    <p>A fuel cost calculator multiplies distance by consumption and price: miles ÷ MPG × price per gallon. The result shows the true trip cost, not just the pump price. Two cars with a 5 MPG gap can differ by hundreds of dollars a year at normal mileage.</p>
+    <h2>Comparing Vehicles</h2>
+    <p>Enter the same annual miles for each candidate to see lifetime fuel differences. A car that costs more but sips fuel often wins over five years once fuel is counted, especially with high local prices.</p>
+    <h2>Planning a Trip</h2>
+    <p>Map the route distance and split by fuel stops so you carry enough budget. Knowing the per-tank range also tells you when to fill before rural stretches with no stations.</p>
+
+
+    <h2>City vs. Highway</h2>
+    <p>Real consumption is far worse in stop-and-go city driving than on open highway. Use a blended estimate for commute math, not the best-case highway number, or your budget will fall short each month.</p>
+    <h2>Price Sensitivity</h2>
+    <p>Small MPG gains matter more when fuel is expensive. At high local prices, a car that saves even 3 MPG can outweigh a cheaper purchase price within two or three years of normal driving.</p>
+
+
+    <h2>Track Real World</h2>
+    <p>Calculator estimates beat guesses, but your own log is best. Note each fill-up's miles and gallons; a drifting number reveals maintenance needs before the dashboard warns you.</p>
 
 <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
   <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
