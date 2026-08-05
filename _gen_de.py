@@ -233,10 +233,6 @@ function applyTheme(t){document.documentElement.setAttribute('data-theme',t); th
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 """
-GTRANS = """
-function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'de', includedLanguages:'en,tr,ar,fr,es,zh,ru,vi,ko,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
-"""
-
 def build_data(de):
     cats = de["categories"]
     by_id = {c["id"]: c["questions"] for c in cats}
@@ -290,7 +286,6 @@ def page_html(de):
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div id="google_translate_element"></div>
     <button class="theme-btn" id="themeBtn">🌙 Dark</button>
   </div>
 
@@ -369,10 +364,6 @@ def page_html(de):
 <script>
 {EXTRA}
 </script>
-<script>
-{GTRANS}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>'''
 

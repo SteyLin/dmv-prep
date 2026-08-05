@@ -104,7 +104,6 @@ def page_html(data):
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div id="google_translate_element"></div>
     <button class="theme-btn" id="themeBtn">🌙 Dark</button>
   </div>
 
@@ -219,10 +218,6 @@ function applyTheme(t){{document.documentElement.setAttribute('data-theme',t); t
 let savedTheme='light'; try{{savedTheme=localStorage.getItem('dmvTheme')||'light';}}catch(e){{}} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 </script>
-<script>
-function googleTranslateElementInit(){{ new google.translate.TranslateElement({{pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE}},'google_translate_element'); }}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>'''
 

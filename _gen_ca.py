@@ -179,9 +179,6 @@ function applyTheme(t){document.documentElement.setAttribute('data-theme',t); th
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 """
-    gtrans = """
-function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
-"""
     head = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -214,7 +211,6 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div id="google_translate_element"></div>
     <button class="theme-btn" id="themeBtn">🌙 Dark</button>
   </div>
 
@@ -280,10 +276,6 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
 <script>
 {extra}
 </script>
-<script>
-{gtrans}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>'''
     return head

@@ -1,0 +1,702 @@
+{
+  "co": {
+    "agency_name": "Colorado Division of Motor Vehicles, Department of Revenue",
+    "agency_url": "https://dmv.colorado.gov/",
+    "handbook_url": "https://dmv.colorado.gov/sites/dmv/files/documents/DR_2337_Jan2025.pdf",
+    "knowledge_test_url": "https://dmv.colorado.gov/home-driving-knowledge-tests",
+    "facts": [
+      {
+        "fact": "Colorado permits are available beginning at age 15.",
+        "source_url": "https://dmv.colorado.gov/sites/dmv/files/documents/DR_2337_Jan2025.pdf"
+      },
+      {
+        "fact": "Drivers must stop at least 20 feet from a school bus displaying flashing red lights unless a median or physical barrier separates the opposite roadway.",
+        "source_url": "https://dmv.colorado.gov/sites/dmv/files/documents/DR_2337_Jan2025.pdf"
+      },
+      {
+        "fact": "The handbook lists BAC thresholds of 0.08 for DUI, 0.05 for DWAI, and 0.02 for drivers under 21.",
+        "source_url": "https://dmv.colorado.gov/sites/dmv/files/documents/DR_2337_Jan2025.pdf"
+      }
+    ]
+  },
+  "ct": {
+    "agency_name": "Connecticut Department of Motor Vehicles",
+    "agency_url": "https://portal.ct.gov/dmv",
+    "handbook_url": "https://portal.ct.gov/-/media/dmv/dmv-pdfs/drivers-manual-english.pdf",
+    "knowledge_test_url": "https://portal.ct.gov/dmv/licenses-permits-ids/take-road-test/knowledge-vision-test",
+    "facts": [
+      {
+        "fact": "A learner's permit applicant must be at least 16 and answer at least 20 of 25 knowledge-test questions correctly.",
+        "source_url": "https://portal.ct.gov/-/media/dmv/dmv-pdfs/drivers-manual-english.pdf"
+      },
+      {
+        "fact": "Connecticut uses a 0.08 BAC threshold for drivers 21 or older and a 0.02 threshold for drivers under 21.",
+        "source_url": "https://portal.ct.gov/-/media/dmv/dmv-pdfs/drivers-manual-english.pdf"
+      },
+      {
+        "fact": "Drivers must stop for a school bus with flashing red lights unless a median or physical barrier separates the roadway.",
+        "source_url": "https://portal.ct.gov/-/media/dmv/dmv-pdfs/drivers-manual-english.pdf"
+      }
+    ]
+  },
+  "de": {
+    "agency_name": "Delaware Division of Motor Vehicles",
+    "agency_url": "https://dmv.de.gov/",
+    "handbook_url": "https://dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf",
+    "knowledge_test_url": "https://dmv.de.gov/DriverServices/drivers_license/index.shtml?dc=dr_lic_learner",
+    "facts": [
+      {
+        "fact": "Delaware law requires a turn or lane-change signal at least 300 feet in advance.",
+        "source_url": "https://dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      },
+      {
+        "fact": "Drivers must stop for a stopped school bus from either direction, except opposing traffic on a highway with four or more lanes.",
+        "source_url": "https://dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      },
+      {
+        "fact": "Parking is prohibited within 15 feet of a hydrant, 20 feet of an intersection crosswalk, and 50 feet of a railroad crossing.",
+        "source_url": "https://dmv.de.gov/forms/driver_serv_forms/pdfs/dr_frm_manual.pdf"
+      }
+    ]
+  },
+  "fl": {
+    "agency_name": "Florida Department of Highway Safety and Motor Vehicles",
+    "agency_url": "https://www.flhsmv.gov/",
+    "handbook_url": "https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf",
+    "knowledge_test_url": "https://www.flhsmv.gov/driver-licenses-id-cards/what-to-bring/driver-license-exams/",
+    "facts": [
+      {
+        "fact": "A Florida learner's license applicant must be at least 15 years old.",
+        "source_url": "https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
+      },
+      {
+        "fact": "Unless posted otherwise, the handbook lists 30 mph in business or residential areas, 20 mph in school zones, and 70 mph on rural interstates.",
+        "source_url": "https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
+      },
+      {
+        "fact": "Opposing traffic need not stop for a school bus only when a raised barrier or an unpaved median at least five feet wide separates the roadway.",
+        "source_url": "https://www.flhsmv.gov/pdf/handbooks/englishdriverhandbook.pdf"
+      }
+    ]
+  },
+  "ga": {
+    "agency_name": "Georgia Department of Driver Services",
+    "agency_url": "https://dds.georgia.gov/",
+    "handbook_url": "https://dds.georgia.gov/dds-drivers-manual-2023-2024",
+    "knowledge_test_url": "https://dds.georgia.gov/testing-and-training/test-and-exams-information",
+    "facts": [
+      {
+        "fact": "The handbook lists 30 mph in urban or residential districts, 35 mph on unpaved county roads, and 70 mph on rural interstates unless posted otherwise.",
+        "source_url": "https://dds.georgia.gov/dds-drivers-manual-2023-2024"
+      },
+      {
+        "fact": "Georgia uses BAC thresholds of 0.08 for drivers 21 or older and 0.02 for drivers under 21.",
+        "source_url": "https://dds.georgia.gov/dds-drivers-manual-2023-2024"
+      },
+      {
+        "fact": "Opposing traffic need not stop for a school bus on the other side of a highway divided by a median.",
+        "source_url": "https://dds.georgia.gov/dds-drivers-manual-2023-2024"
+      }
+    ]
+  },
+  "al": {
+    "agency_name": "Alabama Law Enforcement Agency, Driver License Division",
+    "agency_url": "https://www.alea.gov/dps/driver-license",
+    "handbook_url": "https://www.alea.gov/sites/default/files/ALEA%20DL%20Manual.pdf",
+    "knowledge_test_url": "https://www.alea.gov/dps/driver-license/driver-license-information",
+    "facts": [
+      {
+        "fact": "A 15-year-old may obtain an Alabama learner's license after meeting the examination requirements.",
+        "source_url": "https://www.alea.gov/sites/default/files/ALEA%20DL%20Manual.pdf"
+      },
+      {
+        "fact": "A learner's license holder must be accompanied by a parent, legal guardian, or licensed driver age 21 or older occupying the seat beside the driver.",
+        "source_url": "https://www.alea.gov/sites/default/files/ALEA%20DL%20Manual.pdf"
+      },
+      {
+        "fact": "The manual identifies 0.08 BAC as the per-se threshold for an adult noncommercial driver.",
+        "source_url": "https://www.alea.gov/sites/default/files/ALEA%20DL%20Manual.pdf"
+      }
+    ]
+  },
+  "ak": {
+    "agency_name": "Alaska Division of Motor Vehicles",
+    "agency_url": "https://dmv.alaska.gov/",
+    "handbook_url": "https://doa.alaska.gov/dmv/dlmanual/dlman.pdf",
+    "knowledge_test_url": "https://dmv.alaska.gov/credential-services/",
+    "facts": [
+      {
+        "fact": "An Alaska instruction permit may be issued at age 14 after the applicant passes the knowledge test.",
+        "source_url": "https://doa.alaska.gov/dmv/dlmanual/dlman.pdf"
+      },
+      {
+        "fact": "A permit holder must be accompanied by a licensed driver who is at least 21 and has at least one year of driving experience.",
+        "source_url": "https://doa.alaska.gov/dmv/dlmanual/dlman.pdf"
+      },
+      {
+        "fact": "Drivers under 21 are subject to Alaska zero-tolerance rules for consuming alcohol and driving.",
+        "source_url": "https://doa.alaska.gov/dmv/dlmanual/dlman.pdf"
+      }
+    ]
+  },
+  "az": {
+    "agency_name": "Arizona Department of Transportation, Motor Vehicle Division",
+    "agency_url": "https://azdot.gov/mvd",
+    "handbook_url": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf",
+    "knowledge_test_url": "https://azdot.gov/mvd/services/driver-services/driver-license-information",
+    "facts": [
+      {
+        "fact": "An Arizona instruction permit applicant must be at least 15 years and 6 months old.",
+        "source_url": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf"
+      },
+      {
+        "fact": "A permit holder must be accompanied by a licensed Class A, B, C, or D driver age 21 or older seated beside the permit holder.",
+        "source_url": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf"
+      },
+      {
+        "fact": "A graduated-license applicant must hold the instruction permit for at least six months and generally document 30 supervised hours, including 10 at night.",
+        "source_url": "https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf"
+      }
+    ]
+  },
+  "ar": {
+    "agency_name": "Arkansas State Police, Driver Examination",
+    "agency_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/",
+    "handbook_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/",
+    "knowledge_test_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/",
+    "facts": [
+      {
+        "fact": "Arkansas instruction permits are available beginning at age 14 after the required knowledge testing.",
+        "source_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/"
+      },
+      {
+        "fact": "The official study guide identifies 0.08 BAC as the adult per-se intoxication threshold.",
+        "source_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/"
+      },
+      {
+        "fact": "A driver approaching a school bus displaying flashing red lights must stop and remain stopped until the bus proceeds or the signals stop.",
+        "source_url": "https://www.dps.arkansas.gov/law-enforcement/arkansas-state-police/services-programs/driver-examination/"
+      }
+    ]
+  },
+  "ca": {
+    "agency_name": "California Department of Motor Vehicles",
+    "agency_url": "https://www.dmv.ca.gov/portal/",
+    "handbook_url": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/",
+    "knowledge_test_url": "https://www.dmv.ca.gov/portal/driver-licenses-identification-cards/preparing-for-knowledge-and-drive-tests/",
+    "facts": [
+      {
+        "fact": "A minor may apply for a provisional instruction permit at age 15½.",
+        "source_url": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/"
+      },
+      {
+        "fact": "A minor must hold the provisional permit for at least six months before taking the driving test.",
+        "source_url": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/"
+      },
+      {
+        "fact": "A minor generally must complete 50 supervised driving hours, including 10 hours at night.",
+        "source_url": "https://www.dmv.ca.gov/portal/handbook/california-driver-handbook/"
+      }
+    ]
+  },
+  "hi": {
+    "agency_name": "Hawaii Department of Transportation, Motor Vehicle Safety Office",
+    "agency_url": "https://hidot.hawaii.gov/highways/",
+    "handbook_url": "https://hidot.hawaii.gov/highways/files/2019/03/mvso-11272-Hawaii-Drivers-Manual-r3-LR-10-24-18.pdf",
+    "knowledge_test_url": "https://hidot.hawaii.gov/highways/library/motor-vehicle-safety-office/",
+    "facts": [
+      {
+        "fact": "Hawaii requires all vehicle occupants to use safety belts or an appropriate child restraint.",
+        "source_url": "https://hidot.hawaii.gov/highways/files/2019/03/mvso-11272-Hawaii-Drivers-Manual-r3-LR-10-24-18.pdf"
+      },
+      {
+        "fact": "The manual lists 0.02 for drivers under 21, 0.05 to below 0.08 as measurable impairment, and 0.08 as the per-se BAC level.",
+        "source_url": "https://hidot.hawaii.gov/highways/files/2019/03/mvso-11272-Hawaii-Drivers-Manual-r3-LR-10-24-18.pdf"
+      },
+      {
+        "fact": "A driver must not pass a school bus on the same roadway while its red signal lights are flashing.",
+        "source_url": "https://hidot.hawaii.gov/highways/files/2019/03/mvso-11272-Hawaii-Drivers-Manual-r3-LR-10-24-18.pdf"
+      }
+    ]
+  },
+  "ia": {
+    "agency_name": "Iowa Department of Transportation",
+    "agency_url": "https://iowadot.gov/",
+    "handbook_url": "https://iowadot.gov/media/7308/download",
+    "knowledge_test_url": "https://iowadot.gov/drivers-licenses-ids/get-or-renew-drivers-licenses-ids-permits/under-18-permit-license-or-id/instruction-permit-under-age-18",
+    "facts": [
+      {
+        "fact": "Iowa uses a 0.08 OWI threshold for most drivers and a 0.02 threshold for drivers under 21.",
+        "source_url": "https://iowadot.gov/media/7308/download"
+      },
+      {
+        "fact": "General limits include 25 mph in business, residential, and school districts, 70 mph on rural interstates, and a 40 mph interstate minimum unless posted otherwise.",
+        "source_url": "https://iowadot.gov/media/7308/download"
+      },
+      {
+        "fact": "On a two- or three-lane road, traffic in both directions must stop for a school bus displaying its stop signal.",
+        "source_url": "https://iowadot.gov/media/7308/download"
+      }
+    ]
+  },
+  "id": {
+    "agency_name": "Idaho Transportation Department, Division of Motor Vehicles (DMV)",
+    "agency_url": "https://itd.idaho.gov/dmv/",
+    "handbook_url": "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf",
+    "knowledge_test_url": "https://apps.itd.idaho.gov/apps/dmv-practice-tests/SampleTest.html",
+    "facts": [
+      {
+        "fact": "Idaho allows licensing at age 15, but applicants under 17 must first complete approved driver training and the graduated driver licensing program.",
+        "source_url": "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      },
+      {
+        "fact": "New Idaho residents must apply for an Idaho driver license within 30 days of residing in the state.",
+        "source_url": "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      },
+      {
+        "fact": "The under-17 GDL program requires a minimum six-month violation-free supervised instruction period and at least 50 supervised driving hours, including 10 at night.",
+        "source_url": "https://itd.idaho.gov/wp-content/uploads/2026/04/driver_manual.pdf"
+      }
+    ]
+  },
+  "il": {
+    "agency_name": "Illinois Secretary of State, Driver Services Department",
+    "agency_url": "https://www.ilsos.gov/departments/drivers/",
+    "handbook_url": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf",
+    "knowledge_test_url": "https://www.ilsos.gov/departments/drivers/driver-education/instructpermit.html",
+    "facts": [
+      {
+        "fact": "Illinois applicants age 15–17 may receive an instruction permit with proof of enrollment in an approved driver education course, and the permit must be held at least nine consecutive months before licensing.",
+        "source_url": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf"
+      },
+      {
+        "fact": "Drivers under 18 must complete at least 50 hours of supervised driving, including 10 hours at night, before becoming eligible for a license at age 16.",
+        "source_url": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf"
+      },
+      {
+        "fact": "The minimum Illinois vision standard is 20/40 visual acuity with or without corrective lenses.",
+        "source_url": "https://www.ilsos.gov/content/dam/publications/pdf_publications/dsd_a112.pdf"
+      }
+    ]
+  },
+  "in": {
+    "agency_name": "Indiana Bureau of Motor Vehicles (BMV)",
+    "agency_url": "https://www.in.gov/bmv/",
+    "handbook_url": "https://www.in.gov/bmv/files/drivers-manual.pdf",
+    "knowledge_test_url": "https://www.in.gov/bmv/licenses-permits-ids/learners-permits-and-drivers-licenses-overview/learners-permit/knowledge-exam/",
+    "facts": [
+      {
+        "fact": "An Indiana applicant age 16 or older must pass a vision screening and knowledge exam to obtain a learner's permit.",
+        "source_url": "https://www.in.gov/bmv/files/drivers-manual.pdf"
+      },
+      {
+        "fact": "An applicant may qualify at age 15 by showing enrollment in a BMV-licensed behind-the-wheel training provider and also passing the vision and knowledge exams.",
+        "source_url": "https://www.in.gov/bmv/files/drivers-manual.pdf"
+      },
+      {
+        "fact": "A person who has never held a valid out-of-state driver license must hold an Indiana learner's permit for 180 days before applying for a driver license.",
+        "source_url": "https://www.in.gov/bmv/files/drivers-manual.pdf"
+      }
+    ]
+  },
+  "ks": {
+    "agency_name": "Kansas Department of Revenue, Division of Vehicles",
+    "agency_url": "https://www.ksrevenue.gov/dovindex.html",
+    "handbook_url": "https://www.ksrevenue.gov/pdf/dlhb.pdf",
+    "knowledge_test_url": "https://www.ksrevenue.gov/dovtesting.html",
+    "facts": [
+      {
+        "fact": "The Kansas knowledge test has 25 multiple-choice questions and requires an 80% score to pass.",
+        "source_url": "https://www.ksrevenue.gov/pdf/dlhb.pdf"
+      },
+      {
+        "fact": "Kansas sets the minimum age for an instruction permit at 14, a restricted license at 15, and an unrestricted license at 17.",
+        "source_url": "https://www.ksrevenue.gov/pdf/dlhb.pdf"
+      },
+      {
+        "fact": "A driver under 17 must hold an instruction permit for one full year before taking the driver license test.",
+        "source_url": "https://www.ksrevenue.gov/pdf/dlhb.pdf"
+      }
+    ]
+  },
+  "ky": {
+    "agency_name": "Kentucky State Police, Driver Testing Branch",
+    "agency_url": "https://www.kentuckystatepolice.ky.gov/driver-testing",
+    "handbook_url": "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2026/07/Kentucky-Driver-Manual_Updated_7-23-26.pdf",
+    "knowledge_test_url": "https://www.kentuckystatepolice.ky.gov/driver-testing",
+    "facts": [
+      {
+        "fact": "Kentucky applicants must be at least 16 years old to take the vision and written knowledge tests and apply for a permit.",
+        "source_url": "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2026/07/Kentucky-Driver-Manual_Updated_7-23-26.pdf"
+      },
+      {
+        "fact": "Permit holders ages 16–20 must hold the permit for at least 180 days.",
+        "source_url": "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2026/07/Kentucky-Driver-Manual_Updated_7-23-26.pdf"
+      },
+      {
+        "fact": "Eligibility for an intermediate license requires at least 60 practice-driving hours, including 10 hours at night.",
+        "source_url": "https://wp.kentuckystatepolice.ky.gov/wp-content/uploads/2026/07/Kentucky-Driver-Manual_Updated_7-23-26.pdf"
+      }
+    ]
+  },
+  "la": {
+    "agency_name": "Louisiana Office of Motor Vehicles (OMV)",
+    "agency_url": "https://www.expresslane.org/omv/",
+    "handbook_url": "https://www.expresslane.org/omv/resources/driver-manuals/",
+    "knowledge_test_url": "https://www.expresslane.org/omv/drivers/personal-driver-s-licenses/permits/",
+    "facts": [
+      {
+        "fact": "Louisiana's Stage 1 learner's permit has a minimum age of 15 and requires an 80% score on the knowledge test.",
+        "source_url": "https://www.expresslane.org/omv/resources/driver-manuals/"
+      },
+      {
+        "fact": "Before upgrading to an intermediate license, a parent must certify 50 behind-the-wheel hours, including 15 at night, and the permit must have been held for 180 days.",
+        "source_url": "https://www.expresslane.org/omv/resources/driver-manuals/"
+      },
+      {
+        "fact": "Louisiana's Stage 2 intermediate license generally prohibits driving from 11:00 p.m. to 5:00 a.m. unless accompanied by an adult age 21 or older.",
+        "source_url": "https://www.expresslane.org/omv/resources/driver-manuals/"
+      }
+    ]
+  },
+  "md": {
+    "agency_name": "Maryland Department of Transportation Motor Vehicle Administration (MDOT MVA)",
+    "agency_url": "https://mva.maryland.gov/",
+    "handbook_url": "https://mva.maryland.gov/media/148/download",
+    "knowledge_test_url": "https://mva.maryland.gov/licenses-ids/prepare-drivers-license-test",
+    "facts": [
+      {
+        "fact": "Maryland's knowledge test contains 25 questions and must be completed within 20 minutes.",
+        "source_url": "https://mva.maryland.gov/media/148/download"
+      },
+      {
+        "fact": "Learner's permit applicants younger than 25 must be at least 15 years and 9 months old.",
+        "source_url": "https://mva.maryland.gov/media/148/download"
+      },
+      {
+        "fact": "Applicants younger than 25 must practice at least 60 hours with a supervising driver, including at least 10 hours at night.",
+        "source_url": "https://mva.maryland.gov/media/148/download"
+      }
+    ]
+  },
+  "me": {
+    "agency_name": "Maine Secretary of State, Bureau of Motor Vehicles (BMV)",
+    "agency_url": "https://www.maine.gov/sos/bmv/",
+    "handbook_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/motorist-handbook",
+    "knowledge_test_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/drivers-license-exam",
+    "facts": [
+      {
+        "fact": "Maine's minimum learner's permit age is 15; applicants under 18 must complete approved driver education.",
+        "source_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/motorist-handbook"
+      },
+      {
+        "fact": "Applicants under 21 must hold the permit for six months and complete at least 70 driving hours, including 10 at night, before the road test.",
+        "source_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/motorist-handbook"
+      },
+      {
+        "fact": "Maine's point system issues a warning at six points and a suspension at 12 or more points.",
+        "source_url": "https://www.maine.gov/sos/bmv/driver-licenses-and-ids/car-license/motorist-handbook"
+      }
+    ]
+  },
+  "mn": {
+    "agency_name": "Minnesota Department of Public Safety, Driver and Vehicle Services (DVS)",
+    "agency_url": "https://mn.gov/portal/government/state-agencies/",
+    "handbook_url": "https://web.archive.org/web/20240919145040id_/https://dps.mn.gov/divisions/dvs/forms-documents/Documents/Minnesota_Drivers_Manual.pdf",
+    "knowledge_test_url": "https://onlineservices.dps.mn.gov/EServices/_/",
+    "facts": [
+      {
+        "fact": "Under ideal conditions and unless posted otherwise, Minnesota's handbook gives 10 mph in alleys, 30 mph on urban or town roads, and 55 mph on other roads.",
+        "source_url": "https://web.archive.org/web/20240919145040id_/https://dps.mn.gov/divisions/dvs/forms-documents/Documents/Minnesota_Drivers_Manual.pdf"
+      },
+      {
+        "fact": "Minnesota's standard DWI alcohol-concentration threshold is 0.08, while the threshold for operating a commercial vehicle is 0.04.",
+        "source_url": "https://web.archive.org/web/20240919145040id_/https://dps.mn.gov/divisions/dvs/forms-documents/Documents/Minnesota_Drivers_Manual.pdf"
+      },
+      {
+        "fact": "When a school bus displays red lights and an extended stop arm, drivers must stop at least 20 feet away; the handbook states a minimum $500 fine for a violation.",
+        "source_url": "https://web.archive.org/web/20240919145040id_/https://dps.mn.gov/divisions/dvs/forms-documents/Documents/Minnesota_Drivers_Manual.pdf"
+      }
+    ]
+  },
+  "mo": {
+    "agency_name": "Missouri Department of Revenue, Driver License Bureau",
+    "agency_url": "https://dor.mo.gov/driver-license/",
+    "handbook_url": "https://dor.mo.gov/forms/Driver%20Guide.pdf",
+    "knowledge_test_url": "https://dor.mo.gov/driver-license/",
+    "facts": [
+      {
+        "fact": "Missouri's written test contains 25 multiple-choice questions, and applicants must answer 20 correctly to pass.",
+        "source_url": "https://dor.mo.gov/forms/Driver%20Guide.pdf"
+      },
+      {
+        "fact": "To progress from an instruction permit to an intermediate license, the permit must be held at least six months (182 days).",
+        "source_url": "https://dor.mo.gov/forms/Driver%20Guide.pdf"
+      },
+      {
+        "fact": "The intermediate-license path requires 40 hours of driving instruction, including at least 10 hours at night.",
+        "source_url": "https://dor.mo.gov/forms/Driver%20Guide.pdf"
+      }
+    ]
+  },
+  "ms": {
+    "agency_name": "Mississippi Department of Public Safety, Driver Service Bureau",
+    "agency_url": "https://www.driverservicebureau.dps.ms.gov/",
+    "handbook_url": "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf",
+    "knowledge_test_url": "https://www.driverservicebureau.dps.ms.gov/Drivers/Learners_Permit",
+    "facts": [
+      {
+        "fact": "Mississippi requires drivers and all passengers to wear properly fastened seat belts, whether seated in the front or back.",
+        "source_url": "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      },
+      {
+        "fact": "Children under age four must be secured in a child passenger restraint device that meets applicable safety standards.",
+        "source_url": "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      },
+      {
+        "fact": "Children ages four through six who are under 4 feet 9 inches tall or weigh less than 65 pounds must use a belt-positioning booster seat.",
+        "source_url": "https://www.driverservicebureau.dps.ms.gov/sites/default/files/2025-02/1.15.2025%20Revised%20MDPS%20Driver%27s%20Manual.pdf"
+      }
+    ]
+  },
+  "mt": {
+    "agency_name": "Montana Department of Justice, Motor Vehicle Division (MVD)",
+    "agency_url": "https://mvdmt.gov/",
+    "handbook_url": "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf",
+    "knowledge_test_url": "https://mvdmt.gov/new-driver-license/",
+    "facts": [
+      {
+        "fact": "Montana teen drivers must complete at least 50 supervised driving hours, including 10 at night, over a minimum of six months.",
+        "source_url": "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
+      },
+      {
+        "fact": "A teen may obtain a non-commercial learner permit at age 16, or at age 15 after successfully completing a state-approved traffic education program.",
+        "source_url": "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
+      },
+      {
+        "fact": "A driver under 18 must hold the non-commercial learner permit for at least six consecutive months before applying for a first-year restricted license.",
+        "source_url": "https://mvdmt.gov/wp-content/uploads/2026/05/25-0100M-Montana-Driver-Manual-English-05.26.pdf"
+      }
+    ]
+  },
+  "nc": {
+    "agency_name": "North Carolina Division of Motor Vehicles (NCDMV)",
+    "agency_url": "https://www.ncdot.gov/dmv/",
+    "handbook_url": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf",
+    "knowledge_test_url": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Pages/driver-license-tests.aspx",
+    "facts": [
+      {
+        "fact": "A Level One Limited Learner Permit is available at age 15 to applicants under 18 who meet driver-education and eligibility requirements.",
+        "source_url": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      },
+      {
+        "fact": "The knowledge test contains 25 questions and requires 20 correct answers to pass.",
+        "source_url": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      },
+      {
+        "fact": "Unless posted otherwise, the speed limit in cities and towns is 35 mph and outside cities and towns is 55 mph.",
+        "source_url": "https://www.ncdot.gov/dmv/license-id/driver-licenses/new-drivers/Documents/driver-handbook.pdf"
+      }
+    ]
+  },
+  "nd": {
+    "agency_name": "North Dakota Department of Transportation, Driver License Division",
+    "agency_url": "https://www.dot.nd.gov/driver",
+    "handbook_url": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf",
+    "knowledge_test_url": "https://www.dot.nd.gov/driver/how-apply-learners-permit",
+    "facts": [
+      {
+        "fact": "North Dakota instruction permits are available beginning at age 14.",
+        "source_url": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf"
+      },
+      {
+        "fact": "A permit holder must be accompanied by a licensed driver at least 18 who has at least three years of driving experience.",
+        "source_url": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf"
+      },
+      {
+        "fact": "North Dakota generally treats a person who has lived in the state for 90 consecutive days as a resident.",
+        "source_url": "https://www.dot.nd.gov/sites/www/files/documents/Drivers%20-%20documents/noncommercial-manual.pdf"
+      }
+    ]
+  },
+  "ne": {
+    "agency_name": "Nebraska Department of Motor Vehicles",
+    "agency_url": "https://dmv.nebraska.gov/",
+    "handbook_url": "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf",
+    "knowledge_test_url": "https://dmv.nebraska.gov/dl/learners-permit",
+    "facts": [
+      {
+        "fact": "The minimum age for a Class O Learner's Permit is 15.",
+        "source_url": "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      },
+      {
+        "fact": "A learner-permit holder must be accompanied by a licensed driver age 21 or older seated beside the permit holder.",
+        "source_url": "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      },
+      {
+        "fact": "Nebraska uses BAC thresholds of 0.08 for most drivers and 0.02 for drivers under 21.",
+        "source_url": "https://dmv.nebraska.gov/sites/default/files/doc/Class%20O%20Drivers%20Manual-English%201-2025.pdf"
+      }
+    ]
+  },
+  "nh": {
+    "agency_name": "New Hampshire Division of Motor Vehicles",
+    "agency_url": "https://www.dmv.nh.gov/",
+    "handbook_url": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/drivers-license/driver-education",
+    "knowledge_test_url": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/drivers-license/testing-requirements",
+    "facts": [
+      {
+        "fact": "New Hampshire requires applicants to answer at least 32 of 40 knowledge-test questions correctly.",
+        "source_url": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/drivers-license/driver-education"
+      },
+      {
+        "fact": "A driver must be able to read the 20/40 vision line with both eyes to pass the standard vision screening.",
+        "source_url": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/drivers-license/driver-education"
+      },
+      {
+        "fact": "New Hampshire youth operators generally must complete supervised driving and driver-education requirements before licensing.",
+        "source_url": "https://www.dmv.nh.gov/drivers-licensenon-driver-ids/drivers-license/driver-education"
+      }
+    ]
+  },
+  "nj": {
+    "agency_name": "New Jersey Motor Vehicle Commission",
+    "agency_url": "https://www.nj.gov/mvc/",
+    "handbook_url": "https://www.nj.gov/mvc/pdf/license/drivermanual.pdf",
+    "knowledge_test_url": "https://www.nj.gov/mvc/license/knowledgetest.htm",
+    "facts": [
+      {
+        "fact": "A New Jersey special learner permit is available at age 16.",
+        "source_url": "https://www.nj.gov/mvc/pdf/license/drivermanual.pdf"
+      },
+      {
+        "fact": "A permit holder must be supervised by a New Jersey-licensed driver age 21 or older with at least three years of driving experience seated in the front seat.",
+        "source_url": "https://www.nj.gov/mvc/pdf/license/drivermanual.pdf"
+      },
+      {
+        "fact": "Special Learner Permit holders generally may not drive between 11:01 p.m. and 5 a.m.",
+        "source_url": "https://www.nj.gov/mvc/pdf/license/drivermanual.pdf"
+      }
+    ]
+  },
+  "nm": {
+    "agency_name": "New Mexico Motor Vehicle Division",
+    "agency_url": "https://www.mvd.newmexico.gov/",
+    "handbook_url": "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/English-Drivers-Manual.pdf",
+    "knowledge_test_url": "https://www.mvd.newmexico.gov/nm-drivers-licenses-ids/drivers-license/",
+    "facts": [
+      {
+        "fact": "New Mexico drivers under 18 participate in the graduated driver licensing system.",
+        "source_url": "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/English-Drivers-Manual.pdf"
+      },
+      {
+        "fact": "An instructional permit is available at age 15 and requires an approved driver-education course and a knowledge test.",
+        "source_url": "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/English-Drivers-Manual.pdf"
+      },
+      {
+        "fact": "The instructional permit must generally be held for at least six months before a provisional license.",
+        "source_url": "https://www.mvd.newmexico.gov/wp-content/uploads/2020/12/English-Drivers-Manual.pdf"
+      }
+    ]
+  },
+  "nv": {
+    "agency_name": "Nevada Department of Motor Vehicles",
+    "agency_url": "https://dmv.nv.gov/",
+    "handbook_url": "https://dmv.nv.gov/pdfforms/dlbook.pdf",
+    "knowledge_test_url": "https://dmv.nv.gov/dltesting.htm",
+    "facts": [
+      {
+        "fact": "Nevada applicants under 18 may obtain an instruction permit beginning at age 15½.",
+        "source_url": "https://dmv.nv.gov/pdfforms/dlbook.pdf"
+      },
+      {
+        "fact": "The Class C knowledge test contains 25 questions and requires at least 80 percent to pass.",
+        "source_url": "https://dmv.nv.gov/pdfforms/dlbook.pdf"
+      },
+      {
+        "fact": "A permit holder must be accompanied by a licensed driver age 21 or older with at least one year of driving experience seated beside the permit holder.",
+        "source_url": "https://dmv.nv.gov/pdfforms/dlbook.pdf"
+      }
+    ]
+  },
+  "ny": {
+    "agency_name": "New York State Department of Motor Vehicles",
+    "agency_url": "https://dmv.ny.gov/",
+    "handbook_url": "https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-1-driver-licenses",
+    "knowledge_test_url": "https://dmv.ny.gov/driver-license/get-learner-permit",
+    "facts": [
+      {
+        "fact": "The statewide speed limit is 55 mph unless another limit is posted; the citywide limit in New York City is 25 mph unless posted otherwise.",
+        "source_url": "https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-8-defensive-driving"
+      },
+      {
+        "fact": "A BAC of 0.08 percent or higher is evidence of Driving While Intoxicated for a regular driver.",
+        "source_url": "https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-9-alcohol-and-other-drugs"
+      },
+      {
+        "fact": "When a school bus has stopped with red lights flashing, traffic approaching from either direction must stop at least 20 feet away.",
+        "source_url": "https://dmv.ny.gov/new-york-state-drivers-manual-and-practice-tests/chapter-11-sharing-the-road"
+      }
+    ]
+  },
+  "oh": {
+    "agency_name": "Ohio Bureau of Motor Vehicles",
+    "agency_url": "https://www.bmv.ohio.gov/",
+    "handbook_url": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/hsy7607.pdf",
+    "knowledge_test_url": "https://www.bmv.ohio.gov/dl-gdl.aspx",
+    "facts": [
+      {
+        "fact": "An applicant may take the vision screening and knowledge test beginning at age 15 years and 6 months.",
+        "source_url": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/hsy7607.pdf"
+      },
+      {
+        "fact": "The knowledge test has 40 multiple-choice questions, and an applicant must correctly answer 75 percent.",
+        "source_url": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/hsy7607.pdf"
+      },
+      {
+        "fact": "A temporary permit holder under 18 must complete 50 hours of supervised driving, including 10 hours at night.",
+        "source_url": "https://dam.assets.ohio.gov/image/upload/publicsafety.ohio.gov/hsy7607.pdf"
+      }
+    ]
+  },
+  "tx": {
+    "agency_name": "Texas Department of Public Safety, Driver License Division",
+    "agency_url": "https://www.dps.texas.gov/section/driver-license",
+    "handbook_url": "https://www.dps.texas.gov/internetforms/Forms/DL-7.pdf",
+    "knowledge_test_url": "https://www.dps.texas.gov/section/driver-license/how-apply-texas-driver-license",
+    "facts": [
+      {
+        "fact": "Texas applicants under 18 generally must hold a learner license for at least six months before becoming eligible for a provisional license.",
+        "source_url": "https://www.dps.texas.gov/internetforms/Forms/DL-7.pdf"
+      },
+      {
+        "fact": "Texas uses 0.08 BAC as the per-se threshold for most drivers age 21 or older.",
+        "source_url": "https://www.dps.texas.gov/internetforms/Forms/DL-7.pdf"
+      },
+      {
+        "fact": "Drivers approaching a school bus with alternating flashing red lights must stop unless they are on the opposite side of a roadway separated by a physical barrier or intervening space.",
+        "source_url": "https://www.dps.texas.gov/internetforms/Forms/DL-7.pdf"
+      }
+    ]
+  },
+  "va": {
+    "agency_name": "Virginia Department of Motor Vehicles",
+    "agency_url": "https://www.dmv.virginia.gov/",
+    "handbook_url": "https://www.dmv.virginia.gov/sites/default/files/documents/dmv39.pdf",
+    "knowledge_test_url": "https://www.dmv.virginia.gov/licenses-ids/exams",
+    "facts": [
+      {
+        "fact": "Virginia learner permits are available beginning at age 15 years and 6 months.",
+        "source_url": "https://www.dmv.virginia.gov/sites/default/files/documents/dmv39.pdf"
+      },
+      {
+        "fact": "Applicants under 18 generally must hold the learner permit for nine months before licensing.",
+        "source_url": "https://www.dmv.virginia.gov/sites/default/files/documents/dmv39.pdf"
+      },
+      {
+        "fact": "The two-part knowledge exam requires 100 percent on the road-sign portion before the applicant may take the general-knowledge portion, which requires 80 percent.",
+        "source_url": "https://www.dmv.virginia.gov/sites/default/files/documents/dmv39.pdf"
+      }
+    ]
+  }
+}

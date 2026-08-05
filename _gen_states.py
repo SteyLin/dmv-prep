@@ -10,7 +10,11 @@ manual data-ad-slot IDs required.
 
 Does NOT touch any existing file. Only writes into dmv/.
 """
-import json, os
+import collections
+import html
+import json
+import os
+import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "dmv")
@@ -19,7 +23,15 @@ os.makedirs(OUT, exist_ok=True)
 with open("/tmp/states.json") as f:
     STATES = json.load(f)
 
-import re
+OFFICIAL_PATH = os.path.join(ROOT, "state_official_sources.json")
+if not os.path.exists(OFFICIAL_PATH):
+    raise RuntimeError("Missing required verified source data: state_official_sources.json")
+with open(OFFICIAL_PATH) as f:
+    OFFICIAL = json.load(f)
+if set(OFFICIAL) != set(STATES):
+    missing = sorted(set(STATES) - set(OFFICIAL))
+    extra = sorted(set(OFFICIAL) - set(STATES))
+    raise RuntimeError(f"Official-source state mismatch; missing={missing}, extra={extra}")
 with open(os.path.join(ROOT, "index.html")) as f:
     idx = f.read()
 m = re.search(r'ca-pub-\d+', idx)
@@ -37,20 +49,23 @@ for state_key in STATES:
         with open(existing_path) as existing_file:
             existing_html = existing_file.read()
         guide_match = re.search(
-            r'(  <div class="card" style="margin-top:24px;">.*?</div>)\s*'
-            r'(?=<div style="text-align:center;color:var\(--muted\))',
+            r'<!-- STATE_GUIDE_START -->\s*(.*?)\s*<!-- STATE_GUIDE_END -->',
             existing_html,
             re.S,
         )
+        if not guide_match:
+            guide_match = re.search(
+                r'(  <div class="card" style="margin-top:24px;">.*?</div>)\s*'
+                r'(?=<div style="text-align:center;color:var\(--muted\))',
+                existing_html,
+                re.S,
+            )
         if guide_match:
-            GUIDE_BLOCKS[state_key] = guide_match.group(1)
+            GUIDE_BLOCKS[state_key] = guide_match.group(1).strip()
 
-missing_guides = sorted(set(STATES) - set(GUIDE_BLOCKS))
-if missing_guides:
-    raise RuntimeError(
-        "Refusing to regenerate because state-specific guide blocks are missing for: "
-        + ", ".join(missing_guides)
-    )
+if set(GUIDE_BLOCKS) != set(STATES):
+    missing_guides = sorted(set(STATES) - set(GUIDE_BLOCKS))
+    raise RuntimeError(f"Refusing to regenerate: missing preserved state guides for {missing_guides}")
 
 # Auto-ads: single script in <head>. Google handles all placement/optimization.
 ADSENSE = f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={PUB}" crossorigin="anonymous"></script>'
@@ -105,10 +120,99 @@ COMMON_CSS = """
   .exambar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
   .exambar .timed{background:var(--card);border:1px solid var(--line);color:var(--accent);padding:9px 16px;border-radius:12px;font-weight:800;font-size:.95rem;display:none;}
   .exambar .act{padding:11px 18px;font-size:.92rem;}
+  .official-panel{background:linear-gradient(135deg,var(--accent-soft),var(--card));border:1px solid var(--line);border-radius:18px;padding:22px;margin:0 0 20px;box-shadow:0 8px 24px rgba(0,0,0,.05);}
+  .official-kicker{color:var(--accent);font-size:.74rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px;}
+  .official-panel h2,.study-map h2{font-size:1.25rem;line-height:1.3;margin-bottom:7px;}
+  .official-panel p,.study-map p{color:var(--muted);font-size:.9rem;}
+  .resource-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:15px;}
+  .resource-link{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 13px;text-decoration:none;font-size:.84rem;font-weight:800;line-height:1.25;}
+  .resource-link:hover{border-color:var(--accent);transform:translateY(-1px);}
+  .study-map{margin-top:24px;}
+  .topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 22px;}
+  .topic-item{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--explain);}
+  .topic-row{display:flex;justify-content:space-between;gap:12px;font-size:.82rem;font-weight:800;margin-bottom:7px;}
+  .topic-track{height:7px;border-radius:999px;background:var(--line);overflow:hidden;}
+  .topic-fill{height:100%;border-radius:999px;background:var(--accent);}
+  .fact-list{display:grid;gap:10px;margin:12px 0 0;padding:0;list-style:none;}
+  .fact-list li{border-left:3px solid var(--accent);background:var(--explain);border-radius:8px;padding:11px 13px;color:var(--muted);font-size:.88rem;line-height:1.55;}
+  .fact-list a{font-weight:800;white-space:nowrap;}
+  @media(max-width:720px){.resource-links,.topic-grid{grid-template-columns:1fr;}}
 """
 
 def state_full_name(s):
     return STATES[s]["name"].split(" (")[0]
+
+TOPIC_RULES = [
+    ("Licensing & permit rules", re.compile(r"\b(license|licence|permit|learner|graduated|gdl|suspend|revoke|point|applicant|vision test|knowledge test)\b", re.I)),
+    ("Signs, signals & markings", re.compile(r"\b(sign|signal|traffic light|flashing|pavement marking|yellow line|white line|railroad|crossing)\b", re.I)),
+    ("Alcohol & impaired driving", re.compile(r"\b(alcohol|bac|dui|dwi|owi|intox|impaired|drug|implied consent)\b", re.I)),
+    ("Vehicle & passenger safety", re.compile(r"\b(seat belt|safety belt|child restraint|car seat|tire|brake|headlight|vehicle|equipment|windshield)\b", re.I)),
+    ("Hazards & emergency driving", re.compile(r"\b(skid|hydroplan|emergency|crash|collision|fog|snow|rain|night|deer|breakdown|following distance)\b", re.I)),
+    ("Road rules & right-of-way", re.compile(r"\b(speed|right.of.way|yield|pass|passing|lane|turn|parking|intersection|roundabout|school bus|freeway|highway|curb)\b", re.I)),
+]
+
+def topic_counts(questions):
+    counts = collections.Counter()
+    for question in questions:
+        searchable = " ".join((question.get("q", ""), question.get("ref", "")))
+        label = next((name for name, pattern in TOPIC_RULES if pattern.search(searchable)), "General driver knowledge")
+        counts[label] += 1
+    return counts
+
+def safe_url(value):
+    value = (value or "").strip()
+    if not value.startswith(("https://", "http://")):
+        raise ValueError(f"Official source URL must be absolute HTTP(S): {value!r}")
+    return html.escape(value, quote=True)
+
+def enrichment_html(state_key, full, questions):
+    source = OFFICIAL[state_key]
+    agency_name = html.escape(source["agency_name"])
+    resources = [
+        ("Licensing agency", source["agency_url"]),
+        ("Official driver handbook", source["handbook_url"]),
+        ("Knowledge-test information", source["knowledge_test_url"]),
+    ]
+    resource_links = "".join(
+        f'<a class="resource-link" href="{safe_url(url)}" target="_blank" rel="noopener noreferrer">'
+        f'<span>{html.escape(label)}</span><span aria-hidden="true">↗</span></a>'
+        for label, url in resources
+    )
+    official_panel = f'''<section class="official-panel" aria-labelledby="official-{state_key}">
+    <div class="official-kicker">Verified official resources</div>
+    <h2 id="official-{state_key}">Study with {agency_name} materials</h2>
+    <p>This independent practice test is paired with direct {full} government resources. Check the official handbook and licensing page for the latest eligibility, testing, fee, and appointment requirements.</p>
+    <div class="resource-links">{resource_links}</div>
+  </section>'''
+
+    counts = topic_counts(questions)
+    total = len(questions)
+    ordered = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    topic_items = "".join(
+        f'''<div class="topic-item"><div class="topic-row"><span>{html.escape(label)}</span><span>{count} questions</span></div>
+        <div class="topic-track"><div class="topic-fill" style="width:{max(4, round(count / total * 100))}%"></div></div></div>'''
+        for label, count in ordered
+    )
+    top_topics = ordered[:2]
+    emphasis = " and ".join(f"{label.lower()} ({count})" for label, count in top_topics)
+    facts = source.get("facts") or []
+    if len(facts) < 3:
+        raise ValueError(f"At least three verified official facts are required for {state_key}")
+    fact_items = "".join(
+        f'<li>{html.escape(item["fact"])} '
+        f'<a href="{safe_url(item["source_url"])}" target="_blank" rel="noopener noreferrer">Official source ↗</a></li>'
+        for item in facts
+    )
+    study_map = f'''<section class="card study-map" aria-labelledby="study-map-{state_key}">
+    <div class="official-kicker">Your {full} study map</div>
+    <h2 id="study-map-{state_key}">What this {total}-question practice bank covers</h2>
+    <p>The current {full} bank places its strongest emphasis on {html.escape(emphasis)}. Use the breakdown below to identify the handbook sections that deserve the most review.</p>
+    <div class="topic-grid">{topic_items}</div>
+    <h2>Verified {full} licensing and road-rule facts</h2>
+    <p>These {full}-specific notes link back to the agency or handbook page used to verify them. Official requirements can change, so follow the linked source when preparing an application or test appointment.</p>
+    <ul class="fact-list">{fact_items}</ul>
+  </section>'''
+    return official_panel, study_map
 
 def page_html(state_key):
     st = STATES[state_key]
@@ -120,8 +224,11 @@ def page_html(state_key):
     desc = f"Free {full} ({short}) DMV practice test with {nq} questions based on {full} driver-handbook topics. Study, answer, and check explanations — 100% free."
     canonical = f"https://drivereadyhub.com/dmv/{state_key}/"
     guide_html = GUIDE_BLOCKS[state_key]
+    official_panel, study_map = enrichment_html(state_key, full, st["questions"])
+    source_data = OFFICIAL[state_key]
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title,
           "url": canonical, "about": {"@type": "Thing", "name": "Driver's license permit practice test"},
+          "citation": [source_data["handbook_url"], source_data["knowledge_test_url"]],
           "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}
     ld_json = json.dumps(ld, ensure_ascii=False)
 
@@ -225,9 +332,6 @@ function applyTheme(t){document.documentElement.setAttribute('data-theme',t); th
 let savedTheme='light'; try{savedTheme=localStorage.getItem('dmvTheme')||'light';}catch(e){} applyTheme(savedTheme);
 themeBtn.onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 """
-    gtrans = """
-function googleTranslateElementInit(){ new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,zh,ar,fr,tr,vi,ko,ru,ht', layout:google.translate.TranslateElement.InlineLayout.SIMPLE},'google_translate_element'); }
-"""
     js = JS.replace("__STATE_KEY__", state_key).replace("__STATE_JSON__", json.dumps(st))
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -261,7 +365,6 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div id="google_translate_element"></div>
     <button class="theme-btn" id="themeBtn">🌙 Dark</button>
   </div>
 
@@ -270,6 +373,8 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
     <h1>{full} <span class="em">DMV Practice</span></h1>
     <p class="sub">Free {short} permit and license practice test — {nq} questions based on {full} driver-handbook topics.</p>
   </header>
+
+  {official_panel}
 
   <div class="exambar">
     <button class="act ghost" id="timedBtn">⏱ Timed Mock Exam</button>
@@ -306,7 +411,11 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
 
   <p class="foot src">Questions are original practice material based on {full} driver-handbook topics (public domain). Informational only, not affiliated with any DMV or government agency.</p>
 
+<!-- STATE_GUIDE_START -->
 {guide_html}
+<!-- STATE_GUIDE_END -->
+
+{study_map}
 
   <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
     <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
@@ -329,18 +438,16 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
 <script>
 {extra}
 </script>
-<script>
-{gtrans}
-</script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>'''
 
-for k in STATES:
+rendered_pages = {state_key: page_html(state_key) for state_key in STATES}
+
+for k, rendered_html in rendered_pages.items():
     d = os.path.join(OUT, k)
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, "index.html"), "w") as f:
-        f.write(page_html(k))
+        f.write(rendered_html)
     print("wrote dmv/%s/index.html" % k)
 
-print("DONE. Total states:", len(STATES))
+print("DONE. Total states:", len(rendered_pages))

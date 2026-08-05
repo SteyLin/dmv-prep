@@ -34,6 +34,11 @@ p,li{color:var(--muted);font-size:.95rem;}
 a{color:var(--accent);}
 .breadcrumb{font-size:.82rem;color:var(--muted);margin-bottom:14px;}
 .breadcrumb a{color:var(--accent);text-decoration:none;}
+.method{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0 8px;}
+.method article{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--accent-soft);}
+.method strong{display:block;color:var(--ink);font-size:.92rem;margin-bottom:5px;}
+.method p{margin:0;font-size:.86rem;}
+@media(max-width:620px){.method{grid-template-columns:1fr;}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "About | DriveReady Hub", "url": "https://drivereadyhub.com/pages/about.html", "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
 </head>
@@ -48,9 +53,18 @@ a{color:var(--accent);}
     <p>We believe quality practice material should be free and accessible. Our tests are built to help learners check their understanding, review the "why" behind each answer, and walk into the exam more confident.</p>
 
     <h2>How Our Content Is Made</h2>
-    <p>Questions and explanations are written as original practice material inspired by publicly available driver-handbook topics (which are in the public domain). We are <strong>not affiliated with, endorsed by, or connected to</strong> any DMV, DVSA, provincial ministry, or government agency. Always confirm rules with your official licensing authority.</p>
+    <p>Questions and explanations are written as original practice material from topics covered by official driver handbooks and licensing-agency guidance. We do not copy live exam questions, answer dumps, or commercial test banks. We are <strong>not affiliated with, endorsed by, or connected to</strong> any DMV, DVSA, provincial ministry, or government agency.</p>
 
-    <h2>Independent &amp;Supported by Ads</h2>
+    <h2>How We Research and Verify Practice Content</h2>
+    <div class="method">
+      <article><strong>1. Start with official sources</strong><p>We use driver handbooks, licensing-agency pages, and government publications as the primary reference for rules, test topics, and licensing steps.</p></article>
+      <article><strong>2. Write original practice material</strong><p>We turn the underlying rule into a new educational question, original answer choices, and a plain-language explanation rather than reproducing exam wording.</p></article>
+      <article><strong>3. Check the complete question</strong><p>We review the answer index, every option, the explanation, and the cited handbook topic together so the explanation supports the selected answer.</p></article>
+      <article><strong>4. Link readers back to authority</strong><p>State pages identify the responsible agency and provide direct official handbook or knowledge-test links whenever the agency publishes them.</p></article>
+    </div>
+    <p>Rules, fees, eligibility details, and agency procedures can change. The official licensing authority always takes priority over our practice material, and readers should confirm current requirements before applying or testing.</p>
+
+    <h2>Independent &amp; Supported by Ads</h2>
     <p>This site is independently operated. To keep it free, we display advertising through Google AdSense. Advertisers are chosen by Google; we do not sell or share your personal information.</p>
 
     <h2>Get in Touch</h2>
