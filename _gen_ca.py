@@ -167,7 +167,7 @@ def page_html(data):
     title = "Canada Driving Knowledge Practice Test - Free G1 / Class 7 Prep | DriveReady Hub"
     desc = "Free Canada driver knowledge practice test with " + str(nq) + " questions covering signs, speed limits, winter driving, and the graduated licence system. Study and check answers - 100% free."
     canonical = "https://drivereadyhub.com/ca/"
-    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+    ld = {"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Canada driving knowledge test"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 

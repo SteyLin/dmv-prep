@@ -68,7 +68,7 @@ def page_html(data):
     title = f"UK Driving Theory Practice Test — Free DVSA Style Prep | DriveReady Hub"
     desc = f"Free UK (DVSA) driving theory practice test with {nq} questions covering road signs, safety, and the Highway Code. Study and check answers — 100% free."
     canonical = "https://drivereadyhub.com/uk/"
-    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+    ld = {"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"UK driving theory test"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 

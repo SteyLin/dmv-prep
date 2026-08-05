@@ -2792,7 +2792,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Learner/Restricted License",
-        "explanation": "AL Driver Manual - Learner/Restricted License"
+        "explanation": "This question asks for the minimum age and licensing status of the required supervising driver for Alabama Learner (Restricted) License holders. The correct answer is 21 years of age or older and duly licensed in Alabama, per the AL Driver Manual - Learner/Restricted License."
       },
       {
         "q": "Once an Alabama Learner License holder reaches his or her sixteenth birthday, the holder may then drive with:",
@@ -2803,7 +2803,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Learner/Restricted License",
-        "explanation": "AL Driver Manual - Learner/Restricted License"
+        "explanation": "The handbook rule for this situation is: Any licensed driver occupying the seat beside the driver. This directly addresses the question and distinguishes the required choice from the alternatives."
       },
       {
         "q": "How long is an Alabama Learner (Restricted) License valid, and how many times may it be renewed?",
@@ -2814,7 +2814,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Learner/Restricted License",
-        "explanation": "AL Driver Manual - Learner/Restricted License"
+        "explanation": "The question asks about the validity period and renewal rules for Alabama Learner (Restricted) Licenses. The correct answer is four years, and it can be renewed once, per the AL Driver Manual - Learner/Restricted License."
       },
       {
         "q": "At what minimum age may a person in Alabama obtain a motorcycle (Class M) license?",
@@ -2825,7 +2825,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Class M License",
-        "explanation": "AL Driver Manual - Class M License"
+        "explanation": "The question asks for the minimum age to obtain an Alabama motorcycle (Class M) license. The correct option is 16 years of age or older, as outlined in the AL Driver Manual - Class M License."
       },
       {
         "q": "At what minimum age may a person in Alabama obtain a vessel (boat) license after passing the vessel examination?",
@@ -2836,7 +2836,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Vessel License",
-        "explanation": "AL Driver Manual - Vessel License"
+        "explanation": "The question asks for the minimum age to get an Alabama vessel (boat) license after passing the vessel examination. The correct answer is 12 years of age or older, per the AL Driver Manual - Vessel License."
       },
       {
         "q": "Under Alabama's Graduated Driver License (GDL) program, a person under 18 may NOT apply for an unrestricted license until he or she has held a learner license for at least:",
@@ -2847,7 +2847,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Summary",
-        "explanation": "AL Driver Manual - GDL Summary"
+        "explanation": "The question asks how long a person under 18 must hold an Alabama learner license before applying for an unrestricted license under the GDL program. The correct option is a six-month period with no restriction violations, per the AL Driver Manual - GDL Summary."
       },
       {
         "q": "A 16-year-old Alabama applicant must have whose permission to receive a license and to drive without supervision?",
@@ -2858,7 +2858,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Summary",
-        "explanation": "AL Driver Manual - GDL Summary"
+        "explanation": "The question asks who must give permission for a 16-year-old Alabama applicant to receive a license and drive without supervision. The correct answer is a parent or legal guardian's permission, per the AL Driver Manual - GDL Summary."
       },
       {
         "q": "For an Alabama driver who is 16 (or 17 with a license less than 6 months), how many nonfamily passengers are allowed besides a parent, guardian, or supervising licensed driver at least 21?",
@@ -2869,7 +2869,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Restrictions",
-        "explanation": "AL Driver Manual - GDL Restrictions"
+        "explanation": "The question asks how many nonfamily passengers a 16-year-old (or 17-year-old with a license under 6 months) Alabama driver may have besides a parent, guardian, or qualifying supervising driver at least 21. The correct option is no more than one nonfamily passenger, per the AL Driver Manual - GDL Restrictions."
       },
       {
         "q": "Alabama's GDL restrictions do NOT apply to which of the following drivers?",
@@ -2880,7 +2880,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Summary",
-        "explanation": "AL Driver Manual - GDL Summary"
+        "explanation": "The question asks which drivers are exempt from Alabama's GDL restrictions. The correct option is a person 17 or older who has had a valid driver license for 6 months or longer, per the AL Driver Manual - GDL Summary."
       },
       {
         "q": "If an Alabama GDL driver violates a restriction, the restrictive period is extended by:",
@@ -2891,7 +2891,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Enforcement",
-        "explanation": "AL Driver Manual - GDL Enforcement"
+        "explanation": "The question asks how much a restrictive period is extended for an Alabama GDL driver who violates a restriction. The correct answer is six months or until the driver reaches 18 years of age, per the AL Driver Manual - GDL Enforcement."
       },
       {
         "q": "How much is the fee for each Alabama driver license knowledge test, and what form of payment is NOT accepted?",
@@ -2902,7 +2902,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Knowledge Test",
-        "explanation": "AL Driver Manual - Knowledge Test"
+        "explanation": "The AL Driver Manual - Knowledge Test confirms the Alabama driver license knowledge test fee is $5.00, and checks are not an accepted payment method for this fee."
       },
       {
         "q": "Before an Alabama road test may begin, the examiner inspects the vehicle for required equipment. Which of the following must be present and working?",
@@ -2913,7 +2913,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - The Road Test",
-        "explanation": "AL Driver Manual - The Road Test"
+        "explanation": "Per the AL Driver Manual - The Road Test, a vehicle used for an Alabama road test must have working brake lights, left and right turn signals, and a horn."
       },
       {
         "q": "At an Alabama road test, the applicant must present which of the following in addition to the vehicle?",
@@ -2924,7 +2924,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - The Road Test",
-        "explanation": "AL Driver Manual - The Road Test"
+        "explanation": "The AL Driver Manual - The Road Test requires road test applicants to present proof of vehicle insurance and vehicle registration alongside their test vehicle."
       },
       {
         "q": "If an Alabama vision screening shows that corrective lenses are needed to improve eyesight, the driver will be:",
@@ -2935,7 +2935,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Vision Screening",
-        "explanation": "AL Driver Manual - Vision Screening"
+        "explanation": "According to the AL Driver Manual - Vision Screening, drivers who need corrective lenses to pass the vision screening are required to wear them when driving."
       },
       {
         "q": "Under Alabama law, a motor vehicle horn may lawfully be used:",
@@ -2946,7 +2946,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Required Equipment (HORNS)",
-        "explanation": "AL Driver Manual - Required Equipment (HORNS)"
+        "explanation": "The AL Driver Manual - Required Equipment (HORNS) specifies a vehicle horn may only be used to give warning when reasonably necessary for safe operation."
       },
       {
         "q": "An Alabama tire is illegal when its tread depth is less than:",
@@ -2957,7 +2957,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Required Equipment (tires)",
-        "explanation": "AL Driver Manual - Required Equipment (tires)"
+        "explanation": "The AL Driver Manual - Required Equipment (tires) states a tire is illegal in Alabama if its tread depth is less than 1/16 of an inch."
       },
       {
         "q": "Which statement about safety belts is true under Alabama law?",
@@ -2968,7 +2968,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Safety Belt Law",
-        "explanation": "AL Driver Manual - Safety Belt Law"
+        "explanation": "The AL Driver Manual - Safety Belt Law confirms buckling up is required by law in Alabama, and the state vigorously enforces this safety belt rule."
       },
       {
         "q": "According to the Alabama manual, in a traffic crash, steering assemblies and striking the windshield/frame account for a large share of fatal injuries. What does the manual state?",
@@ -2979,7 +2979,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Safety Belts",
-        "explanation": "AL Driver Manual - Safety Belts"
+        "explanation": "The AL Driver Manual - Safety Belts notes steering assemblies cause about 30% of fatal crash injuries, with the windshield and frame responsible for another ~40%."
       },
       {
         "q": "The Alabama manual warns that the majority of children injured or killed in pupil transportation are:",
@@ -2990,7 +2990,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - School Bus Safety (Death Zone)",
-        "explanation": "AL Driver Manual - School Bus Safety (Death Zone)"
+        "explanation": "Per the AL Driver Manual - School Bus Safety (Death Zone), most children injured or killed in pupil transportation incidents are outside the bus in the 'death zone'."
       },
       {
         "q": "In Alabama, when you register as an organ, eye, and tissue donor on your driver license application, what mark is placed on the license?",
@@ -3001,7 +3001,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Organ, Eye, and Tissue Donation",
-        "explanation": "AL Driver Manual - Organ, Eye, and Tissue Donation"
+        "explanation": "The AL Driver Manual - Organ, Eye, and Tissue Donation states a red heart is placed in the lower right-hand corner of licenses for registered organ donors."
       },
       {
         "q": "If an Alabama donor later changes their mind, they may remove themselves from the registry at which website?",
@@ -3012,7 +3012,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Organ, Eye, and Tissue Donation",
-        "explanation": "AL Driver Manual - Organ, Eye, and Tissue Donation"
+        "explanation": "The question asks which website Alabama organ donors can use to remove themselves from the registry, and the correct answer is www.registerme.org per the AL Driver Manual's Organ, Eye, and Tissue Donation section."
       },
       {
         "q": "Alabama's Hand-Free Law generally prohibits which of the following while driving?",
@@ -3023,7 +3023,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Alabama's Hand-Free Law",
-        "explanation": "AL Driver Manual - Alabama's Hand-Free Law"
+        "explanation": "The question asks what Alabama's Hand-Free Law generally prohibits while driving, and the correct answer is holding or using a hand-held wireless device for calls/texting per the AL Driver Manual's Alabama's Hand-Free Law section."
       },
       {
         "q": "Alabama's Move Over Law requires drivers to move over or slow down for:",
@@ -3034,7 +3034,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Move Over Law",
-        "explanation": "AL Driver Manual - Move Over Law"
+        "explanation": "The question asks what Alabama's Move Over Law requires drivers to move over or slow down for, and the correct answer is stopped emergency/utility vehicles with flashing lights per the AL Driver Manual's Move Over Law section."
       },
       {
         "q": "Which of the following is TRUE about Alabama's Mandatory Liability Insurance Law?",
@@ -3045,7 +3045,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Mandatory Liability Insurance Law",
-        "explanation": "AL Driver Manual - Mandatory Liability Insurance Law"
+        "explanation": "The question asks which statement about Alabama's Mandatory Liability Insurance Law is true, and the correct answer is drivers must carry proof of liability insurance per the AL Driver Manual's Mandatory Liability Insurance Law section."
       },
       {
         "q": "Under Alabama's Drinking and Driving laws, which behavior is prohibited?",
@@ -3056,7 +3056,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Drinking and Driving",
-        "explanation": "AL Driver Manual - Drinking and Driving"
+        "explanation": "The question asks which behavior is prohibited under Alabama's Drinking and Driving laws, and the correct answer is driving while impaired by alcohol or controlled substances per the AL Driver Manual's Drinking and Driving section."
       },
       {
         "q": "Under Alabama's Parent-Teen Driving Agreement, if a teen breaks the law by drinking anything alcoholic, the agreement states they will:",
@@ -3067,7 +3067,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Parent/Teen Driving Agreement",
-        "explanation": "AL Driver Manual - Parent/Teen Driving Agreement"
+        "explanation": "The question asks what the Alabama Parent-Teen Driving Agreement states will happen if a teen drinks alcohol and breaks the law, and the correct answer is they will not drive for 24 hours per the AL Driver Manual's Parent/Teen Driving Agreement section."
       },
       {
         "q": "Which topic is covered as its own section in the Alabama Driver Manual, confirming the rule's existence?",
@@ -3078,7 +3078,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Chapter 6 (Traffic Laws)",
-        "explanation": "AL Driver Manual - Chapter 6 (Traffic Laws)"
+        "explanation": "The question asks which topic is covered as its own section in the Alabama Driver Manual, and the correct answer is Right of Way and Yielding per the AL Driver Manual's Chapter 6 (Traffic Laws) section."
       },
       {
         "q": "The Alabama manual includes a dedicated section on rules for approaching which stopped vehicle?",
@@ -3089,7 +3089,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - School Buses",
-        "explanation": "AL Driver Manual - School Buses"
+        "explanation": "The question asks which stopped vehicle the Alabama driver manual has a dedicated section for approaching rules, and the correct answer is school buses with flashing lights per the AL Driver Manual's School Buses section."
       },
       {
         "q": "Alabama's Driver Manual lists 'Following Emergency Vehicles' as a traffic-law topic. When an emergency vehicle with sirens/lights approaches, you should:",
@@ -3100,7 +3100,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Following Emergency Vehicles",
-        "explanation": "AL Driver Manual - Following Emergency Vehicles"
+        "explanation": "The question asks what drivers should do when an emergency vehicle with sirens/lights approaches per the Alabama manual's Following Emergency Vehicles section, and the correct answer is yield the right of way and pull to the right."
       },
       {
         "q": "The Alabama manual includes a section on 'Changing Lanes.' Before changing lanes you must:",
@@ -3111,7 +3111,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Changing Lanes",
-        "explanation": "AL Driver Manual - Changing Lanes"
+        "explanation": "The question asks what drivers must do before changing lanes per the Alabama manual's Changing Lanes section, and the correct answer is signal and check mirrors and blind spots."
       },
       {
         "q": "Alabama's manual covers 'Railroad Crossings' as a driving topic. At a railroad crossing you should:",
@@ -3122,7 +3122,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Railroad Crossings",
-        "explanation": "AL Driver Manual - Railroad Crossings"
+        "explanation": "Per the AL Driver Manual's Railroad Crossings section, the correct action at a railroad crossing is to slow down, look and listen, and stop if a train is approaching, not cross at full speed or never stop for trains."
       },
       {
         "q": "The Alabama Driver Manual includes 'Parking' rules. A safe parking practice is to:",
@@ -3133,7 +3133,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Parking",
-        "explanation": "AL Driver Manual - Parking"
+        "explanation": "The Alabama Driver Manual's Parking section identifies the safe parking practice as parking parallel within the space and not block traffic, not parking in the middle of the lane or double-parking on busy streets."
       },
       {
         "q": "Alabama's manual covers 'Pedestrians' under traffic laws. You should:",
@@ -3144,7 +3144,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Pedestrians",
-        "explanation": "AL Driver Manual - Pedestrians"
+        "explanation": "The AL Driver Manual's Pedestrians section requires drivers to yield to pedestrians in crosswalks and at intersections, rather than honking at pedestrians or never yielding to them."
       },
       {
         "q": "Under Alabama's 'Window Tinting' law, window tint is regulated because:",
@@ -3155,7 +3155,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Window Tinting",
-        "explanation": "AL Driver Manual - Window Tinting"
+        "explanation": "The Alabama Driver Manual's Window Tinting section explains window tint is regulated because excessive tint can reduce driver visibility and is restricted by law, not to improve speed or be required on all windows."
       },
       {
         "q": "Alabama requires identification when applying for a license. A common required document is:",
@@ -3166,7 +3166,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Identification Requirements",
-        "explanation": "AL Driver Manual - Identification Requirements"
+        "explanation": "The AL Driver Manual's Identification Requirements section lists a common required document for license applications as proof of identity such as a birth certificate or passport, not a library card or membership card."
       },
       {
         "q": "A director of ALEA may impose license restrictions when necessary for safe operation. A common restriction is:",
@@ -3177,7 +3177,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - License Restrictions",
-        "explanation": "AL Driver Manual - License Restrictions"
+        "explanation": "The Alabama Driver Manual's License Restrictions section notes a common license restriction is requiring corrective lenses while driving, not limiting the car's color or banning daytime driving only."
       },
       {
         "q": "In Alabama, operating a vehicle in violation of a license restriction may result in:",
@@ -3188,7 +3188,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - License Restrictions",
-        "explanation": "AL Driver Manual - License Restrictions"
+        "explanation": "The AL Driver Manual's License Restrictions section states operating a vehicle in violation of a license restriction may result in loss of your license, not just a speeding ticket or no penalty."
       },
       {
         "q": "The Alabama Driver Manual states that the privilege to drive is:",
@@ -3199,7 +3199,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Your License to Drive",
-        "explanation": "AL Driver Manual - Your License to Drive"
+        "explanation": "The Alabama Driver Manual's Your License to Drive section states the privilege to drive is a privilege that can be suspended or revoked for violations, not an unconditional right or guaranteed for life."
       },
       {
         "q": "Alabama's Driver Manual lists 'Stopping' as a traffic-law topic. A driver must stop:",
@@ -3210,7 +3210,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Stopping",
-        "explanation": "AL Driver Manual - Stopping"
+        "explanation": "The AL Driver Manual's Stopping section requires drivers to stop at a red traffic signal and at stop signs, not only when police wave or never at yellow lights."
       },
       {
         "q": "Alabama's Driver Manual lists 'Passing' as a traffic-law topic. When passing another vehicle you must:",
@@ -3221,7 +3221,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Passing",
-        "explanation": "AL Driver Manual - Passing"
+        "explanation": "The Alabama Driver Manual's Passing section states when passing another vehicle you must pass only when safe and return without crossing a solid line, not pass on the right shoulder or cross a double solid yellow line."
       },
       {
         "q": "Alabama's Driver Manual includes 'Traffic Signals' and 'Roundabouts.' In a roundabout you should:",
@@ -3232,7 +3232,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Driving Through Roundabouts",
-        "explanation": "AL Driver Manual - Driving Through Roundabouts"
+        "explanation": "The Alabama Driver Manual's roundabout rules specify that you should yield to traffic already in the circle when entering a roundabout, rather than entering without yielding or stopping in the middle."
       },
       {
         "q": "The Alabama Driver Manual is published by which agency?",
@@ -3243,7 +3243,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Publisher",
-        "explanation": "AL Driver Manual - Publisher"
+        "explanation": "The Alabama Driver Manual is published by The Alabama Law Enforcement Agency (ALEA), Driver License Division, not a private driving school or the federal government only."
       },
       {
         "q": "Alabama's Driver Manual states that a license 'does not apply' to certain people. Which person may drive in Alabama without an AL license?",
@@ -3254,7 +3254,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - License Not Required (exemptions)",
-        "explanation": "AL Driver Manual - License Not Required (exemptions)"
+        "explanation": "The Alabama Driver Manual's license exemption guidelines state that a non-resident at least 16 with a valid home-state license may drive in Alabama without an AL license, not any tourist or short-term visitor."
       },
       {
         "q": "Alabama's Driver Manual explains that a common restriction for vision is wearing corrective lenses. If you fail the vision exam you must:",
@@ -3265,7 +3265,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Vision Screening",
-        "explanation": "AL Driver Manual - Vision Screening"
+        "explanation": "The Alabama Driver Manual's vision screening rules require that if you fail the vision exam, you must have your eyes examined by a licensed specialist and return the report, not just pay a larger fee or retake only the written test."
       },
       {
         "q": "Alabama's Driver Manual lists equipment your car MUST have. Which of these is required?",
@@ -3276,7 +3276,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Required Equipment",
-        "explanation": "AL Driver Manual - Required Equipment"
+        "explanation": "The Alabama Driver Manual's required equipment list specifies that vehicles must have horn, brakes, lights, tires, seat belts, and mirrors, not optional add-ons like radar detectors or spoilers."
       },
       {
         "q": "Under Alabama's safety belt law emphasis, the manual encourages drivers to:",
@@ -3287,7 +3287,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Safety Belt Law",
-        "explanation": "AL Driver Manual - Safety Belt Law"
+        "explanation": "The Alabama Driver Manual's safety belt law guidance encourages drivers to ensure all passengers buckle up before driving, rather than letting passengers decide or only buckling the driver."
       },
       {
         "q": "Alabama's Driver Manual includes 'What to Expect at Traffic Stops' and 'Documents Required at Traffic Stops.' At a stop you should be ready to show:",
@@ -3298,7 +3298,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Documents at Traffic Stops",
-        "explanation": "AL Driver Manual - Documents at Traffic Stops"
+        "explanation": "The Alabama Driver Manual's traffic stop document requirements state that you should be ready to show license, registration, and proof of insurance at a stop, not just a phone or credit card."
       },
       {
         "q": "Alabama's Driver Manual covers 'Loads Must Conform to Law,' meaning cargo must be:",
@@ -3309,7 +3309,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Loads Must Conform to Law",
-        "explanation": "AL Driver Manual - Loads Must Conform to Law"
+        "explanation": "The Alabama Driver Manual's loads conformity rules require that cargo be secured so it cannot fall or shift onto the roadway, not piled as high as possible or left uncovered."
       },
       {
         "q": "The Alabama Driver Manual states that driving is a privilege and that unsafe drivers may face:",
@@ -3320,7 +3320,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - You May Lose Your License",
-        "explanation": "AL Driver Manual - You May Lose Your License"
+        "explanation": "The Alabama Driver Manual notes that driving is a privilege, so unsafe drivers may face suspension or revocation of their license, not just a permanent warning or no consequences."
       },
       {
         "q": "Alabama's Driver Manual notes that the minimum age to apply for a regular (unrestricted) license path begins with a learner license, and a 16-year-old needs parental permission. This describes Alabama's:",
@@ -3331,7 +3331,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - GDL Summary",
-        "explanation": "AL Driver Manual - GDL Summary"
+        "explanation": "The Alabama Driver Manual's GDL summary describes the program that starts with a learner license and requires parental permission for 16-year-olds to get a regular unrestricted license, not instant licensing at 14 or no minimum age rules."
       },
       {
         "q": "Alabama's Driver Manual includes 'Speed Limits' as a topic. Drivers must:",
@@ -3342,7 +3342,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AL Driver Manual - Speed Limits",
-        "explanation": "AL Driver Manual - Speed Limits"
+        "explanation": "Per Alabama's Driver Manual Speed Limits section, drivers must obey posted speed limits and adjust for conditions, rather than always driving the maximum speed or ignoring limits at night."
       }
     ]
   },
@@ -3359,7 +3359,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Instruction Permit",
-        "explanation": "AK Driver Manual - Instruction Permit"
+        "explanation": "Alaska's Driver Manual Instruction Permit section specifies the minimum age to obtain an instruction permit is 14 years of age or older, not 16 or 18 years of age."
       },
       {
         "q": "An Alaska instruction permit is valid for how long?",
@@ -3370,7 +3370,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Instruction Permit",
-        "explanation": "AK Driver Manual - Instruction Permit"
+        "explanation": "Per Alaska's Driver Manual Instruction Permit section, an instruction permit is valid for two years, not six months or one year."
       },
       {
         "q": "While driving on an Alaska instruction permit, the licensed accompanying driver must be at least 21 and have at least:",
@@ -3381,7 +3381,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Instruction Permit",
-        "explanation": "AK Driver Manual - Instruction Permit"
+        "explanation": "Alaska's Driver Manual Instruction Permit section requires the licensed accompanying driver aged at least 21 to have one year of driving experience for that vehicle class, not six months or no experience."
       },
       {
         "q": "For passenger vehicles on an Alaska instruction permit, where must the licensed supervising driver sit?",
@@ -3392,7 +3392,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Instruction Permit",
-        "explanation": "AK Driver Manual - Instruction Permit"
+        "explanation": "Alaska's Driver Manual Instruction Permit section states the licensed supervising driver for passenger vehicle permit holders must sit in the seat beside the permit holder, not the back seat or anywhere in the vehicle."
       },
       {
         "q": "To qualify for any Alaska license or permit, the minimum vision standard is at least:",
@@ -3403,7 +3403,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Vision",
-        "explanation": "AK Driver Manual - Vision"
+        "explanation": "Alaska's Driver Manual Vision section sets the minimum vision standard for any license or permit at 20/40 in each eye or both eyes together, not 20/100 or 15/20 in one eye."
       },
       {
         "q": "If you are under 18 in Alaska, you must hold a valid instruction permit for at least how long before a provisional Class D license can be issued?",
@@ -3414,7 +3414,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Provisional Licenses",
-        "explanation": "AK Driver Manual - Provisional Licenses"
+        "explanation": "Alaska's Driver Manual Provisional Licenses section requires those under 18 to hold a valid instruction permit for at least six months before a provisional Class D license can be issued, not three months or one year."
       },
       {
         "q": "Under Alaska's provisional license, a new driver may NOT operate a vehicle between which hours unless accompanied by a parent, guardian, or a person at least 21?",
@@ -3425,7 +3425,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Provisional Licenses",
-        "explanation": "AK Driver Manual - Provisional Licenses"
+        "explanation": "Alaska's Driver Manual Provisional Licenses section states provisional license holders may not operate a vehicle between 1:00 a.m. and 5:00 a.m. unless accompanied by a parent, guardian, or person at least 21, not during the other listed time frames."
       },
       {
         "q": "Under Alaska's provisional license, the driver may not carry passengers unless one is a parent, legal guardian, or a person at least 21, except:",
@@ -3436,7 +3436,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Provisional Licenses",
-        "explanation": "AK Driver Manual - Provisional Licenses"
+        "explanation": "Alaska's Driver Manual Provisional Licenses section permits provisional license holders to carry siblings as passengers without a parent present, but does not allow any friends to ride or ban all passengers entirely."
       },
       {
         "q": "Alaska's Mandatory Insurance Law requires minimum liability coverage of:",
@@ -3447,7 +3447,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Financial Responsibility",
-        "explanation": "AK Driver Manual - Financial Responsibility"
+        "explanation": "Alaska's Driver Manual Financial Responsibility section requires mandatory minimum liability coverage of $50,000/$100,000 bodily injury and $25,000 property damage, not the lower coverage amounts listed."
       },
       {
         "q": "Under Alaska's implied consent law, when arrested for DUI you are deemed to have consented to:",
@@ -3458,7 +3458,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Implied Consent",
-        "explanation": "AK Driver Manual - Implied Consent"
+        "explanation": "Under Alaska's implied consent law, when arrested for DUI you are deemed to have consented to a chemical (breath) test of your blood alcohol concentration, as outlined in the AK Driver Manual - Implied Consent."
       },
       {
         "q": "In Alaska, a breath alcohol concentration of .08 or higher (or refusal to submit to testing) after a DUI arrest results in an administrative revocation of at least:",
@@ -3469,7 +3469,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Administrative Revocations",
-        "explanation": "AK Driver Manual - Administrative Revocations"
+        "explanation": "In Alaska, a breath alcohol concentration of .08 or higher (or refusal to submit to testing) after a DUI arrest results in an administrative revocation of at least 90 days for a first offense, per the AK Driver Manual - Administrative Revocations."
       },
       {
         "q": "For a driver under 21 in Alaska, operating a vehicle after consuming any amount of alcohol can result in revocation of at least:",
@@ -3480,7 +3480,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Under 21 Violations",
-        "explanation": "AK Driver Manual - Under 21 Violations"
+        "explanation": "For a driver under 21 in Alaska, operating a vehicle after consuming any amount of alcohol can result in revocation of at least 30 days for a first offense, as stated in the AK Driver Manual - Under 21 Violations."
       },
       {
         "q": "Under Alaska's point system, accumulating how many points in 12 months (or 18 in 24 months) mandates suspension or revocation?",
@@ -3491,7 +3491,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "Under Alaska's point system, accumulating 12 points in 12 months (or 18 in 24 months) mandates suspension or revocation, according to the AK Driver Manual - Points."
       },
       {
         "q": "In Alaska, a conviction for Driving While Intoxicated (DUI) adds how many points to your driving record?",
@@ -3502,7 +3502,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "In Alaska, a conviction for Driving While Intoxicated (DUI) adds 10 points to your driving record, per the AK Driver Manual - Points."
       },
       {
         "q": "In Alaska, failing to stop for a school bus that is loading or unloading students adds how many points?",
@@ -3513,7 +3513,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "In Alaska, failing to stop for a school bus that is loading or unloading students adds 6 points to your driving record, as noted in the AK Driver Manual - Points."
       },
       {
         "q": "Alaska speeding point values: driving 3 to 9 mph over the limit adds how many points?",
@@ -3524,7 +3524,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points (Speeding)",
-        "explanation": "AK Driver Manual - Points (Speeding)"
+        "explanation": "Alaska speeding point values state that driving 3 to 9 mph over the limit adds 2 points, per the AK Driver Manual - Points (Speeding)."
       },
       {
         "q": "Alaska speeding point values: driving 20 mph or more over the limit adds how many points?",
@@ -3535,7 +3535,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points (Speeding)",
-        "explanation": "AK Driver Manual - Points (Speeding)"
+        "explanation": "Alaska speeding point values specify that driving 20 mph or more over the limit adds 6 points, according to the AK Driver Manual - Points (Speeding)."
       },
       {
         "q": "Alaska's minimum tire tread depth requirement is at least:",
@@ -3546,7 +3546,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Maintenance (tires)",
-        "explanation": "AK Driver Manual - Maintenance (tires)"
+        "explanation": "Alaska's minimum tire tread depth requirement is at least 2/32 of an inch, as outlined in the AK Driver Manual - Maintenance (tires)."
       },
       {
         "q": "The Alaska Driver Manual uses the 'penny test' for tire tread: if you can see the top of Lincoln's head, your tires are:",
@@ -3557,7 +3557,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Maintenance (tires)",
-        "explanation": "AK Driver Manual - Maintenance (tires)"
+        "explanation": "The Alaska Driver Manual uses the 'penny test' for tire tread: if you can see the top of Lincoln's head, your tires are worn out and should be replaced, per the AK Driver Manual - Maintenance (tires)."
       },
       {
         "q": "Alaska recommends the 'Two-Second Rule' for following distance. This means:",
@@ -3568,7 +3568,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Safe Driving",
-        "explanation": "AK Driver Manual - Safe Driving"
+        "explanation": "Alaska's Two-Second Rule for following distance, outlined in the AK Driver Manual, means when the car ahead passes a fixed point, you should not reach that point before two seconds pass."
       },
       {
         "q": "Wearing seat belts is which of the following in Alaska?",
@@ -3579,7 +3579,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Safety Belts",
-        "explanation": "AK Driver Manual - Safety Belts"
+        "explanation": "Per the AK Driver Manual, wearing seat belts is mandatory in Alaska as they save lives, making the optional and child-only options incorrect."
       },
       {
         "q": "If you are involved in an Alaska crash with bodily injury or property damage over $501, you must provide proof of insurance to the DMV within:",
@@ -3590,7 +3590,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Financial Responsibility (crash)",
-        "explanation": "AK Driver Manual - Financial Responsibility (crash)"
+        "explanation": "The AK Driver Manual states Alaska requires proof of insurance submitted to the DMV within 15 days after a crash with bodily injury or over $501 in property damage, so the 5 and 30 day options are wrong."
       },
       {
         "q": "After a crash in Alaska that must be reported, you must report it to the Division of Motor Vehicles within:",
@@ -3601,7 +3601,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - What To Do In Case Of Every Crash",
-        "explanation": "AK Driver Manual - What To Do In Case Of Every Crash"
+        "explanation": "Per the AK Driver Manual, reportable Alaska crashes must be reported to the Division of Motor Vehicles within 10 days, making the 24 hour and 30 day options incorrect."
       },
       {
         "q": "In Alaska, if you strike an unattended vehicle or private property, you must:",
@@ -3612,7 +3612,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Crash procedures",
-        "explanation": "AK Driver Manual - Crash procedures"
+        "explanation": "Alaska crash procedures require drivers who strike an unattended vehicle or private property to stop and leave a written note with name, address, and phone number, per the AK Driver Manual, so the other options are wrong."
       },
       {
         "q": "Alaska's littering penalty can be a fine up to:",
@@ -3623,7 +3623,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Litter",
-        "explanation": "AK Driver Manual - Litter"
+        "explanation": "Alaska's littering penalty can be a fine up to $1,000 plus up to 90 days imprisonment, per the AK Driver Manual, so the $100 only and community service only options are incorrect."
       },
       {
         "q": "Under Alaska's regulatory sign rules, a red, eight-sided sign means:",
@@ -3634,7 +3634,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Signs",
-        "explanation": "AK Driver Manual - Signs"
+        "explanation": "Alaska regulatory sign rules, per the AK Driver Manual, state a red eight-sided sign means stop, so the yield and railroad crossing options are incorrect."
       },
       {
         "q": "A yellow diamond-shaped sign in Alaska is generally a:",
@@ -3645,7 +3645,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Signs",
-        "explanation": "AK Driver Manual - Signs"
+        "explanation": "In Alaska, yellow diamond-shaped signs are generally warning signs per the AK Driver Manual, making the regulatory and guide sign options incorrect."
       },
       {
         "q": "In Alaska, a solid yellow line on your side of the centerline means:",
@@ -3656,7 +3656,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Pavement Markings",
-        "explanation": "AK Driver Manual - Pavement Markings"
+        "explanation": "Alaska pavement marking rules state a solid yellow line on your side of the centerline means you may not cross it to pass, per the AK Driver Manual, so the other options are wrong."
       },
       {
         "q": "A broken white line between lanes in Alaska means:",
@@ -3667,7 +3667,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Pavement Markings",
-        "explanation": "AK Driver Manual - Pavement Markings"
+        "explanation": "Alaska pavement marking rules indicate a broken white line between lanes is for traffic moving in the same direction, and you may change lanes when safe, per the AK Driver Manual, so the other options are incorrect."
       },
       {
         "q": "At an Alaska intersection with a steady red light, you must:",
@@ -3678,7 +3678,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Traffic Lights",
-        "explanation": "AK Driver Manual - Traffic Lights"
+        "explanation": "For the Alaska steady red light intersection question, the correct response is to come to a complete stop and turn right after stopping unless prohibited, per the AK Driver Manual - Traffic Lights."
       },
       {
         "q": "At an Alaska intersection with a steady yellow light, you should:",
@@ -3689,7 +3689,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Traffic Lights",
-        "explanation": "AK Driver Manual - Traffic Lights"
+        "explanation": "For the Alaska steady yellow light intersection question, the correct action is to stop if it is safe to do so as the light changes to red, per the AK Driver Manual - Traffic Lights."
       },
       {
         "q": "A flashing red traffic light in Alaska means:",
@@ -3700,7 +3700,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Traffic Lights",
-        "explanation": "AK Driver Manual - Traffic Lights"
+        "explanation": "For the Alaska flashing red traffic light question, the correct answer is it functions the same as a stop sign, requiring a full stop before proceeding when safe, per the AK Driver Manual - Traffic Lights."
       },
       {
         "q": "When an emergency vehicle with flashing lights and siren approaches in Alaska, you must:",
@@ -3711,7 +3711,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Emergency Vehicles",
-        "explanation": "AK Driver Manual - Emergency Vehicles"
+        "explanation": "For the Alaska approaching emergency vehicle question, the correct requirement is to yield right of way and pull to the right edge of the road, per the AK Driver Manual - Emergency Vehicles."
       },
       {
         "q": "Alaska's Move Over law (school bus section) assigns 6 points for failing to stop for a school bus that is:",
@@ -3722,7 +3722,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "For the Alaska Move Over law school bus question, the 6 point penalty applies for failing to stop when the bus is loading or unloading passengers, per the AK Driver Manual - Points."
       },
       {
         "q": "Alaska requires headlights from sunset to sunrise and when visibility is poor. You should dim high beams to low beams within:",
@@ -3733,7 +3733,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Lighting Equipment",
-        "explanation": "AK Driver Manual - Lighting Equipment"
+        "explanation": "For the Alaska headlight dimming question, the correct rule is to dim high beams to low beams within 500 feet of an oncoming vehicle, per the AK Driver Manual - Lighting Equipment."
       },
       {
         "q": "In Alaska, the minimum age to obtain a Class D (regular passenger) license is:",
@@ -3744,7 +3744,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - License Requirements",
-        "explanation": "AK Driver Manual - License Requirements"
+        "explanation": "For the Alaska Class D regular passenger license minimum age question, the correct answer is 16 years of age, per the AK Driver Manual - License Requirements."
       },
       {
         "q": "An Alaska license held by a driver under 21 will expire:",
@@ -3755,7 +3755,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - License Requirements",
-        "explanation": "AK Driver Manual - License Requirements"
+        "explanation": "For the Alaska under 21 driver license expiration question, the correct rule is the license expires 90 days after the 21st birthday, per the AK Driver Manual - License Requirements."
       },
       {
         "q": "In Alaska, a conviction for leaving the scene of a crash adds how many points?",
@@ -3766,7 +3766,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "For the Alaska leaving the scene of a crash points question, the correct point addition for a conviction is 9 points, per the AK Driver Manual - Points."
       },
       {
         "q": "Alaska's 'Four-Second Rule' is mentioned in the manual for:",
@@ -3777,7 +3777,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Index",
-        "explanation": "AK Driver Manual - Index"
+        "explanation": "For the Alaska Four-Second Rule question, the correct use mentioned in the manual is for increased following distance in adverse conditions, per the AK Driver Manual - Index."
       },
       {
         "q": "Under Alaska law, the privilege to drive is described as:",
@@ -3788,7 +3788,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Privilege",
-        "explanation": "AK Driver Manual - Privilege"
+        "explanation": "Under Alaska law, the privilege to drive is defined as a privilege, not a right, per the AK Driver Manual - Privilege."
       },
       {
         "q": "Alaska requires a written knowledge test covering traffic laws, safe driving, and:",
@@ -3799,7 +3799,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Written Examination",
-        "explanation": "AK Driver Manual - Written Examination"
+        "explanation": "Alaska's required written knowledge test covers traffic laws, safe driving, and highway sign recognition, per the AK Driver Manual - Written Examination."
       },
       {
         "q": "If you fail the Alaska written test, you may retake it:",
@@ -3810,7 +3810,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Written Examination",
-        "explanation": "AK Driver Manual - Written Examination"
+        "explanation": "If you fail Alaska's written test, you may retake it the following day, per the AK Driver Manual - Written Examination."
       },
       {
         "q": "Alaska drivers must notify the DMV in writing of an address or name change within:",
@@ -3821,7 +3821,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Address/Name Change",
-        "explanation": "AK Driver Manual - Address/Name Change"
+        "explanation": "Alaska drivers must notify the DMV in writing of address or name changes within 30 days, per the AK Driver Manual - Address/Name Change."
       },
       {
         "q": "In Alaska, the holder of an out-of-state license may be required to do which before an AK license is issued?",
@@ -3832,7 +3832,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - License Requirements",
-        "explanation": "AK Driver Manual - License Requirements"
+        "explanation": "Holders of out-of-state licenses may be required to surrender their out-of-state license before receiving an Alaska license, per the AK Driver Manual - License Requirements."
       },
       {
         "q": "Alaska's financial responsibility law can suspend your driving privilege for up to three years if you are at fault and fail to:",
@@ -3843,7 +3843,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Financial Responsibility",
-        "explanation": "AK Driver Manual - Financial Responsibility"
+        "explanation": "Alaska's financial responsibility law can suspend your driving privilege for up to three years if you are at fault and fail to make a financial settlement with the other parties, per the AK Driver Manual - Financial Responsibility."
       },
       {
         "q": "Under Alaska's point system, 'all other moving violations' generally add:",
@@ -3854,7 +3854,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Points",
-        "explanation": "AK Driver Manual - Points"
+        "explanation": "Under Alaska's point system, all other moving violations generally add 2 points to a driver's record, per the AK Driver Manual - Points."
       },
       {
         "q": "A roundabout in Alaska is designed so that traffic flows:",
@@ -3865,7 +3865,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Roundabouts",
-        "explanation": "AK Driver Manual - Roundabouts"
+        "explanation": "Alaska roundabouts are designed for counterclockwise traffic flow, with entering traffic required to yield to the circle, per the AK Driver Manual - Roundabouts."
       },
       {
         "q": "Alaska's Driver Manual states that tired drivers can be as dangerous as:",
@@ -3876,7 +3876,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Tired Driving",
-        "explanation": "AK Driver Manual - Tired Driving"
+        "explanation": "Alaska's Driver Manual states that tired drivers can be as dangerous as drunk drivers when operating a vehicle, per the AK Driver Manual - Tired Driving."
       },
       {
         "q": "In Alaska, if your vehicle is disabled at night after a crash, you should place flares or signals to:",
@@ -3887,7 +3887,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Crash procedures",
-        "explanation": "AK Driver Manual - Crash procedures"
+        "explanation": "In Alaska, if your vehicle is disabled at night after a crash, you should place flares or signals to warn other traffic, per the AK Driver Manual - Crash procedures."
       },
       {
         "q": "Alaska requires you to report a crash to the DMV even if a police officer investigated it?",
@@ -3898,7 +3898,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AK Driver Manual - Crash reporting",
-        "explanation": "AK Driver Manual - Crash reporting"
+        "explanation": "For the Alaska crash reporting question, the correct answer is that a DMV crash report is not required if a police officer investigated the crash, per the state's driver manual crash reporting guidelines."
       }
     ]
   },
@@ -3915,7 +3915,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Safety Belt Law",
-        "explanation": "AZ Driver Manual - Safety Belt Law"
+        "explanation": "For the Arizona front seat safety belt question, the correct answer is that each front-seat occupant must wear a properly adjusted and fastened safety belt while the vehicle is in motion, per the state's safety belt law driver manual section."
       },
       {
         "q": "Arizona law requires a child under five years of age and weighing less than 60 pounds to be:",
@@ -3926,7 +3926,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Child Car Seat Safety",
-        "explanation": "AZ Driver Manual - Child Car Seat Safety"
+        "explanation": "The handbook rule for this situation is: Properly secured in a child restraint system. This directly addresses the question and distinguishes the required choice from the alternatives."
       },
       {
         "q": "In Arizona, children between 5 and 8 years of age must be in a child restraint system until they are at least:",
@@ -3937,7 +3937,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Child Car Seat Safety",
-        "explanation": "AZ Driver Manual - Child Car Seat Safety"
+        "explanation": "For the Arizona 5-8 year old child restraint question, the correct answer is that children in this age group must use a child restraint system until they are at least four feet nine inches tall, per the state's child car seat safety driver manual section."
       },
       {
         "q": "Arizona advises that children age 12 and under should:",
@@ -3948,7 +3948,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Child Car Seat Safety",
-        "explanation": "AZ Driver Manual - Child Car Seat Safety"
+        "explanation": "For the Arizona children 12 and under passenger question, the correct answer is that they should never ride in the front seat because air bags are unsafe for them, per the state's child car seat safety driver manual section."
       },
       {
         "q": "Arizona's minimum required vehicle liability insurance is:",
@@ -3959,7 +3959,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Vehicle Insurance",
-        "explanation": "AZ Driver Manual - Vehicle Insurance"
+        "explanation": "For the Arizona minimum liability insurance question, the correct answer is $25,000 BI per person, $50,000 for two or more people, and $15,000 property damage, per the state's vehicle insurance driver manual section."
       },
       {
         "q": "In Arizona, you must notify MVD of a name or address change within:",
@@ -3970,7 +3970,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Name and Address Change",
-        "explanation": "AZ Driver Manual - Name and Address Change"
+        "explanation": "For the Arizona MVD name or address change question, the correct answer is that you must notify MVD of the change within 10 days, per the state's name and address change driver manual section."
       },
       {
         "q": "At what minimum age may a person in Arizona be issued a graduated (Class G) instruction permit?",
@@ -3981,7 +3981,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Instruction Permit",
-        "explanation": "AZ Driver Manual - Instruction Permit"
+        "explanation": "For the Arizona graduated instruction permit age question, the correct answer is that the minimum age to be issued a Class G instruction permit is 15 years and 6 months, per the state's instruction permit driver manual section."
       },
       {
         "q": "At what minimum age may a person in Arizona obtain an operator (Class D) license?",
@@ -3992,7 +3992,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Operator License (Class D)",
-        "explanation": "AZ Driver Manual - Operator License (Class D)"
+        "explanation": "For the Arizona operator license age question, the correct answer is that the minimum age to obtain a Class D operator license is 18 years of age, per the state's operator license driver manual section."
       },
       {
         "q": "Arizona's graduated (Class G) license holder, for the first 6 months, may not drive between what hours unless a parent/guardian with a valid license is in the front seat or for a sanctioned activity?",
@@ -4003,7 +4003,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated License (Class G)",
-        "explanation": "AZ Driver Manual - Graduated License (Class G)"
+        "explanation": "For the Arizona graduated license curfew question, the correct answer is that first 6 months Class G holders may not drive between midnight and 5 a.m. unless with a licensed parent/guardian or for a sanctioned activity, per the state's graduated license driver manual section."
       },
       {
         "q": "For the first 6 months with a Arizona graduated license, the teen may not drive with more than one passenger under 18 unless the passengers are:",
@@ -4014,7 +4014,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated License (Class G)",
-        "explanation": "AZ Driver Manual - Graduated License (Class G)"
+        "explanation": "For the first 6 months of holding an Arizona graduated license, teen drivers may only have unlimited under-18 passengers if they are siblings, as outlined in the AZ Driver Manual's graduated license section."
       },
       {
         "q": "Under Arizona's penalties for a driver under 18 with a graduated license, a first conviction of a traffic violation requires:",
@@ -4025,7 +4025,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated Penalties",
-        "explanation": "AZ Driver Manual - Graduated Penalties"
+        "explanation": "A first traffic violation conviction for an under-18 Arizona graduated license holder requires attendance at Traffic Survival School, per the AZ Driver Manual's graduated penalty guidelines."
       },
       {
         "q": "Under Arizona's penalties, a second conviction of a traffic violation for an under-18 graduated driver results in:",
@@ -4036,7 +4036,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated Penalties",
-        "explanation": "AZ Driver Manual - Graduated Penalties"
+        "explanation": "A second traffic violation conviction for an under-18 Arizona graduated driver results in a 3-month driving privilege suspension, as stated in the AZ Driver Manual's graduated penalty rules."
       },
       {
         "q": "Under Arizona's penalties, a third conviction of a traffic violation for an under-18 graduated driver results in:",
@@ -4047,7 +4047,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated Penalties",
-        "explanation": "AZ Driver Manual - Graduated Penalties"
+        "explanation": "A third traffic violation conviction for an under-18 Arizona graduated license holder leads to a 6-month driving privilege suspension, per the AZ Driver Manual's graduated penalty provisions."
       },
       {
         "q": "Arizona law prohibits holding or supporting a wireless device while driving. Drivers may NOT:",
@@ -4058,7 +4058,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Distracted Driving Law",
-        "explanation": "AZ Driver Manual - Distracted Driving Law"
+        "explanation": "Arizona law bans holding or supporting a wireless device while driving, including writing or reading text-based communication, as outlined in the AZ Driver Manual's distracted driving law section."
       },
       {
         "q": "In Arizona, a wireless device may be used while driving in order to:",
@@ -4069,7 +4069,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Distracted Driving Law",
-        "explanation": "AZ Driver Manual - Distracted Driving Law"
+        "explanation": "Arizona drivers are only permitted to use a wireless device while driving to report an emergency, per the AZ Driver Manual's distracted driving law guidelines."
       },
       {
         "q": "An Arizona motorcycle instruction permit holder is prohibited from carrying passengers and from operating on freeways between sunset and sunrise unless there is enough light to see persons or vehicles at a distance of:",
@@ -4080,7 +4080,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Motorcycle Permit",
-        "explanation": "AZ Driver Manual - Motorcycle Permit"
+        "explanation": "Arizona motorcycle instruction permit holders are prohibited from carrying passengers or operating on freeways between sunset and sunrise unless there is enough light to see 500 feet ahead, as stated in the AZ Driver Manual's motorcycle permit section."
       },
       {
         "q": "The Arizona Driver Manual recommends the 'penny test' for tire tread: if Lincoln's head is not partially covered by the tread, you should:",
@@ -4091,7 +4091,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Tire Safety",
-        "explanation": "AZ Driver Manual - Tire Safety"
+        "explanation": "The Arizona Driver Manual's penny test for tire tread indicates tires should be replaced if Lincoln's head is not partially covered by the tread."
       },
       {
         "q": "In Arizona, a driver with a valid out-of-state license may be exempt from certain graduated restrictions, including:",
@@ -4102,7 +4102,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated License",
-        "explanation": "AZ Driver Manual - Graduated License"
+        "explanation": "Arizona allows drivers with valid out-of-state licenses to be exempt from graduated license requirements including education, driving practice, and instruction permit rules, per the AZ Driver Manual's graduated license guidelines."
       },
       {
         "q": "Arizona's 'Quick Clearance' law requires drivers involved in a minor, non-injury crash to:",
@@ -4113,7 +4113,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Quick Clearance",
-        "explanation": "AZ Driver Manual - Quick Clearance"
+        "explanation": "Arizona's Quick Clearance law requires drivers in minor, non-injury crashes to move operable vehicles out of travel lanes when it is safe to do so, as outlined in the AZ Driver Manual's Quick Clearance section."
       },
       {
         "q": "Under Arizona law, failing to stop at the scene of a crash involving injury or death can result in your driving privilege being:",
@@ -4124,7 +4124,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Failure to Stop at a Crash",
-        "explanation": "AZ Driver Manual - Failure to Stop at a Crash"
+        "explanation": "Under Arizona law, failing to stop at the scene of a crash involving injury or death leads to your driving privilege being revoked for 3 years for injury or 10 years for death, per the AZ Driver Manual."
       },
       {
         "q": "Arizona requires a vehicle operated on roadways to be covered by an insurance policy issued by a company licensed in Arizona, reflecting where the vehicle is:",
@@ -4135,7 +4135,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Vehicle Insurance",
-        "explanation": "AZ Driver Manual - Vehicle Insurance"
+        "explanation": "Arizona requires vehicle insurance policies to reflect where the vehicle is predominantly operated, as policies must be issued by an Arizona-licensed insurer per the AZ Driver Manual."
       },
       {
         "q": "In Arizona, you must have proof of current insurance in the vehicle because law enforcement will ask for it during:",
@@ -4146,7 +4146,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Vehicle Insurance",
-        "explanation": "AZ Driver Manual - Vehicle Insurance"
+        "explanation": "Arizona requires you to carry proof of current insurance in your vehicle because law enforcement will request it during traffic stops or crashes, per the AZ Driver Manual."
       },
       {
         "q": "Arizona's hand-free / voice-to-text exception means drivers may use a device:",
@@ -4157,7 +4157,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Distracted Driving Law",
-        "explanation": "AZ Driver Manual - Distracted Driving Law"
+        "explanation": "Arizona's hands-free/voice-to-text exception allows drivers to use devices for hands-free or voice-to-text operations while driving, as noted in the AZ Driver Manual."
       },
       {
         "q": "Arizona defines a warning (diamond) sign as a:",
@@ -4168,7 +4168,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Signs",
-        "explanation": "AZ Driver Manual - Signs"
+        "explanation": "In Arizona, warning (diamond) signs are used to alert drivers of hazards ahead on the roadway, per the AZ Driver Manual."
       },
       {
         "q": "Arizona regulatory signs (rectangular, often white/black or red/white) tell you:",
@@ -4179,7 +4179,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Signs",
-        "explanation": "AZ Driver Manual - Signs"
+        "explanation": "Arizona's rectangular regulatory signs, often white/black or red/white, indicate what drivers must or must not do on roadways, per the AZ Driver Manual."
       },
       {
         "q": "In Arizona, a steady red traffic signal means you must:",
@@ -4190,7 +4190,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Traffic Signals",
-        "explanation": "AZ Driver Manual - Traffic Signals"
+        "explanation": "In Arizona, a steady red traffic signal requires you to stop and remain stopped until the light turns green, as outlined in the AZ Driver Manual."
       },
       {
         "q": "A steady yellow traffic signal in Arizona means:",
@@ -4201,7 +4201,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Traffic Signals",
-        "explanation": "AZ Driver Manual - Traffic Signals"
+        "explanation": "A steady yellow traffic signal in Arizona means the light is changing to red, so you should stop if it is safe to do so, per the AZ Driver Manual."
       },
       {
         "q": "A flashing red signal in Arizona means the same as:",
@@ -4212,7 +4212,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Traffic Signals",
-        "explanation": "AZ Driver Manual - Traffic Signals"
+        "explanation": "In Arizona, a flashing red traffic signal has the same meaning as a stop sign, requiring a full stop, per the AZ Driver Manual."
       },
       {
         "q": "A flashing yellow signal in Arizona means you should:",
@@ -4223,7 +4223,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Traffic Signals",
-        "explanation": "AZ Driver Manual - Traffic Signals"
+        "explanation": "A flashing yellow signal in Arizona means you should slow down and proceed with caution through the area, per the AZ Driver Manual."
       },
       {
         "q": "Arizona requires every motor vehicle to have a working horn audible for at least:",
@@ -4234,7 +4234,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Horns and Warning Devices",
-        "explanation": "AZ Driver Manual - Horns and Warning Devices"
+        "explanation": "Arizona requires every motor vehicle to have a working horn audible for at least 200 feet, as outlined in the AZ Driver Manual's horns and warning devices section."
       },
       {
         "q": "Arizona requires a muffler in good working condition; it is illegal to use a muffler:",
@@ -4245,7 +4245,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Muffler",
-        "explanation": "AZ Driver Manual - Muffler"
+        "explanation": "Arizona requires mufflers to be in good working condition, and it is illegal to use a cut-out, bypass, or similar device, per the AZ Driver Manual's muffler section."
       },
       {
         "q": "In Arizona, every vehicle whose view to the rear is blocked must have at least one outside mirror showing the highway for at least:",
@@ -4256,7 +4256,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Rearview Mirrors",
-        "explanation": "AZ Driver Manual - Rearview Mirrors"
+        "explanation": "In Arizona, vehicles with a blocked rear view must have an outside mirror showing the highway for at least 200 feet to the rear, per the AZ Driver Manual's rearview mirrors section."
       },
       {
         "q": "Arizona law requires head restraints positioned to fit against the back of your head and line up with the:",
@@ -4267,7 +4267,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Head Restraints",
-        "explanation": "AZ Driver Manual - Head Restraints"
+        "explanation": "Arizona law requires head restraints to be positioned to fit against the back of the head and line up with the middle of the ear, per the AZ Driver Manual's head restraints section."
       },
       {
         "q": "Under Arizona's 'Move Over' type rules for emergencies, if you see emergency lights you should:",
@@ -4278,7 +4278,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Emergency/Defensive (yield)",
-        "explanation": "AZ Driver Manual - Emergency/Defensive (yield)"
+        "explanation": "Under Arizona's move over rules for emergencies, you must yield and pull over safely when you see emergency vehicle lights, per the AZ Driver Manual's emergency and defensive driving yield section."
       },
       {
         "q": "Arizona's DUI laws: a driver 21 or older is impaired at a BAC of:",
@@ -4289,7 +4289,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Drinking and Driving/DUI",
-        "explanation": "AZ Driver Manual - Drinking and Driving/DUI"
+        "explanation": "Arizona's DUI laws state that drivers 21 or older are considered impaired at a BAC of .08 or higher, per the AZ Driver Manual's drinking and driving DUI section."
       },
       {
         "q": "In Arizona, a person under 21 may not drive with any spirituous liquor in their body; this is a zero-tolerance rule because:",
@@ -4300,7 +4300,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Under 21 DUI",
-        "explanation": "AZ Driver Manual - Under 21 DUI"
+        "explanation": "Arizona's zero-tolerance under-21 DUI rule bars minors from driving with any alcohol in their system, as minors may not legally consume alcohol, per the AZ Driver Manual's under 21 DUI section."
       },
       {
         "q": "Arizona requires an Ignition Interlock Device for many DUI offenders; the device:",
@@ -4311,7 +4311,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Certified Ignition Interlock Device",
-        "explanation": "AZ Driver Manual - Certified Ignition Interlock Device"
+        "explanation": "Arizona requires many DUI offenders to use an Ignition Interlock Device, which tests breath alcohol and prevents the vehicle from starting if the reading is over the limit, per the AZ Driver Manual's certified ignition interlock device section."
       },
       {
         "q": "When approaching a school bus in Arizona with red lights flashing and stop arm extended, you must:",
@@ -4322,7 +4322,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - School Buses (Sharing the Road)",
-        "explanation": "AZ Driver Manual - School Buses (Sharing the Road)"
+        "explanation": "When approaching a school bus in Arizona with flashing red lights and an extended stop arm, you must stop until the lights stop flashing and the bus moves, per the AZ Driver Manual's school buses sharing the road section."
       },
       {
         "q": "In Arizona, when you see a school crossing or pedestrian in a crosswalk you should:",
@@ -4333,7 +4333,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Sharing the Road/Pedestrians",
-        "explanation": "AZ Driver Manual - Sharing the Road/Pedestrians"
+        "explanation": "In Arizona, when you see a school crossing or a pedestrian in a crosswalk, you must yield the right of way to pedestrians, per the AZ Driver Manual's sharing the road pedestrians section."
       },
       {
         "q": "Arizona's Driver Manual says defensive driving means being constantly aware and planning ahead, including always:",
@@ -4344,7 +4344,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Defensive Driving",
-        "explanation": "AZ Driver Manual - Defensive Driving"
+        "explanation": "The Arizona Driver Manual defines defensive driving as constant awareness and planning ahead, which includes always wearing your safety belt, the correct answer to this question."
       },
       {
         "q": "If your vehicle begins to skid on a slippery Arizona roadway, you should:",
@@ -4355,7 +4355,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Recovering from Skids",
-        "explanation": "AZ Driver Manual - Recovering from Skids"
+        "explanation": "Per the AZ Driver Manual's skid recovery guidance, if your vehicle skids on a slippery roadway, you should not press the brake harder and steer in the direction of the skid, the correct option."
       },
       {
         "q": "Arizona requires you to report a crash and provide information; you must exchange:",
@@ -4366,7 +4366,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Crash Procedures",
-        "explanation": "AZ Driver Manual - Crash Procedures"
+        "explanation": "Arizona's crash procedure rules require exchanging name, address, license number, plate, and insurance information after a crash, which is the correct answer to this question."
       },
       {
         "q": "In Arizona, a 'Move Over' requirement exists for stopped emergency/authorized vehicles; you should move to a lane away or:",
@@ -4377,7 +4377,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Sharing the Road/Emergencies",
-        "explanation": "AZ Driver Manual - Sharing the Road/Emergencies"
+        "explanation": "The AZ Driver Manual's Move Over rule states if you cannot safely change lanes away from stopped emergency/authorized vehicles, you should slow down, the correct response."
       },
       {
         "q": "Arizona's minimum tire tread guidance uses the penny test; sufficient tread means Lincoln's head is:",
@@ -4388,7 +4388,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Tire Safety",
-        "explanation": "AZ Driver Manual - Tire Safety"
+        "explanation": "Arizona's tire tread guidance uses the penny test where sufficient tread means Lincoln's head is partly covered by the tread, the correct answer to this question."
       },
       {
         "q": "Arizona drivers under 18 with a graduated license who violate curfew or passenger limits face:",
@@ -4399,7 +4399,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated Penalties",
-        "explanation": "AZ Driver Manual - Graduated Penalties"
+        "explanation": "Arizona's graduated license rules state drivers under 18 who violate curfew or passenger limits face mandatory extension of the 6-month restricted period, the correct option."
       },
       {
         "q": "In Arizona, the identification requirement for a Travel ID/REAL ID includes proof of:",
@@ -4410,7 +4410,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Required for Travel DL/ID",
-        "explanation": "AZ Driver Manual - Required for Travel DL/ID"
+        "explanation": "Arizona's Travel ID/REAL ID requirements include proof of legal presence, identity, and residency, which is the correct answer to this identification requirement question."
       },
       {
         "q": "Arizona's manual states that the privilege to drive is governed by traffic laws and breaking them can lead to:",
@@ -4421,7 +4421,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Rules of the Road",
-        "explanation": "AZ Driver Manual - Rules of the Road"
+        "explanation": "The AZ Driver Manual notes the privilege to drive is governed by traffic laws, and breaking them can lead to points, fines, and loss of license, the correct response."
       },
       {
         "q": "Under Arizona law, a vehicle's load must be secured so that nothing:",
@@ -4432,7 +4432,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Secure and Cover Loads",
-        "explanation": "AZ Driver Manual - Secure and Cover Loads"
+        "explanation": "Arizona's load security rules require a vehicle's load to be secured so nothing drops, sifts, leaks, or escapes from the vehicle, the correct answer here."
       },
       {
         "q": "In Arizona, an instruction permit (graduated or operator) is valid for:",
@@ -4443,7 +4443,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Instruction Permit",
-        "explanation": "AZ Driver Manual - Instruction Permit"
+        "explanation": "The AZ Driver Manual states an instruction permit, whether graduated or operator, is valid for 12 months, the correct answer to this question."
       },
       {
         "q": "Arizona's Graduated (Class G) license is issued to an applicant who is at least 16 but less than 18 and requires the applicant to have held an Arizona instruction permit for at least:",
@@ -4454,7 +4454,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Graduated License (Class G)",
-        "explanation": "AZ Driver Manual - Graduated License (Class G)"
+        "explanation": "For Arizona's Graduated (Class G) license, applicants 16 to under 18 must hold an instruction permit for at least 6 months per the AZ Driver Manual - Graduated License (Class G)."
       },
       {
         "q": "Arizona's Travel ID (REAL ID compliant credential) costs $25 for first issuance and renewals and is generally valid for:",
@@ -4465,7 +4465,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Travel DL/ID",
-        "explanation": "AZ Driver Manual - Travel DL/ID"
+        "explanation": "Arizona's $25 Travel ID, a REAL ID compliant credential, is generally valid for eight years per the AZ Driver Manual - Travel DL/ID."
       },
       {
         "q": "In Arizona, the Arizona Driver License Manual states that the motor vehicle laws are detailed in:",
@@ -4476,7 +4476,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - About This Manual",
-        "explanation": "AZ Driver Manual - About This Manual"
+        "explanation": "Per the AZ Driver Manual - About This Manual, Arizona's motor vehicle laws are detailed in Arizona Revised Statutes Title 28 ('Transportation')."
       },
       {
         "q": "Arizona's organ and tissue donor registry is called:",
@@ -4487,7 +4487,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AZ Driver Manual - Organ and Tissue Donation",
-        "explanation": "AZ Driver Manual - Organ and Tissue Donation"
+        "explanation": "Arizona's organ and tissue donor registry is Donate Life AZ, accessible at DonateLifeAZ.org per the AZ Driver Manual - Organ and Tissue Donation."
       }
     ]
   },
@@ -4504,7 +4504,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Arkansas Seat Belt Law",
-        "explanation": "AR Study Guide - Arkansas Seat Belt Law"
+        "explanation": "Under Arkansas's primary seat belt law, unbuckled drivers or front-seat passengers can be fined up to $25.00 per the AR Study Guide - Arkansas Seat Belt Law."
       },
       {
         "q": "Under Arkansas's Child Passenger Protection Act, a child less than 6 years of age and weighing less than 60 pounds must be:",
@@ -4515,7 +4515,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Child Passenger Protection Act",
-        "explanation": "AR Study Guide - Child Passenger Protection Act"
+        "explanation": "Per the AR Study Guide - Child Passenger Protection Act, Arkansas law requires children under 6 years old and under 60 pounds to be properly restrained in a child passenger safety seat."
       },
       {
         "q": "Arkansas law requires all children under the age of 15 to:",
@@ -4526,7 +4526,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Child Passenger Protection Act",
-        "explanation": "AR Study Guide - Child Passenger Protection Act"
+        "explanation": "Arkansas law requires all children under 15 to wear appropriate safety restraints whenever the vehicle is in motion per the AR Study Guide - Child Passenger Protection Act."
       },
       {
         "q": "Arkansas's Protection from Secondhand Smoke law prohibits smoking in a vehicle when a child under age:",
@@ -4537,7 +4537,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Secondhand Smoke",
-        "explanation": "AR Study Guide - Secondhand Smoke"
+        "explanation": "Arkansas's Protection from Secondhand Smoke law bans smoking in vehicles when a child under age 14 is a passenger per the AR Study Guide - Secondhand Smoke."
       },
       {
         "q": "Under Arkansas's Move Over Law, when an emergency vehicle approaches with siren/air horn and red or blue flashing lights, you should:",
@@ -4548,7 +4548,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Move Over Law",
-        "explanation": "AR Study Guide - Move Over Law"
+        "explanation": "Under Arkansas's Move Over Law, you should pull over to the right edge of the road or as near to the right as possible when an emergency vehicle with active lights and siren approaches per the AR Study Guide - Move Over Law."
       },
       {
         "q": "On an Arkansas multilane highway, when a law enforcement vehicle is stopped with its lights on, you must move to:",
@@ -4559,7 +4559,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Move Over Law / Approaching LE Vehicle",
-        "explanation": "AR Study Guide - Move Over Law / Approaching LE Vehicle"
+        "explanation": "On Arkansas multilane highways, you must move to the farthest lane away from a stopped law enforcement vehicle with its lights on when possible per the AR Study Guide - Move Over Law / Approaching LE Vehicle."
       },
       {
         "q": "A violation of Arkansas's Move Over Law can result in a fine up to $1,000, jail time, or:",
@@ -4570,7 +4570,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Move Over Law",
-        "explanation": "AR Study Guide - Move Over Law"
+        "explanation": "The question asks what additional penalty applies for violating Arkansas's Move Over Law, and the correct answer is suspension of the driver's license up to six months, as the other options (a warning only, no penalty) are not valid penalties per the AR Study Guide - Move Over Law."
       },
       {
         "q": "In Arkansas, when approaching a stopped school bus with its red lights flashing, you must:",
@@ -4581,7 +4581,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - School Bus Law and Rules",
-        "explanation": "AR Study Guide - School Bus Law and Rules"
+        "explanation": "The question asks what you must do when approaching a stopped Arkansas school bus with flashing red lights, and the correct answer is to make a complete stop until the lights turn off regardless of your lane or intersection, as the other options (only stop if directly behind, never stop) are incorrect per the AR Study Guide - School Bus Law and Rules."
       },
       {
         "q": "Arkansas exempts drivers from stopping for a school bus with red lights flashing only when the bus is on an opposite roadway separated by a median of at least:",
@@ -4592,7 +4592,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - School Bus Law and Rules",
-        "explanation": "AR Study Guide - School Bus Law and Rules"
+        "explanation": "The question asks the minimum median width that exempts Arkansas drivers from stopping for a school bus with flashing red lights, and the correct answer is 20 feet or more in width, as the other options (5 feet or more, any painted median) do not meet the requirement per the AR Study Guide - School Bus Law and Rules."
       },
       {
         "q": "Failing to stop for a school bus with red lights flashing in Arkansas is a Class A misdemeanor with a fine of at least $500 and up to:",
@@ -4603,7 +4603,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - School Bus Law and Rules",
-        "explanation": "AR Study Guide - School Bus Law and Rules"
+        "explanation": "The question asks the maximum penalty for failing to stop for a flashing red school bus in Arkansas, and the correct answer is $2,500 and/or one year in jail, as the other options ($100, $500 only) are lower than the stated maximum per the AR Study Guide - School Bus Law and Rules."
       },
       {
         "q": "In Arkansas, school buses are required to stop at:",
@@ -4614,7 +4614,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - School Bus Law and Rules",
-        "explanation": "AR Study Guide - School Bus Law and Rules"
+        "explanation": "The question asks where Arkansas school buses are required to stop, and the correct answer is all railroad crossings, as the other options (only unmarked crossings, no crossings) are incorrect per the AR Study Guide - School Bus Law and Rules."
       },
       {
         "q": "Under Arkansas's littering law, a first offense can result in a fine up to $1,000 and not more than:",
@@ -4625,7 +4625,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Littering",
-        "explanation": "AR Study Guide - Littering"
+        "explanation": "The question asks the maximum community service for a first Arkansas littering offense, and the correct answer is eight hours of community service, as the other options (one hour, no community service) are not the stated maximum per the AR Study Guide - Littering."
       },
       {
         "q": "Under Arkansas's littering law, a second or subsequent offense within three years can result in a fine up to $2,000 and not more than:",
@@ -4636,7 +4636,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Littering",
-        "explanation": "AR Study Guide - Littering"
+        "explanation": "The question asks the maximum community service for a second or subsequent Arkansas littering offense within three years, and the correct answer is twenty-four hours of community service, as the other options (two hours, life in prison) are not the stated maximum per the AR Study Guide - Littering."
       },
       {
         "q": "In Arkansas, at what minimum age may a person obtain an instruction permit?",
@@ -4647,7 +4647,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Instruction Permit",
-        "explanation": "AR Study Guide - Instruction Permit"
+        "explanation": "The question asks the minimum age to obtain an Arkansas instruction permit, and the correct answer is 14 years of age, as the other options (16 years of age, 18 years of age) are higher than the required minimum per the AR Study Guide - Instruction Permit."
       },
       {
         "q": "An Arkansas Learner's License is a restricted license issued to persons between:",
@@ -4658,7 +4658,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Learner's License",
-        "explanation": "AR Study Guide - Learner's License"
+        "explanation": "The question asks the age range for Arkansas Learner's License holders, and the correct answer is 14 and 16 years of age, as the other options (16 and 18 years of age, 18 and 21 years of age) do not match the required range per the AR Study Guide - Learner's License."
       },
       {
         "q": "An Arkansas Intermediate License is a restricted license issued to persons between:",
@@ -4669,7 +4669,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Intermediate License",
-        "explanation": "AR Study Guide - Intermediate License"
+        "explanation": "The question asks the age range for Arkansas Intermediate License holders, and the correct answer is 16 and 18 years of age, as the other options (14 and 16 years of age, 21 and 25 years of age) do not match the required range per the AR Study Guide - Intermediate License."
       },
       {
         "q": "A Class D (non-restricted) license in Arkansas is issued to persons:",
@@ -4680,7 +4680,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Class D License",
-        "explanation": "AR Study Guide - Class D License"
+        "explanation": "For the question asking who a Class D (non-restricted) Arkansas license is issued to, the correct answer is 18 years of age or older, as outlined in the AR Study Guide - Class D License."
       },
       {
         "q": "An Arkansas Intermediate License holder may not operate a vehicle between which hours unless accompanied by a licensed driver 21+ or for school/church/job/emergency?",
@@ -4691,7 +4691,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Intermediate License",
-        "explanation": "AR Study Guide - Intermediate License"
+        "explanation": "For the question about restricted driving hours for Arkansas Intermediate License holders without a qualified accompanying driver, the correct answer is 11:00 p.m. and 4:00 a.m., per the AR Study Guide - Intermediate License."
       },
       {
         "q": "An Arkansas Intermediate License holder may not have more than how many unrelated minor passengers unless a licensed driver 21+ is in the front seat?",
@@ -4702,7 +4702,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Intermediate License",
-        "explanation": "AR Study Guide - Intermediate License"
+        "explanation": "For the question about the maximum number of unrelated minor passengers an Arkansas Intermediate License holder can have without a qualified front-seat driver, the correct answer is One (1) unrelated minor passenger, per the AR Study Guide - Intermediate License."
       },
       {
         "q": "Under Arkansas law, a Class D driver who is at least 18 but under 21 may use a hands-free device, but hand-held phones are only allowed for:",
@@ -4713,7 +4713,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Class D License",
-        "explanation": "AR Study Guide - Class D License"
+        "explanation": "For the question about when hand-held phone use is allowed for Arkansas Class D drivers aged 18 to under 21, the correct answer is Emergencies, as noted in the AR Study Guide - Class D License."
       },
       {
         "q": "In Arkansas, text messaging while driving is:",
@@ -4724,7 +4724,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Class D / Learner's License",
-        "explanation": "AR Study Guide - Class D / Learner's License"
+        "explanation": "For the question about the legality of text messaging while driving in Arkansas, the correct answer is Not allowed regardless of age, per the AR Study Guide - Class D / Learner's License."
       },
       {
         "q": "Arkansas vision requirements: the minimum uncorrected visual acuity for an unrestricted license is:",
@@ -4735,7 +4735,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Vision Requirement",
-        "explanation": "AR Study Guide - Vision Requirement"
+        "explanation": "For the question about the minimum uncorrected visual acuity for an unrestricted Arkansas license, the correct answer is 20/40, per the AR Study Guide - Vision Requirement."
       },
       {
         "q": "In Arkansas, if corrective lenses are needed, the minimum corrected acuity for a restricted license is:",
@@ -4746,7 +4746,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Vision Requirement",
-        "explanation": "AR Study Guide - Vision Requirement"
+        "explanation": "For the question about the minimum corrected visual acuity for a restricted Arkansas license when corrective lenses are required, the correct answer is 20/70, per the AR Study Guide - Vision Requirement."
       },
       {
         "q": "Arkansas requires a field of vision of at least 140 degrees for a person with two functional eyes, or:",
@@ -4757,7 +4757,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Vision Requirement",
-        "explanation": "AR Study Guide - Vision Requirement"
+        "explanation": "For the question about Arkansas field of vision requirements for people with one functional eye, the correct answer is 105 degrees for a person with one functional eye, per the AR Study Guide - Vision Requirement."
       },
       {
         "q": "In Arkansas work zones, when workers and advance warning signs are present, fines for moving violations are:",
@@ -4768,7 +4768,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Construction/Maintenance Safety Zone",
-        "explanation": "AR Study Guide - Construction/Maintenance Safety Zone"
+        "explanation": "For the question about work zone moving violation fines in Arkansas when workers and warning signs are present, the correct answer is Doubled, per the AR Study Guide - Construction/Maintenance Safety Zone."
       },
       {
         "q": "In Arkansas, work zone warning signs are typically:",
@@ -4779,7 +4779,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Work Zone Signs",
-        "explanation": "AR Study Guide - Work Zone Signs"
+        "explanation": "For the question about the typical appearance of Arkansas work zone warning signs, the correct answer is Diamond-shaped, orange, with black letters or symbols, per the AR Study Guide - Work Zone Signs."
       },
       {
         "q": "In Arkansas, a steady red traffic light means you must:",
@@ -4790,7 +4790,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Lighted Traffic Signals",
-        "explanation": "AR Study Guide - Lighted Traffic Signals"
+        "explanation": "For the question asking what a steady red traffic light means in Arkansas, the correct answer is to stop and not proceed until it turns green and is safe, per the AR Study Guide - Lighted Traffic Signals."
       },
       {
         "q": "In Arkansas, a steady yellow traffic light means:",
@@ -4801,7 +4801,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Lighted Traffic Signals",
-        "explanation": "AR Study Guide - Lighted Traffic Signals"
+        "explanation": "For the question about the meaning of a steady yellow traffic light in Arkansas, the correct option is that it signals caution to stop if safe as it is changing to red, per the AR Study Guide - Lighted Traffic Signals."
       },
       {
         "q": "A flashing red light in Arkansas means the same as:",
@@ -4812,7 +4812,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Flashing Lights",
-        "explanation": "AR Study Guide - Flashing Lights"
+        "explanation": "For the question asking what a flashing red light in Arkansas is equivalent to, the correct answer is a stop sign, as outlined in the AR Study Guide - Flashing Lights."
       },
       {
         "q": "A flashing yellow light in Arkansas means you should:",
@@ -4823,7 +4823,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Flashing Lights",
-        "explanation": "AR Study Guide - Flashing Lights"
+        "explanation": "For the question about what a flashing yellow light means in Arkansas, the correct option is to slow down and proceed with caution, per the AR Study Guide - Flashing Lights."
       },
       {
         "q": "In Arkansas, a right turn on red is generally allowed after:",
@@ -4834,7 +4834,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Right on Red Rule",
-        "explanation": "AR Study Guide - Right on Red Rule"
+        "explanation": "For the question about when a right turn on red is generally allowed in Arkansas, the correct answer is after a complete stop unless a sign prohibits it, per the AR Study Guide - Right on Red Rule."
       },
       {
         "q": "Arkansas's tire tread safety rule: tires should be replaced when tread is worn down to:",
@@ -4845,7 +4845,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Tires (Skills Test Guidelines)",
-        "explanation": "AR Study Guide - Tires (Skills Test Guidelines)"
+        "explanation": "For the question about Arkansas's tire tread safety replacement rule, the correct threshold is when tread is worn down to 1/16 of an inch, per the AR Study Guide - Tires (Skills Test Guidelines)."
       },
       {
         "q": "Arkansas's penny test for tire tread: if you can see the top of Lincoln's head, you are:",
@@ -4856,7 +4856,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Tires",
-        "explanation": "AR Study Guide - Tires"
+        "explanation": "For the question about the result of seeing the top of Lincoln's head in Arkansas's tire tread penny test, the correct answer is that you are ready for new tires, per the AR Study Guide - Tires."
       },
       {
         "q": "Under Arkansas's 'Right of Way at Stop Signs' rule, at a four-way stop the driver who should yield is the one who:",
@@ -4867,7 +4867,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Right of Way",
-        "explanation": "AR Study Guide - Right of Way"
+        "explanation": "For the question about who must yield at a four-way stop under Arkansas's right of way rules, the correct answer is the driver who arrived last or did not arrive first, per the AR Study Guide - Right of Way."
       },
       {
         "q": "In Arkansas, at an intersection you must yield to pedestrians in:",
@@ -4878,7 +4878,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Right of Way (Pedestrians)",
-        "explanation": "AR Study Guide - Right of Way (Pedestrians)"
+        "explanation": "For the question about where you must yield to pedestrians in Arkansas, the correct option is in crosswalks, per the AR Study Guide - Right of Way (Pedestrians)."
       },
       {
         "q": "Arkansas requires you to report a traffic crash to the Office of Driver Services if there is an injury, death, or property damage over:",
@@ -4889,7 +4889,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Keep a Record of Crash Information",
-        "explanation": "AR Study Guide - Keep a Record of Crash Information"
+        "explanation": "For the question about when to report a traffic crash to Arkansas's Office of Driver Services, the correct threshold is property damage over $3,000 to one person's property, per the AR Study Guide - Keep a Record of Crash Information."
       },
       {
         "q": "The Arkansas crash report must be filed within:",
@@ -4900,7 +4900,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Keep a Record of Crash Information",
-        "explanation": "AR Study Guide - Keep a Record of Crash Information"
+        "explanation": "Arkansas law requires drivers to file a crash report within 30 days of an accident, as outlined in the AR Study Guide's crash record section."
       },
       {
         "q": "If you are stopped by law enforcement in Arkansas, you are required to provide your driver's license, proof of insurance, and:",
@@ -4911,7 +4911,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Stopped by Officer",
-        "explanation": "AR Study Guide - Stopped by Officer"
+        "explanation": "When stopped by law enforcement in Arkansas, drivers must provide their license, proof of insurance, and vehicle registration, per the AR Study Guide's stopped by officer guidance."
       },
       {
         "q": "In Arkansas, when passing a stopped law enforcement or authorized vehicle on the side of the road, if you cannot change lanes you must:",
@@ -4922,7 +4922,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Approaching LE Vehicle",
-        "explanation": "AR Study Guide - Approaching LE Vehicle"
+        "explanation": "If you cannot change lanes when passing a stopped law enforcement vehicle in Arkansas, you must reduce your speed and exercise due caution, per the AR Study Guide's approaching LE vehicle section."
       },
       {
         "q": "Arkansas is a 'move over' state; the law protects officers and others from traffic moving too close by requiring drivers to:",
@@ -4933,7 +4933,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Move Over Law",
-        "explanation": "AR Study Guide - Move Over Law"
+        "explanation": "As a 'move over' state, Arkansas law requires drivers to move to the farthest lane away from a stopped authorized vehicle with lights on, per the AR Study Guide's move over law guidance."
       },
       {
         "q": "In Arkansas, a handicap (accessible) parking space may be used only by a person with the appropriate plate or:",
@@ -4944,7 +4944,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Accessible Parking",
-        "explanation": "AR Study Guide - Accessible Parking"
+        "explanation": "In Arkansas, accessible parking spaces may only be used by a person with the appropriate plate or a special hang tag if the disabled person is present, per the AR Study Guide's accessible parking rules."
       },
       {
         "q": "Arkansas law requires headlights from sunset to sunrise and when visibility is poor; you should use low beams in:",
@@ -4955,7 +4955,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - External Vehicle Lights",
-        "explanation": "AR Study Guide - External Vehicle Lights"
+        "explanation": "Arkansas law requires headlights from sunset to sunrise and when visibility is poor, and low beams should be used in fog, rain, and snow, per the AR Study Guide's external vehicle lights section."
       },
       {
         "q": "Under Arkansas's 'Unattended Children and Pets' guidance, even on a mild 70-degree day the inside of a parked car can reach about:",
@@ -4966,7 +4966,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Unattended Children and Pets",
-        "explanation": "AR Study Guide - Unattended Children and Pets"
+        "explanation": "Under Arkansas's unattended children and pets guidance, a parked car's interior can reach about 89 degrees within 10 minutes even on a mild 70-degree day, per the AR Study Guide."
       },
       {
         "q": "In Arkansas, a driver with an instruction permit must be accompanied by a licensed driver who is at least:",
@@ -4977,7 +4977,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Instruction Permit",
-        "explanation": "AR Study Guide - Instruction Permit"
+        "explanation": "Arkansas drivers with an instruction permit must be accompanied by a licensed driver who is at least 21 years of age or older, per the AR Study Guide's instruction permit section."
       },
       {
         "q": "Arkansas's graduated license program began on July 1, 2001, and was designed to let drivers:",
@@ -4988,7 +4988,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Graduated Driver's Licenses",
-        "explanation": "AR Study Guide - Graduated Driver's Licenses"
+        "explanation": "Arkansas's graduated license program, which began July 1, 2001, is designed to let drivers gradually become safe and experienced, per the AR Study Guide's graduated driver's licenses section."
       },
       {
         "q": "Under Arkansas's Act 1289 of 2015, each written (knowledge) examination costs a fee of:",
@@ -4999,7 +4999,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Act 1289 of 2015",
-        "explanation": "AR Study Guide - Act 1289 of 2015"
+        "explanation": "Under Arkansas's Act 1289 of 2015, each written knowledge examination costs a $5.00 fee, per the AR Study Guide's Act 1289 of 2015 section."
       },
       {
         "q": "In Arkansas, an instruction permit is issued for how long from the date of the passed knowledge exam?",
@@ -5010,7 +5010,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Instruction Permit",
-        "explanation": "AR Study Guide - Instruction Permit"
+        "explanation": "The question asks how long an Arkansas instruction permit is issued for from the date of the passed knowledge exam, and the correct answer is 2 (two) years as outlined in the AR Study Guide - Instruction Permit."
       },
       {
         "q": "Under Arkansas's handicap (accessible) parking rules, illegal use of another person's special certificate is fraud punishable up to a Class A misdemeanor; a second offense carries a fine of not less than $250 and up to $1,000 plus a:",
@@ -5021,7 +5021,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Accessible Parking",
-        "explanation": "AR Study Guide - Accessible Parking"
+        "explanation": "The question asks what penalty a second offense of illegal use of another person's special handicap parking certificate carries, and the correct answer is a Six (6) month driver's license suspension per the AR Study Guide - Accessible Parking."
       },
       {
         "q": "Arkansas recognizes reciprocal driver-license testing exemptions for certain countries, including:",
@@ -5032,7 +5032,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Countries Exempt from Testing",
-        "explanation": "AR Study Guide - Countries Exempt from Testing"
+        "explanation": "The question asks which countries Arkansas recognizes reciprocal driver-license testing exemptions for, and the correct answer is Manitoba (Canada), Germany, France, Taiwan, and South Korea per the AR Study Guide - Countries Exempt from Testing."
       },
       {
         "q": "In Arkansas, the skills (road) test allows a driver to miss up to how many vehicle controls before the test is failed?",
@@ -5043,7 +5043,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Skills Test Performance Guidelines",
-        "explanation": "AR Study Guide - Skills Test Performance Guidelines"
+        "explanation": "The question asks how many vehicle controls a driver can miss on an Arkansas skills (road) test before failing, and the correct answer is Three (3) missed controls per the AR Study Guide - Skills Test Performance Guidelines."
       },
       {
         "q": "Arkansas does not cancel a road test because of rain, but does not administer it in severe thunderstorms, fog, sleet, or:",
@@ -5054,7 +5054,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - Skills Test Guidelines",
-        "explanation": "AR Study Guide - Skills Test Guidelines"
+        "explanation": "The question asks what severe weather condition Arkansas does not administer road tests in besides severe thunderstorms, fog, and sleet, and the correct answer is Snow per the AR Study Guide - Skills Test Guidelines."
       },
       {
         "q": "Arkansas requires an applicant under 18 to present, among other items, an original or certified copy of a:",
@@ -5065,7 +5065,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "AR Study Guide - 1-2-3 Checklist (under 18)",
-        "explanation": "AR Study Guide - 1-2-3 Checklist (under 18)"
+        "explanation": "The question asks what original or certified copy an Arkansas applicant under 18 must present, and the correct answer is a Birth certificate (no hospital certificates or photocopies) per the AR Study Guide - 1-2-3 Checklist (under 18)."
       }
     ]
   },
@@ -5082,7 +5082,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Passing",
-        "explanation": "CA Driver Handbook - Passing"
+        "explanation": "The question asks when it is legal to drive off the road to pass another vehicle, and the correct answer is that it is not legal under any conditions per the CA Driver Handbook - Passing."
       },
       {
         "q": "When a railroad crossing is not controlled, what is the speed limit when you are within 100 feet and cannot see for 400 feet in both directions?",
@@ -5093,7 +5093,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Railroad Crossings",
-        "explanation": "CA Driver Handbook - Railroad Crossings"
+        "explanation": "The question asks the speed limit within 100 feet of an uncontrolled railroad crossing when visibility is less than 400 feet in both directions, and the correct answer is 15 mph per the CA Driver Handbook - Railroad Crossings."
       },
       {
         "q": "Which of the following is the proper procedure for parallel parking?",
@@ -5104,7 +5104,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "The question asks for the proper parallel parking procedure, and the correct answer is to stop next to the vehicle in front of the open space and then back into the space per the CA Driver Handbook - Parking."
       },
       {
         "q": "What speed should you be driving when entering onto a highway?",
@@ -5115,7 +5115,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Freeway Driving",
-        "explanation": "CA Driver Handbook - Freeway Driving"
+        "explanation": "The question asks what speed you should be driving when entering onto a highway, and the correct answer is at or near the speed of traffic per the CA Driver Handbook - Freeway Driving."
       },
       {
         "q": "How many feet away should you switch from high beam to low beam headlights when approaching a vehicle coming towards you?",
@@ -5126,7 +5126,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "CA Driver Handbook - Headlights",
-        "explanation": "CA Driver Handbook - Headlights"
+        "explanation": "When approaching an oncoming vehicle, you must switch from high beam to low beam headlights 500 feet away, as specified in the CA Driver Handbook - Headlights to avoid blinding the other driver."
       },
       {
         "q": "Who can legally park next to a curb painted blue?",
@@ -5137,7 +5137,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "Only a person who is disabled and has a special placard or disabled person vehicle license plate may park next to a blue curb, per the CA Driver Handbook - Parking rules."
       },
       {
         "q": "What should you do when there is a school bus ahead that starts flashing yellow warning lights?",
@@ -5148,7 +5148,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - School Buses",
-        "explanation": "CA Driver Handbook - School Buses"
+        "explanation": "When a school bus ahead starts flashing yellow warning lights, you should slow down and prepare to stop, as outlined in the CA Driver Handbook - School Buses."
       },
       {
         "q": "Which of the following is a requirement of California's Basic Speed Law?",
@@ -5159,7 +5159,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "CA Driver Handbook - Speed Limits",
-        "explanation": "CA Driver Handbook - Speed Limits"
+        "explanation": "California's Basic Speed Law requires that you never drive faster than is safe for current conditions, per the CA Driver Handbook - Speed Limits."
       },
       {
         "q": "You must notify the DMV within 5 days if you:",
@@ -5170,7 +5170,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Owning a Vehicle",
-        "explanation": "CA Driver Handbook - Owning a Vehicle"
+        "explanation": "You must notify the DMV within 5 days if you sell or transfer ownership of your vehicle, as stated in the CA Driver Handbook - Owning a Vehicle."
       },
       {
         "q": "Which of the following is an example of a safe driving practice?",
@@ -5181,7 +5181,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Safe Driving",
-        "explanation": "CA Driver Handbook - Safe Driving"
+        "explanation": "A safe driving practice is to always keep your eyes moving to scan the surroundings, per the CA Driver Handbook - Safe Driving guidelines."
       },
       {
         "q": "What color curb does not allow vehicles to stop or park?",
@@ -5192,7 +5192,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "A red curb does not allow vehicles to stop or park, as specified in the CA Driver Handbook - Parking regulations."
       },
       {
         "q": "You are required to notify DMV by filing a Report of Traffic Accident Occurring in California (SR-1) form if:",
@@ -5203,7 +5203,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Collisions",
-        "explanation": "CA Driver Handbook - Collisions"
+        "explanation": "You are required to file a Report of Traffic Accident Occurring in California (SR-1) form if you were involved in a collision with an injury, per the CA Driver Handbook - Collisions."
       },
       {
         "q": "Unless otherwise posted, what is the speed limit in a California business or residential district?",
@@ -5214,7 +5214,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Speed Limits",
-        "explanation": "CA Driver Handbook - Speed Limits"
+        "explanation": "Unless otherwise posted, the speed limit in a California business or residential district is 25 mph, per the CA Driver Handbook - Speed Limits."
       },
       {
         "q": "What is the speed limit in an alley in California, unless otherwise posted?",
@@ -5225,7 +5225,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Speed Limits",
-        "explanation": "CA Driver Handbook - Speed Limits"
+        "explanation": "Unless otherwise posted, the speed limit in a California alley is 15 mph, as outlined in the CA Driver Handbook - Speed Limits."
       },
       {
         "q": "In California, what is the speed limit when approaching a blind intersection where you cannot see for 100 feet in either direction?",
@@ -5236,7 +5236,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Speed Limits",
-        "explanation": "CA Driver Handbook - Speed Limits"
+        "explanation": "California law mandates a 15 mph speed limit when approaching a blind intersection where you cannot see 100 feet in either direction, per the CA Driver Handbook's speed limits section."
       },
       {
         "q": "In a California school zone, when children are present, the speed limit is:",
@@ -5247,7 +5247,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Speed Limits (School Zones)",
-        "explanation": "CA Driver Handbook - Speed Limits (School Zones)"
+        "explanation": "California law sets a 25 mph speed limit in school zones when children are present, as outlined in the CA Driver Handbook's school zone speed limits section."
       },
       {
         "q": "Under California's Basic Speed Law, you may never drive faster than:",
@@ -5258,7 +5258,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "CA Driver Handbook - Speed Limits (Basic Speed Law)",
-        "explanation": "CA Driver Handbook - Speed Limits (Basic Speed Law)"
+        "explanation": "California's Basic Speed Law states you may never drive faster than the speed of the fastest car, per the CA Driver Handbook's Basic Speed Law section."
       },
       {
         "q": "Unless otherwise posted, what is the maximum speed limit on most California highways?",
@@ -5269,7 +5269,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Speed Limits",
-        "explanation": "CA Driver Handbook - Speed Limits"
+        "explanation": "Unless otherwise posted, the maximum speed limit on most California highways is 65 mph, per the CA Driver Handbook's speed limits rules."
       },
       {
         "q": "You must use your headlights in California from:",
@@ -5280,7 +5280,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Headlights",
-        "explanation": "CA Driver Handbook - Headlights"
+        "explanation": "California law requires using headlights from 30 minutes after sunset to 30 minutes before sunrise, as specified in the CA Driver Handbook's headlights section."
       },
       {
         "q": "In California, you must turn on your headlights when you use your windshield wipers in rain, snow, or fog because:",
@@ -5291,7 +5291,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Headlights",
-        "explanation": "CA Driver Handbook - Headlights"
+        "explanation": "California law requires turning on headlights whenever windshield wipers are needed for visibility in rain, snow, or fog, per the CA Driver Handbook's headlights guidance."
       },
       {
         "q": "You should dim (lower) your high-beam headlights to low beams within 500 feet of an oncoming vehicle and within how many feet of a vehicle you are following?",
@@ -5302,7 +5302,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "CA Driver Handbook - Headlights",
-        "explanation": "CA Driver Handbook - Headlights"
+        "explanation": "California law requires dimming high-beam headlights to low beams within 500 feet of an oncoming vehicle and 100 feet of a vehicle you are following, per the CA Driver Handbook's headlights rules."
       },
       {
         "q": "In California, you must signal your intention to turn or change lanes at least how many feet before the maneuver?",
@@ -5313,7 +5313,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Signaling",
-        "explanation": "CA Driver Handbook - Signaling"
+        "explanation": "California law requires signaling your intention to turn or change lanes at least 100 feet before the maneuver, as outlined in the CA Driver Handbook's signaling section."
       },
       {
         "q": "Yellow lane lines in California separate:",
@@ -5324,7 +5324,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Lane Lines",
-        "explanation": "CA Driver Handbook - Lane Lines"
+        "explanation": "In California, yellow lane lines separate traffic moving in opposite directions, per the CA Driver Handbook's lane lines guidelines."
       },
       {
         "q": "White lane lines in California separate:",
@@ -5335,7 +5335,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Lane Lines",
-        "explanation": "CA Driver Handbook - Lane Lines"
+        "explanation": "In California, white lane lines separate traffic moving in the same direction, as specified in the CA Driver Handbook's lane lines section."
       },
       {
         "q": "A double solid yellow line in the center of the road in California means:",
@@ -5346,7 +5346,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Lane Lines",
-        "explanation": "CA Driver Handbook - Lane Lines"
+        "explanation": "For the question about California double solid yellow center road lines, the correct answer is you may not cross it to pass, per the CA Driver Handbook - Lane Lines."
       },
       {
         "q": "A broken white line between lanes in California means:",
@@ -5357,7 +5357,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Lane Lines",
-        "explanation": "CA Driver Handbook - Lane Lines"
+        "explanation": "For the question about California broken white lines between lanes, the correct answer is you may change lanes when it is safe, per the CA Driver Handbook - Lane Lines."
       },
       {
         "q": "At a California intersection, you must yield to a vehicle that is:",
@@ -5368,7 +5368,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Right of Way",
-        "explanation": "CA Driver Handbook - Right of Way"
+        "explanation": "For the question about yielding at California intersections, the correct answer is vehicles already in the intersection, per the CA Driver Handbook - Right of Way."
       },
       {
         "q": "When entering a roundabout in California, you must yield to:",
@@ -5379,7 +5379,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Roundabouts",
-        "explanation": "CA Driver Handbook - Roundabouts"
+        "explanation": "For the question about yielding when entering a California roundabout, the correct answer is traffic already circulating in the roundabout, per the CA Driver Handbook - Roundabouts."
       },
       {
         "q": "In California, you must yield the right of way to pedestrians in:",
@@ -5390,7 +5390,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Pedestrians",
-        "explanation": "CA Driver Handbook - Pedestrians"
+        "explanation": "For the question about where California drivers must yield to pedestrians, the correct answer is crosswalks, per the CA Driver Handbook - Pedestrians."
       },
       {
         "q": "When an emergency vehicle with flashing lights and a siren approaches in California, you must:",
@@ -5401,7 +5401,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Emergency Vehicles",
-        "explanation": "CA Driver Handbook - Emergency Vehicles"
+        "explanation": "For the question about responding to approaching California emergency vehicles with lights and sirens, the correct answer is pull to the right edge and stop, per the CA Driver Handbook - Emergency Vehicles."
       },
       {
         "q": "In California, you may make a right turn at a red light after:",
@@ -5412,7 +5412,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Turns",
-        "explanation": "CA Driver Handbook - Turns"
+        "explanation": "For the question about when a right turn on red is allowed in California, the correct answer is after stopping completely unless a sign prohibits the turn, per the CA Driver Handbook - Turns."
       },
       {
         "q": "When you make a right turn in California, you should end in:",
@@ -5423,7 +5423,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Turns",
-        "explanation": "CA Driver Handbook - Turns"
+        "explanation": "For the question about which lane to end in when making a right turn in California, the correct answer is the rightmost lane available for your direction, per the CA Driver Handbook - Turns."
       },
       {
         "q": "In California, a U-turn is illegal near the crest of a hill, at a railroad crossing, or where visibility is less than:",
@@ -5434,7 +5434,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - U-Turns",
-        "explanation": "CA Driver Handbook - U-Turns"
+        "explanation": "For the question about when California U-turns are illegal, the correct answer is where visibility is less than 200 feet in each direction, per the CA Driver Handbook - U-Turns."
       },
       {
         "q": "A California curb painted blue is reserved for:",
@@ -5445,7 +5445,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking (Curb Colors)",
-        "explanation": "CA Driver Handbook - Parking (Curb Colors)"
+        "explanation": "For the question about what a blue California curb is reserved for, the correct answer is parking by a person with a disabled placard or plate, per the CA Driver Handbook - Parking (Curb Colors)."
       },
       {
         "q": "A California curb painted yellow means:",
@@ -5456,7 +5456,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking (Curb Colors)",
-        "explanation": "CA Driver Handbook - Parking (Curb Colors)"
+        "explanation": "For the question about what a California yellow curb means, the correct answer is loading and unloading passengers or freight only with no long parking, per the CA Driver Handbook Parking (Curb Colors) section."
       },
       {
         "q": "A California curb painted white means:",
@@ -5467,7 +5467,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking (Curb Colors)",
-        "explanation": "CA Driver Handbook - Parking (Curb Colors)"
+        "explanation": "For the question about a California white curb's meaning, the correct option is stopping only long enough to pick up or drop off passengers, as outlined in the CA Driver Handbook Parking (Curb Colors) reference."
       },
       {
         "q": "A California curb painted green means:",
@@ -5478,7 +5478,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking (Curb Colors)",
-        "explanation": "CA Driver Handbook - Parking (Curb Colors)"
+        "explanation": "For the question about a California green curb's meaning, the correct answer is parking for a limited time, per the CA Driver Handbook Parking (Curb Colors) section."
       },
       {
         "q": "In California, you may not park within how many feet of a fire hydrant?",
@@ -5489,7 +5489,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "For the question about how many feet you may not park from a California fire hydrant, the correct option is 15 feet, per the CA Driver Handbook Parking reference."
       },
       {
         "q": "In California, you may not park within how many feet of a crosswalk?",
@@ -5500,7 +5500,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "For the question about how many feet you may not park from a California crosswalk, the correct answer is 15 feet, as stated in the CA Driver Handbook Parking section."
       },
       {
         "q": "In California, you may not park within how many feet of a stop sign or traffic signal?",
@@ -5511,7 +5511,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Parking",
-        "explanation": "CA Driver Handbook - Parking"
+        "explanation": "For the question about how many feet you may not park from a California stop sign or traffic signal, the correct option is 20 feet, per the CA Driver Handbook Parking reference."
       },
       {
         "q": "California's child passenger law requires children under 8 years old (or under 4'9\") to be secured in:",
@@ -5522,7 +5522,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Child Restraints",
-        "explanation": "CA Driver Handbook - Child Restraints"
+        "explanation": "For the question about California's child passenger law for children under 8 or under 4'9\", the correct answer is a proper child restraint system in the back seat, per the CA Driver Handbook Child Restraints section."
       },
       {
         "q": "In California, a driver under 18 years of age may use a cell phone while driving:",
@@ -5533,7 +5533,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Wireless Phones",
-        "explanation": "CA Driver Handbook - Wireless Phones"
+        "explanation": "For the question about cell phone use while driving for California drivers under 18, the correct option is only hands-free emergency calls with all other use prohibited, as outlined in the CA Driver Handbook Wireless Phones reference."
       },
       {
         "q": "In California, a driver 18 or older may use a cell phone while driving only if it is:",
@@ -5544,7 +5544,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Wireless Phones",
-        "explanation": "CA Driver Handbook - Wireless Phones"
+        "explanation": "For the question about when a California driver 18 or older may use a cell phone while driving, the correct answer is hands-free only, per the CA Driver Handbook Wireless Phones section."
       },
       {
         "q": "For drivers 21 and older in California, it is illegal to drive with a blood alcohol concentration (BAC) of:",
@@ -5555,7 +5555,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - DUI",
-        "explanation": "CA Driver Handbook - DUI"
+        "explanation": "For the question about the illegal blood alcohol concentration for drivers 21 and older in California, the correct option is .08% or higher, as stated in the CA Driver Handbook DUI reference."
       },
       {
         "q": "For drivers under 21 in California, any detectable alcohol (a BAC of .01% or higher) can result in:",
@@ -5566,7 +5566,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Under 21 DUI",
-        "explanation": "CA Driver Handbook - Under 21 DUI"
+        "explanation": "The question asks what consequence California drivers under 21 face for a detectable BAC of .01% or higher, and the correct answer is a suspended license under zero-tolerance law, as the other options (no penalty, only a warning) are incorrect per the CA Driver Handbook's Under 21 DUI section."
       },
       {
         "q": "For commercial drivers in California, the illegal BAC limit is:",
@@ -5577,7 +5577,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - DUI (Commercial)",
-        "explanation": "CA Driver Handbook - DUI (Commercial)"
+        "explanation": "The question asks for the illegal BAC limit for California commercial drivers, and the correct answer is .04% or higher, as the other options (.08% or higher, .10% or higher) are incorrect per the CA Driver Handbook's DUI (Commercial) section."
       },
       {
         "q": "Under California's implied consent law, if you drive you have agreed to:",
@@ -5588,7 +5588,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Implied Consent",
-        "explanation": "CA Driver Handbook - Implied Consent"
+        "explanation": "The question asks what California drivers agree to under implied consent when they drive, and the correct answer is a chemical test of blood or breath if arrested for DUI, as the other options (no testing, only a vision test) are incorrect per the CA Driver Handbook's Implied Consent section."
       },
       {
         "q": "In California, if you are involved in a collision with injury, death, or damage over $1,000, you must file an SR-1 report with the DMV within:",
@@ -5599,7 +5599,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Collisions (SR-1)",
-        "explanation": "CA Driver Handbook - Collisions (SR-1)"
+        "explanation": "The question asks how long California drivers have to file an SR-1 report with the DMV after a collision with injury, death, or over $1,000 in damage, and the correct answer is 10 days, as the other options (24 hours, 30 days) are incorrect per the CA Driver Handbook's Collisions (SR-1) section."
       },
       {
         "q": "In California, you must notify the DMV within 5 days if you:",
@@ -5610,7 +5610,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Owning a Vehicle",
-        "explanation": "CA Driver Handbook - Owning a Vehicle"
+        "explanation": "The question asks what action requires notifying the CA DMV within 5 days, and the correct answer is selling or transferring vehicle ownership, as the other options (painting your car a new color, changing insurance companies) are incorrect per the CA Driver Handbook's Owning a Vehicle section."
       },
       {
         "q": "In California, you must notify the DMV of a change of address within:",
@@ -5621,7 +5621,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Change of Address",
-        "explanation": "CA Driver Handbook - Change of Address"
+        "explanation": "The question asks within what timeframe California drivers must notify the DMV of a change of address, and the correct answer is 10 days, as the other options (30 days, 5 days) are incorrect per the CA Driver Handbook's Change of Address section."
       },
       {
         "q": "The recommended following distance in California is at least:",
@@ -5632,7 +5632,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Following Distance",
-        "explanation": "CA Driver Handbook - Following Distance"
+        "explanation": "The question asks for the recommended following distance in California, and the correct answer is 3 seconds under normal conditions, as the other options (1 second, 10 seconds always) are incorrect per the CA Driver Handbook's Following Distance section."
       },
       {
         "q": "In California, a red, eight-sided sign means:",
@@ -5643,7 +5643,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Traffic Signs",
-        "explanation": "CA Driver Handbook - Traffic Signs"
+        "explanation": "The question asks what a red, eight-sided sign means in California, and the correct answer is STOP, as the other options (YIELD, RAILROAD CROSSING) are incorrect per the CA Driver Handbook's Traffic Signs section."
       },
       {
         "q": "In California, a red, upside-down triangle sign means:",
@@ -5654,7 +5654,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Traffic Signs",
-        "explanation": "CA Driver Handbook - Traffic Signs"
+        "explanation": "The question asks what a red, upside-down triangle sign means in California, and the correct answer is YIELD, as the other options (STOP, DO NOT ENTER) are incorrect per the CA Driver Handbook's Traffic Signs section."
       },
       {
         "q": "A yellow, diamond-shaped sign in California is a:",
@@ -5665,7 +5665,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Traffic Signs",
-        "explanation": "CA Driver Handbook - Traffic Signs"
+        "explanation": "The question asks what a yellow, diamond-shaped sign is in California, and the correct answer is a warning sign, as the other options (regulatory sign, route marker) are incorrect per the CA Driver Handbook's Traffic Signs section."
       },
       {
         "q": "In California, a STOP sign requires you to stop:",
@@ -5676,7 +5676,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Traffic Signs (Stop)",
-        "explanation": "CA Driver Handbook - Traffic Signs (Stop)"
+        "explanation": "For the California stop sign question, the correct option matches the CA Driver Handbook - Traffic Signs (Stop) rule requiring you to stop before the crosswalk or limit line, then yield and proceed when safe, unlike the other incorrect choices."
       },
       {
         "q": "On a California divided highway with a physical median, you must stop for a school bus with flashing red lights only if:",
@@ -5687,7 +5687,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - School Buses",
-        "explanation": "CA Driver Handbook - School Buses"
+        "explanation": "For the California divided highway school bus question, the correct answer follows the CA Driver Handbook - School Buses rule that you only need to stop if you are on the same side of the road as the bus, not the opposite side or nearby streets."
       },
       {
         "q": "In California, before crossing any railroad tracks you should:",
@@ -5698,7 +5698,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - Railroad Crossings",
-        "explanation": "CA Driver Handbook - Railroad Crossings"
+        "explanation": "For the California railroad crossing question, the correct option aligns with the CA Driver Handbook - Railroad Crossings guidance to slow down, look and listen, and stop if a train is coming, rather than speeding up or never stopping."
       },
       {
         "q": "When a school bus in California begins flashing yellow warning lights, you should:",
@@ -5709,7 +5709,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "CA Driver Handbook - School Buses",
-        "explanation": "CA Driver Handbook - School Buses"
+        "explanation": "For the California school bus flashing yellow lights question, the correct answer matches the CA Driver Handbook - School Buses rule that you should slow down and prepare to stop, not stop immediately or pass quickly."
       }
     ]
   },
@@ -16193,7 +16193,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "NY Driver Manual - Chapter 8 (Defensive Driving / Speed)",
-        "explanation": "NY Driver Manual - Chapter 8 (Defensive Driving / Speed)"
+        "explanation": "For the New York City default speed limit question, the correct answer is 25 mph per the NY Driver Manual - Chapter 8 (Defensive Driving / Speed) rule, not the higher 55 or 65 mph options."
       },
       {
         "q": "You approach an intersection and want to turn left. A vehicle approaching from the opposite direction is going straight through. Who must yield?",
@@ -16204,7 +16204,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "NY Driver Manual - Chapter 5 (Intersections and Turns / Right-of-Way)",
-        "explanation": "NY Driver Manual - Chapter 5 (Intersections and Turns / Right-of-Way)"
+        "explanation": "For the New York left turn right-of-way question, the correct answer follows the NY Driver Manual - Chapter 5 (Intersections and Turns / Right-of-Way) rule that the driver turning left must yield to the driver going straight."
       },
       {
         "q": "What is the normal color and shape of a warning sign?",
@@ -16215,7 +16215,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "NY Driver Manual - Chapter 4 (Traffic Control / Signs)",
-        "explanation": "NY Driver Manual - Chapter 4 (Traffic Control / Signs)"
+        "explanation": "For the New York warning sign question, the correct answer matches the NY Driver Manual - Chapter 4 (Traffic Control / Signs) standard that warning signs are yellow and diamond-shaped, not white rectangular or green signs."
       },
       {
         "q": "In New York State, a blood alcohol content (BAC) of .08 percent or higher is evidence of which offense?",
@@ -16226,7 +16226,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "NY Driver Manual - Chapter 9 (Alcohol and Other Drugs / BAC Standards)",
-        "explanation": "NY Driver Manual - Chapter 9 (Alcohol and Other Drugs / BAC Standards)"
+        "explanation": "For the New York BAC question, the correct answer aligns with the NY Driver Manual - Chapter 9 (Alcohol and Other Drugs / BAC Standards) rule that a BAC of .08% or higher is evidence of Driving While Intoxicated (DWI), not a parking or non-moving violation."
       },
       {
         "q": "New York is a 'primary enforcement' state for seat belts. What does this mean?",
@@ -16237,7 +16237,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "NY Driver Manual - Chapter 8 (Defensive Driving / Seat Belts)",
-        "explanation": "NY Driver Manual - Chapter 8 (Defensive Driving / Seat Belts)"
+        "explanation": "For the New York primary seat belt enforcement question, the correct answer matches the NY Driver Manual - Chapter 8 (Defensive Driving / Seat Belts) definition that officers can stop and ticket you solely for not wearing a seat belt, not only after another stop."
       },
       {
         "q": "When a school bus is stopped with its red lights flashing, traffic approaching from either direction must stop at least how far away from the bus?",
@@ -16248,7 +16248,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "NY Driver Manual - Chapter 6 (Passing / School Buses)",
-        "explanation": "NY Driver Manual - Chapter 6 (Passing / School Buses)"
+        "explanation": "For the New York stopped school bus question, the correct answer follows the NY Driver Manual - Chapter 6 (Passing / School Buses) rule that you must stop at least 20 feet away from the bus, not 5 or 50 feet."
       },
       {
         "q": "At an intersection not controlled by signs or signals, two drivers stop at STOP signs at the same time at right angles. Who has the right-of-way?",
@@ -16259,7 +16259,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "NY Driver Manual - Chapter 5 (Intersections and Turns / Right-of-Way)",
-        "explanation": "NY Driver Manual - Chapter 5 (Intersections and Turns / Right-of-Way)"
+        "explanation": "For the question of who has right-of-way when two drivers stop at STOP signs at the same time at right angles, the correct answer is the driver on the left yields to the driver on the right, per the NY Driver Manual Chapter 5 right-of-way rules."
       },
       {
         "q": "You cannot park, stop or stand within what distance of a fire hydrant?",
@@ -16270,7 +16270,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "NY Driver Manual - Chapter 7 (Parallel Parking / Parking Regulations)",
-        "explanation": "NY Driver Manual - Chapter 7 (Parallel Parking / Parking Regulations)"
+        "explanation": "For the question of how far you cannot park, stop or stand from a fire hydrant, the correct answer is 15 feet, as stated in the NY Driver Manual Chapter 7 parking regulations."
       },
       {
         "q": "What color are work area (construction) signs, and how low can a posted work area speed limit be?",
@@ -16281,7 +16281,7 @@ window.QUESTIONS = {
         ],
         "answer": 2,
         "ref": "NY Driver Manual - Chapter 4 (Traffic Control / Work Area Signs)",
-        "explanation": "NY Driver Manual - Chapter 4 (Traffic Control / Work Area Signs)"
+        "explanation": "For the question of work area sign color and minimum posted work area speed limit, the correct answer is orange signs with a speed limit as low as 25 MPH, per the NY Driver Manual Chapter 4 work area sign guidance."
       },
       {
         "q": "If traffic lights are out of service or not operating correctly when you approach an intersection, what must you do?",
@@ -16292,7 +16292,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "NY Driver Manual - Chapter 4 (Traffic Control / Traffic Signals)",
-        "explanation": "NY Driver Manual - Chapter 4 (Traffic Control / Traffic Signals)"
+        "explanation": "For the question of what to do when approaching an intersection with non-operational traffic lights, the correct answer is to stop as you would for a stop sign then follow right-of-way rules, per the NY Driver Manual Chapter 4 traffic signal guidance."
       },
       {
         "q": "What is the normal color and shape of a regulation (regulatory) sign in New York?",
@@ -17690,7 +17690,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)",
-        "explanation": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)"
+        "explanation": "For the question of the default maximum speed limit in Texas urban districts unless otherwise posted, the correct answer is 30 mph, as listed in the TX Driver Handbook Chapter 8 speed limit table."
       },
       {
         "q": "What is the speed limit in an alley in Texas (unless otherwise posted)?",
@@ -17701,7 +17701,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)",
-        "explanation": "TX Driver Handbook - Chapter 8: Speed and Speed Limits (Table 22)"
+        "explanation": "For the question of the default speed limit in Texas alleys unless otherwise posted, the correct answer is 15 mph, per the TX Driver Handbook Chapter 8 speed limit table."
       },
       {
         "q": "In Texas, at what blood alcohol concentration (BAC) is a driver age 21 or older considered legally intoxicated?",
@@ -17712,7 +17712,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 10: Alcohol and Drug Impact / Know Your Legal Limit",
-        "explanation": "TX Driver Handbook - Chapter 10: Alcohol and Drug Impact / Know Your Legal Limit"
+        "explanation": "For the question of the blood alcohol concentration that makes drivers 21 or older legally intoxicated in Texas, the correct answer is 0.08 or more, per the TX Driver Handbook Chapter 10 alcohol impact guidance."
       },
       {
         "q": "Who is required to wear a safety belt in a passenger vehicle in Texas?",
@@ -17723,7 +17723,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts",
-        "explanation": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts"
+        "explanation": "For the question of who is required to wear a safety belt in Texas passenger vehicles, the correct answer is the driver and all passengers regardless of age if occupying a seat with a safety belt, per the TX Driver Handbook Chapter 14 safety belt rules."
       },
       {
         "q": "A child under 8 years old must be secured in a federally approved child car seat in Texas unless the child is taller than what height?",
@@ -17734,7 +17734,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts",
-        "explanation": "TX Driver Handbook - Chapter 14: Additional Safety Tips / Safety Belts"
+        "explanation": "For the question of the height threshold that exempts children under 8 from needing a federally approved child car seat in Texas, the correct answer is 4 feet 9 inches, per the TX Driver Handbook Chapter 14 safety belt guidance."
       },
       {
         "q": "At an intersection not controlled by signs, signals, or lane markings, which vehicle must be yielded the right-of-way?",
@@ -17745,7 +17745,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 4: Right-of-Way at Intersections",
-        "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way at Intersections"
+        "explanation": "For the question of which vehicle must be yielded right-of-way at uncontrolled intersections in Texas, the correct answer is the vehicle that has entered or is approaching from your right, per the TX Driver Handbook Chapter 4 right-of-way rules."
       },
       {
         "q": "When turning left in Texas, you must always yield the right-of-way to whom?",
@@ -17756,7 +17756,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "TX Driver Handbook - Chapter 4: Right-of-Way / Turning Left",
-        "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way / Turning Left"
+        "explanation": "For the question about who you must yield right-of-way to when turning left in Texas, the correct answer is any vehicle coming straight through from the other direction, as outlined in the Texas Driver Handbook’s right-of-way turning rules."
       },
       {
         "q": "If you approach a school bus from either direction and it is displaying alternately flashing red lights, what must you do?",
@@ -17767,7 +17767,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 4: Yield Right-of-Way to School Buses",
-        "explanation": "TX Driver Handbook - Chapter 4: Yield Right-of-Way to School Buses"
+        "explanation": "For the question about what you must do when approaching a school bus displaying alternately flashing red lights, the correct answer is to stop and not pass until the bus resumes motion, per the Texas Driver Handbook’s school bus right-of-way guidelines."
       },
       {
         "q": "When required to stop at a railroad grade crossing, where must you stop?",
@@ -17778,7 +17778,7 @@ window.QUESTIONS = {
         ],
         "answer": 0,
         "ref": "TX Driver Handbook - Chapter 4: Right-of-Way (Railroad Grade Crossings)",
-        "explanation": "TX Driver Handbook - Chapter 4: Right-of-Way (Railroad Grade Crossings)"
+        "explanation": "For the question about where you must stop when required to stop at a railroad grade crossing, the correct answer is between 15 and 50 feet from the nearest rail, as stated in the Texas Driver Handbook’s railroad grade crossing right-of-way section."
       },
       {
         "q": "A school zone speed limit sign (e.g., SCHOOL SPEED LIMIT 20) is in effect at what time?",
@@ -17789,7 +17789,7 @@ window.QUESTIONS = {
         ],
         "answer": 1,
         "ref": "TX Driver Handbook - Chapter 5: Signals, Signs, and Markers (Regulatory and Warning Signs)",
-        "explanation": "TX Driver Handbook - Chapter 5: Signals, Signs, and Markers (Regulatory and Warning Signs)"
+        "explanation": "For the question about when a school zone speed limit sign is in effect, the correct answer is only when the yellow light is flashing, per the Texas Driver Handbook’s regulatory and warning signs section."
       },
       {
         "q": "On most Texas highways outside urban districts the default speed limit is:",

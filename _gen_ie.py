@@ -223,7 +223,7 @@ def page_html(ie):
     desc = ("Free Ireland DTT (Driver Theory Test) practice with " + str(nsigns) + "+" + str(nrules) + "+" + str(nalcohol) + " questions. "
             "Study road signs, Rules of the Road, alcohol limits and hazard perception - 100% free.")
     canonical = "https://drivereadyhub.com/ie/"
-    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+    ld = {"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Ireland driver theory test (DTT)"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 

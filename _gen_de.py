@@ -252,7 +252,7 @@ def page_html(de):
     desc = ("Free Germany driving theory test (Fahrschule) practice with " + str(nsigns) + "+" + str(nrules) + "+" + str(nsafety) + " questions. "
             "Switch between German & English. Traffic signs, rules and road safety - 100% free.")
     canonical = "https://drivereadyhub.com/de/"
-    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+    ld = {"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Germany driving theory test (Fahrschule)"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 

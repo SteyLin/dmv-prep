@@ -129,15 +129,8 @@
   .richfoot a{display:block;color:var(--muted);text-decoration:none;font-size:.85rem;margin-bottom:7px;line-height:1.4;}
   .richfoot a:hover{color:var(--accent);}
 
-  .layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:28px;max-width:1180px;margin:0 auto;align-items:start;}
-  .sidebar{position:sticky;top:20px;align-self:start;width:320px;}
-  .sidebar .ad-slot{min-height:250px;max-width:320px;margin:0 0 14px;}
-  .sidebar .ad-slot.wide{min-height:600px;}
-  .main{min-width:0;max-width:820px;}
-  @media (max-width: 1024px){
-    .layout{grid-template-columns:1fr;}
-    .sidebar{display:none;}
-  }
+  .layout{max-width:820px;margin:0 auto;}
+  .main{min-width:0;width:100%;}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "DriveReady Hub", "url": "https://drivereadyhub.com/", "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}</script>
 </head>
@@ -162,7 +155,6 @@
   </header>
 
   <input type="search" id="search" class="search" placeholder="Search states, topics, tools…" autocomplete="off">
-  <div class="ad-slot leaderboard">Advertisement — 728x90</div>
 
   <div class="pophead">Popular States</div>
   <div class="popstrip">
@@ -171,11 +163,11 @@
     <a class="popchip" href="dmv/fl/">Florida</a>
     <a class="popchip" href="dmv/ny/">New York</a>
     <a class="popchip" href="dmv/il/">Illinois</a>
-    <a class="popchip" href="dmv/pa/">Pennsylvania</a>
+    <a class="popchip" href="dmv/va/">Virginia</a>
     <a class="popchip" href="dmv/oh/">Ohio</a>
     <a class="popchip" href="dmv/ga/">Georgia</a>
     <a class="popchip" href="dmv/nc/">North Carolina</a>
-    <a class="popchip" href="dmv/mi/">Michigan</a>
+    <a class="popchip" href="dmv/nj/">New Jersey</a>
   </div>
 
   <div id="home">
@@ -200,8 +192,6 @@
     <h2>Important Note</h2>
     <p>DriveReady Hub is an independent educational project and is <strong>not affiliated with, endorsed by, or connected to</strong> any DMV, DVSA, provincial ministry, or government agency. Always confirm current rules with your official licensing authority before a test or a purchase.</p>
   </div>
-
-  <div class="ad-slot medium">Advertisement — 300x250</div>
 <div id="quiz" class="hidden">
     <div class="card">
       <div class="meta">
@@ -593,13 +583,7 @@ function googleTranslateElementInit(){
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<div class="ad-slot" style="min-height:250px;max-width:336px;margin:14px auto 18px;text-align:center;">Advertisement — 336x280</div>
-</div><!-- /main -->
-<aside class="sidebar">
-  <div class="ad-slot wide">Advertisement — 300x600</div>
-  <div class="ad-slot">Advertisement — 300x250</div>
-</aside>
+</main>
 </div><!-- /layout -->
 
 <div class="richfoot">

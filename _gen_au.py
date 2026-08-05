@@ -101,7 +101,7 @@ def page_html(au):
     desc = (f"Free Australia DKT (Driver Knowledge Test) practice with {nsigns}+{nrules}+{nalcohol} questions. "
             f"Study road signs, traffic rules, alcohol limits and hazard perception - 100% free.")
     canonical = "https://drivereadyhub.com/au/"
-    ld = {"@context":"https://schema.org","@type":"QAPage","name":title,"url":canonical,
+    ld = {"@context":"https://schema.org","@type":"WebPage","name":title,"url":canonical,
           "about":{"@type":"Thing","name":"Australia driver knowledge test (DKT)"},
           "publisher":{"@type":"Organization","name":"DriveReady Hub","url":"https://drivereadyhub.com"}}
 

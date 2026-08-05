@@ -26,6 +26,32 @@ m = re.search(r'ca-pub-\d+', idx)
 PUB = "ca-pub-7503096549502749"
 print("AdSense publisher:", PUB, "| states:", len(STATES))
 
+# Preserve the state-specific study guide already present in each tracked page.
+# These blocks contain the unique state facts added for AdSense originality.
+# Refuse to regenerate if even one block cannot be found; silently replacing
+# them with a generic template would recreate the old duplicate-content issue.
+GUIDE_BLOCKS = {}
+for state_key in STATES:
+    existing_path = os.path.join(OUT, state_key, "index.html")
+    if os.path.exists(existing_path):
+        with open(existing_path) as existing_file:
+            existing_html = existing_file.read()
+        guide_match = re.search(
+            r'(  <div class="card" style="margin-top:24px;">.*?</div>)\s*'
+            r'(?=<div style="text-align:center;color:var\(--muted\))',
+            existing_html,
+            re.S,
+        )
+        if guide_match:
+            GUIDE_BLOCKS[state_key] = guide_match.group(1)
+
+missing_guides = sorted(set(STATES) - set(GUIDE_BLOCKS))
+if missing_guides:
+    raise RuntimeError(
+        "Refusing to regenerate because state-specific guide blocks are missing for: "
+        + ", ".join(missing_guides)
+    )
+
 # Auto-ads: single script in <head>. Google handles all placement/optimization.
 ADSENSE = f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={PUB}" crossorigin="anonymous"></script>'
 
@@ -93,7 +119,8 @@ def page_html(state_key):
     title = f"{full} DMV Practice Test ({short}) — Free {short} Permit & License Prep | DriveReady Hub"
     desc = f"Free {full} ({short}) DMV practice test with {nq} questions based on {full} driver-handbook topics. Study, answer, and check explanations — 100% free."
     canonical = f"https://drivereadyhub.com/dmv/{state_key}/"
-    ld = {"@context": "https://schema.org", "@type": "QAPage", "name": title,
+    guide_html = GUIDE_BLOCKS[state_key]
+    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": title,
           "url": canonical, "about": {"@type": "Thing", "name": "Driver's license permit practice test"},
           "publisher": {"@type": "Organization", "name": "DriveReady Hub", "url": "https://drivereadyhub.com"}}
     ld_json = json.dumps(ld, ensure_ascii=False)
@@ -278,6 +305,8 @@ function googleTranslateElementInit(){ new google.translate.TranslateElement({pa
   </div>
 
   <p class="foot src">Questions are original practice material based on {full} driver-handbook topics (public domain). Informational only, not affiliated with any DMV or government agency.</p>
+
+{guide_html}
 
   <div style="text-align:center;color:var(--muted);font-size:.76rem;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);line-height:1.7;">
     <a href="/" style="color:var(--muted);text-decoration:none;">Home</a>
